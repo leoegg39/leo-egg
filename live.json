@@ -1,9 +1,34 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-27T23:01:28.067935+00:00",
+  "checkedAt": "2026-09-27T23:08:14.325411+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 0,
-  "spawns": []
+  "spawns": [],
+  "diagnostics": {
+    "htmlBytes": 13435,
+    "scriptCount": 5,
+    "scripts": [
+      "/assets/theme.js?v=9766977a",
+      "/assets/sae.js?v=9766977a",
+      "/assets/sae-data.en.js?v=9766977a",
+      "/assets/live.js?v=9766977a",
+      "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+    ],
+    "liveHints": [
+      "/live.js?v=9766977a",
+      "/spawns",
+      "https://eggipedia.com/",
+      "https://eggipedia.com/fr/spawns",
+      "https://eggipedia.com/images/sae/og.jpg",
+      "https://eggipedia.com/spawns",
+      "https://schema.org",
+      "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "https://stealanegg.fandom.com",
+      "https://www.roblox.com/communities/825735094",
+      "https://www.roblox.com/games/107778070777162/Steal-An-Egg"
+    ],
+    "connecting": true
+  }
 }
