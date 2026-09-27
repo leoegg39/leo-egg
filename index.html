@@ -80,7 +80,7 @@ button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;f
 <section class="card">
 <h2 style="font-size:30px;margin-top:0">🤖 全自動監視</h2>
 <p class="muted">公開Live rare eggsを自動チェック。新しいレア卵を検出すると履歴へ自動登録し、画面を開いている間は音で知らせます。</p>
-<div id="autoStatus" class="stat"><span class="badge">起動中</span> 初回チェック待ち…</div>
+<div id="autoStatus" class="stat"><span class="badge">LEO EGG v5.1</span> 起動確認OK ／ GitHub自動監視準備中</div>
 <div id="autoLatest" class="stat" style="margin-top:14px"></div>
 <button id="autoNow" class="action">⚡ 通信状態を確認</button>
 </section>
@@ -238,14 +238,16 @@ async function autoPoll(){
  }
 }
 async function readGitHubLive(){
+ const st=$('#autoStatus'), ext=$('#external');
+ if(!st||!ext)return;
  try{
   const r=await fetch(LIVE_JSON+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
   const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
   xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
   const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
-  $('#autoStatus').innerHTML=`<span class="badge">GitHub自動監視</span> 最終取得 ${checked}`;
-  $('#external').innerHTML=j.paused?`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`:`<span class="badge">自動取得OK</span> 実データ ${xs.length}件 ／ 新規 ${added}件`;
- }catch(e){$('#external').innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。'}
+  st.innerHTML=`<span class="badge">GitHub自動監視 v5.1</span> 最終取得 ${checked}`;
+  ext.innerHTML=j.paused?`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`:`<span class="badge">自動取得OK</span> 実データ ${xs.length}件 ／ 新規 ${added}件`;
+ }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v5.1</span> 起動OK ／ データ待ち';}
 }
 $('#autoNow').onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
@@ -257,7 +259,7 @@ $('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">GitHub Pages v5</span> GitHub自動監視 ／ Netlify通信OFF';
+$('#autoStatus').innerHTML='<span class="badge">LEO EGG v5.1</span> GitHub自動監視 ／ Netlify通信OFF';
 readGitHubLive();setInterval(readGitHubLive,60000);
 if('serviceWorker' in navigator){
  navigator.serviceWorker.register('sw.js?v=5',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
