@@ -17,21 +17,52 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import json, re, urllib.request, datetime
+          import json, re, urllib.request, datetime, html as htmlmod, os
           url="https://eggipedia.com/spawns"
           req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG"})
+          now=datetime.datetime.now(datetime.timezone.utc)
           try:
-              html=urllib.request.urlopen(req,timeout=20).read().decode("utf-8","replace")
-              text=re.sub(r"<[^>]+>","\n",html)
-              text=re.sub(r"&nbsp;"," ",text)
+              raw=urllib.request.urlopen(req,timeout=20).read().decode("utf-8","replace")
+              text=htmlmod.unescape(re.sub(r"<[^>]+>","\n",raw))
+              text=re.sub(r"[ \t]+"," ",text)
               paused=bool(re.search(r"Alerts paused",text,re.I))
               no_history=bool(re.search(r"No rare egg spotted yet",text,re.I))
-              data={"ok":True,"checkedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                    "source":url,"paused":paused,"noHistory":no_history,
-                    "spawns":[]}
+              # Parse live/history entries conservatively. Only save rows that contain an Egg name.
+              clean=[x.strip() for x in text.splitlines() if x.strip()]
+              spawns=[]
+              rarity_re=re.compile(r"^(Rare|Epic|Legendary|Mythic|Cosmic|Secret|Eternal|Divine)$",re.I)
+              biome_names={"Forest","Lake","Desert","Jungle","Snow","Volcano","Abyss Ocean","Prehistoric","Cosmic","Cherry Blossom","Titan Temple","Angels & Demons"}
+              for i,line in enumerate(clean):
+                  if " Egg" not in line or len(line)>120: continue
+                  # Ignore navigation/help prose and keep plausible egg labels.
+                  if any(x in line.lower() for x in ["every animal","rare eggs spawning","luminous version","special eggs"]): continue
+                  egg=line
+                  rarity=next((clean[j] for j in range(max(0,i-3),min(len(clean),i+4)) if rarity_re.match(clean[j])),None)
+                  biome=next((clean[j] for j in range(max(0,i-4),min(len(clean),i+5)) if clean[j] in biome_names),None)
+                  tm=next((clean[j] for j in range(max(0,i-3),min(len(clean),i+4)) if re.search(r"\b\d{1,2}:\d{2}\b|\b\d+\s*(?:m|min|minutes?)\s*ago\b",clean[j],re.I)),None)
+                  if rarity or biome or tm:
+                      key=(egg,rarity or "",biome or "",tm or "")
+                      if not any(x.get("_key")==key for x in spawns):
+                          spawns.append({"_key":key,"egg":egg,"rarity":rarity,"biome":biome,"timeText":tm})
+              # Preserve previous history and append only newly parsed entries.
+              old=[]
+              try:
+                  old=json.load(open("live.json")).get("spawns",[])
+              except Exception: pass
+              merged=old[:]
+              seen={(x.get("egg"),x.get("rarity"),x.get("biome"),x.get("timeText")) for x in merged}
+              for x in spawns:
+                  k=(x.get("egg"),x.get("rarity"),x.get("biome"),x.get("timeText"))
+                  if k not in seen:
+                      x.pop("_key",None); x["t"]=int(now.timestamp()*1000)
+                      merged.append(x); seen.add(k)
+              data={"ok":True,"checkedAt":now.isoformat(),"source":url,"paused":paused,
+                    "noHistory":no_history,"parsedNow":len(spawns),"spawns":merged[-200:]}
           except Exception as e:
-              data={"ok":False,"checkedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                    "source":url,"error":str(e),"spawns":[]}
+              old=[]
+              try: old=json.load(open("live.json")).get("spawns",[])
+              except Exception: pass
+              data={"ok":False,"checkedAt":now.isoformat(),"source":url,"error":str(e),"spawns":old[-200:]}
           open("live.json","w").write(json.dumps(data,ensure_ascii=False,indent=2))
           PY
       - name: Commit live status
