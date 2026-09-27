@@ -82,7 +82,7 @@ button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;f
 <p class="muted">公開Live rare eggsを自動チェック。新しいレア卵を検出すると履歴へ自動登録し、画面を開いている間は音で知らせます。</p>
 <div id="autoStatus" class="stat"><span class="badge">起動中</span> 初回チェック待ち…</div>
 <div id="autoLatest" class="stat" style="margin-top:14px"></div>
-<button id="autoNow" class="action">⚡ 接続状態を確認</button>
+<button id="autoNow" class="action">⚡ 通信状態を確認</button>
 </section>
 
 <section class="card">
@@ -93,7 +93,7 @@ button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;f
 
 <section class="card">
 <h2 style="font-size:28px;margin-top:0">🌐 外部実データ</h2>
-<div id="external" class="stat">Eggipediaの公開ライブ履歴を確認中…</div>
+<div id="external" class="stat"><span class="badge">GitHub Pages直結</span> Netlify通信なし。公開Liveは下のボタンから直接確認します。</div>
 </section>
 
 <button id="recalc" class="recalc">🔄 今すぐ再計算</button>
@@ -126,12 +126,16 @@ function predictionModel(){
 }
 function render(){
  const m=predictionModel();
- if(!m.ready){$('#rows').innerHTML=`<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">REAL DATA ONLY</div><div class="latestName">予測データ不足</div><div class="latestMeta">自動取得 ${m.n} / 12件。実Spawnが溜まるまで「激アツ」は出しません。</div></div>`;stats();return}
+ if(!m.ready){$('#rows').innerHTML=`<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">REAL DATA ONLY</div><div class="latestName">予測データ不足</div><div class="latestMeta">自動実Spawn ${m.n} / 12件。GitHub Pages単体では外部Liveを自動読取しないため、未取得のままなら「激アツ」は出しません。</div></div>`;stats();return}
  $('#rows').innerHTML=`<div class="row"><div class="n">現在</div><div><div class="egg">${m.label}</div><div class="time">最終Spawnから ${Math.max(0,m.elapsed).toFixed(0)}分 ／ 実測中央値 ${m.med.toFixed(0)}分</div></div><div class="tag ${m.klass}">${m.label.replace('🔥 ','')}</div></div>`; stats();
 }
 function stats(){
  const h=history(), ss=loadJ(SKEY);
  $('#stats').innerHTML=`<span class="badge">手動メモ ${h.length}件</span><span class="badge">自動実データ ${ss.length}件</span><br><span class="muted">予測は自動取得した実Spawnだけを使用します。</span>`;
+}
+function nextBoundary(){
+ const step=5*60*1000;
+ return Math.ceil((Date.now()+1)/step)*step;
 }
 function tick(){
  let left=nextBoundary()-Date.now(); if(left<0)left=0;
@@ -147,7 +151,7 @@ $('#recalc').onclick=render;
 $('#sound').onclick=()=>{soundOn=true;beep(700,.1);$('#sound').textContent='🔊 音ON'};
 async function external(){
  try{
-   const r=await fetch('/.netlify/functions/egg-live?ts='+Date.now(),{cache:'no-store'});
+   const r=await Promise.reject(new Error('Netlify disabled in GitHub Pages v2'));
    const j=await r.json();
    if(!r.ok||!j.ok)throw new Error(j.error||'relay');
    const state=j.paused?'⚠️ 配信元停止':(j.stale?'⚠️ Liveデータ未提供':'Live取得OK'); $('#external').innerHTML=`<span class="badge">中継接続OK</span> ${state}／取得 ${j.spawns.length}件`;
@@ -214,7 +218,7 @@ async function autoPoll(){
  const st=$('#autoStatus'), ext=$('#external'); lastAuto=Date.now();
  st.innerHTML='<span class="badge">接続中</span> 公開Liveを確認中…';
  try{
-   const r=await fetch('/.netlify/functions/egg-live?ts='+Date.now(),{cache:'no-store'});
+   const r=await Promise.reject(new Error('Netlify disabled in GitHub Pages v2'));
    const j=await r.json();
    if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status));
    const paused=!!j.paused, xs=(j.spawns||[]), health=j.health||'', diag=j.diagnostics||{};
@@ -231,10 +235,20 @@ async function autoPoll(){
    ext.innerHTML='<span class="badge">取得待ち</span> 配信停止・取得失敗時はデータを作らず再試行します。';
  }
 }
-$('#autoNow').onclick=()=>{ $('#autoStatus').innerHTML='<span class="badge">GitHub Pages版</span> Netlify通信OFF'; $('#external').innerHTML='<span class="badge">通信なし</span> この版はNetlifyクレジットを使用しません。'; };
+$('#autoNow').onclick=()=>{
+ const online=navigator.onLine;
+ $('#autoStatus').innerHTML=`<span class="badge">GitHub Pages版</span> ${online?'オンライン':'オフライン'} ／ Netlify通信OFF`;
+ $('#external').innerHTML=`<span class="badge">${online?'通信OK':'通信なし'}</span> LEO EGG本体はGitHub Pagesだけで動作します。公開Liveは外部サイト側のJavaScript/CORS仕様のため、この静的PWAから内容を勝手に読み取ったことにはしません。`;
+};
+const liveBtn=document.createElement('a');
+liveBtn.href='https://eggipedia.com/spawns';
+liveBtn.target='_blank'; liveBtn.rel='noopener';
+liveBtn.className='action'; liveBtn.style.cssText='display:block;text-align:center;text-decoration:none;margin-top:12px';
+liveBtn.textContent='🥚 Eggipedia 公開Liveを開く';
+$('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">GitHub Pages版</span> Netlify通信OFF ／ PWA単体で動作';
+$('#autoStatus').innerHTML='<span class="badge">GitHub Pages v2</span> Netlify通信OFF ／ 5分タイマー修正済み';
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>
