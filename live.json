@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "checkedAt": null,
+  "checkedAt": "2026-09-27T05:20:08.681056+00:00",
   "source": "https://eggipedia.com/spawns",
-  "paused": true,
+  "paused": false,
   "noHistory": true,
   "spawns": []
 }
