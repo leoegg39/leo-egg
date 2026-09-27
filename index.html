@@ -106,6 +106,7 @@ v9 FOCUS UIは公開Live rare eggsを定期チェックし、取得できたSpaw
 <script>
 const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEggSpawnV4';
 const LIVE_URL='https://eggipedia.com/spawns';
+const LIVE_JSON='./live.json';
 const REAL_EGGS=[["Chicken Egg", "Common", "Forest"], ["Dog Egg", "Common", "Forest"], ["Bird Egg", "Uncommon", "Forest"], ["Burrowing Owl Egg", "Rare", "Forest"], ["Raccoon Egg", "Rare", "Forest"], ["Fox Egg", "Epic", "Forest"], ["Bear Egg", "Epic", "Forest"], ["Brr Brr Patapim Egg", "Legendary", "Forest"], ["Frog Egg", "Common", "Lake"], ["Duckling Egg", "Common", "Lake"], ["Catfish Egg", "Uncommon", "Lake"], ["Turtle Egg", "Rare", "Lake"], ["Trulimero Trulicina Egg", "Epic", "Lake"], ["Swan Egg", "Epic", "Lake"], ["Axolotl Egg", "Legendary", "Lake"], ["Leviathan Egg", "Cosmic", "Lake"], ["Jerboa Egg", "Common", "Desert"], ["Fennec Egg", "Uncommon", "Desert"], ["Camel Egg", "Rare", "Desert"], ["Tob Tobi Tob Tob Egg", "Epic", "Desert"], ["Snake Egg", "Legendary", "Desert"], ["Sand Spider Egg", "Mythic", "Desert"], ["Scorpion Egg", "Mythic", "Desert"], ["Royal Sphinx Egg", "Cosmic", "Desert"], ["Chimpanzee Egg", "Rare", "Jungle"], ["Toucan Egg", "Rare", "Jungle"], ["Crocodile Egg", "Epic", "Jungle"], ["Gorilla Egg", "Legendary", "Jungle"], ["Orangutini Ananassini Egg", "Legendary", "Jungle"], ["Spider Egg", "Mythic", "Jungle"], ["Tiger Egg", "Mythic", "Jungle"], ["King Snake Egg", "Secret", "Jungle"]];
 const BIOMES=[["Forest", "制限なし"], ["Lake", "900"], ["Desert", "10K"], ["Jungle", "40K"], ["Snow", "170K"], ["Volcano", "700K"], ["Abyss Ocean", "2.5M"], ["Prehistoric", "18M"], ["Cosmic", "700M"], ["Cherry Blossom", "2.5B"], ["Titan Temple", "7B"], ["Angels & Demons", "20B"]];
 
@@ -236,21 +237,17 @@ async function autoPoll(){
    ext.innerHTML='<span class="badge">取得待ち</span> 配信停止・取得失敗時はデータを作らず再試行します。';
  }
 }
-$('#autoNow').onclick=async()=>{
- const online=navigator.onLine;
- $('#autoStatus').innerHTML=`<span class="badge">GitHub Pages v3</span> ${online?'オンライン':'オフライン'} ／ 公開Live確認`;
- if(!online){$('#external').innerHTML='<span class="badge">通信なし</span> オンライン復帰後に確認してください。';return}
- $('#external').innerHTML='<span class="badge">Live確認</span> 公開元の状態を確認しています…';
+async function readGitHubLive(){
  try{
-   const r=await fetch(LIVE_URL,{cache:'no-store',mode:'cors'});
-   if(!r.ok)throw new Error('HTTP '+r.status);
-   const html=await r.text(), xs=extractLiveSpawns(html); let added=0;
-   xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
-   $('#external').innerHTML=`<span class="badge">Live応答OK</span> 検出 ${xs.length}件 ／ 新規 ${added}件。0件のときは公開元に新着がない可能性があります。`;
- }catch(e){
-   $('#external').innerHTML='<span class="badge">公開Live</span> iPhoneのブラウザ制限(CORS)で直接読めない場合があります。データを作らず、公開Liveボタンから確認できます。';
- }
-};
+  const r=await fetch(LIVE_JSON+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
+  const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
+  xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
+  const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
+  $('#autoStatus').innerHTML=`<span class="badge">GitHub自動監視</span> 最終取得 ${checked}`;
+  $('#external').innerHTML=j.paused?`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`:`<span class="badge">自動取得OK</span> 実データ ${xs.length}件 ／ 新規 ${added}件`;
+ }catch(e){$('#external').innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。'}
+}
+$('#autoNow').onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
 liveBtn.href=LIVE_URL;
 liveBtn.target='_blank'; liveBtn.rel='noopener';
@@ -260,6 +257,7 @@ $('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">GitHub Pages v3</span> Live公開元を確認 ／ Netlify通信OFF';
+$('#autoStatus').innerHTML='<span class="badge">GitHub Pages v4</span> GitHub自動監視 ／ Netlify通信OFF';
+readGitHubLive();setInterval(readGitHubLive,60000);
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>
