@@ -2,6 +2,9 @@ name: LEO EGG Live Collector
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/live-collector.yml"
   schedule:
     - cron: "*/5 * * * *"
 
