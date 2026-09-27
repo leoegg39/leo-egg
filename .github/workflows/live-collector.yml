@@ -29,10 +29,13 @@ jobs:
               # Inspect Eggipedia's dedicated live client to discover its real alert transport/API.
               live_js=""
               try:
-                  m=re.search(r'<script[^>]+src=["\\\']([^"\\\']*live\\.js[^"\\\']*)',raw,re.I)
-                  if m:
-                      from urllib.parse import urljoin
-                      live_url=urljoin(url,m.group(1))
+                  from urllib.parse import urljoin
+                  # Reuse the same simple script-src parser used by diagnostics; the previous
+                  # live.js-specific regex was over-escaped and never matched.
+                  script_candidates=re.findall(r'<script[^>]+src=["\\\']([^"\\\']+)',raw,re.I)
+                  live_src=next((s for s in script_candidates if re.search(r'(?:^|/)live\\.js(?:[?]|$)',s,re.I)),None)
+                  live_url=urljoin(url,live_src) if live_src else ""
+                  if live_url:
                       # Use browser-like headers; some CDNs reject bare script requests.
                       lreq=urllib.request.Request(live_url,headers={
                           "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1",
@@ -85,7 +88,7 @@ jobs:
                     "diagnostics":{"htmlBytes":len(raw),"scriptCount":len(script_srcs),
                     "scripts":script_srcs[-20:],"liveHints":live_hints[-30:],
                     "connecting":bool(re.search(r"Connecting to the alerts",text,re.I)),
-                    "liveJsBytes":len(live_js),"liveJsError":live_js_error,
+                    "liveJsUrl":live_url if 'live_url' in locals() else "","liveJsBytes":len(live_js),"liveJsError":live_js_error,
                     "transportHints":sorted(set(re.findall(r'(?:https?://|wss?://)[^"\\\' )]+|/(?:api|events|stream|spawn|alert)[A-Za-z0-9_?&=./-]*',live_js,re.I)))[:50]}}
           except Exception as e:
               old=[]
