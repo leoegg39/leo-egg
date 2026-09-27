@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=64">
-<title>LEO EGG LIVE v6.4</title>
+<link rel="manifest" href="manifest.webmanifest?v=65">
+<title>LEO EGG LIVE v6.5</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>LIVE v6.4 ✨</small></h1>
+<h1>LEO EGG <small>LIVE v6.5 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -101,20 +101,20 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 <section class="card">
 <h2 style="font-size:30px;margin-top:0">📡 LIVE監視 <span class="badge">v6.2</span></h2>
 <p class="muted">公開Live rare eggsを自動チェック。新しいレア卵を検出すると履歴へ自動登録し、画面を開いている間は音で知らせます。</p>
-<div id="autoStatus" class="stat"><span class="badge">LEO EGG v6.4</span> 起動確認OK ／ GitHub自動監視準備中</div>
+<div id="autoStatus" class="stat"><span class="badge">LEO EGG v6.5</span> 起動確認OK ／ GitHub自動監視準備中</div>
 <div id="autoLatest" class="stat" style="margin-top:14px"></div>
 <button id="autoNow" class="action">⚡ 通信状態を確認</button>
 </section>
 
 <section class="card">
-<h2 style="font-size:30px;margin-top:0">📊 自動取得履歴</h2>
+<h2 style="font-size:30px;margin-top:0">📡 実Spawn収集</h2>
 <div id="accuracy" class="stat"></div>
 <div id="spawnList" class="stat" style="margin-top:12px"></div>
 </section>
 
 <section class="card">
 <h2 style="font-size:28px;margin-top:0">🌐 外部実データ</h2>
-<div id="external" class="stat"><span class="badge">GitHub Pages直結</span> Netlify通信なし。公開Liveは下のボタンから直接確認します。</div>
+<div id="external" class="stat"><span class="badge">🟡 データ待機中</span> 実Spawnが取得できるまで待機します。0件のときは取得成功とは表示しません。</div>
 </section>
 
 <button id="recalc" class="recalc">🔄 今すぐ再計算</button>
@@ -234,7 +234,7 @@ function renderIntel(){
  let ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
  $('#accuracy').innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
  renderLatestFocus();
- $('#spawnList').innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">まだ自動取得履歴はありません</span>';
+ $('#spawnList').innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
 }
 function extractLiveSpawns(html){
  const doc=new DOMParser().parseFromString(html,'text/html');
@@ -290,8 +290,10 @@ async function readGitHubLive(){
   xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
   const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
   st.innerHTML=`<span class="badge">GitHub自動監視 v6</span> 最終取得 ${checked}`;
-  if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=`<span class="badge">自動取得OK</span> 実データ ${xs.length}件 ／ 新規 ${added}件`;}
- }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.4</span> 起動OK ／ データ待ち';}
+  if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=xs.length
+ ? `<span class="badge">🟢 自動取得中</span> 実Spawn ${xs.length}件 ／ 新規 ${added}件`
+ : '<span class="badge">🟡 データ待機中</span> 実Spawn 0件 ／ 公開Liveの新着待ち';}
+ }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.5</span> 起動OK ／ データ待ち';}
 }
 $('#autoNow').onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
@@ -303,9 +305,9 @@ $('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">LEO EGG v6.4</span> GitHub自動監視 ／ Netlify通信OFF';
+$('#autoStatus').innerHTML='<span class="badge">LEO EGG v6.5</span> GitHub自動監視 ／ Netlify通信OFF';
 readGitHubLive();setInterval(readGitHubLive,60000);
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=64',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=65',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
