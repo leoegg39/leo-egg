@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=5">
-<title>LEO EGG PWA</title>
+<link rel="manifest" href="manifest.webmanifest?v=62">
+<title>LEO EGG LIVE v6.2</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -43,9 +43,13 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 #external{border-left:6px solid #76b9ff;padding:14px 16px;border-radius:18px}
 @media(max-width:520px){h1{font-size:36px}.card{padding:20px 17px;border-radius:25px}.timer{font-size:66px}}
 </style>
+
+<style id="leo-v62-skin">
+:root{--ink:#17233e;--muted:#6f7e9c;--purple:#6567f4;--green:#17bc80;--line:#dce4f1}html{background:#eef8ff}body{background:linear-gradient(180deg,#eaf8ff 0%,#f5f7ff 46%,#eef5ff 100%);color:var(--ink)}main{max-width:760px;padding:calc(env(safe-area-inset-top) + 18px) 22px calc(env(safe-area-inset-bottom) + 34px)}h1{margin:0 0 26px;padding:42px 24px 38px;border-radius:0 0 54px 54px;background:linear-gradient(120deg,#4fd4f3 0%,#7779f3 50%,#ed7fd6 100%);color:white;font-size:45px;letter-spacing:2px;text-shadow:0 4px 12px #4756a866;box-shadow:0 14px 30px #7392cf22}h1 small{font-size:20px;letter-spacing:1px}.card{background:rgba(255,255,255,.86);border:2px solid rgba(255,255,255,.95);border-radius:42px;box-shadow:0 12px 34px #7990bc1c;padding:30px 38px;margin-bottom:28px;backdrop-filter:blur(12px)}.muted{color:var(--muted)}.timer{color:var(--purple);font-size:86px;text-shadow:0 6px 18px #6567f428}.live{color:var(--green)}button{box-shadow:none}.sound{background:linear-gradient(100deg,#63e0bc,#68ccef);color:#164b83}.recalc{background:linear-gradient(100deg,#ffe066,#ffd13d);color:#2450a0}.row{border-color:var(--line)}.time{color:var(--muted)}.tag.hot{background:#ffd33f;color:#15223d;box-shadow:0 0 28px #ffcf35aa}.tag.expect{background:#ffc866}.tag.chance{background:#74d6f1}.badge,.pill{background:#edf2fa;color:#40516f}.focuscard,.latestBox{background:#f8fbff;color:var(--ink)}.input{background:#f3f6fb;color:var(--ink);border-color:#d8e0ec}.preditem{border-color:var(--line)}.areaBtn,.toggleCatalog{background:#edf2fa;color:#40516f}.areaBtn.active{background:#64dfb3;color:#124f42}.small.muted{color:#6e7b95}@media(max-width:520px){main{padding-left:14px;padding-right:14px}h1{font-size:39px;padding:34px 12px 32px;border-radius:0 0 44px 44px}h1 small{font-size:17px}.card{padding:25px 20px;border-radius:34px}.timer{font-size:76px}}
+</style>
 </head>
 <body><main>
-<h1>LEO EGG <small style="font-size:14px">LIVE v6.2</small></h1>
+<h1>LEO EGG <small>LIVE v6.2 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -302,6 +306,6 @@ eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
 $('#autoStatus').innerHTML='<span class="badge">LEO EGG v6.2</span> GitHub自動監視 ／ Netlify通信OFF';
 readGitHubLive();setInterval(readGitHubLive,60000);
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=5',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=62',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
