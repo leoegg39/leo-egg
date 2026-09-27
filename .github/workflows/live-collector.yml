@@ -33,10 +33,17 @@ jobs:
                   if m:
                       from urllib.parse import urljoin
                       live_url=urljoin(url,m.group(1))
-                      lreq=urllib.request.Request(live_url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Cache-Control":"no-cache"})
+                      # Use browser-like headers; some CDNs reject bare script requests.
+                      lreq=urllib.request.Request(live_url,headers={
+                          "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1",
+                          "Accept":"*/*","Referer":url,"Cache-Control":"no-cache","Pragma":"no-cache"
+                      })
                       live_js=urllib.request.urlopen(lreq,timeout=20).read().decode("utf-8","replace")
-              except Exception:
+              except Exception as live_err:
                   live_js=""
+                  live_js_error=str(live_err)
+              else:
+                  live_js_error=""
               text=htmlmod.unescape(re.sub(r"<[^>]+>","\n",raw))
               text=re.sub(r"[ \t]+"," ",text)
               paused=bool(re.search(r"Alerts paused",text,re.I))
@@ -78,7 +85,7 @@ jobs:
                     "diagnostics":{"htmlBytes":len(raw),"scriptCount":len(script_srcs),
                     "scripts":script_srcs[-20:],"liveHints":live_hints[-30:],
                     "connecting":bool(re.search(r"Connecting to the alerts",text,re.I)),
-                    "liveJsBytes":len(live_js),
+                    "liveJsBytes":len(live_js),"liveJsError":live_js_error,
                     "transportHints":sorted(set(re.findall(r'(?:https?://|wss?://)[^"\\\' )]+|/(?:api|events|stream|spawn|alert)[A-Za-z0-9_?&=./-]*',live_js,re.I)))[:50]}}
           except Exception as e:
               old=[]
