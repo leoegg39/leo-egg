@@ -46,6 +46,25 @@ jobs:
                           "Accept":"*/*","Referer":url,"Cache-Control":"no-cache","Pragma":"no-cache"
                       })
                       live_js=urllib.request.urlopen(lreq,timeout=20).read().decode("utf-8","replace")
+                      # live.js reveals the public JSON transport. Fetch it directly.
+                      spawn_json_url=urljoin("https://eggipedia.com/", "/spawns.json")
+                      try:
+                          sreq=urllib.request.Request(spawn_json_url,headers={
+                              "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1",
+                              "Accept":"application/json,text/plain,*/*","Referer":url,
+                              "Cache-Control":"no-cache","Pragma":"no-cache"
+                          })
+                          spawn_json_raw=urllib.request.urlopen(sreq,timeout=20).read().decode("utf-8","replace")
+                          try:
+                              spawn_json_data=json.loads(spawn_json_raw)
+                              spawn_json_error=""
+                          except Exception as je:
+                              spawn_json_data=None
+                              spawn_json_error="JSON parse: "+str(je)
+                      except Exception as se:
+                          spawn_json_raw=""
+                          spawn_json_data=None
+                          spawn_json_error=str(se)
               except Exception as live_err:
                   live_js=""
                   live_js_error=str(live_err)
@@ -93,6 +112,10 @@ jobs:
                     "scripts":script_srcs[-20:],"liveHints":live_hints[-30:],
                     "connecting":bool(re.search(r"Connecting to the alerts",text,re.I)),
                     "liveJsUrl":live_url if 'live_url' in locals() else "","liveJsBytes":len(live_js),"liveJsError":live_js_error,
+                    "spawnJsonUrl":spawn_json_url if 'spawn_json_url' in locals() else "",
+                    "spawnJsonBytes":len(spawn_json_raw) if 'spawn_json_raw' in locals() else 0,
+                    "spawnJsonError":spawn_json_error if 'spawn_json_error' in locals() else "",
+                    "spawnJsonPreview":str(spawn_json_data)[:1500] if 'spawn_json_data' in locals() else "",
                     "transportHints":sorted(set(re.findall(r'(?:https?://|wss?://)[^"\\\' )]+|/(?:api|events|stream|spawn|alert)[A-Za-z0-9_?&=./-]*',live_js,re.I)))[:50]}}
           except Exception as e:
               old=[]
