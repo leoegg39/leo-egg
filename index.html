@@ -25,10 +25,27 @@ button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;f
 
 .focusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.focuscard{background:#0d1d31;border:2px solid #3b5675;border-radius:24px;padding:16px 12px;min-height:150px}.focuscard.secret{border-color:#ff466f;box-shadow:0 0 18px #ff466f33}.focuscard.eternal{border-color:#b35cff}.focuscard.divine{border-color:#ffd84d}.rarity{font-size:13px;font-weight:900;letter-spacing:.4px}.secret .rarity{color:#ff6687}.eternal .rarity{color:#ca8aff}.divine .rarity{color:#ffe36f}.focusname{font-size:19px;font-weight:900;margin:10px 0 7px}.focusmeta{font-size:14px;color:#c7d3e4;line-height:1.55}.areaStrip{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.areaBtn{width:auto;min-width:max-content;margin:0;padding:11px 14px;border-radius:18px;background:#20364f;color:#fff;font-size:15px}.areaBtn.active{background:#62dca5;color:#082035}.catalogHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.toggleCatalog{width:auto;margin:0;background:#20364f;color:#fff;font-size:16px;padding:11px 15px}.catalogWrap{display:none;margin-top:15px}.catalogWrap.open{display:block}.latestBox{background:#0d1d31;border:2px solid #ff466f;border-radius:26px;padding:18px;margin-bottom:16px}.latestTitle{font-size:14px;color:#ff6f8e;font-weight:900}.latestName{font-size:28px;font-weight:900;margin:7px 0}.latestMeta{font-size:16px;color:#cbd7e7;line-height:1.6}
 @media(max-width:520px){.focusgrid{grid-template-columns:1fr}.focuscard{min-height:0}.catalogHead h2{font-size:25px!important}}
+
+/* LEO EGG pastel app skin v6 */
+body{background:linear-gradient(180deg,#eaf8ff 0,#f8efff 48%,#fff7fb 100%);color:#25304a}
+main{max-width:760px;padding:calc(env(safe-area-inset-top) + 10px) 12px calc(env(safe-area-inset-bottom) + 95px)}
+h1{margin:4px 0 14px;padding:28px 12px 24px;border-radius:0 0 34px 34px;color:#fff;font-size:42px;letter-spacing:1px;text-shadow:0 3px 10px #6c79d8;background:linear-gradient(135deg,#74dfff,#8c91ff 45%,#ff8fd1);box-shadow:0 12px 30px #8f9fe344}
+h1:after{content:"  ✨";font-size:24px}
+.card{background:#ffffffdc;border:2px solid #fff;border-radius:28px;padding:22px 20px;margin:0 0 16px;box-shadow:0 8px 25px #8091c523;backdrop-filter:blur(8px)}
+.card.center{background:linear-gradient(135deg,#e7fff7,#eef5ff 55%,#fff0fa)}
+.card h2{color:#27324c}.muted{color:#71809b}.timer{color:#6b70f7;font-size:72px;text-shadow:0 4px 14px #a7b0ff55}.live{color:#19b978}
+button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient(135deg,#6ee8c1,#79cfff);color:#174c82}.recalc{background:linear-gradient(135deg,#ffd76a,#ff9fcb);color:#6c3a75}
+.stat,.focuscard,.latestBox{background:#f8fbff!important;border-color:#dbe7ff!important;color:#33415f}
+.badge{background:#e9f2ff;color:#42618b}.ok{color:#16a870}.bad{color:#e45f7c}.pct{color:#735ff3}
+.row{border-color:#e3eaf7}.time,.focusmeta{color:#71809b}.focuscard{box-shadow:0 5px 15px #8fa3cf18}
+.input{background:#f5f8ff;color:#26334f;border-color:#d5e1f5}.areaBtn,.toggleCatalog{background:#edf3ff;color:#42577b}.areaBtn.active{background:#7ce8c5;color:#164d44}
+#autoStatus{border-left:6px solid #56dca6;padding:14px 16px;border-radius:18px}
+#external{border-left:6px solid #76b9ff;padding:14px 16px;border-radius:18px}
+@media(max-width:520px){h1{font-size:36px}.card{padding:20px 17px;border-radius:25px}.timer{font-size:66px}}
 </style>
 </head>
 <body><main>
-<h1>🥚 LEO EGG <small style="font-size:16px">PWA</small></h1>
+<h1>LEO EGG <small style="font-size:14px">LIVE v6</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -78,9 +95,9 @@ button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;f
 
 
 <section class="card">
-<h2 style="font-size:30px;margin-top:0">📡 LIVE監視 <span class="badge">v5.3</span></h2>
+<h2 style="font-size:30px;margin-top:0">📡 LIVE監視 <span class="badge">v6</span></h2>
 <p class="muted">公開Live rare eggsを自動チェック。新しいレア卵を検出すると履歴へ自動登録し、画面を開いている間は音で知らせます。</p>
-<div id="autoStatus" class="stat"><span class="badge">LEO EGG v5.3</span> 起動確認OK ／ GitHub自動監視準備中</div>
+<div id="autoStatus" class="stat"><span class="badge">LEO EGG v6</span> 起動確認OK ／ GitHub自動監視準備中</div>
 <div id="autoLatest" class="stat" style="margin-top:14px"></div>
 <button id="autoNow" class="action">⚡ 通信状態を確認</button>
 </section>
@@ -245,9 +262,9 @@ async function readGitHubLive(){
   const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
   xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
   const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
-  st.innerHTML=`<span class="badge">GitHub自動監視 v5.3</span> 最終取得 ${checked}`;
+  st.innerHTML=`<span class="badge">GitHub自動監視 v6</span> 最終取得 ${checked}`;
   if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=`<span class="badge">自動取得OK</span> 実データ ${xs.length}件 ／ 新規 ${added}件`;}
- }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v5.3</span> 起動OK ／ データ待ち';}
+ }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6</span> 起動OK ／ データ待ち';}
 }
 $('#autoNow').onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
@@ -259,7 +276,7 @@ $('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">LEO EGG v5.3</span> GitHub自動監視 ／ Netlify通信OFF';
+$('#autoStatus').innerHTML='<span class="badge">LEO EGG v6</span> GitHub自動監視 ／ Netlify通信OFF';
 readGitHubLive();setInterval(readGitHubLive,60000);
 if('serviceWorker' in navigator){
  navigator.serviceWorker.register('sw.js?v=5',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
