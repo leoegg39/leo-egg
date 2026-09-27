@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-27T23:12:42.800313+00:00",
+  "checkedAt": "2026-09-27T23:14:40.993796+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -30,6 +30,7 @@
       "https://www.roblox.com/games/107778070777162/Steal-An-Egg"
     ],
     "connecting": true,
+    "liveJsUrl": "",
     "liveJsBytes": 0,
     "liveJsError": "",
     "transportHints": []
