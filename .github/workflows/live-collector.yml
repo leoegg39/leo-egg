@@ -56,8 +56,14 @@ jobs:
                   if k not in seen:
                       x.pop("_key",None); x["t"]=int(now.timestamp()*1000)
                       merged.append(x); seen.add(k)
+              # Diagnostics: keep enough state to distinguish "collector broken" from "source has no alerts".
+              script_srcs=re.findall(r'<script[^>]+src=["\\\']([^"\\\']+)',raw,re.I)
+              live_hints=sorted(set(re.findall(r'https?://[^"\\\'<> ]+|/(?:api|live|spawn|alert)[^"\\\'<> ]*',raw,re.I)))
               data={"ok":True,"checkedAt":now.isoformat(),"source":url,"paused":paused,
-                    "noHistory":no_history,"parsedNow":len(spawns),"spawns":merged[-200:]}
+                    "noHistory":no_history,"parsedNow":len(spawns),"spawns":merged[-200:],
+                    "diagnostics":{"htmlBytes":len(raw),"scriptCount":len(script_srcs),
+                    "scripts":script_srcs[-20:],"liveHints":live_hints[-30:],
+                    "connecting":bool(re.search(r"Connecting to the alerts",text,re.I))}}
           except Exception as e:
               old=[]
               try: old=json.load(open("live.json")).get("spawns",[])
