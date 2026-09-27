@@ -249,6 +249,6 @@ $('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">GitHub Pages v2</span> Netlify通信OFF ／ 5分タイマー修正済み';
+$('#autoStatus').innerHTML='<span class="badge">GitHub連携更新OK</span> Netlify通信OFF ／ レオから直接更新済み';
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>
