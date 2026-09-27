@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-27T23:11:05.854614+00:00",
+  "checkedAt": "2026-09-27T23:12:42.800313+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -31,6 +31,7 @@
     ],
     "connecting": true,
     "liveJsBytes": 0,
+    "liveJsError": "",
     "transportHints": []
   }
 }
