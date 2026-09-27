@@ -19,7 +19,7 @@ jobs:
           python - <<'PY'
           import json, re, urllib.request, datetime, html as htmlmod, os
           url="https://eggipedia.com/spawns"
-          req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG"})
+          req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Cache-Control":"no-cache","Pragma":"no-cache"})
           now=datetime.datetime.now(datetime.timezone.utc)
           try:
               raw=urllib.request.urlopen(req,timeout=20).read().decode("utf-8","replace")
