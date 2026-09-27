@@ -30,11 +30,15 @@ jobs:
               live_js=""
               try:
                   from urllib.parse import urljoin
-                  # Reuse the same simple script-src parser used by diagnostics; the previous
-                  # live.js-specific regex was over-escaped and never matched.
+                  # Eggipedia currently exposes this exact asset in the page HTML.
+                  # Prefer parsed src, but fall back to the known public asset path so
+                  # a parser mismatch cannot block transport discovery again.
                   script_candidates=re.findall(r'<script[^>]+src=["\\\']([^"\\\']+)',raw,re.I)
-                  live_src=next((s for s in script_candidates if re.search(r'(?:^|/)live\\.js(?:[?]|$)',s,re.I)),None)
-                  live_url=urljoin(url,live_src) if live_src else ""
+                  live_src=next((s for s in script_candidates if "live.js" in s.lower()),None)
+                  if not live_src and "/assets/live.js" in raw:
+                      vm=re.search(r'/assets/live[.]js[^"\\\'< >]*',raw,re.I)
+                      live_src=vm.group(0) if vm else "/assets/live.js"
+                  live_url=urljoin("https://eggipedia.com/",live_src) if live_src else "https://eggipedia.com/assets/live.js"
                   if live_url:
                       # Use browser-like headers; some CDNs reject bare script requests.
                       lreq=urllib.request.Request(live_url,headers={
