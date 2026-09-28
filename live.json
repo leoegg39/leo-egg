@@ -7,6 +7,15 @@
   "parsedNow": 0,
   "spawns": [
     {
+      "egg": "T-Rex",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-05 19:25",
+      "ts": 1788636300000,
+      "source": "CommunityOne historical verified"
+    },
+    {
       "egg": "Cosmic Dragon",
       "rarity": "Secret",
       "biome": "Cosmic",
@@ -16,12 +25,75 @@
       "source": "CommunityOne historical verified"
     },
     {
+      "egg": "Cosmic Skeleton Boss",
+      "rarity": "Secret",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-05T20:35:00Z",
+      "ts": 1788640500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "T-Rex",
       "rarity": "Secret",
       "biome": "Prehistoric",
       "loc": "Prehistoric",
-      "timeText": "2026-09-05 19:25",
-      "ts": 1788636300000,
+      "timeText": "2026-09-05T23:10:00Z",
+      "ts": 1788649800000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Yeti",
+      "rarity": "Secret",
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-09-06T00:00:00Z",
+      "ts": 1788652800000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Ice Dragon",
+      "rarity": "Eternal",
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-09-06T02:20:00Z",
+      "ts": 1788661200000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Oni Tiger",
+      "rarity": "Eternal",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-06 03:35",
+      "ts": 1788665700000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Mosasaurus",
+      "rarity": "Eternal",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-06T07:55:00Z",
+      "ts": 1788681300000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Stag",
+      "rarity": "Secret",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-06T08:25:00Z",
+      "ts": 1788683100000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Oni Tiger",
+      "rarity": "Eternal",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-06 08:45",
+      "ts": 1788684300000,
       "source": "CommunityOne historical verified"
     },
     {
@@ -34,22 +106,49 @@
       "source": "CommunityOne historical verified"
     },
     {
-      "egg": "Oni Tiger",
+      "egg": "Eternal Lunar Dragon",
       "rarity": "Eternal",
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-09-06 03:35",
-      "ts": 1788665700000,
-      "source": "CommunityOne historical verified"
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-06T15:55:00Z",
+      "ts": 1788710100000,
+      "source": "CommunityOne historical observed alert"
     },
     {
-      "egg": "Oni Tiger",
+      "egg": "Lava Dragon",
       "rarity": "Eternal",
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-09-06 08:45",
-      "ts": 1788684300000,
-      "source": "CommunityOne historical verified"
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-06T16:40:00Z",
+      "ts": 1788712800000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "Secret",
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-06T21:20:00Z",
+      "ts": 1788729600000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-06T21:35:00Z",
+      "ts": 1788730500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Phoenix",
+      "rarity": "Eternal",
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-06T23:40:00Z",
+      "ts": 1788738000000,
+      "source": "CommunityOne historical observed alert"
     },
     {
       "egg": "Kitsune",
@@ -61,6 +160,51 @@
       "source": "CommunityOne historical verified"
     },
     {
+      "egg": "Mutant Shark",
+      "rarity": "Secret",
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-07T01:40:00Z",
+      "ts": 1788745200000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Cosmic Skeleton Boss",
+      "rarity": "Secret",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-07T01:45:00Z",
+      "ts": 1788745500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "T-Rex",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-07T03:25:00Z",
+      "ts": 1788751500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-07T06:35:00Z",
+      "ts": 1788762900000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Cerberus",
+      "rarity": "Secret",
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-07T07:40:00Z",
+      "ts": 1788766800000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "Cosmic Dragon",
       "rarity": "Secret",
       "biome": "Cosmic",
@@ -70,21 +214,21 @@
       "source": "CommunityOne historical verified"
     },
     {
-      "egg": "Cosmic Dragon",
-      "rarity": "Secret",
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-09-07 08:45",
-      "ts": 1788770700000,
-      "source": "CommunityOne historical verified"
-    },
-    {
       "egg": "T-Rex",
       "rarity": "Secret",
       "biome": "Prehistoric",
       "loc": "Prehistoric",
       "timeText": "2026-09-07 08:40",
       "ts": 1788770400000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "Secret",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-07 08:45",
+      "ts": 1788770700000,
       "source": "CommunityOne historical verified"
     },
     {
@@ -141,5 +285,10 @@
       "hen(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; render(); })\n      .catch(function () { if (!state.data) showError(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) { renderStatus(state.data); renderNow((state.data.spawns || []).filter(function (s) { return s && pets[s.pet]; })); }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n"
     ],
     "liveJsFetchCalls": []
+  },
+  "historicalSeed": {
+    "source": "CommunityOne public Steal An Egg Notifier archive",
+    "count": 26,
+    "note": "Observed historical spawn alerts only; kept separate by source from current Eggipedia Live."
   }
 }
