@@ -104,6 +104,8 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 <div id="autoStatus" class="stat"><span class="badge">LEO EGG v6.7</span> 起動確認OK ／ GitHub自動監視準備中</div>
 <div id="autoLatest" class="stat" style="margin-top:14px"></div>
 <button id="autoNow" class="action">⚡ 通信状態を確認</button>
+<button id="notifyHot" class="action" style="margin-top:12px">🔔 激アツ通知をON</button>
+<div id="notifyHotStatus" class="muted" style="margin-top:8px">🔥 激アツだけ通知します（通常・チャンスは通知しません）</div>
 </section>
 
 <section class="card" style="display:none">
@@ -295,6 +297,24 @@ async function readGitHubLive(){
  : '<span class="badge">🟡 データ待機中</span> 実Spawn 0件 ／ 公開Liveの新着待ち';}
  }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.7</span> 起動OK ／ データ待ち';}
 }
+async function setupHotNotification(){
+ const b=$('#notifyHot'), s=$('#notifyHotStatus'); if(!b||!s)return;
+ if(!('Notification' in window)){s.textContent='この環境では通知を利用できません';return}
+ try{
+  const p=await Notification.requestPermission();
+  if(p==='granted'){
+   localStorage.setItem('leoHotNotify','1');
+   b.textContent='🔔 激アツ通知 ON';
+   s.textContent='🔥 激アツだけ通知します。通常・チャンスは通知しません。';
+   new Notification('LEO EGG 🔥',{body:'激アツ通知をONにしました',icon:'./icon-192.png'});
+  }else{s.textContent='通知が許可されていません';}
+ }catch(e){s.textContent='ホーム画面のLEO EGGから通知をONにしてください';}
+}
+function refreshHotNotify(){
+ const b=$('#notifyHot'); if(!b)return;
+ if(('Notification' in window)&&Notification.permission==='granted'&&localStorage.getItem('leoHotNotify')==='1') b.textContent='🔔 激アツ通知 ON';
+}
+$('#notifyHot').onclick=setupHotNotification; refreshHotNotify();
 $('#autoNow').onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
 liveBtn.href=LIVE_URL;
