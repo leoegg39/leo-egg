@@ -106,6 +106,15 @@ jobs:
                       spawns.append({"egg":str(egg),"rarity":s.get("rarity"),"biome":s.get("biome") or s.get("location"),
                                      "loc":s.get("biome") or s.get("location") or "","timeText":str(at),"ts":ts,
                                      "source":"Eggipedia JSON"})
+              # Probe SaneStats as a second public source. Diagnostics only until a timestamped spawn feed is verified.
+              sane_diag={"url":"https://sanestats.com/","ok":False}
+              try:
+                  sane_url="https://sanestats.com/"
+                  q=urllib.request.Request(sane_url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Cache-Control":"no-cache"})
+                  sane_raw=urllib.request.urlopen(q,timeout=20).read().decode("utf-8","replace")
+                  sane_diag={"url":sane_url,"ok":True,"htmlBytes":len(sane_raw),"hasCurrentSpawns":bool(re.search(r"Current spawns",sane_raw,re.I)),"hasRareHistory":bool(re.search(r"rare spawn history",sane_raw,re.I)),"waiting":bool(re.search(r"Waiting for the next hatch",sane_raw,re.I))}
+              except Exception as sane_err:
+                  sane_diag["error"]=str(sane_err)
               # Preserve previous history and append only newly parsed entries.
               old=[]
               try:
@@ -133,7 +142,7 @@ jobs:
                     "spawnJsonPreview":str(spawn_json_data)[:1500] if 'spawn_json_data' in locals() else "",
                     "transportHints":sorted(set(re.findall(r'(?:https?://|wss?://)[^"\\\' )]+|/(?:api|events|stream|spawn|alert)[A-Za-z0-9_?&=./-]*',live_js,re.I)))[:50],
                     "liveJsContexts":[live_js[max(0,m.start()-500):min(len(live_js),m.end()+700)] for m in list(re.finditer(r'spawns(?:[.]json)?|EventSource|WebSocket|fetch\\s*[(]|XMLHttpRequest',live_js,re.I))[:12]],
-                    "liveJsFetchCalls":re.findall(r'(?:fetch|EventSource|WebSocket)\\s*[(]\\s*([^)]{1,300})[)]',live_js,re.I)[:20]}}
+                    "saneStats":sane_diag,"liveJsFetchCalls":re.findall(r'(?:fetch|EventSource|WebSocket)\\s*[(]\\s*([^)]{1,300})[)]',live_js,re.I)[:20]}}
           except Exception as e:
               old=[]
               try: old=json.load(open("live.json")).get("spawns",[])
