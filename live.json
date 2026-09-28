@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-28T01:22:13.712315+00:00",
+  "checkedAt": "2026-09-28T01:26:01.335700+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -127,7 +127,7 @@
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
     "spawnJsonBytes": 162,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-28T01:21:32.726Z', 'total': 0, 'since': None, 'startedAt': '2026-09-27T01:57:22.199Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': []}",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-28T01:25:32.750Z', 'total': 0, 'since': None, 'startedAt': '2026-09-27T01:57:22.199Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': []}",
     "transportHints": [
       "/spawns",
       "/spawns.json"
@@ -141,10 +141,5 @@
       "hen(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; render(); })\n      .catch(function () { if (!state.data) showError(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) { renderStatus(state.data); renderNow((state.data.spawns || []).filter(function (s) { return s && pets[s.pet]; })); }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n"
     ],
     "liveJsFetchCalls": []
-  },
-  "historicalSeed": {
-    "source": "CommunityOne public notifier archive",
-    "count": 10,
-    "note": "Historical observed spawn alerts; separate from current live Eggipedia feed."
   }
 }
