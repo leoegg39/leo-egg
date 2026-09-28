@@ -126,6 +126,38 @@ jobs:
                       except Exception as e:
                           sane_script_diag.append({"url":urljoin(sane_url,src),"error":str(e)})
                   sane_diag={"url":sane_url,"ok":True,"htmlBytes":len(sane_raw),"scripts":sane_scripts[-30:],"hasCurrentSpawns":bool(re.search(r"Current spawns",sane_raw,re.I)),"hasRareHistory":bool(re.search(r"rare spawn history",sane_raw,re.I)),"waiting":bool(re.search(r"Waiting for the next hatch",sane_raw,re.I)),"transportHints":sorted(set(sane_hints))[:100],"scriptDiagnostics":sane_script_diag}
+                  # Verified public endpoint discovered from the site's own JS.
+                  # Import only timestamped rare-history records; never import the 156-pet index.
+                  try:
+                      hu=urljoin(sane_url,"/api/history?limit=100")
+                      hr=urllib.request.Request(hu,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Referer":sane_url,"Accept":"application/json"})
+                      hb=urllib.request.urlopen(hr,timeout=20).read()
+                      sane_diag["historyBytes"]=len(hb)
+                      hj=json.loads(hb.decode("utf-8","replace"))
+                      sane_diag["historyType"]=type(hj).__name__
+                      rows=hj if isinstance(hj,list) else next((hj.get(k) for k in ("history","spawns","events","data","items","results") if isinstance(hj.get(k),list)),[])
+                      sane_diag["historyRows"]=len(rows)
+                      sane_diag["historyPreview"]=rows[:2]
+                      imported=0
+                      for r in rows:
+                          if not isinstance(r,dict): continue
+                          name=next((r.get(k) for k in ("pet","petName","name","egg") if r.get(k)),None)
+                          rarity=next((r.get(k) for k in ("rarity","tier","rank") if r.get(k)),None)
+                          at=next((r.get(k) for k in ("at","timestamp","createdAt","created_at","time","spawnedAt","spawned_at") if r.get(k) is not None),None)
+                          if not name or at is None: continue
+                          if rarity and str(rarity).lower() not in ("secret","eternal","divine"): continue
+                          try:
+                              if isinstance(at,(int,float)):
+                                  ts=int(at if at>100000000000 else at*1000)
+                              else:
+                                  ts=int(datetime.datetime.fromisoformat(str(at).replace("Z","+00:00")).timestamp()*1000)
+                          except Exception: continue
+                          biome=next((r.get(k) for k in ("biome","location","area","world") if r.get(k)),None)
+                          spawns.append({"egg":str(name),"rarity":rarity or "Rare","biome":biome,"loc":biome or "","timeText":str(at),"ts":ts,"source":"SaneStats history"})
+                          imported+=1
+                      sane_diag["historyImported"]=imported
+                  except Exception as he:
+                      sane_diag["historyError"]=str(he)
               except Exception as sane_err:
                   sane_diag["error"]=str(sane_err)
               # Preserve previous history and append only newly parsed entries.
