@@ -112,7 +112,20 @@ jobs:
                   sane_url="https://sanestats.com/"
                   q=urllib.request.Request(sane_url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Cache-Control":"no-cache"})
                   sane_raw=urllib.request.urlopen(q,timeout=20).read().decode("utf-8","replace")
-                  sane_diag={"url":sane_url,"ok":True,"htmlBytes":len(sane_raw),"hasCurrentSpawns":bool(re.search(r"Current spawns",sane_raw,re.I)),"hasRareHistory":bool(re.search(r"rare spawn history",sane_raw,re.I)),"waiting":bool(re.search(r"Waiting for the next hatch",sane_raw,re.I))}
+                  sane_scripts=re.findall(r"<script[^>]+src=[\"']([^\"']+)",sane_raw,re.I)
+                  sane_hints=[]
+                  sane_script_diag=[]
+                  for src in sane_scripts[-30:]:
+                      try:
+                          js_url=urljoin(sane_url,src)
+                          jr=urllib.request.Request(js_url,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Referer":sane_url})
+                          js=urllib.request.urlopen(jr,timeout=15).read().decode("utf-8","replace")
+                          hints=re.findall(r"(?:https?|wss?)://[^\\\"' )]+|/(?:api|spawn|spawns|history|events|stream)[A-Za-z0-9_?&=./:-]*",js,re.I)
+                          sane_hints.extend(hints)
+                          sane_script_diag.append({"url":js_url,"bytes":len(js),"hints":hints[:20]})
+                      except Exception as e:
+                          sane_script_diag.append({"url":urljoin(sane_url,src),"error":str(e)})
+                  sane_diag={"url":sane_url,"ok":True,"htmlBytes":len(sane_raw),"scripts":sane_scripts[-30:],"hasCurrentSpawns":bool(re.search(r"Current spawns",sane_raw,re.I)),"hasRareHistory":bool(re.search(r"rare spawn history",sane_raw,re.I)),"waiting":bool(re.search(r"Waiting for the next hatch",sane_raw,re.I)),"transportHints":sorted(set(sane_hints))[:100],"scriptDiagnostics":sane_script_diag}
               except Exception as sane_err:
                   sane_diag["error"]=str(sane_err)
               # Preserve previous history and append only newly parsed entries.
