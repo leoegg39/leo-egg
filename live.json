@@ -79,6 +79,15 @@
       "source": "CommunityOne historical verified"
     },
     {
+      "egg": "Ice Dragon",
+      "rarity": "Eternal",
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-09-06T05:40:00Z",
+      "ts": 1788673200000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "Mosasaurus",
       "rarity": "Eternal",
       "biome": "Prehistoric",
@@ -133,6 +142,15 @@
       "source": "CommunityOne historical observed alert"
     },
     {
+      "egg": "Phoenix",
+      "rarity": "Eternal",
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-06T20:45:00Z",
+      "ts": 1788727500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "Mutant Shark",
       "rarity": "Secret",
       "biome": "Titan Temple",
@@ -148,6 +166,15 @@
       "loc": "Prehistoric",
       "timeText": "2026-09-06T21:35:00Z",
       "ts": 1788730500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Mosasaurus",
+      "rarity": "Eternal",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-06T23:15:00Z",
+      "ts": 1788736500000,
       "source": "CommunityOne historical observed alert"
     },
     {
@@ -169,6 +196,15 @@
       "source": "CommunityOne historical verified"
     },
     {
+      "egg": "Ice Dragon",
+      "rarity": "Eternal",
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-09-07T01:25:00Z",
+      "ts": 1788744300000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "Mutant Shark",
       "rarity": "Secret",
       "biome": "Titan Temple",
@@ -187,12 +223,30 @@
       "source": "CommunityOne historical observed alert"
     },
     {
+      "egg": "Ice Dragon",
+      "rarity": "Eternal",
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-09-07T02:35:00Z",
+      "ts": 1788748500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "T-Rex",
       "rarity": "Secret",
       "biome": "Prehistoric",
       "loc": "Prehistoric",
       "timeText": "2026-09-07T03:25:00Z",
       "ts": 1788751500000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
+      "egg": "Mosasaurus",
+      "rarity": "Eternal",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-07T05:20:00Z",
+      "ts": 1788758400000,
       "source": "CommunityOne historical observed alert"
     },
     {
@@ -297,7 +351,7 @@
   },
   "historicalSeed": {
     "source": "CommunityOne public Steal An Egg Notifier archive",
-    "count": 27,
-    "note": "Observed historical spawn alerts only; current Live remains separate."
+    "count": 33,
+    "note": "Observed historical spawn alerts only; predictions excluded; current Live remains separate."
   }
 }
