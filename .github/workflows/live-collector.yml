@@ -142,7 +142,6 @@ jobs:
           open("live.json","w").write(json.dumps(data,ensure_ascii=False,indent=2))
           PY
       - name: Send hot alert to iPhone
-        if: ${{ secrets.LEO_NTFY_TOPIC != '' }}
         shell: bash
         env:
           LEO_NTFY_TOPIC: ${{ secrets.LEO_NTFY_TOPIC }}
