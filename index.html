@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=69">
-<title>LEO EGG 予測 v6.9</title>
+<title>LEO EGG 予測 v7.0</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v6.9 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.0 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -61,6 +61,11 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 <section class="card">
 <h2 style="font-size:32px;margin-top:0">🎯 過去データ予測</h2>
 <div id="rows"></div>
+</section>
+
+<section class="card">
+<h2 style="font-size:30px;margin-top:0">✨ 光卵予想</h2>
+<div id="lightPred"></div>
 </section>
 
 <section class="card">
@@ -130,11 +135,32 @@ function scoreCandidates(ss){
    return {...r,score:base*.45+hourRate*.25+dowRate*.15+follow*.15};
  }).sort((a,b)=>b.score-a.score);
 }
+function lightEggPrediction(){
+ const hs=history().filter(x=>x&&Number.isFinite(Number(x.t))&&(x.egg==='光卵'||x.egg==='光卵・特大')).sort((a,b)=>a.t-b.t);
+ if(hs.length<3)return {ready:false,n:hs.length};
+ const gaps=[]; for(let i=1;i<hs.length;i++){const g=(hs[i].t-hs[i-1].t)/60000;if(g>=5&&g<=720)gaps.push(g)}
+ if(gaps.length<2)return {ready:false,n:hs.length};
+ const sorted=gaps.slice(-30).sort((a,b)=>a-b), med=sorted[Math.floor(sorted.length/2)];
+ const last=hs[hs.length-1].t, elapsed=(Date.now()-last)/60000, ratio=elapsed/Math.max(5,med);
+ const now=new Date(), sameHour=hs.filter(x=>{const d=new Date(x.t);return Math.abs(d.getHours()-now.getHours())<=1}).length;
+ const hourBoost=Math.min(.25,sameHour/Math.max(8,hs.length));
+ let score=Math.min(1,ratio*.55+hourBoost);
+ let label='まだ弱い',klass='miss';
+ if(hs.length>=8&&score>=.9){label='🔥 強め';klass='hot'}else if(score>=.65){label='✨ 注目';klass='chance'}
+ return {ready:true,n:hs.length,med,last,elapsed,score,label,klass};
+}
+function renderLightPrediction(){
+ const box=$('#lightPred'); if(!box)return;
+ const p=lightEggPrediction(), base=nextBoundary();
+ if(!p.ready){box.innerHTML='<div class="small muted">光卵の実記録 '+p.n+'件。まず3件以上たまると間隔学習を開始します。出たら「✨ 光卵」を押してね。</div>';return}
+ const next=new Date(Math.max(base,p.last+p.med*60000)).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+ box.innerHTML=`<div class="row"><div class="n">✨</div><div><div class="egg">光卵</div><div class="time">次の候補 ${next} ／ 実記録 ${p.n}件 ／ 中央間隔 約${Math.round(p.med)}分</div></div><div class="tag ${p.klass}">${p.label}</div></div>`;
+}
 function render(){
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(!m.ready){
    $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去Spawn '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
-   stats();return;
+   renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
  const safeHot=m.confidence==='high';
@@ -146,7 +172,7 @@ function render(){
    const pct=Math.round(r.count/Math.max(1,ss.length)*100);
    return `<div class="row"><div class="n">${i+1}</div><div><div class="egg">${r.name}</div><div class="time">次回目安 ${when} ／ 履歴 ${r.count}回（${pct}%）</div></div><div class="tag ${klass}">${label}</div></div>`;
  }).join('');
- stats();
+ renderLightPrediction();stats();
 }
 async function syncHistoryForPrediction(){
  try{
@@ -302,7 +328,7 @@ liveBtn.textContent='🥚 公開Liveを確認';
 if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
-eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
+eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
