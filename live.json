@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-28T13:25:22.825480+00:00",
+  "checkedAt": "2026-09-28T13:27:35.001781+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -343,7 +343,7 @@
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
     "spawnJsonBytes": 162,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-28T13:24:37.301Z', 'total': 0, 'since': None, 'startedAt': '2026-09-27T01:57:22.199Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': []}",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-28T13:26:37.322Z', 'total': 0, 'since': None, 'startedAt': '2026-09-27T01:57:22.199Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': []}",
     "transportHints": [
       "/spawns",
       "/spawns.json"
@@ -360,9 +360,64 @@
       "url": "https://sanestats.com/",
       "ok": true,
       "htmlBytes": 3358,
+      "scripts": [
+        "/assets/index-5rbGZ-ck.js",
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+      ],
       "hasCurrentSpawns": false,
       "hasRareHistory": true,
-      "waiting": false
+      "waiting": false,
+      "transportHints": [
+        "/api/calc/estimate?",
+        "/api/history?",
+        "/api/leaderboard/money",
+        "/api/leaderboard/player/",
+        "/api/roblox/avatars?ids=",
+        "/api/stats",
+        "/history",
+        "http://www.w3.org/1999/xlink`;function",
+        "http://www.w3.org/2000/svg`,Ua=`http://www.w3.org/1998/Math/MathML`,Wa=typeof",
+        "https://cloudflareinsights.com/cdn-cgi/rum",
+        "https://sanestats.com`,Id=`SaneStats`,Ld=`Steal",
+        "https://schema.org`,",
+        "https://vuejs.org/error-reference/#runtime-${r}`;for(;t;",
+        "https://www.roblox.com/games/107778070777162`,zd=`https://steal-an-egg.fasu.dev/`,Bd=`Steal",
+        "https://www.roblox.com/users/${t}/profile`}async"
+      ],
+      "scriptDiagnostics": [
+        {
+          "url": "https://sanestats.com/assets/index-5rbGZ-ck.js",
+          "bytes": 287912,
+          "hints": [
+            "https://vuejs.org/error-reference/#runtime-${r}`;for(;t;",
+            "http://www.w3.org/2000/svg`,Ua=`http://www.w3.org/1998/Math/MathML`,Wa=typeof",
+            "http://www.w3.org/1999/xlink`;function",
+            "/api/history?",
+            "/api/stats",
+            "/history",
+            "/history",
+            "https://sanestats.com`,Id=`SaneStats`,Ld=`Steal",
+            "https://www.roblox.com/games/107778070777162`,zd=`https://steal-an-egg.fasu.dev/`,Bd=`Steal",
+            "/history",
+            "https://schema.org`,",
+            "https://schema.org`,",
+            "https://schema.org`,",
+            "/api/calc/estimate?",
+            "/api/leaderboard/money",
+            "https://www.roblox.com/users/${t}/profile`}async",
+            "/api/leaderboard/player/",
+            "/api/roblox/avatars?ids=",
+            "/history"
+          ]
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+          "bytes": 30294,
+          "hints": [
+            "https://cloudflareinsights.com/cdn-cgi/rum"
+          ]
+        }
+      ]
     },
     "liveJsFetchCalls": []
   }
