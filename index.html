@@ -201,9 +201,9 @@ function fmtTs(t){let d=new Date(t);return String(d.getHours()).padStart(2,'0')+
 function norm(x){return (x||'').toLowerCase().replace(/egg/g,'').replace(/[^a-z0-9]/g,'')}
 function renderIntel(){
  let ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
- $('#accuracy').innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
+ const acc=$('#accuracy'); if(acc) acc.innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
  renderLatestFocus();
- $('#spawnList').innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
+ const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
 }
 function extractLiveSpawns(html){
  const doc=new DOMParser().parseFromString(html,'text/html');
@@ -294,6 +294,6 @@ renderIntel();
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=66',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=68',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
