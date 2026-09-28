@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-28T03:10:16.614468+00:00",
+  "checkedAt": "2026-09-28T03:28:12.849909+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -334,7 +334,7 @@
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
     "spawnJsonBytes": 162,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-28T03:09:33.508Z', 'total': 0, 'since': None, 'startedAt': '2026-09-27T01:57:22.199Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': []}",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-28T03:27:33.592Z', 'total': 0, 'since': None, 'startedAt': '2026-09-27T01:57:22.199Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': []}",
     "transportHints": [
       "/spawns",
       "/spawns.json"
