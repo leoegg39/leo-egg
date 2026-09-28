@@ -1,4 +1,4 @@
-const CACHE='leo-egg-github-v68-fresh';
+const CACHE='leo-egg-github-v69-fresh';
 const CORE=['./manifest.webmanifest','./icon-180.png','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>{
