@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=66">
-<title>LEO EGG 予測 v6.8</title>
+<title>LEO EGG 予測 v6.9</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v6.8 ✨</small></h1>
+<h1>LEO EGG <small>予測 v6.9 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -106,43 +106,54 @@ function history(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(
 function save(h){localStorage.setItem(KEY,JSON.stringify(h.slice(-200)))}
 function predictionModel(){
  const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
- if(ss.length<12)return {ready:false,n:ss.length};
+ if(ss.length<12)return {ready:false,n:ss.length,reason:'データ不足'};
  const gaps=[]; for(let i=1;i<ss.length;i++){const g=(ss[i].t-ss[i-1].t)/60000;if(g>0&&g<360)gaps.push(g)}
- if(gaps.length<8)return {ready:false,n:ss.length};
- const recent=gaps.slice(-30).sort((a,b)=>a-b), med=recent[Math.floor(recent.length/2)];
- const last=ss[ss.length-1].t, elapsed=(Date.now()-last)/60000;
- const ratio=elapsed/Math.max(med,1);
- let label='待ち', klass='miss';
- if(ratio>=1.35){label='🔥 激アツ';klass='hot'} else if(ratio>=1.05){label='期待';klass='expect'} else if(ratio>=0.75){label='チャンス';klass='chance'}
- return {ready:true,n:ss.length,med,elapsed,label,klass,last};
+ const recentAge=(Date.now()-ss[ss.length-1].t)/86400000;
+ return {ready:true,n:ss.length,recentAge,confidence:ss.length>=50&&recentAge<=7?'high':ss.length>=25?'medium':'low'};
+}
+function scoreCandidates(ss){
+ const now=new Date(), hour=now.getHours(), dow=now.getDay(), rows={};
+ ss.forEach((x,i)=>{
+   const name=x.egg||x.name||'Rare Egg', d=new Date(Number(x.t));
+   if(!rows[name])rows[name]={name,count:0,hour:0,dow:0,after:{}};
+   const r=rows[name]; r.count++;
+   const dh=Math.min(Math.abs(d.getHours()-hour),24-Math.abs(d.getHours()-hour));
+   if(dh<=1)r.hour++;
+   if(d.getDay()===dow)r.dow++;
+   if(i>0){const prev=ss[i-1].egg||ss[i-1].name||'';r.after[prev]=(r.after[prev]||0)+1}
+ });
+ const last=ss.length?(ss[ss.length-1].egg||ss[ss.length-1].name||''):'';
+ const total=Math.max(1,ss.length);
+ return Object.values(rows).map(r=>{
+   const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), dowRate=r.dow/Math.max(1,r.count);
+   const follow=(r.after[last]||0)/Math.max(1,r.count);
+   return {...r,score:base*.45+hourRate*.25+dowRate*.15+follow*.15};
+ }).sort((a,b)=>b.score-a.score);
 }
 function render(){
- const m=predictionModel();
+ const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(!m.ready){
- const demo=[
-  ['Secret Egg','🔥 激アツ','hot'],
-  ['Gargoyle Egg','✨ 注目','chance'],
-  ['Secret Egg','✨ 注目','chance'],
-  ['Gargoyle Egg','🥚 通常','miss'],
-  ['Secret Egg','🥚 通常','miss']
- ];
- const base=nextBoundary();
- $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">🧪 仮予想モード（実データが12件揃うまで）</div>'+demo.map((x,i)=>{const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});return `<div class="row"><div class="n">${i+1}</div><div><div class="egg">${x[0]}</div><div class="time">仮目安 ${when} ／ 実Spawn ${m.n}/12件</div></div><div class="tag ${x[2]}">${x[1]}</div></div>`}).join('');
- stats();return
+   $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去Spawn '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
+   stats();return;
  }
- const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
- const counts={}; ss.slice(-60).forEach(x=>{const name=x.egg||x.name||'Rare Egg';counts[name]=(counts[name]||0)+1});
- const names=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]).slice(0,5);
- while(names.length<5)names.push('実データ待ち');
- const total=Math.max(1,Object.values(counts).reduce((a,b)=>a+b,0));
- const base=Math.max(Date.now(),m.last+m.med*60000);
- $('#rows').innerHTML=names.map((name,i)=>{
-   const pct=name==='実データ待ち'?null:Math.round(counts[name]/total*100);
+ const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
+ const safeHot=m.confidence==='high';
+ const note=m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
+ $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v2 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
    const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
-   const rank=i===0?'🔥 激アツ':i<3?'✨ 注目':'🥚 通常';
-   const klass=i===0?'hot':i<3?'chance':'miss';
-   return `<div class="row"><div class="n">${i+1}</div><div><div class="egg">${name}</div><div class="time">目安 ${when}${pct===null?'':' ／ 実績比 '+pct+'%'}</div></div><div class="tag ${klass}">${rank}</div></div>`;
- }).join(''); stats();
+   const label=i===0&&safeHot?'🔥 激アツ':i<3?'✨ 候補':'参考';
+   const klass=i===0&&safeHot?'hot':i<3?'chance':'miss';
+   const pct=Math.round(r.count/Math.max(1,ss.length)*100);
+   return `<div class="row"><div class="n">${i+1}</div><div><div class="egg">${r.name}</div><div class="time">次回目安 ${when} ／ 履歴 ${r.count}回（${pct}%）</div></div><div class="tag ${klass}">${label}</div></div>`;
+ }).join('');
+ stats();
+}
+async function syncHistoryForPrediction(){
+ try{
+   const res=await fetch(LIVE_JSON+'?history='+Date.now(),{cache:'no-store'}); if(!res.ok)return;
+   const j=await res.json(), xs=Array.isArray(j.spawns)?j.spawns:[];
+   xs.forEach(x=>{if(Number.isFinite(Number(x.ts)))addAutoSpawn(x)});
+ }catch(e){}
 }
 function stats(){
  const h=history(), ss=loadJ(SKEY);
@@ -292,6 +303,7 @@ if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
+syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
  navigator.serviceWorker.register('sw.js?v=68',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
