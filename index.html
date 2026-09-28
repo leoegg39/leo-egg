@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=66">
+<link rel="manifest" href="manifest.webmanifest?v=69">
 <title>LEO EGG 予測 v6.9</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
@@ -306,6 +306,6 @@ eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=68',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=69',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
