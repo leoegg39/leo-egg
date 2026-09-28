@@ -99,9 +99,9 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 
 
 <section class="card">
-<h2 style="font-size:30px;margin-top:0">📡 LIVE監視 <span class="badge">v6.6</span></h2>
+<h2 style="font-size:30px;margin-top:0">📡 LIVE監視 <span class="badge">v6.7</span></h2>
 <p class="muted">公開Live rare eggsを自動チェック。新しいレア卵を検出すると履歴へ自動登録し、画面を開いている間は音で知らせます。</p>
-<div id="autoStatus" class="stat"><span class="badge">LEO EGG v6.6</span> 起動確認OK ／ GitHub自動監視準備中</div>
+<div id="autoStatus" class="stat"><span class="badge">LEO EGG v6.7</span> 起動確認OK ／ GitHub自動監視準備中</div>
 <div id="autoLatest" class="stat" style="margin-top:14px"></div>
 <button id="autoNow" class="action">⚡ 通信状態を確認</button>
 </section>
@@ -293,7 +293,7 @@ async function readGitHubLive(){
   if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=xs.length
  ? `<span class="badge">🟢 自動取得中</span> 実Spawn ${xs.length}件 ／ 新規 ${added}件`
  : '<span class="badge">🟡 データ待機中</span> 実Spawn 0件 ／ 公開Liveの新着待ち';}
- }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.6</span> 起動OK ／ データ待ち';}
+ }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.7</span> 起動OK ／ データ待ち';}
 }
 $('#autoNow').onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
@@ -305,7 +305,7 @@ $('#autoNow').insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">LEO EGG v6.6</span> GitHub自動監視 ／ Netlify通信OFF';
+$('#autoStatus').innerHTML='<span class="badge">LEO EGG v6.7</span> GitHub自動監視 ／ Netlify通信OFF';
 readGitHubLive();setInterval(readGitHubLive,60000);
 if('serviceWorker' in navigator){
  navigator.serviceWorker.register('sw.js?v=66',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
