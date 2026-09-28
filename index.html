@@ -8,15 +8,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=70">
-<title>LEO EGG 予測 v7.0</title>
+<link rel="manifest" href="manifest.webmanifest?v=71">
+<title>LEO EGG 予測 v7.1</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
 h1{text-align:center;color:#ffd53f;font-size:38px;margin:12px 0 28px}.card{background:#14243a;border:2px solid #38506d;border-radius:38px;padding:28px 40px;margin:0 0 28px}
 .center{text-align:center}.muted{color:#b8c4d6}.timer{font-size:82px;font-weight:900;color:#52d9f5;line-height:1}.live{font-size:28px;font-weight:800;color:#69efae;margin:20px 0}
 button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;font-weight:900;margin-top:14px}.sound{background:#6be8a8;color:#0781ff}.recalc{background:#ffd65a;color:#1675ff}
-.row{display:grid;grid-template-columns:120px 1fr 150px;align-items:center;gap:12px;padding:22px 0;border-top:2px solid #334b67}.row:first-of-type{border-top:0}.n{font-size:25px;font-weight:900}.egg{font-size:30px;font-weight:900}.time{font-size:20px;color:#b8c4d6}.tag{padding:17px 12px;border-radius:22px;text-align:center;font-size:24px;font-weight:900;color:#071321}.hot{background:#ffd12f;box-shadow:0 0 22px #ffd12f}.expect{background:#f2ad38}.chance{background:#67d1f2}.miss{background:#43536b;color:#e7edf5}
+.row{display:grid;grid-template-columns:120px 1fr 150px;align-items:center;gap:12px;padding:22px 0;border-top:2px solid #334b67}.row:first-of-type{border-top:0}.n{font-size:25px;font-weight:900}.egg{font-size:30px;font-weight:900}.time{font-size:20px;color:#b8c4d6}.tag{padding:17px 12px;border-radius:22px;text-align:center;font-size:24px;font-weight:900;color:#071321}.hot{background:#ffd12f;box-shadow:0 0 22px #ffd12f}.superhot{background:linear-gradient(90deg,#ff8ad8,#ffe66b,#72f1ff);box-shadow:0 0 28px #fff;color:#071321}.expect{background:#f2ad38}.chance{background:#67d1f2}.miss{background:#43536b;color:#e7edf5}
 .recordgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.recordgrid button{font-size:20px;padding:17px 8px;margin:0}.normal{background:#d7e1ed}.rare{background:#79d9ff}.light{background:#ffe06b}.giant{background:#ffb94f}
 .stat{font-size:18px;line-height:1.55}.badge{display:inline-block;background:#20364f;border-radius:999px;padding:8px 13px;margin:4px 4px 0 0}.small{font-size:15px;line-height:1.55}
 @media(max-width:520px){main{padding-left:14px;padding-right:14px}.card{padding:24px 20px;border-radius:30px}h1{font-size:34px}.timer{font-size:72px}.row{grid-template-columns:105px 1fr 112px}.egg{font-size:26px}.tag{font-size:20px}.recordgrid button{font-size:18px}}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.0 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.1 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -146,7 +146,10 @@ function lightEggPrediction(){
  const hourBoost=Math.min(.25,sameHour/Math.max(8,hs.length));
  let score=Math.min(1,ratio*.55+hourBoost);
  let label='まだ弱い',klass='miss';
- if(hs.length>=8&&score>=.9){label='🔥 強め';klass='hot'}else if(score>=.65){label='✨ 注目';klass='chance'}
+ const gapClose=Math.abs(elapsed-med)<=Math.max(5,med*.12);
+ if(hs.length>=15&&score>=.97&&gapClose&&sameHour>=3){label='🌈 超激アツ';klass='superhot'}
+ else if(hs.length>=8&&score>=.9){label='🔥 激アツ';klass='hot'}
+ else if(score>=.65){label='✨ 注目';klass='chance'}
  return {ready:true,n:hs.length,med,last,elapsed,score,label,klass};
 }
 function renderLightPrediction(){
@@ -332,6 +335,6 @@ eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterva
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=70',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=71',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
