@@ -116,7 +116,9 @@ jobs:
                     "spawnJsonBytes":len(spawn_json_raw) if 'spawn_json_raw' in locals() else 0,
                     "spawnJsonError":spawn_json_error if 'spawn_json_error' in locals() else "",
                     "spawnJsonPreview":str(spawn_json_data)[:1500] if 'spawn_json_data' in locals() else "",
-                    "transportHints":sorted(set(re.findall(r'(?:https?://|wss?://)[^"\\\' )]+|/(?:api|events|stream|spawn|alert)[A-Za-z0-9_?&=./-]*',live_js,re.I)))[:50]}}
+                    "transportHints":sorted(set(re.findall(r'(?:https?://|wss?://)[^"\\\' )]+|/(?:api|events|stream|spawn|alert)[A-Za-z0-9_?&=./-]*',live_js,re.I)))[:50],
+                    "liveJsContexts":[live_js[max(0,m.start()-500):min(len(live_js),m.end()+700)] for m in list(re.finditer(r'spawns(?:[.]json)?|EventSource|WebSocket|fetch\\s*[(]|XMLHttpRequest',live_js,re.I))[:12]],
+                    "liveJsFetchCalls":re.findall(r'(?:fetch|EventSource|WebSocket)\\s*[(]\\s*([^)]{1,300})[)]',live_js,re.I)[:20]}}
           except Exception as e:
               old=[]
               try: old=json.load(open("live.json")).get("spawns",[])
