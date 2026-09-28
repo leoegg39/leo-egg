@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=66">
-<title>LEO EGG LIVE v6.7</title>
+<title>LEO EGG 予測 v6.8</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,17 +49,17 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>LIVE v6.7 ✨</small></h1>
+<h1>LEO EGG <small>予測 v6.8 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
 <div id="timer" class="timer">--:--</div>
-<div class="live">● 実測学習モード</div>
+<div class="live">● 過去データ学習モード</div>
 <button id="sound" class="sound">🔊 音をONにする</button>
 </section>
 
 <section class="card">
-<h2 style="font-size:32px;margin-top:0">🎯 実データ予測</h2>
+<h2 style="font-size:32px;margin-top:0">🎯 過去データ予測</h2>
 <div id="rows"></div>
 </section>
 
@@ -78,16 +78,6 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 
 
 <section class="card">
-<h2 style="font-size:30px;margin-top:0">🔥 今狙うレア卵</h2>
-<div id="latestFocus"></div>
-<div class="focusgrid">
- <div class="focuscard secret"><div class="rarity">SECRET</div><div class="focusname">実Spawn待ち</div><div class="focusmeta">最新データ取得後に<br>卵名・エリア・時刻を表示</div></div>
- <div class="focuscard eternal"><div class="rarity">ETERNAL</div><div class="focusname">自動監視</div><div class="focusmeta">検出すると自動で<br>履歴へ追加</div></div>
- <div class="focuscard divine"><div class="rarity">DIVINE</div><div class="focusname">自動監視</div><div class="focusmeta">配信元停止時は<br>誤判定しません</div></div>
-</div>
-</section>
-
-<section class="card">
 <div class="catalogHead"><h2 style="font-size:30px;margin:0">📖 卵図鑑</h2><button id="toggleCatalog" class="toggleCatalog">全卵を見る</button></div>
 <p class="muted">普段は閉じてスッキリ。必要なときだけエリア別に確認できます。</p>
 <div id="areaStrip" class="areaStrip"></div>
@@ -98,33 +88,10 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </section>
 
 
-<section class="card">
-<h2 style="font-size:30px;margin-top:0">📡 LIVE監視 <span class="badge">v6.7</span></h2>
-<p class="muted">公開Live rare eggsを自動チェック。新しいレア卵を検出すると履歴へ自動登録し、画面を開いている間は音で知らせます。</p>
-<div id="autoStatus" class="stat"><span class="badge">LEO EGG v6.7</span> 起動確認OK ／ GitHub自動監視準備中</div>
-<div id="autoLatest" class="stat" style="margin-top:14px"></div>
-<button id="autoNow" class="action">⚡ 通信状態を確認</button>
-<button id="notifyHot" class="action" style="margin-top:12px">🔔 激アツ通知をON</button>
-<div id="notifyHotStatus" class="muted" style="margin-top:8px">🔥 激アツだけ通知します（通常・チャンスは通知しません）</div>
-</section>
-
-<section class="card" style="display:none">
-<h2 style="font-size:30px;margin-top:0">📡 実Spawn収集</h2>
-<div id="accuracy" class="stat"></div>
-<div id="spawnList" class="stat" style="margin-top:12px"></div>
-</section>
-
-<section class="card">
-<h2 style="font-size:28px;margin-top:0">🌐 外部実データ</h2>
-<div id="external" class="stat"><span class="badge">🟡 データ待機中</span> 実Spawnが取得できるまで待機します。0件のときは取得成功とは表示しません。</div>
-</section>
 
 <button id="recalc" class="recalc">🔄 今すぐ再計算</button>
 
-<section class="card small muted" style="margin-top:28px">
-<b style="color:#fff">予想の扱い：</b> 高レア卵はランダム要素があり、未来を確定する公開APIは確認できません。
-v9 FOCUS UIは公開Live rare eggsを定期チェックし、取得できたSpawnを端末内へ自動保存します。DiscordアカウントやBot権限は使いません。公開元が停止・仕様変更・CORS制限中の場合は、データを捏造せず「取得待ち」と表示します。iPhoneではWebアプリを完全終了すると監視も停止するため、常時バックグラウンド通知にはサーバー側Pushが別途必要です。
-</section>
+<section class="card small muted" style="margin-top:28px"><b>予想の扱い：</b> 過去に取得できたSpawn履歴と手動記録を学習材料にして予想します。リアルタイム実Spawn監視は行いません。過去データは定期的に追加できた分だけ蓄積します。</section>
 </main>
 <script>
 const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEggSpawnV4';
@@ -314,19 +281,18 @@ function refreshHotNotify(){
  const b=$('#notifyHot'); if(!b)return;
  if(('Notification' in window)&&Notification.permission==='granted'&&localStorage.getItem('leoHotNotify')==='1') b.textContent='🔔 激アツ通知 ON';
 }
-$('#notifyHot').onclick=setupHotNotification; refreshHotNotify();
-$('#autoNow').onclick=readGitHubLive;
+const _notifyHot=$('#notifyHot'); if(_notifyHot){_notifyHot.onclick=setupHotNotification; refreshHotNotify();}
+const _autoNow=$('#autoNow'); if(_autoNow)_autoNow.onclick=readGitHubLive;
 const liveBtn=document.createElement('a');
 liveBtn.href=LIVE_URL;
 liveBtn.target='_blank'; liveBtn.rel='noopener';
 liveBtn.className='action'; liveBtn.style.cssText='display:block;text-align:center;text-decoration:none;margin-top:12px';
 liveBtn.textContent='🥚 公開Liveを確認';
-$('#autoNow').insertAdjacentElement('afterend',liveBtn);
+if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 eggDB();render();tick();setInterval(tick,250);setInterval(render,30000);
-$('#autoStatus').innerHTML='<span class="badge">LEO EGG v6.7</span> GitHub自動監視 ／ Netlify通信OFF';
-readGitHubLive();setInterval(readGitHubLive,60000);
+
 if('serviceWorker' in navigator){
  navigator.serviceWorker.register('sw.js?v=66',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
