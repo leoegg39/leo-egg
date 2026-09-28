@@ -1,4 +1,4 @@
-name: LEO EGG Live Collector
+name: LEO EGG History Collector
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     paths:
       - ".github/workflows/live-collector.yml"
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "17 3 * * *"
 
 permissions:
   contents: write
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Fetch public live page
+      - name: Fetch public history when available
         shell: bash
         run: |
           python - <<'PY'
@@ -149,5 +149,5 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add live.json
           git diff --cached --quiet && exit 0
-          git commit -m "Update LEO EGG live status"
+          git commit -m "Update LEO EGG history data"
           git push
