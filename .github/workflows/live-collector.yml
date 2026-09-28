@@ -91,6 +91,21 @@ jobs:
                       key=(egg,rarity or "",biome or "",tm or "")
                       if not any(x.get("_key")==key for x in spawns):
                           spawns.append({"_key":key,"egg":egg,"rarity":rarity,"biome":biome,"timeText":tm})
+              # Convert the real Eggipedia JSON feed into the LEO EGG schema.
+              # live.js validates each item with pet + at; preserve extra fields when present.
+              if isinstance(spawn_json_data,dict) and isinstance(spawn_json_data.get("spawns"),list):
+                  for s in spawn_json_data["spawns"]:
+                      if not isinstance(s,dict): continue
+                      egg=s.get("egg") or s.get("name") or s.get("pet")
+                      at=s.get("at") or s.get("spawnedAt") or s.get("time")
+                      if not egg or not at: continue
+                      try:
+                          ts=int(datetime.datetime.fromisoformat(str(at).replace("Z","+00:00")).timestamp()*1000)
+                      except Exception:
+                          continue
+                      spawns.append({"egg":str(egg),"rarity":s.get("rarity"),"biome":s.get("biome") or s.get("location"),
+                                     "loc":s.get("biome") or s.get("location") or "","timeText":str(at),"ts":ts,
+                                     "source":"Eggipedia JSON"})
               # Preserve previous history and append only newly parsed entries.
               old=[]
               try:
