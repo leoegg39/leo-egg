@@ -5,7 +5,98 @@
   "paused": false,
   "noHistory": true,
   "parsedNow": 0,
-  "spawns": [],
+  "spawns": [
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "Secret",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-05 20:10",
+      "ts": 1788639000000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "T-Rex",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-05 19:25",
+      "ts": 1788636300000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "T-Rex",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-06 11:15",
+      "ts": 1788693300000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Oni Tiger",
+      "rarity": "Eternal",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-06 03:35",
+      "ts": 1788665700000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Oni Tiger",
+      "rarity": "Eternal",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-06 08:45",
+      "ts": 1788684300000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Kitsune",
+      "rarity": "Divine",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-07 01:10",
+      "ts": 1788743400000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "Secret",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-07 08:30",
+      "ts": 1788769800000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "Secret",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-07 08:45",
+      "ts": 1788770700000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "T-Rex",
+      "rarity": "Secret",
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-07 08:40",
+      "ts": 1788770400000,
+      "source": "CommunityOne historical verified"
+    },
+    {
+      "egg": "Oni Tiger",
+      "rarity": "Eternal",
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-07 08:55",
+      "ts": 1788771300000,
+      "source": "CommunityOne historical verified"
+    }
+  ],
   "diagnostics": {
     "htmlBytes": 13435,
     "scriptCount": 5,
@@ -50,5 +141,10 @@
       "hen(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; render(); })\n      .catch(function () { if (!state.data) showError(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) { renderStatus(state.data); renderNow((state.data.spawns || []).filter(function (s) { return s && pets[s.pet]; })); }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n"
     ],
     "liveJsFetchCalls": []
+  },
+  "historicalSeed": {
+    "source": "CommunityOne public notifier archive",
+    "count": 10,
+    "note": "Historical observed spawn alerts; separate from current live Eggipedia feed."
   }
 }
