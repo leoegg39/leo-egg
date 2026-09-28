@@ -34,6 +34,15 @@
       "source": "CommunityOne historical observed alert"
     },
     {
+      "egg": "Unicorn",
+      "rarity": "Divine",
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-05T21:05:00Z",
+      "ts": 1788642300000,
+      "source": "CommunityOne historical observed alert"
+    },
+    {
       "egg": "T-Rex",
       "rarity": "Secret",
       "biome": "Prehistoric",
@@ -288,7 +297,7 @@
   },
   "historicalSeed": {
     "source": "CommunityOne public Steal An Egg Notifier archive",
-    "count": 26,
-    "note": "Observed historical spawn alerts only; kept separate by source from current Eggipedia Live."
+    "count": 27,
+    "note": "Observed historical spawn alerts only; current Live remains separate."
   }
 }
