@@ -69,6 +69,31 @@ button{border:1px solid #ffffff14!important}.sound,.action{background:linear-gra
 @keyframes leoPulse{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.035);filter:brightness(1.2)}}
 @media(max-width:520px){h1{font-size:34px!important}.timer{font-size:72px!important}.card{border-radius:22px!important;padding:21px 17px!important}}
 </style>
+<style id="leo-neon-hud">
+:root{--bg:#050812;--panel:#0b1220;--line:#1f3552;--cyan:#55e8ff;--violet:#9b7cff;--gold:#ffd84a;--text:#edf7ff;--muted:#8ea4bd}
+html,body{background:radial-gradient(circle at 50% -10%,#172755 0,#080d19 38%,#03050b 100%)!important;color:var(--text)!important}
+main{max-width:760px!important}
+h1{background:linear-gradient(135deg,#071323,#142657 48%,#351b54)!important;border:1px solid #365b88!important;color:#fff!important;text-shadow:0 0 18px #55e8ff!important;box-shadow:0 0 30px #5c74ff33!important}
+.card{background:linear-gradient(145deg,#0b1322ee,#080d18ee)!important;border:1px solid var(--line)!important;color:var(--text)!important;box-shadow:0 12px 32px #0008, inset 0 0 24px #4a79ff0b!important;backdrop-filter:blur(14px)}
+.card.center{background:radial-gradient(circle at 50% 35%,#172750,#09111f 64%)!important;border-color:#315a87!important}
+.muted,.time,.small.muted,.focusmeta{color:var(--muted)!important}
+.timer{color:var(--cyan)!important;text-shadow:0 0 12px #55e8ff,0 0 32px #426dff!important;letter-spacing:4px}
+.live{color:#6affc4!important;text-shadow:0 0 12px #28e69a88}
+.sound,.action{background:linear-gradient(100deg,#20d9bd,#39bff8)!important;color:#04101d!important}
+.recalc{background:linear-gradient(100deg,#6e63ff,#d866ff)!important;color:#fff!important}
+.row{border-color:#1a2b42!important;margin:5px 0;padding:18px 10px!important;border-radius:18px;background:#0c1524}
+.egg{color:#f6fbff}.n{color:#7beaff}
+.tag.hot{background:linear-gradient(135deg,#ff9d19,#ffe15c)!important;box-shadow:0 0 18px #ffb31f,0 0 38px #ff6b1844!important;animation:hotpulse 1.5s infinite}
+.tag.superhot{background:linear-gradient(90deg,#ff55b8,#ffe45d,#54eeff)!important;box-shadow:0 0 25px #fff8!important}
+.tag.chance{background:#163a55!important;color:#73eaff!important}.tag.miss{background:#172234!important;color:#8da2bb!important}
+.recordgrid button{border:1px solid #29425f!important}.normal{background:#172235!important;color:#d9e8f7}.rare{background:#123c58!important;color:#73dfff}.light{background:#4c3b0b!important;color:#ffe266;box-shadow:0 0 16px #ffd84a33!important}.giant{background:#502313!important;color:#ffb85e}
+.badge,.pill{background:#13233a!important;color:#9fc5ed!important;border:1px solid #203a59}
+.input,.focuscard,.latestBox{background:#091321!important;color:#edf7ff!important;border-color:#203b59!important}
+.areaBtn,.toggleCatalog{background:#101d30!important;color:#9db5cf!important}.areaBtn.active{background:#1ac69c!important;color:#041a16!important}
+.card h2{color:#f3f8ff!important}
+@keyframes hotpulse{50%{transform:scale(1.035);filter:brightness(1.2)}}
+@media(max-width:520px){h1{font-size:34px!important}.timer{font-size:72px!important}.row{grid-template-columns:80px 1fr 105px!important}.egg{font-size:23px!important}}
+</style>
 </head>
 <body><main>
 <h1>LEO EGG <small>予測 v7.4.3 ✨</small></h1>
