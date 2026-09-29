@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=742">
-<title>LEO EGG 予測 v7.5.0</title>
+<title>LEO EGG 予測 v7.5.1</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.5.0 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.5.1 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -106,6 +106,8 @@ const LIVE_URL='https://eggipedia.com/spawns';
 const LIVE_JSON='./live.json';
 const REAL_EGGS=[["Chicken Egg","Common","Forest"],["Dog Egg","Common","Forest"],["Bird Egg","Uncommon","Forest"],["Burrowing Owl Egg","Rare","Forest"],["Raccoon Egg","Rare","Forest"],["Fox Egg","Epic","Forest"],["Bear Egg","Epic","Forest"],["Brr Brr Patapim Egg","Legendary","Forest"],["Frog Egg","Common","Lake"],["Duckling Egg","Common","Lake"],["Catfish Egg","Uncommon","Lake"],["Turtle Egg","Rare","Lake"],["Trulimero Trulicina Egg","Epic","Lake"],["Swan Egg","Epic","Lake"],["Axolotl Egg","Legendary","Lake"],["Leviathan Egg","Cosmic","Lake"],["Jerboa Egg","Common","Desert"],["Fennec Egg","Uncommon","Desert"],["Camel Egg","Rare","Desert"],["Tob Tobi Tob Tob Egg","Epic","Desert"],["Snake Egg","Legendary","Desert"],["Sand Spider Egg","Mythic","Desert"],["Scorpion Egg","Mythic","Desert"],["Royal Sphinx Egg","Cosmic","Desert"],["Chimpanzee Egg","Rare","Jungle"],["Toucan Egg","Rare","Jungle"],["Crocodile Egg","Epic","Jungle"],["Gorilla Egg","Legendary","Jungle"],["Orangutini Ananassini Egg","Legendary","Jungle"],["Spider Egg","Mythic","Jungle"],["Tiger Egg","Mythic","Jungle"],["King Snake Egg","Secret","Jungle"],["Penguin Egg","Rare","Snow"],["Walrus Egg","Epic","Snow"],["Polar Bear Egg","Legendary","Snow"],["Sabertooth Tiger Egg","Mythic","Snow"],["Mammoth Egg","Mythic","Snow"],["King Mammoth Egg","Cosmic","Snow"],["Yeti Egg","Secret","Snow"],["Ice Dragon Egg","Eternal","Snow"],["Lava Gecko Egg","Rare","Volcano"],["Lava Frog Egg","Epic","Volcano"],["Flaming Bull Egg","Legendary","Volcano"],["Lava Iguana Egg","Legendary","Volcano"],["Chillin Chilli Egg","Mythic","Volcano"],["Cerberus Egg","Secret","Volcano"],["Phoenix Egg","Eternal","Volcano"],["Lava Dragon Egg","Eternal","Volcano"],["Parrotfish Egg","Rare","Abyss Ocean"],["Swordfish Egg","Epic","Abyss Ocean"],["Shark Egg","Legendary","Abyss Ocean"],["Orca Egg","Mythic","Abyss Ocean"],["Whale Shark Egg","Cosmic","Abyss Ocean"],["Beluga Whale Egg","Cosmic","Abyss Ocean"],["Kraken Egg","Secret","Abyss Ocean"],["El Maja Egg","Eternal","Abyss Ocean"],["Dodo Egg","Rare","Prehistoric"],["Pterodactyl Egg","Legendary","Prehistoric"],["Ankylosaurus Egg","Mythic","Prehistoric"],["Triceratops Egg","Cosmic","Prehistoric"],["Bronto Egg","Cosmic","Prehistoric"],["T-Rex Egg","Secret","Prehistoric"],["Tralaledon Egg","Secret","Prehistoric"],["Mosasaurus Egg","Eternal","Prehistoric"],["Centapede Egg","Epic","Cosmic"],["Cosmic Gecko Egg","Legendary","Cosmic"],["Cosmic Gorilla Egg","Mythic","Cosmic"],["La Vacca Saturno Saturnita Egg","Cosmic","Cosmic"],["Cosmic Skeleton Boss Egg","Secret","Cosmic"],["Cosmic Dragon Egg","Secret","Cosmic"],["Eternal Lunar Dragon Egg","Eternal","Cosmic"],["Unicorn Egg","Divine","Cosmic"],["Crane Egg","Epic","Cherry Blossom"],["Salamander Egg","Legendary","Cherry Blossom"],["Red Panda Egg","Mythic","Cherry Blossom"],["Snowy Owl Egg","Cosmic","Cherry Blossom"],["Koi Egg","Cosmic","Cherry Blossom"],["Stag Egg","Secret","Cherry Blossom"],["Oni Tiger Egg","Eternal","Cherry Blossom"],["Kitsune Egg","Divine","Cherry Blossom"],["Spideron Egg","Legendary","Titan Temple"],["Crustacia Egg","Legendary","Titan Temple"],["Bladehide Egg","Mythic","Titan Temple"],["Mantaris Egg","Cosmic","Titan Temple"],["Rhinotaur Egg","Cosmic","Titan Temple"],["Mutant Shark Egg","Secret","Titan Temple"],["Gorilla King Egg","Eternal","Titan Temple"],["Nightflame Egg","Divine","Titan Temple"],["Flame Sprite Egg","Legendary","Angels & Demons"],["Light Dove Egg","Legendary","Angels & Demons"],["Toro Egg","Mythic","Angels & Demons"],["Winged Lamb Egg","Mythic","Angels & Demons"],["Imp Egg","Cosmic","Angels & Demons"],["Sacred Moth Egg","Cosmic","Angels & Demons"],["Demon Hound Egg","Cosmic","Angels & Demons"],["Holy Peacock Egg","Cosmic","Angels & Demons"],["Gargoyle Egg","Secret","Angels & Demons"],["Pure Jellyfish Egg","Secret","Angels & Demons"],["Centaur Egg","Secret","Angels & Demons"],["RazorFang Egg","Secret","Angels & Demons"],["Pegasus Egg","Eternal","Angels & Demons"],["Skeleton Horse Egg","Eternal","Angels & Demons"],["ArchAngel Egg","Divine","Angels & Demons"],["World Burner Egg","Divine","Angels & Demons"]];
 const BIOMES=[["Forest", "制限なし"], ["Lake", "900"], ["Desert", "10K"], ["Jungle", "40K"], ["Snow", "170K"], ["Volcano", "700K"], ["Abyss Ocean", "2.5M"], ["Prehistoric", "18M"], ["Cosmic", "700M"], ["Cherry Blossom", "2.5B"], ["Titan Temple", "7B"], ["Angels & Demons", "20B"]];
+const BIOME_JA={"Forest":"🌲 森","Lake":"💧 湖","Desert":"🏜️ 砂漠","Jungle":"🌴 ジャングル","Snow":"❄️ 雪原","Volcano":"🌋 火山","Abyss Ocean":"🌊 深海","Prehistoric":"🦖 原始時代","Cosmic":"🌌 宇宙","Cherry Blossom":"🌸 桜","Titan Temple":"🏛️ タイタン神殿","Angels & Demons":"😇😈 天使と悪魔"};
+function biomeJa(x){return BIOME_JA[x]||('📍 '+(x||'場所不明'))}
 
 let soundOn=false;
 const $=s=>document.querySelector(s);
@@ -172,7 +174,7 @@ function render(){
    $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">🥚 予測準備中 ／ 実データ '+m.n+'件</div><div class="predictgrid">'+demo.map((e,i)=>{
      const biome=e[2]||'場所不明';
      const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
-     return `<div class="predictcard"><div class="egg">🥚 ${e[0]}</div><div class="place">📍 ${biome||"場所不明"}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
+     return `<div class="predictcard"><div class="egg">🥚 ${e[0]}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
    }).join('')+'</div>';
    renderLightPrediction();stats();return;
  }
@@ -374,6 +376,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=750',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=751',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
