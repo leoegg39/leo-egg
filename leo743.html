@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#071321">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LEO 卵">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest?v=743">
+<title>LEO EGG 予測 v7.4.3</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
+h1{text-align:center;color:#ffd53f;font-size:38px;margin:12px 0 28px}.card{background:#14243a;border:2px solid #38506d;border-radius:38px;padding:28px 40px;margin:0 0 28px}
+.center{text-align:center}.muted{color:#b8c4d6}.timer{font-size:82px;font-weight:900;color:#52d9f5;line-height:1}.live{font-size:28px;font-weight:800;color:#69efae;margin:20px 0}
+button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;font-weight:900;margin-top:14px}.sound{background:#6be8a8;color:#0781ff}.recalc{background:#ffd65a;color:#1675ff}
+.row{display:grid;grid-template-columns:120px 1fr 150px;align-items:center;gap:12px;padding:22px 0;border-top:2px solid #334b67}.row:first-of-type{border-top:0}.n{font-size:25px;font-weight:900}.egg{font-size:30px;font-weight:900}.time{font-size:20px;color:#b8c4d6}.tag{padding:17px 12px;border-radius:22px;text-align:center;font-size:24px;font-weight:900;color:#071321}.hot{background:#ffd12f;box-shadow:0 0 22px #ffd12f}.superhot{background:linear-gradient(90deg,#ff8ad8,#ffe66b,#72f1ff);box-shadow:0 0 28px #fff;color:#071321}.expect{background:#f2ad38}.chance{background:#67d1f2}.miss{background:#43536b;color:#e7edf5}
+.recordgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.recordgrid button{font-size:20px;padding:17px 8px;margin:0}.normal{background:#d7e1ed}.rare{background:#79d9ff}.light{background:#ffe06b}.giant{background:#ffb94f}
+.stat{font-size:18px;line-height:1.55}.badge{display:inline-block;background:#20364f;border-radius:999px;padding:8px 13px;margin:4px 4px 0 0}.small{font-size:15px;line-height:1.55}
+@media(max-width:520px){main{padding-left:14px;padding-right:14px}.card{padding:24px 20px;border-radius:30px}h1{font-size:34px}.timer{font-size:72px}.row{grid-template-columns:105px 1fr 112px}.egg{font-size:26px}.tag{font-size:20px}.recordgrid button{font-size:18px}}
+
+.input{width:100%;font-size:18px;padding:14px;border-radius:16px;background:#20364f;color:#fff;border:1px solid #526a87;margin:6px 0}.minirow{display:grid;grid-template-columns:1.2fr 1fr;gap:8px}.preditem{padding:14px 0;border-top:1px solid #334b67}.preditem:first-child{border-top:0}.pct{font-weight:900;color:#ffd65a}.ok{color:#69efae;font-weight:900}.bad{color:#ff9b9b;font-weight:900}.action{background:#6be8a8;color:#0877e8;font-size:19px;padding:15px;margin-top:8px}.danger{background:#43536b;color:#fff;font-size:16px;padding:12px}.pill{display:inline-block;border-radius:999px;background:#20364f;padding:5px 10px;margin:2px;font-size:14px}
+
+.focusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.focuscard{background:#0d1d31;border:2px solid #3b5675;border-radius:24px;padding:16px 12px;min-height:150px}.focuscard.secret{border-color:#ff466f;box-shadow:0 0 18px #ff466f33}.focuscard.eternal{border-color:#b35cff}.focuscard.divine{border-color:#ffd84d}.rarity{font-size:13px;font-weight:900;letter-spacing:.4px}.secret .rarity{color:#ff6687}.eternal .rarity{color:#ca8aff}.divine .rarity{color:#ffe36f}.focusname{font-size:19px;font-weight:900;margin:10px 0 7px}.focusmeta{font-size:14px;color:#c7d3e4;line-height:1.55}.areaStrip{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.areaBtn{width:auto;min-width:max-content;margin:0;padding:11px 14px;border-radius:18px;background:#20364f;color:#fff;font-size:15px}.areaBtn.active{background:#62dca5;color:#082035}.catalogHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.toggleCatalog{width:auto;margin:0;background:#20364f;color:#fff;font-size:16px;padding:11px 15px}.catalogWrap{display:none;margin-top:15px}.catalogWrap.open{display:block}.latestBox{background:#0d1d31;border:2px solid #ff466f;border-radius:26px;padding:18px;margin-bottom:16px}.latestTitle{font-size:14px;color:#ff6f8e;font-weight:900}.latestName{font-size:28px;font-weight:900;margin:7px 0}.latestMeta{font-size:16px;color:#cbd7e7;line-height:1.6}
+@media(max-width:520px){.focusgrid{grid-template-columns:1fr}.focuscard{min-height:0}.catalogHead h2{font-size:25px!important}}
+
+/* LEO EGG pastel app skin v6 */
+body{background:linear-gradient(180deg,#eaf8ff 0,#f8efff 48%,#fff7fb 100%);color:#25304a}
+main{max-width:760px;padding:calc(env(safe-area-inset-top) + 10px) 12px calc(env(safe-area-inset-bottom) + 95px)}
+h1{margin:4px 0 14px;padding:28px 12px 24px;border-radius:0 0 34px 34px;color:#fff;font-size:42px;letter-spacing:1px;text-shadow:0 3px 10px #6c79d8;background:linear-gradient(135deg,#74dfff,#8c91ff 45%,#ff8fd1);box-shadow:0 12px 30px #8f9fe344}
+h1:after{content:"  ✨";font-size:24px}
+.card{background:#ffffffdc;border:2px solid #fff;border-radius:28px;padding:22px 20px;margin:0 0 16px;box-shadow:0 8px 25px #8091c523;backdrop-filter:blur(8px)}
+.card.center{background:linear-gradient(135deg,#e7fff7,#eef5ff 55%,#fff0fa)}
+.card h2{color:#27324c}.muted{color:#71809b}.timer{color:#6b70f7;font-size:72px;text-shadow:0 4px 14px #a7b0ff55}.live{color:#19b978}
+button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient(135deg,#6ee8c1,#79cfff);color:#174c82}.recalc{background:linear-gradient(135deg,#ffd76a,#ff9fcb);color:#6c3a75}
+.stat,.focuscard,.latestBox{background:#f8fbff!important;border-color:#dbe7ff!important;color:#33415f}
+.badge{background:#e9f2ff;color:#42618b}.ok{color:#16a870}.bad{color:#e45f7c}.pct{color:#735ff3}
+.row{border-color:#e3eaf7}.time,.focusmeta{color:#71809b}.focuscard{box-shadow:0 5px 15px #8fa3cf18}
+.input{background:#f5f8ff;color:#26334f;border-color:#d5e1f5}.areaBtn,.toggleCatalog{background:#edf3ff;color:#42577b}.areaBtn.active{background:#7ce8c5;color:#164d44}
+#autoStatus{border-left:6px solid #56dca6;padding:14px 16px;border-radius:18px}
+#external{border-left:6px solid #76b9ff;padding:14px 16px;border-radius:18px}
+@media(max-width:520px){h1{font-size:36px}.card{padding:20px 17px;border-radius:25px}.timer{font-size:66px}}
+</style>
+
+<style id="leo-v62-skin">
+:root{--ink:#17233e;--muted:#6f7e9c;--purple:#6567f4;--green:#17bc80;--line:#dce4f1}html{background:#eef8ff}body{background:linear-gradient(180deg,#eaf8ff 0%,#f5f7ff 46%,#eef5ff 100%);color:var(--ink)}main{max-width:760px;padding:calc(env(safe-area-inset-top) + 18px) 22px calc(env(safe-area-inset-bottom) + 34px)}h1{margin:0 0 26px;padding:42px 24px 38px;border-radius:0 0 54px 54px;background:linear-gradient(120deg,#4fd4f3 0%,#7779f3 50%,#ed7fd6 100%);color:white;font-size:45px;letter-spacing:2px;text-shadow:0 4px 12px #4756a866;box-shadow:0 14px 30px #7392cf22}h1 small{font-size:20px;letter-spacing:1px}.card{background:rgba(255,255,255,.86);border:2px solid rgba(255,255,255,.95);border-radius:42px;box-shadow:0 12px 34px #7990bc1c;padding:30px 38px;margin-bottom:28px;backdrop-filter:blur(12px)}.muted{color:var(--muted)}.timer{color:var(--purple);font-size:86px;text-shadow:0 6px 18px #6567f428}.live{color:var(--green)}button{box-shadow:none}.sound{background:linear-gradient(100deg,#63e0bc,#68ccef);color:#164b83}.recalc{background:linear-gradient(100deg,#ffe066,#ffd13d);color:#2450a0}.row{border-color:var(--line)}.time{color:var(--muted)}.tag.hot{background:#ffd33f;color:#15223d;box-shadow:0 0 28px #ffcf35aa}.tag.expect{background:#ffc866}.tag.chance{background:#74d6f1}.badge,.pill{background:#edf2fa;color:#40516f}.focuscard,.latestBox{background:#f8fbff;color:var(--ink)}.input{background:#f3f6fb;color:var(--ink);border-color:#d8e0ec}.preditem{border-color:var(--line)}.areaBtn,.toggleCatalog{background:#edf2fa;color:#40516f}.areaBtn.active{background:#64dfb3;color:#124f42}.small.muted{color:#6e7b95}@media(max-width:520px){main{padding-left:14px;padding-right:14px}h1{font-size:39px;padding:34px 12px 32px;border-radius:0 0 44px 44px}h1 small{font-size:17px}.card{padding:25px 20px;border-radius:34px}.timer{font-size:76px}}
+</style>
+</head>
+<body><main>
+<h1>LEO EGG <small>予測 v7.4.1 ✨</small></h1>
+
+<section class="card center">
+<div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
+<div id="timer" class="timer">--:--</div>
+<div class="live">● 過去データ学習モード</div>
+<button id="sound" class="sound">🔊 音をONにする</button>
+</section>
+
+<section class="card">
+<h2 style="font-size:32px;margin-top:0">🎯 過去データ予測</h2>
+<div id="rows"></div>
+</section>
+
+<section class="card">
+<h2 style="font-size:30px;margin-top:0">✨ 光卵予想</h2>
+<div id="lightPred"></div>
+</section>
+
+<section class="card">
+<h2 style="font-size:30px;margin-top:0">📍 出た卵を1タップ記録</h2>
+<p class="muted">ゲームで確認できた卵の手動メモです。自動取得データとは分けて保存し、予測を水増ししません。</p>
+<div class="recordgrid">
+<button class="normal" data-egg="通常卵">通常卵</button>
+<button class="rare" data-egg="レア卵">レア卵</button>
+<button class="light" data-egg="光卵">✨ 光卵</button>
+<button class="giant" data-egg="光卵・特大">🌟 光卵・特大</button>
+</div>
+<div id="stats" class="stat" style="margin-top:18px"></div>
+<button id="undo" style="background:#334b67;color:#fff;font-size:18px;padding:14px">↩️ 最後の記録を取消</button>
+</section>
+
+
+<section class="card">
+<div class="catalogHead"><h2 style="font-size:30px;margin:0">📖 卵図鑑</h2><button id="toggleCatalog" class="toggleCatalog">全卵を見る</button></div>
+<p class="muted">普段は閉じてスッキリ。必要なときだけエリア別に確認できます。</p>
+<div id="areaStrip" class="areaStrip"></div>
+<div id="catalogWrap" class="catalogWrap">
+<select id="bio" style="display:none"></select>
+<div id="eggdb"></div>
+</div>
+</section>
+
+
+
+<button id="recalc" class="recalc">🔄 今すぐ再計算</button>
+
+<section class="card small muted" style="margin-top:28px"><b>予想の扱い：</b> 過去に取得できたSpawn履歴と手動記録を学習材料にして予想します。リアルタイム実Spawn監視は行いません。過去データは定期的に追加できた分だけ蓄積します。</section>
+</main>
+<script>
+const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEggSpawnV4';
+const LIVE_URL='https://eggipedia.com/spawns';
+const LIVE_JSON='./live.json';
+const REAL_EGGS=[["Chicken Egg","Common","Forest"],["Dog Egg","Common","Forest"],["Bird Egg","Uncommon","Forest"],["Burrowing Owl Egg","Rare","Forest"],["Raccoon Egg","Rare","Forest"],["Fox Egg","Epic","Forest"],["Bear Egg","Epic","Forest"],["Brr Brr Patapim Egg","Legendary","Forest"],["Frog Egg","Common","Lake"],["Duckling Egg","Common","Lake"],["Catfish Egg","Uncommon","Lake"],["Turtle Egg","Rare","Lake"],["Trulimero Trulicina Egg","Epic","Lake"],["Swan Egg","Epic","Lake"],["Axolotl Egg","Legendary","Lake"],["Leviathan Egg","Cosmic","Lake"],["Jerboa Egg","Common","Desert"],["Fennec Egg","Uncommon","Desert"],["Camel Egg","Rare","Desert"],["Tob Tobi Tob Tob Egg","Epic","Desert"],["Snake Egg","Legendary","Desert"],["Sand Spider Egg","Mythic","Desert"],["Scorpion Egg","Mythic","Desert"],["Royal Sphinx Egg","Cosmic","Desert"],["Chimpanzee Egg","Rare","Jungle"],["Toucan Egg","Rare","Jungle"],["Crocodile Egg","Epic","Jungle"],["Gorilla Egg","Legendary","Jungle"],["Orangutini Ananassini Egg","Legendary","Jungle"],["Spider Egg","Mythic","Jungle"],["Tiger Egg","Mythic","Jungle"],["King Snake Egg","Secret","Jungle"],["Penguin Egg","Rare","Snow"],["Walrus Egg","Epic","Snow"],["Polar Bear Egg","Legendary","Snow"],["Sabertooth Tiger Egg","Mythic","Snow"],["Mammoth Egg","Mythic","Snow"],["King Mammoth Egg","Cosmic","Snow"],["Yeti Egg","Secret","Snow"],["Ice Dragon Egg","Eternal","Snow"],["Lava Gecko Egg","Rare","Volcano"],["Lava Frog Egg","Epic","Volcano"],["Flaming Bull Egg","Legendary","Volcano"],["Lava Iguana Egg","Legendary","Volcano"],["Chillin Chilli Egg","Mythic","Volcano"],["Cerberus Egg","Secret","Volcano"],["Phoenix Egg","Eternal","Volcano"],["Lava Dragon Egg","Eternal","Volcano"],["Parrotfish Egg","Rare","Abyss Ocean"],["Swordfish Egg","Epic","Abyss Ocean"],["Shark Egg","Legendary","Abyss Ocean"],["Orca Egg","Mythic","Abyss Ocean"],["Whale Shark Egg","Cosmic","Abyss Ocean"],["Beluga Whale Egg","Cosmic","Abyss Ocean"],["Kraken Egg","Secret","Abyss Ocean"],["El Maja Egg","Eternal","Abyss Ocean"],["Dodo Egg","Rare","Prehistoric"],["Pterodactyl Egg","Legendary","Prehistoric"],["Ankylosaurus Egg","Mythic","Prehistoric"],["Triceratops Egg","Cosmic","Prehistoric"],["Bronto Egg","Cosmic","Prehistoric"],["T-Rex Egg","Secret","Prehistoric"],["Tralaledon Egg","Secret","Prehistoric"],["Mosasaurus Egg","Eternal","Prehistoric"],["Centapede Egg","Epic","Cosmic"],["Cosmic Gecko Egg","Legendary","Cosmic"],["Cosmic Gorilla Egg","Mythic","Cosmic"],["La Vacca Saturno Saturnita Egg","Cosmic","Cosmic"],["Cosmic Skeleton Boss Egg","Secret","Cosmic"],["Cosmic Dragon Egg","Secret","Cosmic"],["Eternal Lunar Dragon Egg","Eternal","Cosmic"],["Unicorn Egg","Divine","Cosmic"],["Crane Egg","Epic","Cherry Blossom"],["Salamander Egg","Legendary","Cherry Blossom"],["Red Panda Egg","Mythic","Cherry Blossom"],["Snowy Owl Egg","Cosmic","Cherry Blossom"],["Koi Egg","Cosmic","Cherry Blossom"],["Stag Egg","Secret","Cherry Blossom"],["Oni Tiger Egg","Eternal","Cherry Blossom"],["Kitsune Egg","Divine","Cherry Blossom"],["Spideron Egg","Legendary","Titan Temple"],["Crustacia Egg","Legendary","Titan Temple"],["Bladehide Egg","Mythic","Titan Temple"],["Mantaris Egg","Cosmic","Titan Temple"],["Rhinotaur Egg","Cosmic","Titan Temple"],["Mutant Shark Egg","Secret","Titan Temple"],["Gorilla King Egg","Eternal","Titan Temple"],["Nightflame Egg","Divine","Titan Temple"],["Flame Sprite Egg","Legendary","Angels & Demons"],["Light Dove Egg","Legendary","Angels & Demons"],["Toro Egg","Mythic","Angels & Demons"],["Winged Lamb Egg","Mythic","Angels & Demons"],["Imp Egg","Cosmic","Angels & Demons"],["Sacred Moth Egg","Cosmic","Angels & Demons"],["Demon Hound Egg","Cosmic","Angels & Demons"],["Holy Peacock Egg","Cosmic","Angels & Demons"],["Gargoyle Egg","Secret","Angels & Demons"],["Pure Jellyfish Egg","Secret","Angels & Demons"],["Centaur Egg","Secret","Angels & Demons"],["RazorFang Egg","Secret","Angels & Demons"],["Pegasus Egg","Eternal","Angels & Demons"],["Skeleton Horse Egg","Eternal","Angels & Demons"],["ArchAngel Egg","Divine","Angels & Demons"],["World Burner Egg","Divine","Angels & Demons"]];
+const BIOMES=[["Forest", "制限なし"], ["Lake", "900"], ["Desert", "10K"], ["Jungle", "40K"], ["Snow", "170K"], ["Volcano", "700K"], ["Abyss Ocean", "2.5M"], ["Prehistoric", "18M"], ["Cosmic", "700M"], ["Cherry Blossom", "2.5B"], ["Titan Temple", "7B"], ["Angels & Demons", "20B"]];
+
+let soundOn=false;
+const $=s=>document.querySelector(s);
+function history(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function save(h){localStorage.setItem(KEY,JSON.stringify(h.slice(-200)))}
+function predictionModel(){
+ const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(ss.length<12)return {ready:false,n:ss.length,reason:'データ不足'};
+ const gaps=[]; for(let i=1;i<ss.length;i++){const g=(ss[i].t-ss[i-1].t)/60000;if(g>0&&g<360)gaps.push(g)}
+ const recentAge=(Date.now()-ss[ss.length-1].t)/86400000;
+ return {ready:true,n:ss.length,recentAge,confidence:ss.length>=50&&recentAge<=7?'high':ss.length>=25?'medium':'low'};
+}
+function scoreCandidates(ss){
+ const now=Date.now(), nd=new Date(now), hour=nd.getHours(), dow=nd.getDay(), rows={};
+ ss.forEach((x,i)=>{
+   const name=liveEggName(x), d=new Date(Number(x.t));
+   if(!rows[name])rows[name]={name,count:0,hour:0,dow:0,after:{},recent:0};
+   const r=rows[name]; r.count++;
+   const dh=Math.min(Math.abs(d.getHours()-hour),24-Math.abs(d.getHours()-hour));
+   if(dh<=1)r.hour++;
+   if(d.getDay()===dow)r.dow++;
+   const ageH=Math.max(0,(now-Number(x.t))/3600000);
+   r.recent+=Math.exp(-ageH/18);
+   if(i>0){const prev=liveEggName(ss[i-1]);r.after[prev]=(r.after[prev]||0)+1}
+ });
+ const last=ss.length?liveEggName(ss[ss.length-1]):'';
+ const total=Math.max(1,ss.length), recentMax=Math.max(1,...Object.values(rows).map(r=>r.recent));
+ return Object.values(rows).map(r=>{
+   const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), dowRate=r.dow/Math.max(1,r.count);
+   const follow=(r.after[last]||0)/Math.max(1,r.count), recentRate=r.recent/recentMax;
+   return {...r,score:base*.20+hourRate*.15+dowRate*.10+follow*.25+recentRate*.30};
+ }).sort((a,b)=>b.score-a.score);
+}
+function lightEggPrediction(){
+ const hs=history().filter(x=>x&&Number.isFinite(Number(x.t))&&(x.egg==='光卵'||x.egg==='光卵・特大')).sort((a,b)=>a.t-b.t);
+ if(hs.length<3)return {ready:false,n:hs.length};
+ const gaps=[]; for(let i=1;i<hs.length;i++){const g=(hs[i].t-hs[i-1].t)/60000;if(g>=5&&g<=720)gaps.push(g)}
+ if(gaps.length<2)return {ready:false,n:hs.length};
+ const sorted=gaps.slice(-30).sort((a,b)=>a-b), med=sorted[Math.floor(sorted.length/2)];
+ const last=hs[hs.length-1].t, elapsed=(Date.now()-last)/60000, ratio=elapsed/Math.max(5,med);
+ const now=new Date(), sameHour=hs.filter(x=>{const d=new Date(x.t);return Math.abs(d.getHours()-now.getHours())<=1}).length;
+ const hourBoost=Math.min(.25,sameHour/Math.max(8,hs.length));
+ let score=Math.min(1,ratio*.55+hourBoost);
+ let label='まだ弱い',klass='miss';
+ const gapClose=Math.abs(elapsed-med)<=Math.max(5,med*.12);
+ if(hs.length>=15&&score>=.97&&gapClose&&sameHour>=3){label='🌈 超激アツ';klass='superhot'}
+ else if(hs.length>=8&&score>=.9){label='🔥 激アツ';klass='hot'}
+ else if(score>=.65){label='✨ 注目';klass='chance'}
+ return {ready:true,n:hs.length,med,last,elapsed,score,label,klass};
+}
+function renderLightPrediction(){
+ const box=$('#lightPred'); if(!box)return;
+ const p=lightEggPrediction(), base=nextBoundary();
+ if(!p.ready){box.innerHTML='<div class="small muted">光卵の実記録 '+p.n+'件。まず3件以上たまると間隔学習を開始します。出たら「✨ 光卵」を押してね。</div>';return}
+ const next=new Date(Math.max(base,p.last+p.med*60000)).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+ box.innerHTML=`<div class="row"><div class="n">✨</div><div><div class="egg">光卵</div><div class="time">次の候補 ${next} ／ 実記録 ${p.n}件 ／ 中央間隔 約${Math.round(p.med)}分</div></div><div class="tag ${p.klass}">${p.label}</div></div>`;
+}
+function render(){
+ const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(!m.ready){
+   $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去Spawn '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
+   renderLightPrediction();stats();return;
+ }
+ const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
+ const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);
+ const normalMisses=recentManual.filter(x=>x.egg==='通常卵').length;
+ const safeHot=m.confidence==='high'&&normalMisses<2;
+ const note=normalMisses>=2?'直近ノーマル多発・激アツ抑制中':m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
+ $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v4 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
+   const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+   const label=i===0&&safeHot?'🔥 激アツ':i<3?'✨ 候補':'参考';
+   const klass=i===0&&safeHot?'hot':i<3?'chance':'miss';
+   const pct=Math.round(r.count/Math.max(1,ss.length)*100);
+   return `<div class="row"><div class="n">${i+1}</div><div><div class="egg">${r.name}</div><div class="time">次回目安 ${when} ／ 履歴 ${r.count}回（${pct}%）</div></div><div class="tag ${klass}">${label}</div></div>`;
+ }).join('');
+ renderLightPrediction();stats();
+}
+async function syncHistoryForPrediction(){
+ try{
+   const res=await fetch(LIVE_JSON+'?history='+Date.now(),{cache:'no-store'}); if(!res.ok)return;
+   const j=await res.json(), xs=Array.isArray(j.spawns)?j.spawns:[];
+   xs.forEach(x=>{if(Number.isFinite(Number(x.ts)))addAutoSpawn(x)});
+ }catch(e){}
+}
+function stats(){
+ const h=history(), ss=loadJ(SKEY);
+ $('#stats').innerHTML=`<span class="badge">手動メモ ${h.length}件</span><span class="badge">自動実データ ${ss.length}件</span><br><span class="muted">予測は自動取得した実Spawnだけを使用します。</span>`;
+}
+function nextBoundary(){
+ const step=5*60*1000;
+ return Math.ceil((Date.now()+1)/step)*step;
+}
+function tick(){
+ let left=nextBoundary()-Date.now(); if(left<0)left=0;
+ let m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
+ $('#timer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+ if(left<1200 && soundOn && !window._beeped){beep(900,.12);window._beeped=true}
+ if(left>20000)window._beeped=false;
+}
+function beep(f,d){try{let a=new (AudioContext||webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.value=.08;o.start();o.stop(a.currentTime+d)}catch(e){}}
+document.querySelectorAll('[data-egg]').forEach(b=>b.onclick=()=>{let h=history(),now=Date.now(),spawnT=Math.floor(now/W)*W;h.push({t:spawnT,egg:b.dataset.egg,recordedAt:now});save(h);render();if(soundOn)beep(b.dataset.egg==='光卵・特大'?1200:700,.15)});
+$('#undo').onclick=()=>{let h=history();h.pop();save(h);render()};
+$('#recalc').onclick=render;
+$('#sound').onclick=()=>{soundOn=true;beep(700,.1);$('#sound').textContent='🔊 音ON'};
+async function external(){
+ try{
+   const r=await Promise.reject(new Error('Netlify disabled in GitHub Pages v2'));
+   const j=await r.json();
+   if(!r.ok||!j.ok)throw new Error(j.error||'relay');
+   const state=j.paused?'⚠️ 配信元停止':(j.stale?'⚠️ Liveデータ未提供':'Live取得OK'); $('#external').innerHTML=`<span class="badge">中継接続OK</span> ${state}／取得 ${j.spawns.length}件`;
+ }catch(e){
+   $('#external').innerHTML='<span class="badge">中継待機</span> Netlify中継から取得できません。自動再試行します。';
+ }
+}
+
+function eggDB(){
+ let sel=$('#bio'), strip=$('#areaStrip'), wrap=$('#catalogWrap'); if(!sel)return;
+ sel.innerHTML='<option value="ALL">全部</option>'+BIOMES.map(x=>`<option value="${x[0]}">${x[0]}</option>`).join('');
+ const areas=[['ALL','すべて',''],...BIOMES.map(x=>[x[0],x[0],x[1]])];
+ strip.innerHTML=areas.map((x,i)=>`<button class="areaBtn ${i===0?'active':''}" data-area="${x[0]}">${x[1]}${x[2]?` · ${x[2]}`:''}</button>`).join('');
+ function draw(){
+  let a=REAL_EGGS.filter(x=>sel.value==='ALL'||x[2]===sel.value);
+  $('#eggdb').innerHTML=a.map(x=>`<div style="padding:13px 4px;border-bottom:1px solid #334b67;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font-size:17px">${x[0]}</b><span class="badge">${x[1]}</span><span class="muted">${x[2]}</span></div>`).join('') || '<span class="muted">このエリアの卵名は追加待ち</span>';
+ }
+ strip.querySelectorAll('[data-area]').forEach(b=>b.onclick=()=>{sel.value=b.dataset.area;strip.querySelectorAll('.areaBtn').forEach(z=>z.classList.remove('active'));b.classList.add('active');wrap.classList.add('open');$('#toggleCatalog').textContent='図鑑を閉じる';draw()});
+ $('#toggleCatalog').onclick=()=>{wrap.classList.toggle('open');$('#toggleCatalog').textContent=wrap.classList.contains('open')?'図鑑を閉じる':'全卵を見る'}; draw();
+}
+function renderLatestFocus(){
+ const box=$('#latestFocus'); if(!box)return; const ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
+ if(!ss.length){box.innerHTML='<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">LIVE MONITOR</div><div class="latestName">最新Spawn待ち</div><div class="latestMeta">取得できた実Spawnだけをここへ大きく表示します。</div></div>';return}
+ const sp=ss[0]; box.innerHTML=`<div class="latestBox"><div class="latestTitle">最新SPAWN · ${sp.rarity||'Rare'}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
+}
+
+
+function loadJ(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return []}}
+function saveJ(k,v){localStorage.setItem(k,JSON.stringify(v.slice(-300)))}
+function dayTimeToTs(hm){let [h,m]=hm.split(':').map(Number),d=new Date();d.setHours(h,m,0,0);return d.getTime()}
+function fmtTs(t){let d=new Date(t);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+function norm(x){return (x||'').toLowerCase().replace(/egg/g,'').replace(/[^a-z0-9]/g,'')}
+function renderIntel(){
+ let ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
+ const acc=$('#accuracy'); if(acc) acc.innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
+ renderLatestFocus();
+ const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
+}
+function extractLiveSpawns(html){
+ const doc=new DOMParser().parseFromString(html,'text/html');
+ const text=(doc.body?.innerText||'').replace(/\r/g,'');
+ let out=[];
+ // Parse conservative text patterns only; never invent missing fields.
+ const blocks=text.split(/
+{2,}/);
+ for(const b of blocks){
+   if(!/(Secret|Eternal|Divine|rare egg|spawn)/i.test(b)) continue;
+   let tm=b.match(/\b([01]?\d|2[0-3]):([0-5]\d)\b/);
+   let rarity=(b.match(/\b(Secret|Eternal|Divine)\b/i)||[])[1]||'Rare';
+   let loc=(b.match(/(?:Biome|Location)\s*[:\-]\s*([^
+]+)/i)||[])[1]||'';
+   let lines=b.split('
+').map(x=>x.trim()).filter(Boolean);
+   let egg=lines.find(x=>/egg$/i.test(x)&&!/rare eggs/i.test(x))||'';
+   if(!egg){let m=b.match(/(?:Secret|Eternal|Divine)\s+(?:Egg\s*)?[:\-]?\s*([^
+]+)/i); if(m)egg=m[1].trim()}
+   if(egg&&tm) out.push({egg,loc,hm:tm[0],rarity});
+ }
+ return out;
+}
+function liveEggName(x){
+ const raw=String(x.pet||x.egg||'').trim();
+ if(!raw)return 'Unknown Egg';
+ let slug=raw;
+ const m=raw.match(/\/([^/]+?)-s\.webp(?:\?.*)?$/i); if(m)slug=m[1];
+ slug=slug.replace(/^.*\//,'').replace(/-egg$/i,'').replace(/[-_]+/g,' ').trim();
+ const key=norm(slug);
+ const hit=REAL_EGGS.find(e=>norm(e[0])===key);
+ if(hit)return hit[0];
+ return slug.replace(/\b\w/g,ch=>ch.toUpperCase())+' Egg';
+}
+function repairSpawnHistory(){
+ let a=loadJ(SKEY), changed=false;
+ a=a.map(z=>{
+   const egg=liveEggName(z);
+   const t=Number(z.ts)||Number(z.t);
+   const id=norm(egg)+'|'+Math.floor(t/60000);
+   if(egg!==z.egg||id!==z.id||t!==z.t)changed=true;
+   return {...z,id,egg,t};
+ }).filter(z=>Number.isFinite(z.t)&&z.egg!=='Unknown Egg');
+ if(changed)saveJ(SKEY,a);
+}
+function addAutoSpawn(x){
+ let a=loadJ(SKEY), t=Number(x.ts)||Number(x.t)||dayTimeToTs(x.hm), egg=liveEggName(x), id=norm(egg)+'|'+Math.floor(t/60000);
+ if(a.some(z=>(z.id||'')===id))return false;
+ a.push({id,egg,loc:x.loc||x.biome||'',t,rarity:x.rarity||'Rare',source:'Eggipedia Live'});saveJ(SKEY,a);return true;
+}
+let lastAuto=0;
+async function autoPoll(){
+ const st=$('#autoStatus'), ext=$('#external'); lastAuto=Date.now();
+ st.innerHTML='<span class="badge">接続中</span> 公開Liveを確認中…';
+ try{
+   const r=await Promise.reject(new Error('Netlify disabled in GitHub Pages v2'));
+   const j=await r.json();
+   if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status));
+   const paused=!!j.paused, xs=(j.spawns||[]), health=j.health||'', diag=j.diagnostics||{};
+   let added=0; xs.forEach(x=>{if(addAutoSpawn(x))added++});
+   renderIntel(); render();
+   const feedEmpty=!!j.stale || (xs.length===0);
+   const now=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+   st.innerHTML=`<span class="badge">自動監視ON</span> 最終確認 ${now}${paused?' ／ ⏸ 配信元が一時停止中':(!feedEmpty?' ／ ✅ Live受信中':' ／ ⏳ 新着待ち')}`;
+   ext.innerHTML=`<span class="badge">Netlify中継OK</span> ${paused?'Eggipedia側アラート一時停止':(feedEmpty?'公開Live実データ未取得':'Live取得OK')}／今回 ${xs.length}件／新規 ${added}件<br><span class="muted">元ページ HTTP ${diag.sourceStatus||'?'} ／ 候補Feed ${diag.candidates||0} ／ 確認Feed ${diag.checkedFeeds||0}</span>`;
+   $('#autoLatest').innerHTML=added?`<span class="ok">🚨 新しいSpawn ${added}件を自動登録</span>`:(paused?'<span class="muted">⏸ 公開元のアラートが停止中です。復帰後は自動で監視を再開します。</span>':(feedEmpty?'<span class="muted">⏳ 新しいSpawnを待っています（0件＝Spawnなしとは断定しません）</span>':'<span class="muted">取得データ内に新規Spawnなし</span>'));
+   if(added&&soundOn)beep(1200,.3);
+ }catch(e){
+   st.innerHTML=`<span class="badge">自動監視待機</span> Netlify中継を確認できません。60秒後に再試行します。`;
+   ext.innerHTML='<span class="badge">取得待ち</span> 配信停止・取得失敗時はデータを作らず再試行します。';
+ }
+}
+async function readGitHubLive(){
+ const st=$('#autoStatus'), ext=$('#external');
+ if(!st||!ext)return;
+ try{
+  const r=await fetch(LIVE_JSON+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
+  const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
+  xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
+  const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
+  st.innerHTML=`<span class="badge">GitHub自動監視 v6</span> 最終取得 ${checked}`;
+  if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=xs.length
+ ? `<span class="badge">🟢 自動取得中</span> 実Spawn ${xs.length}件 ／ 新規 ${added}件`
+ : '<span class="badge">🟡 データ待機中</span> 実Spawn 0件 ／ 公開Liveの新着待ち';}
+ }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.7</span> 起動OK ／ データ待ち';}
+}
+async function setupHotNotification(){
+ const b=$('#notifyHot'), s=$('#notifyHotStatus'); if(!b||!s)return;
+ if(!('Notification' in window)){s.textContent='この環境では通知を利用できません';return}
+ try{
+  const p=await Notification.requestPermission();
+  if(p==='granted'){
+   localStorage.setItem('leoHotNotify','1');
+   b.textContent='🔔 激アツ通知 ON';
+   s.textContent='🔥 激アツだけ通知します。通常・チャンスは通知しません。';
+   new Notification('LEO EGG 🔥',{body:'激アツ通知をONにしました',icon:'./icon-192.png'});
+  }else{s.textContent='通知が許可されていません';}
+ }catch(e){s.textContent='ホーム画面のLEO EGGから通知をONにしてください';}
+}
+function refreshHotNotify(){
+ const b=$('#notifyHot'); if(!b)return;
+ if(('Notification' in window)&&Notification.permission==='granted'&&localStorage.getItem('leoHotNotify')==='1') b.textContent='🔔 激アツ通知 ON';
+}
+const _notifyHot=$('#notifyHot'); if(_notifyHot){_notifyHot.onclick=setupHotNotification; refreshHotNotify();}
+const _autoNow=$('#autoNow'); if(_autoNow)_autoNow.onclick=readGitHubLive;
+const liveBtn=document.createElement('a');
+liveBtn.href=LIVE_URL;
+liveBtn.target='_blank'; liveBtn.rel='noopener';
+liveBtn.className='action'; liveBtn.style.cssText='display:block;text-align:center;text-decoration:none;margin-top:12px';
+liveBtn.textContent='🥚 公開Liveを確認';
+if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
+renderIntel();
+// PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
+repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
+syncHistoryForPrediction().then(()=>{renderIntel();render();});
+
+if('serviceWorker' in navigator){
+ navigator.serviceWorker.register('sw.js?v=743',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+}
+</script></body></html>
