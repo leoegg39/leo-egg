@@ -108,6 +108,15 @@ h1{font-family:Georgia,"Times New Roman",serif!important;color:#ffe298!important
  #rows .card-history{font-size:6px!important}
 }
 </style>
+<style id="leo-time-jp-fix">
+@media(max-width:600px){
+ #rows .prediction-card{min-height:170px!important}
+ #rows .predict-time{font-size:24px!important;line-height:1!important;font-weight:900!important;color:#fff!important;text-shadow:0 0 8px #fff,0 0 14px #4fd8ff!important;margin:3px 0 5px!important}
+ #rows .egg{font-size:10px!important}
+ #rows .tag{font-size:10px!important}
+ #rows .card-history{font-size:8px!important}
+}
+</style>
 </head>
 <body><main>
 <h1>LEO EGG <small>予測 v7.4.3 ✨</small></h1>
@@ -120,7 +129,7 @@ h1{font-family:Georgia,"Times New Roman",serif!important;color:#ffe298!important
 </section>
 
 <section class="card">
-<h2 style="font-size:32px;margin-top:0">🥚 今回の予想卵 <small style="font-size:14px">NEXT 5 EGGS</small></h2>
+<h2 style="font-size:32px;margin-top:0">🥚 今回の予想卵 <small style="font-size:14px">次の5個</small></h2>
 <div id="rows"></div>
 </section>
 
@@ -157,10 +166,10 @@ h1{font-family:Georgia,"Times New Roman",serif!important;color:#ffe298!important
 
 <button id="recalc" class="recalc">🔄 今すぐ再計算</button>
 
-<section class="card small muted" style="margin-top:28px"><b>予想の扱い：</b> 過去に取得できたSpawn履歴と手動記録を学習材料にして予想します。リアルタイム実Spawn監視は行いません。過去データは定期的に追加できた分だけ蓄積します。</section>
+<section class="card small muted" style="margin-top:28px"><b>予想の扱い：</b> 過去に取得できた出現履歴と手動記録を学習材料にして予想します。リアルタイム実出現監視は行いません。過去データは定期的に追加できた分だけ蓄積します。</section>
 </main>
 <script>
-const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEggSpawnV4';
+const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEgg出現V4';
 const LIVE_URL='https://eggipedia.com/spawns';
 const LIVE_JSON='./live.json';
 const REAL_EGGS=[["Chicken Egg","Common","Forest"],["Dog Egg","Common","Forest"],["Bird Egg","Uncommon","Forest"],["Burrowing Owl Egg","Rare","Forest"],["Raccoon Egg","Rare","Forest"],["Fox Egg","Epic","Forest"],["Bear Egg","Epic","Forest"],["Brr Brr Patapim Egg","Legendary","Forest"],["Frog Egg","Common","Lake"],["Duckling Egg","Common","Lake"],["Catfish Egg","Uncommon","Lake"],["Turtle Egg","Rare","Lake"],["Trulimero Trulicina Egg","Epic","Lake"],["Swan Egg","Epic","Lake"],["Axolotl Egg","Legendary","Lake"],["Leviathan Egg","Cosmic","Lake"],["Jerboa Egg","Common","Desert"],["Fennec Egg","Uncommon","Desert"],["Camel Egg","Rare","Desert"],["Tob Tobi Tob Tob Egg","Epic","Desert"],["Snake Egg","Legendary","Desert"],["Sand Spider Egg","Mythic","Desert"],["Scorpion Egg","Mythic","Desert"],["Royal Sphinx Egg","Cosmic","Desert"],["Chimpanzee Egg","Rare","Jungle"],["Toucan Egg","Rare","Jungle"],["Crocodile Egg","Epic","Jungle"],["Gorilla Egg","Legendary","Jungle"],["Orangutini Ananassini Egg","Legendary","Jungle"],["Spider Egg","Mythic","Jungle"],["Tiger Egg","Mythic","Jungle"],["King Snake Egg","Secret","Jungle"],["Penguin Egg","Rare","Snow"],["Walrus Egg","Epic","Snow"],["Polar Bear Egg","Legendary","Snow"],["Sabertooth Tiger Egg","Mythic","Snow"],["Mammoth Egg","Mythic","Snow"],["King Mammoth Egg","Cosmic","Snow"],["Yeti Egg","Secret","Snow"],["Ice Dragon Egg","Eternal","Snow"],["Lava Gecko Egg","Rare","Volcano"],["Lava Frog Egg","Epic","Volcano"],["Flaming Bull Egg","Legendary","Volcano"],["Lava Iguana Egg","Legendary","Volcano"],["Chillin Chilli Egg","Mythic","Volcano"],["Cerberus Egg","Secret","Volcano"],["Phoenix Egg","Eternal","Volcano"],["Lava Dragon Egg","Eternal","Volcano"],["Parrotfish Egg","Rare","Abyss Ocean"],["Swordfish Egg","Epic","Abyss Ocean"],["Shark Egg","Legendary","Abyss Ocean"],["Orca Egg","Mythic","Abyss Ocean"],["Whale Shark Egg","Cosmic","Abyss Ocean"],["Beluga Whale Egg","Cosmic","Abyss Ocean"],["Kraken Egg","Secret","Abyss Ocean"],["El Maja Egg","Eternal","Abyss Ocean"],["Dodo Egg","Rare","Prehistoric"],["Pterodactyl Egg","Legendary","Prehistoric"],["Ankylosaurus Egg","Mythic","Prehistoric"],["Triceratops Egg","Cosmic","Prehistoric"],["Bronto Egg","Cosmic","Prehistoric"],["T-Rex Egg","Secret","Prehistoric"],["Tralaledon Egg","Secret","Prehistoric"],["Mosasaurus Egg","Eternal","Prehistoric"],["Centapede Egg","Epic","Cosmic"],["Cosmic Gecko Egg","Legendary","Cosmic"],["Cosmic Gorilla Egg","Mythic","Cosmic"],["La Vacca Saturno Saturnita Egg","Cosmic","Cosmic"],["Cosmic Skeleton Boss Egg","Secret","Cosmic"],["Cosmic Dragon Egg","Secret","Cosmic"],["Eternal Lunar Dragon Egg","Eternal","Cosmic"],["Unicorn Egg","Divine","Cosmic"],["Crane Egg","Epic","Cherry Blossom"],["Salamander Egg","Legendary","Cherry Blossom"],["Red Panda Egg","Mythic","Cherry Blossom"],["Snowy Owl Egg","Cosmic","Cherry Blossom"],["Koi Egg","Cosmic","Cherry Blossom"],["Stag Egg","Secret","Cherry Blossom"],["Oni Tiger Egg","Eternal","Cherry Blossom"],["Kitsune Egg","Divine","Cherry Blossom"],["Spideron Egg","Legendary","Titan Temple"],["Crustacia Egg","Legendary","Titan Temple"],["Bladehide Egg","Mythic","Titan Temple"],["Mantaris Egg","Cosmic","Titan Temple"],["Rhinotaur Egg","Cosmic","Titan Temple"],["Mutant Shark Egg","Secret","Titan Temple"],["Gorilla King Egg","Eternal","Titan Temple"],["Nightflame Egg","Divine","Titan Temple"],["Flame Sprite Egg","Legendary","Angels & Demons"],["Light Dove Egg","Legendary","Angels & Demons"],["Toro Egg","Mythic","Angels & Demons"],["Winged Lamb Egg","Mythic","Angels & Demons"],["Imp Egg","Cosmic","Angels & Demons"],["Sacred Moth Egg","Cosmic","Angels & Demons"],["Demon Hound Egg","Cosmic","Angels & Demons"],["Holy Peacock Egg","Cosmic","Angels & Demons"],["Gargoyle Egg","Secret","Angels & Demons"],["Pure Jellyfish Egg","Secret","Angels & Demons"],["Centaur Egg","Secret","Angels & Demons"],["RazorFang Egg","Secret","Angels & Demons"],["Pegasus Egg","Eternal","Angels & Demons"],["Skeleton Horse Egg","Eternal","Angels & Demons"],["ArchAngel Egg","Divine","Angels & Demons"],["World Burner Egg","Divine","Angels & Demons"]];
@@ -225,7 +234,7 @@ function renderLightPrediction(){
 function render(){
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(!m.ready){
-   $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去Spawn '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
+   $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去出現 '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
    renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
@@ -240,7 +249,7 @@ function render(){
    else if(i===0&&m.confidence!=='low'){label='🔥 激アツ';klass='hot'}
    else if(i<3){label='✨ 光';klass='chance'}
    const pct=Math.round(r.count/Math.max(1,ss.length)*100);
-   return `<div class="row prediction-card"><div class="n">${i+1}</div><div class="egg-orb">🥚</div><div class="egg">${r.name}</div><div class="predict-time">${when}</div><div class="tag ${klass}">${label}</div><div class="card-history">履歴 ${r.count}回・${pct}%</div></div>`;
+   return `<div class="row prediction-card"><div class="n">${i+1}</div><div class="egg-orb">🥚</div><div class="egg">${r.name}</div><div class="predict-time">${when}</div><div class="tag ${klass}">${label}</div><div class="card-history">出現率 ${pct}%</div></div>`;
  }).join('');
  renderLightPrediction();stats();
 }
@@ -248,12 +257,12 @@ async function syncHistoryForPrediction(){
  try{
    const res=await fetch(LIVE_JSON+'?history='+Date.now(),{cache:'no-store'}); if(!res.ok)return;
    const j=await res.json(), xs=Array.isArray(j.spawns)?j.spawns:[];
-   xs.forEach(x=>{if(Number.isFinite(Number(x.ts)))addAutoSpawn(x)});
+   xs.forEach(x=>{if(Number.isFinite(Number(x.ts)))addAuto出現(x)});
  }catch(e){}
 }
 function stats(){
  const h=history(), ss=loadJ(SKEY);
- $('#stats').innerHTML=`<span class="badge">手動メモ ${h.length}件</span><span class="badge">自動実データ ${ss.length}件</span><br><span class="muted">予測は自動取得した実Spawnだけを使用します。</span>`;
+ $('#stats').innerHTML=`<span class="badge">手動メモ ${h.length}件</span><span class="badge">自動実データ ${ss.length}件</span><br><span class="muted">予測は自動取得した実出現だけを使用します。</span>`;
 }
 function nextBoundary(){
  const step=5*60*1000;
@@ -296,7 +305,7 @@ function eggDB(){
 }
 function renderLatestFocus(){
  const box=$('#latestFocus'); if(!box)return; const ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
- if(!ss.length){box.innerHTML='<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">LIVE MONITOR</div><div class="latestName">最新Spawn待ち</div><div class="latestMeta">取得できた実Spawnだけをここへ大きく表示します。</div></div>';return}
+ if(!ss.length){box.innerHTML='<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">LIVE MONITOR</div><div class="latestName">最新出現待ち</div><div class="latestMeta">取得できた実出現だけをここへ大きく表示します。</div></div>';return}
  const sp=ss[0]; box.innerHTML=`<div class="latestBox"><div class="latestTitle">最新SPAWN · ${sp.rarity||'Rare'}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
 }
 
@@ -310,9 +319,9 @@ function renderIntel(){
  let ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
  const acc=$('#accuracy'); if(acc) acc.innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
  renderLatestFocus();
- const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
+ const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実出現 0件</span>';
 }
-function extractLiveSpawns(html){
+function extractLive出現s(html){
  const doc=new DOMParser().parseFromString(html,'text/html');
  const text=(doc.body?.innerText||'').replace(/\r/g,'');
  let out=[];
@@ -341,7 +350,7 @@ function liveEggName(x){
  if(hit)return hit[0];
  return slug.replace(/\b\w/g,ch=>ch.toUpperCase())+' Egg';
 }
-function repairSpawnHistory(){
+function repair出現History(){
  let a=loadJ(SKEY), changed=false;
  a=a.map(z=>{
    const egg=liveEggName(z);
@@ -352,7 +361,7 @@ function repairSpawnHistory(){
  }).filter(z=>Number.isFinite(z.t)&&z.egg!=='Unknown Egg');
  if(changed)saveJ(SKEY,a);
 }
-function addAutoSpawn(x){
+function addAuto出現(x){
  let a=loadJ(SKEY), t=Number(x.ts)||Number(x.t)||dayTimeToTs(x.hm), egg=liveEggName(x), id=norm(egg)+'|'+Math.floor(t/60000);
  if(a.some(z=>(z.id||'')===id))return false;
  a.push({id,egg,loc:x.loc||x.biome||'',t,rarity:x.rarity||'Rare',source:'Eggipedia Live'});saveJ(SKEY,a);return true;
@@ -366,13 +375,13 @@ async function autoPoll(){
    const j=await r.json();
    if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status));
    const paused=!!j.paused, xs=(j.spawns||[]), health=j.health||'', diag=j.diagnostics||{};
-   let added=0; xs.forEach(x=>{if(addAutoSpawn(x))added++});
+   let added=0; xs.forEach(x=>{if(addAuto出現(x))added++});
    renderIntel(); render();
    const feedEmpty=!!j.stale || (xs.length===0);
    const now=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
    st.innerHTML=`<span class="badge">自動監視ON</span> 最終確認 ${now}${paused?' ／ ⏸ 配信元が一時停止中':(!feedEmpty?' ／ ✅ Live受信中':' ／ ⏳ 新着待ち')}`;
    ext.innerHTML=`<span class="badge">Netlify中継OK</span> ${paused?'Eggipedia側アラート一時停止':(feedEmpty?'公開Live実データ未取得':'Live取得OK')}／今回 ${xs.length}件／新規 ${added}件<br><span class="muted">元ページ HTTP ${diag.sourceStatus||'?'} ／ 候補Feed ${diag.candidates||0} ／ 確認Feed ${diag.checkedFeeds||0}</span>`;
-   $('#autoLatest').innerHTML=added?`<span class="ok">🚨 新しいSpawn ${added}件を自動登録</span>`:(paused?'<span class="muted">⏸ 公開元のアラートが停止中です。復帰後は自動で監視を再開します。</span>':(feedEmpty?'<span class="muted">⏳ 新しいSpawnを待っています（0件＝Spawnなしとは断定しません）</span>':'<span class="muted">取得データ内に新規Spawnなし</span>'));
+   $('#autoLatest').innerHTML=added?`<span class="ok">🚨 新しい出現 ${added}件を自動登録</span>`:(paused?'<span class="muted">⏸ 公開元のアラートが停止中です。復帰後は自動で監視を再開します。</span>':(feedEmpty?'<span class="muted">⏳ 新しい出現を待っています（0件＝出現なしとは断定しません）</span>':'<span class="muted">取得データ内に新規出現なし</span>'));
    if(added&&soundOn)beep(1200,.3);
  }catch(e){
    st.innerHTML=`<span class="badge">自動監視待機</span> Netlify中継を確認できません。60秒後に再試行します。`;
@@ -385,12 +394,12 @@ async function readGitHubLive(){
  try{
   const r=await fetch(LIVE_JSON+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
   const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
-  xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
+  xs.forEach(x=>{if(addAuto出現(x))added++}); renderIntel();render();
   const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
   st.innerHTML=`<span class="badge">GitHub自動監視 v6</span> 最終取得 ${checked}`;
   if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=xs.length
- ? `<span class="badge">🟢 自動取得中</span> 実Spawn ${xs.length}件 ／ 新規 ${added}件`
- : '<span class="badge">🟡 データ待機中</span> 実Spawn 0件 ／ 公開Liveの新着待ち';}
+ ? `<span class="badge">🟢 自動取得中</span> 実出現 ${xs.length}件 ／ 新規 ${added}件`
+ : '<span class="badge">🟡 データ待機中</span> 実出現 0件 ／ 公開Liveの新着待ち';}
  }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.7</span> 起動OK ／ データ待ち';}
 }
 async function setupHotNotification(){
@@ -420,7 +429,7 @@ liveBtn.textContent='🥚 公開Liveを確認';
 if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
-repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
+repair出現History();eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
