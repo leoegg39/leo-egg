@@ -129,7 +129,7 @@ jobs:
                   # Verified public endpoint discovered from the site's own JS.
                   # Import only timestamped rare-history records; never import the 156-pet index.
                   try:
-                      hu=urljoin(sane_url,"/api/history?limit=100")
+                      hu=urljoin(sane_url,"/api/history?limit=500")
                       hr=urllib.request.Request(hu,headers={"User-Agent":"Mozilla/5.0 LEO-EGG","Referer":sane_url,"Accept":"application/json"})
                       hb=urllib.request.urlopen(hr,timeout=20).read()
                       sane_diag["historyBytes"]=len(hb)
@@ -176,7 +176,7 @@ jobs:
               script_srcs=re.findall(r'<script[^>]+src=["\\\']([^"\\\']+)',raw,re.I)
               live_hints=sorted(set(re.findall(r'https?://[^"\\\'<> ]+|/(?:api|live|spawn|alert)[^"\\\'<> ]*',raw,re.I)))
               data={"ok":True,"checkedAt":now.isoformat(),"source":url,"paused":paused,
-                    "noHistory":no_history,"parsedNow":len(spawns),"spawns":merged[-200:],
+                    "noHistory":no_history,"parsedNow":len(spawns),"spawns":merged[-1000:],
                     "diagnostics":{"htmlBytes":len(raw),"scriptCount":len(script_srcs),
                     "scripts":script_srcs[-20:],"liveHints":live_hints[-30:],
                     "connecting":bool(re.search(r"Connecting to the alerts",text,re.I)),
