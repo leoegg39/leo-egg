@@ -1,9 +1,9 @@
 {
   "name": "LEO EGG",
   "short_name": "LEO EGG",
-  "description": "LEO EGG rare egg monitor",
-  "id": "./leo743",
-  "start_url": "./leo743.html?home=743",
+  "description": "LEO EGG prediction v7.5.5",
+  "id": "./",
+  "start_url": "./?home=755",
   "scope": "./",
   "display": "standalone",
   "background_color": "#eef8ff",
