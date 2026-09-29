@@ -117,6 +117,26 @@ h1{font-family:Georgia,"Times New Roman",serif!important;color:#ffe298!important
  #rows .card-history{font-size:8px!important}
 }
 </style>
+<style id="leo-six-grid">
+#rows{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+#rows .prediction-card{min-height:178px!important}
+#rows .egg-orb{font-size:38px!important}
+#rows .prediction-card:has(.tag.miss) .egg-orb{filter:sepia(1) saturate(5) hue-rotate(165deg) drop-shadow(0 0 10px #32baff)!important}
+#rows .prediction-card:has(.tag.chance) .egg-orb{filter:sepia(1) saturate(6) hue-rotate(350deg) drop-shadow(0 0 13px #ffe04d)!important}
+#rows .prediction-card:has(.tag.hot) .egg-orb{filter:sepia(1) saturate(8) hue-rotate(330deg) drop-shadow(0 0 15px #ff8a22)!important}
+#rows .prediction-card:has(.tag.superhot) .egg-orb{filter:sepia(1) saturate(10) hue-rotate(300deg) drop-shadow(0 0 18px #ff2417)!important}
+#rows .prediction-card:has(.tag.hot){border-color:#d76c20!important}
+#rows .prediction-card:has(.tag.superhot){border-color:#ff3923!important;box-shadow:inset 0 0 18px #ff281f22,0 0 12px #ff281f55!important}
+#rows .predict-time{font-size:25px!important}
+@media(max-width:600px){
+ #rows{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+ #rows .prediction-card{min-height:165px!important;padding:7px 4px!important}
+ #rows .predict-time{font-size:22px!important}
+ #rows .egg-orb{font-size:32px!important}
+ #rows .egg{font-size:10px!important;min-height:24px!important}
+ #rows .tag{font-size:11px!important}
+}
+</style>
 </head>
 <body><main>
 <h1>LEO EGG <small>予測 v7.4.3 ✨</small></h1>
@@ -237,7 +257,7 @@ function render(){
    $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去出現 '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
    renderLightPrediction();stats();return;
  }
- const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
+ const ranked=scoreCandidates(ss).slice(0,6), base=nextBoundary();
  const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);
  const normalMisses=recentManual.filter(x=>x.egg==='通常卵').length;
  const safeHot=m.confidence==='high'&&normalMisses<2;
