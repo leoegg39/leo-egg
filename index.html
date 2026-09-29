@@ -263,10 +263,32 @@ function extractLiveSpawns(html){
  }
  return out;
 }
+function liveEggName(x){
+ const raw=String(x.pet||x.egg||'').trim();
+ if(!raw)return 'Unknown Egg';
+ let slug=raw;
+ const m=raw.match(/\/([^/]+?)-s\.webp(?:\?.*)?$/i); if(m)slug=m[1];
+ slug=slug.replace(/^.*\//,'').replace(/-egg$/i,'').replace(/[-_]+/g,' ').trim();
+ const key=norm(slug);
+ const hit=REAL_EGGS.find(e=>norm(e[0])===key);
+ if(hit)return hit[0];
+ return slug.replace(/\b\w/g,ch=>ch.toUpperCase())+' Egg';
+}
+function repairSpawnHistory(){
+ let a=loadJ(SKEY), changed=false;
+ a=a.map(z=>{
+   const egg=liveEggName(z);
+   const t=Number(z.ts)||Number(z.t);
+   const id=norm(egg)+'|'+Math.floor(t/60000);
+   if(egg!==z.egg||id!==z.id||t!==z.t)changed=true;
+   return {...z,id,egg,t};
+ }).filter(z=>Number.isFinite(z.t)&&z.egg!=='Unknown Egg');
+ if(changed)saveJ(SKEY,a);
+}
 function addAutoSpawn(x){
- let a=loadJ(SKEY), t=Number(x.ts)||dayTimeToTs(x.hm), id=norm(x.egg)+'|'+Math.floor(t/60000);
+ let a=loadJ(SKEY), t=Number(x.ts)||Number(x.t)||dayTimeToTs(x.hm), egg=liveEggName(x), id=norm(egg)+'|'+Math.floor(t/60000);
  if(a.some(z=>(z.id||'')===id))return false;
- a.push({id,egg:x.egg,loc:x.loc||'',t,rarity:x.rarity||'Rare',source:'Eggipedia Live'});saveJ(SKEY,a);return true;
+ a.push({id,egg,loc:x.loc||x.biome||'',t,rarity:x.rarity||'Rare',source:'Eggipedia Live'});saveJ(SKEY,a);return true;
 }
 let lastAuto=0;
 async function autoPoll(){
@@ -331,7 +353,7 @@ liveBtn.textContent='🥚 公開Liveを確認';
 if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
-eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
+repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
