@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=742">
-<title>LEO EGG 予測 v7.4.7</title>
+<title>LEO EGG 予測 v7.4.8</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.4.7 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.4.8 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -211,11 +211,13 @@ function nextBoundary(){
  return Math.ceil((Date.now()+1)/step)*step;
 }
 function tick(){
+ try{
  let left=nextBoundary()-Date.now(); if(left<0)left=0;
  let m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
- $('#timer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+ const timer=document.getElementById('timer'); if(timer) timer.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
  if(left<1200 && soundOn && !window._beeped){beep(900,.12);window._beeped=true}
  if(left>20000)window._beeped=false;
+ }catch(e){}
 }
 function beep(f,d){try{let a=new (AudioContext||webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.value=.08;o.start();o.stop(a.currentTime+d)}catch(e){}}
 document.querySelectorAll('[data-egg]').forEach(b=>b.onclick=()=>{let h=history(),now=Date.now(),spawnT=Math.floor(now/W)*W;h.push({t:spawnT,egg:b.dataset.egg,recordedAt:now});save(h);render();if(soundOn)beep(b.dataset.egg==='光卵・特大'?1200:700,.15)});
@@ -371,12 +373,12 @@ liveBtn.target='_blank'; liveBtn.rel='noopener';
 liveBtn.className='action'; liveBtn.style.cssText='display:block;text-align:center;text-decoration:none;margin-top:12px';
 liveBtn.textContent='🥚 公開Liveを確認';
 if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
-tick();setInterval(tick,250);
+window.setInterval(tick,250);tick();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=747',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=748',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
