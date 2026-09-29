@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=71">
-<title>LEO EGG 予測 v7.1</title>
+<link rel="manifest" href="manifest.webmanifest?v=72">
+<title>LEO EGG 予測 v7.2</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.1 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.2 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -117,22 +117,24 @@ function predictionModel(){
  return {ready:true,n:ss.length,recentAge,confidence:ss.length>=50&&recentAge<=7?'high':ss.length>=25?'medium':'low'};
 }
 function scoreCandidates(ss){
- const now=new Date(), hour=now.getHours(), dow=now.getDay(), rows={};
+ const now=Date.now(), nd=new Date(now), hour=nd.getHours(), dow=nd.getDay(), rows={};
  ss.forEach((x,i)=>{
-   const name=x.egg||x.name||'Rare Egg', d=new Date(Number(x.t));
-   if(!rows[name])rows[name]={name,count:0,hour:0,dow:0,after:{}};
+   const name=liveEggName(x), d=new Date(Number(x.t));
+   if(!rows[name])rows[name]={name,count:0,hour:0,dow:0,after:{},recent:0};
    const r=rows[name]; r.count++;
    const dh=Math.min(Math.abs(d.getHours()-hour),24-Math.abs(d.getHours()-hour));
    if(dh<=1)r.hour++;
    if(d.getDay()===dow)r.dow++;
-   if(i>0){const prev=ss[i-1].egg||ss[i-1].name||'';r.after[prev]=(r.after[prev]||0)+1}
+   const ageH=Math.max(0,(now-Number(x.t))/3600000);
+   r.recent+=Math.exp(-ageH/18);
+   if(i>0){const prev=liveEggName(ss[i-1]);r.after[prev]=(r.after[prev]||0)+1}
  });
- const last=ss.length?(ss[ss.length-1].egg||ss[ss.length-1].name||''):'';
- const total=Math.max(1,ss.length);
+ const last=ss.length?liveEggName(ss[ss.length-1]):'';
+ const total=Math.max(1,ss.length), recentMax=Math.max(1,...Object.values(rows).map(r=>r.recent));
  return Object.values(rows).map(r=>{
    const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), dowRate=r.dow/Math.max(1,r.count);
-   const follow=(r.after[last]||0)/Math.max(1,r.count);
-   return {...r,score:base*.45+hourRate*.25+dowRate*.15+follow*.15};
+   const follow=(r.after[last]||0)/Math.max(1,r.count), recentRate=r.recent/recentMax;
+   return {...r,score:base*.20+hourRate*.15+dowRate*.10+follow*.25+recentRate*.30};
  }).sort((a,b)=>b.score-a.score);
 }
 function lightEggPrediction(){
@@ -168,7 +170,7 @@ function render(){
  const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
  const safeHot=m.confidence==='high';
  const note=m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
- $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v2 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
+ $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v3 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
    const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
    const label=i===0&&safeHot?'🔥 激アツ':i<3?'✨ 候補':'参考';
    const klass=i===0&&safeHot?'hot':i<3?'chance':'miss';
@@ -357,6 +359,6 @@ repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=71',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=72',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
