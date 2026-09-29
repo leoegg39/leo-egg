@@ -251,6 +251,15 @@ function renderLightPrediction(){
  const next=new Date(Math.max(base,p.last+p.med*60000)).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
  box.innerHTML=`<div class="row"><div class="n">✨</div><div><div class="egg">光卵</div><div class="time">次の候補 ${next} ／ 実記録 ${p.n}件 ／ 中央間隔 約${Math.round(p.med)}分</div></div><div class="tag ${p.klass}">${p.label}</div></div>`;
 }
+function jpEggName(name){
+ const m={
+  'Gargoyle Egg':'ガーゴイル卵',
+  'Pure Jellyfish Egg':'ピュアクラゲ卵',
+  'Kraken Egg':'クラーケン卵',
+  'Tralaledon Egg':'トララレドン卵'
+ };
+ return m[name]||String(name).replace(/ Egg$/,'卵');
+}
 function render(){
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(!m.ready){
@@ -269,7 +278,7 @@ function render(){
    else if(i===0&&m.confidence!=='low'){label='🔥 激アツ';klass='hot'}
    else if(i<3){label='✨ 光';klass='chance'}
    const pct=Math.round(r.count/Math.max(1,ss.length)*100);
-   return `<div class="row prediction-card"><div class="n">${i+1}</div><div class="egg-orb">🥚</div><div class="egg">${r.name}</div><div class="predict-time">${when}</div><div class="tag ${klass}">${label}</div><div class="card-history">出現率 ${pct}%</div></div>`;
+   return `<div class="row prediction-card"><div class="n">${i+1}</div><div class="egg-orb">🥚</div><div class="egg">${jpEggName(r.name)}</div><div class="predict-time">${when}</div><div class="tag ${klass}">${label}</div><div class="card-history">出現率 ${pct}%</div></div>`;
  }).join('');
  renderLightPrediction();stats();
 }
