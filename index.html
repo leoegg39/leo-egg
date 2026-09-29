@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=755">
-<title>LEO EGG 予測 v7.5.5</title>
+<link rel="manifest" href="manifest.webmanifest?v=756">
+<title>LEO EGG 予測 v7.5.6</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.5.5 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.5.6 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -60,6 +60,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 
 <section class="card">
 <h2 style="font-size:32px;margin-top:0">🎯 過去データ予測</h2>
+<div id="accuracyBox" class="small" style="margin:-4px 0 14px"></div>
 <div id="rows"></div>
 </section>
 
@@ -168,6 +169,27 @@ function renderLightPrediction(){
  const next=new Date(Math.max(base,p.last+p.med*60000)).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
  box.innerHTML=`<div class="row"><div class="n">✨</div><div><div class="egg">光卵</div><div class="time">次の候補 ${next} ／ 実記録 ${p.n}件 ／ 中央間隔 約${Math.round(p.med)}分</div></div><div class="tag ${p.klass}">${p.label}</div></div>`;
 }
+function predictionAccuracy(){
+ const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(ss.length<13)return {ready:false,total:0,hits:0};
+ let total=0,hits=0;
+ const start=Math.max(12,ss.length-20);
+ for(let i=start;i<ss.length;i++){
+   const train=ss.slice(0,i);
+   if(train.length<12)continue;
+   const predicted=scoreCandidates(train).slice(0,6).map(r=>norm(r.name));
+   total++;
+   if(predicted.includes(norm(liveEggName(ss[i]))))hits++;
+ }
+ return {ready:total>0,total,hits,pct:total?Math.round(hits/total*100):0};
+}
+function renderAccuracy(){
+ const b=$('#accuracyBox'); if(!b)return;
+ const a=predictionAccuracy();
+ b.innerHTML=a.ready
+  ? `<span class="badge">🎯 実測的中率 <b>${a.pct}%</b></span><span class="muted"> 直近${a.total}回中 ${a.hits}回的中（6候補内）</span>`
+  : '<span class="badge">🎯 的中率集計中</span><span class="muted"> 実Spawnがたまると自動表示します</span>';
+}
 function render(){
  try{
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
@@ -179,7 +201,7 @@ function render(){
      const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
      return `<div class="predictcard"><div class="egg">${eggIcon(e[0])} ${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
    }).join('')+'</div>';
-   renderLightPrediction();stats();return;
+   renderAccuracy();renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,6), base=nextBoundary();
  const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);
@@ -195,7 +217,7 @@ function render(){
    const biome=hit?hit[2]:'';
    return `<div class="predictcard"><div class="egg">${eggIcon(r.name)} ${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
  }).join('')+'</div>';
- renderLightPrediction();stats();
+ renderAccuracy();renderLightPrediction();stats();
  }catch(e){const r=$('#rows');if(r)r.innerHTML='<div class="small bad">予測表示を再読み込み中…</div>';}
 }
 async function syncHistoryForPrediction(){
@@ -379,6 +401,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=755',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=756',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
