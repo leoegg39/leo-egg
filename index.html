@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=742">
-<title>LEO EGG 予測 v7.4.3</title>
+<title>LEO EGG 予測 v7.4.5</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.4.3 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.4.5 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -363,12 +363,12 @@ liveBtn.target='_blank'; liveBtn.rel='noopener';
 liveBtn.className='action'; liveBtn.style.cssText='display:block;text-align:center;text-decoration:none;margin-top:12px';
 liveBtn.textContent='🥚 公開Liveを確認';
 if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
-renderIntel();
+tick();setInterval(tick,250);
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 repairSpawnHistory();eggDB();
-syncHistoryForPrediction().finally(()=>{renderIntel();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);});
+render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=744',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=745',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
