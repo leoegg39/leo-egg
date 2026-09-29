@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=73">
-<title>LEO EGG 予測 v7.3</title>
+<link rel="manifest" href="manifest.webmanifest?v=74">
+<title>LEO EGG 予測 v7.4</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.3 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.4 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -168,9 +168,9 @@ function render(){
    renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
- const safeHot=m.confidence==='high';
- const note=m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
- $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v3 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
+ const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);\n const normalMisses=recentManual.filter(x=>x.egg==='通常卵').length;\n const safeHot=m.confidence==='high'&&normalMisses<2;
+ const note=normalMisses>=2?'直近ノーマル多発・激アツ抑制中':m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
+ $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v4 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
    const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
    const label=i===0&&safeHot?'🔥 激アツ':i<3?'✨ 候補':'参考';
    const klass=i===0&&safeHot?'hot':i<3?'chance':'miss';
@@ -359,6 +359,6 @@ repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=73',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=74',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
