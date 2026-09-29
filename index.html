@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=742">
-<title>LEO EGG 予測 v7.5.3</title>
+<title>LEO EGG 予測 v7.5.4</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.5.3 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.5.4 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -108,7 +108,7 @@ const REAL_EGGS=[["Chicken Egg","Common","Forest"],["Dog Egg","Common","Forest"]
 const BIOMES=[["Forest", "制限なし"], ["Lake", "900"], ["Desert", "10K"], ["Jungle", "40K"], ["Snow", "170K"], ["Volcano", "700K"], ["Abyss Ocean", "2.5M"], ["Prehistoric", "18M"], ["Cosmic", "700M"], ["Cherry Blossom", "2.5B"], ["Titan Temple", "7B"], ["Angels & Demons", "20B"]];
 const BIOME_JA={"Forest":"🌲 森","Lake":"💧 湖","Desert":"🏜️ 砂漠","Jungle":"🌴 ジャングル","Snow":"❄️ 雪原","Volcano":"🌋 火山","Abyss Ocean":"🌊 深海","Prehistoric":"🦖 原始時代","Cosmic":"🌌 宇宙","Cherry Blossom":"🌸 桜","Titan Temple":"🏛️ タイタン神殿","Angels & Demons":"😇😈 天使と悪魔"};
 function biomeJa(x){return BIOME_JA[x]||('📍 '+(x||'場所不明'))}
-const EGG_JA={"Gargoyle Egg":"ガーゴイルエッグ"};
+const EGG_JA={"Gargoyle Egg":"ガーゴイルエッグ","Pure Jellyfish Egg":"ピュアクラゲエッグ","Kraken Egg":"クラーケンエッグ","Tralaledon Egg":"トララレドンエッグ","Mutant Shark Egg":"ミュータントシャークエッグ","Cerberus Egg":"ケルベロスエッグ"};
 function eggJa(x){return EGG_JA[x]||x}
 function eggIcon(x){return x==='Gargoyle Egg'?'🟣':'🥚'}
 
@@ -379,6 +379,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=753',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=754',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
