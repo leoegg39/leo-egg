@@ -100,6 +100,8 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </main>
 <script>
 const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEggSpawnV4';
+function loadJ(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return []}}
+function saveJ(k,v){localStorage.setItem(k,JSON.stringify(v.slice(-300)))}
 const LIVE_URL='https://eggipedia.com/spawns';
 const LIVE_JSON='./live.json';
 const REAL_EGGS=[["Chicken Egg","Common","Forest"],["Dog Egg","Common","Forest"],["Bird Egg","Uncommon","Forest"],["Burrowing Owl Egg","Rare","Forest"],["Raccoon Egg","Rare","Forest"],["Fox Egg","Epic","Forest"],["Bear Egg","Epic","Forest"],["Brr Brr Patapim Egg","Legendary","Forest"],["Frog Egg","Common","Lake"],["Duckling Egg","Common","Lake"],["Catfish Egg","Uncommon","Lake"],["Turtle Egg","Rare","Lake"],["Trulimero Trulicina Egg","Epic","Lake"],["Swan Egg","Epic","Lake"],["Axolotl Egg","Legendary","Lake"],["Leviathan Egg","Cosmic","Lake"],["Jerboa Egg","Common","Desert"],["Fennec Egg","Uncommon","Desert"],["Camel Egg","Rare","Desert"],["Tob Tobi Tob Tob Egg","Epic","Desert"],["Snake Egg","Legendary","Desert"],["Sand Spider Egg","Mythic","Desert"],["Scorpion Egg","Mythic","Desert"],["Royal Sphinx Egg","Cosmic","Desert"],["Chimpanzee Egg","Rare","Jungle"],["Toucan Egg","Rare","Jungle"],["Crocodile Egg","Epic","Jungle"],["Gorilla Egg","Legendary","Jungle"],["Orangutini Ananassini Egg","Legendary","Jungle"],["Spider Egg","Mythic","Jungle"],["Tiger Egg","Mythic","Jungle"],["King Snake Egg","Secret","Jungle"],["Penguin Egg","Rare","Snow"],["Walrus Egg","Epic","Snow"],["Polar Bear Egg","Legendary","Snow"],["Sabertooth Tiger Egg","Mythic","Snow"],["Mammoth Egg","Mythic","Snow"],["King Mammoth Egg","Cosmic","Snow"],["Yeti Egg","Secret","Snow"],["Ice Dragon Egg","Eternal","Snow"],["Lava Gecko Egg","Rare","Volcano"],["Lava Frog Egg","Epic","Volcano"],["Flaming Bull Egg","Legendary","Volcano"],["Lava Iguana Egg","Legendary","Volcano"],["Chillin Chilli Egg","Mythic","Volcano"],["Cerberus Egg","Secret","Volcano"],["Phoenix Egg","Eternal","Volcano"],["Lava Dragon Egg","Eternal","Volcano"],["Parrotfish Egg","Rare","Abyss Ocean"],["Swordfish Egg","Epic","Abyss Ocean"],["Shark Egg","Legendary","Abyss Ocean"],["Orca Egg","Mythic","Abyss Ocean"],["Whale Shark Egg","Cosmic","Abyss Ocean"],["Beluga Whale Egg","Cosmic","Abyss Ocean"],["Kraken Egg","Secret","Abyss Ocean"],["El Maja Egg","Eternal","Abyss Ocean"],["Dodo Egg","Rare","Prehistoric"],["Pterodactyl Egg","Legendary","Prehistoric"],["Ankylosaurus Egg","Mythic","Prehistoric"],["Triceratops Egg","Cosmic","Prehistoric"],["Bronto Egg","Cosmic","Prehistoric"],["T-Rex Egg","Secret","Prehistoric"],["Tralaledon Egg","Secret","Prehistoric"],["Mosasaurus Egg","Eternal","Prehistoric"],["Centapede Egg","Epic","Cosmic"],["Cosmic Gecko Egg","Legendary","Cosmic"],["Cosmic Gorilla Egg","Mythic","Cosmic"],["La Vacca Saturno Saturnita Egg","Cosmic","Cosmic"],["Cosmic Skeleton Boss Egg","Secret","Cosmic"],["Cosmic Dragon Egg","Secret","Cosmic"],["Eternal Lunar Dragon Egg","Eternal","Cosmic"],["Unicorn Egg","Divine","Cosmic"],["Crane Egg","Epic","Cherry Blossom"],["Salamander Egg","Legendary","Cherry Blossom"],["Red Panda Egg","Mythic","Cherry Blossom"],["Snowy Owl Egg","Cosmic","Cherry Blossom"],["Koi Egg","Cosmic","Cherry Blossom"],["Stag Egg","Secret","Cherry Blossom"],["Oni Tiger Egg","Eternal","Cherry Blossom"],["Kitsune Egg","Divine","Cherry Blossom"],["Spideron Egg","Legendary","Titan Temple"],["Crustacia Egg","Legendary","Titan Temple"],["Bladehide Egg","Mythic","Titan Temple"],["Mantaris Egg","Cosmic","Titan Temple"],["Rhinotaur Egg","Cosmic","Titan Temple"],["Mutant Shark Egg","Secret","Titan Temple"],["Gorilla King Egg","Eternal","Titan Temple"],["Nightflame Egg","Divine","Titan Temple"],["Flame Sprite Egg","Legendary","Angels & Demons"],["Light Dove Egg","Legendary","Angels & Demons"],["Toro Egg","Mythic","Angels & Demons"],["Winged Lamb Egg","Mythic","Angels & Demons"],["Imp Egg","Cosmic","Angels & Demons"],["Sacred Moth Egg","Cosmic","Angels & Demons"],["Demon Hound Egg","Cosmic","Angels & Demons"],["Holy Peacock Egg","Cosmic","Angels & Demons"],["Gargoyle Egg","Secret","Angels & Demons"],["Pure Jellyfish Egg","Secret","Angels & Demons"],["Centaur Egg","Secret","Angels & Demons"],["RazorFang Egg","Secret","Angels & Demons"],["Pegasus Egg","Eternal","Angels & Demons"],["Skeleton Horse Egg","Eternal","Angels & Demons"],["ArchAngel Egg","Divine","Angels & Demons"],["World Burner Egg","Divine","Angels & Demons"]];
@@ -242,8 +244,6 @@ function renderLatestFocus(){
 }
 
 
-function loadJ(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return []}}
-function saveJ(k,v){localStorage.setItem(k,JSON.stringify(v.slice(-300)))}
 function dayTimeToTs(hm){let [h,m]=hm.split(':').map(Number),d=new Date();d.setHours(h,m,0,0);return d.getTime()}
 function fmtTs(t){let d=new Date(t);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
 function norm(x){return (x||'').toLowerCase().replace(/egg/g,'').replace(/[^a-z0-9]/g,'')}
@@ -365,10 +365,10 @@ liveBtn.textContent='🥚 公開Liveを確認';
 if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 renderIntel();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
-repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);
-syncHistoryForPrediction().then(()=>{renderIntel();render();});
+repairSpawnHistory();eggDB();
+syncHistoryForPrediction().finally(()=>{renderIntel();render();renderLightPrediction();tick();setInterval(tick,250);setInterval(render,30000);});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=742',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=744',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
