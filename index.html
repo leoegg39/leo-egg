@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=742">
-<title>LEO EGG 予測 v7.4.8</title>
+<title>LEO EGG 予測 v7.4.9</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.4.8 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.4.9 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -264,26 +264,23 @@ function renderIntel(){
  const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
 }
 function extractLiveSpawns(html){
- const doc=new DOMParser().parseFromString(html,'text/html');
- const text=(doc.body?.innerText||'').replace(/\r/g,'');
- let out=[];
- // Parse conservative text patterns only; never invent missing fields.
- const blocks=text.split(/
-{2,}/);
- for(const b of blocks){
-   if(!/(Secret|Eternal|Divine|rare egg|spawn)/i.test(b)) continue;
-   let tm=b.match(/\b([01]?\d|2[0-3]):([0-5]\d)\b/);
-   let rarity=(b.match(/\b(Secret|Eternal|Divine)\b/i)||[])[1]||'Rare';
-   let loc=(b.match(/(?:Biome|Location)\s*[:\-]\s*([^
-]+)/i)||[])[1]||'';
-   let lines=b.split('
-').map(x=>x.trim()).filter(Boolean);
+ try{
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const text=(doc.body?.innerText||'').replace(/\r/g,'');
+  let out=[];
+  const blocks=text.split(/\n{2,}/);
+  for(const b of blocks){
+   if(!/(Secret|Eternal|Divine|rare egg|spawn)/i.test(b))continue;
+   const tm=b.match(/\b([01]?\d|2[0-3]):([0-5]\d)\b/);
+   const rarity=(b.match(/\b(Secret|Eternal|Divine)\b/i)||[])[1]||'Rare';
+   const loc=(b.match(/(?:Biome|Location)\s*[:\-]\s*([^\n]+)/i)||[])[1]||'';
+   const lines=b.split('\n').map(x=>x.trim()).filter(Boolean);
    let egg=lines.find(x=>/egg$/i.test(x)&&!/rare eggs/i.test(x))||'';
-   if(!egg){let m=b.match(/(?:Secret|Eternal|Divine)\s+(?:Egg\s*)?[:\-]?\s*([^
-]+)/i); if(m)egg=m[1].trim()}
-   if(egg&&tm) out.push({egg,loc,hm:tm[0],rarity});
- }
- return out;
+   if(!egg){const m=b.match(/(?:Secret|Eternal|Divine)\s+(?:Egg\s*)?[:\-]?\s*([^\n]+)/i);if(m)egg=m[1].trim();}
+   if(egg&&tm)out.push({egg,loc,hm:tm[0],rarity});
+  }
+  return out;
+ }catch(e){return []}
 }
 function liveEggName(x){
  const raw=String(x.pet||x.egg||'').trim();
@@ -379,6 +376,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=748',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=749',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
