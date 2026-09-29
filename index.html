@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=72">
-<title>LEO EGG 予測 v7.2</title>
+<link rel="manifest" href="manifest.webmanifest?v=73">
+<title>LEO EGG 予測 v7.3</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.2 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.3 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -202,7 +202,7 @@ function tick(){
  if(left>20000)window._beeped=false;
 }
 function beep(f,d){try{let a=new (AudioContext||webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.value=.08;o.start();o.stop(a.currentTime+d)}catch(e){}}
-document.querySelectorAll('[data-egg]').forEach(b=>b.onclick=()=>{let h=history();h.push({t:Date.now(),egg:b.dataset.egg});save(h);render();if(soundOn)beep(b.dataset.egg==='光卵・特大'?1200:700,.15)});
+document.querySelectorAll('[data-egg]').forEach(b=>b.onclick=()=>{let h=history(),now=Date.now(),spawnT=Math.floor(now/W)*W;h.push({t:spawnT,egg:b.dataset.egg,recordedAt:now});save(h);render();if(soundOn)beep(b.dataset.egg==='光卵・特大'?1200:700,.15)});
 $('#undo').onclick=()=>{let h=history();h.pop();save(h);render()};
 $('#recalc').onclick=render;
 $('#sound').onclick=()=>{soundOn=true;beep(700,.1);$('#sound').textContent='🔊 音ON'};
@@ -359,6 +359,6 @@ repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=72',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=73',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
