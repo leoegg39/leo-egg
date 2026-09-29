@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=741">
-<title>LEO EGG 予測 v7.4.1</title>
+<link rel="manifest" href="manifest.webmanifest?v=742">
+<title>LEO EGG 予測 v7.4.2</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -168,7 +168,9 @@ function render(){
    renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,5), base=nextBoundary();
- const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);\n const normalMisses=recentManual.filter(x=>x.egg==='通常卵').length;\n const safeHot=m.confidence==='high'&&normalMisses<2;
+ const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);
+ const normalMisses=recentManual.filter(x=>x.egg==='通常卵').length;
+ const safeHot=m.confidence==='high'&&normalMisses<2;
  const note=normalMisses>=2?'直近ノーマル多発・激アツ抑制中':m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
  $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v4 ／ '+note+' ／ '+ss.length+'件学習</div>'+ranked.map((r,i)=>{
    const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
@@ -252,15 +254,19 @@ function extractLiveSpawns(html){
  const text=(doc.body?.innerText||'').replace(/\r/g,'');
  let out=[];
  // Parse conservative text patterns only; never invent missing fields.
- const blocks=text.split(/\n{2,}/);
+ const blocks=text.split(/
+{2,}/);
  for(const b of blocks){
    if(!/(Secret|Eternal|Divine|rare egg|spawn)/i.test(b)) continue;
    let tm=b.match(/\b([01]?\d|2[0-3]):([0-5]\d)\b/);
    let rarity=(b.match(/\b(Secret|Eternal|Divine)\b/i)||[])[1]||'Rare';
-   let loc=(b.match(/(?:Biome|Location)\s*[:\-]\s*([^\n]+)/i)||[])[1]||'';
-   let lines=b.split('\n').map(x=>x.trim()).filter(Boolean);
+   let loc=(b.match(/(?:Biome|Location)\s*[:\-]\s*([^
+]+)/i)||[])[1]||'';
+   let lines=b.split('
+').map(x=>x.trim()).filter(Boolean);
    let egg=lines.find(x=>/egg$/i.test(x)&&!/rare eggs/i.test(x))||'';
-   if(!egg){let m=b.match(/(?:Secret|Eternal|Divine)\s+(?:Egg\s*)?[:\-]?\s*([^\n]+)/i); if(m)egg=m[1].trim()}
+   if(!egg){let m=b.match(/(?:Secret|Eternal|Divine)\s+(?:Egg\s*)?[:\-]?\s*([^
+]+)/i); if(m)egg=m[1].trim()}
    if(egg&&tm) out.push({egg,loc,hm:tm[0],rarity});
  }
  return out;
@@ -359,6 +365,6 @@ repairSpawnHistory();eggDB();render();renderLightPrediction();tick();setInterval
 syncHistoryForPrediction().then(()=>{renderIntel();render();});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=741',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=742',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
