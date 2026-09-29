@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=742">
-<title>LEO EGG 予測 v7.4.5</title>
+<title>LEO EGG 予測 v7.4.7</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,7 +49,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.4.5 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.4.7 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -164,9 +164,16 @@ function renderLightPrediction(){
  box.innerHTML=`<div class="row"><div class="n">✨</div><div><div class="egg">光卵</div><div class="time">次の候補 ${next} ／ 実記録 ${p.n}件 ／ 中央間隔 約${Math.round(p.med)}分</div></div><div class="tag ${p.klass}">${p.label}</div></div>`;
 }
 function render(){
+ try{
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(!m.ready){
-   $('#rows').innerHTML='<div class="small muted">📊 データ不足：過去Spawn '+m.n+'件。根拠のない「🔥激アツ」は表示しません。</div>';
+   const demo=REAL_EGGS.filter(e=>['Secret','Eternal','Divine'].includes(e[1])).slice(-6);
+   const base=nextBoundary();
+   $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">🥚 予測準備中 ／ 実データ '+m.n+'件</div><div class="predictgrid">'+demo.map((e,i)=>{
+     const bi=BIOMES.findIndex(b=>b[0]===e[2]), place=bi===BIOMES.length-1?'最後':(bi<0?'場所？':`${bi+1}${bi%2===0?'右':'左'}`);
+     const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+     return `<div class="predictcard"><div class="egg">🥚 ${e[0]}</div><div class="place">📍 ${place}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
+   }).join('')+'</div>';
    renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,6), base=nextBoundary();
@@ -186,6 +193,7 @@ function render(){
    return `<div class="predictcard"><div class="egg">🥚 ${r.name}</div><div class="place">📍 ${place}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
  }).join('')+'</div>';
  renderLightPrediction();stats();
+ }catch(e){const r=$('#rows');if(r)r.innerHTML='<div class="small bad">予測表示を再読み込み中…</div>';}
 }
 async function syncHistoryForPrediction(){
  try{
@@ -369,6 +377,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=745',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=747',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
