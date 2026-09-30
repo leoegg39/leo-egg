@@ -1,10 +1,10 @@
 {
   "ok": true,
-  "checkedAt": "2026-09-30T03:27:14.324041+00:00",
+  "checkedAt": "2026-09-30T22:34:52.320997+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
-  "parsedNow": 299,
+  "parsedNow": 300,
   "spawns": [
     {
       "egg": "T-Rex",
@@ -3301,21 +3301,552 @@
       "ts": 1790652602000,
       "source": "Eggipedia JSON",
       "t": 1790738834324
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T22:30:04.000Z",
+      "ts": 1790807404000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T22:30:01.000Z",
+      "ts": 1790807401000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T22:25:06.000Z",
+      "ts": 1790807106000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T22:25:01.000Z",
+      "ts": 1790807101000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T22:25:01.000Z",
+      "ts": 1790807101000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T22:15:01.000Z",
+      "ts": 1790806501000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T21:55:01.000Z",
+      "ts": 1790805301000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T21:40:01.000Z",
+      "ts": 1790804401000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T21:35:01.000Z",
+      "ts": 1790804101000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-30T21:25:01.000Z",
+      "ts": 1790803501000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T21:25:01.000Z",
+      "ts": 1790803501000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T21:15:01.000Z",
+      "ts": 1790802901000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/skeleton-horse-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T21:10:01.000Z",
+      "ts": 1790802601000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T21:05:01.000Z",
+      "ts": 1790802301000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T21:00:01.000Z",
+      "ts": 1790802001000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T20:45:01.000Z",
+      "ts": 1790801101000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/phoenix-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-30T20:40:01.000Z",
+      "ts": 1790800801000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/mosasaurus-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T20:35:02.000Z",
+      "ts": 1790800502000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T20:20:06.000Z",
+      "ts": 1790799606000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T20:20:01.000Z",
+      "ts": 1790799601000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-30T20:15:01.000Z",
+      "ts": 1790799301000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T20:00:02.000Z",
+      "ts": 1790798402000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/skeleton-horse-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T19:45:04.000Z",
+      "ts": 1790797504000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T19:45:01.000Z",
+      "ts": 1790797501000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/centaur-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T19:40:03.000Z",
+      "ts": 1790797203000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-09-30T19:30:01.000Z",
+      "ts": 1790796601000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T19:25:01.000Z",
+      "ts": 1790796301000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-09-30T19:15:01.000Z",
+      "ts": 1790795701000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-30T19:15:01.000Z",
+      "ts": 1790795701000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T19:10:01.000Z",
+      "ts": 1790795401000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T19:00:01.000Z",
+      "ts": 1790794801000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T18:55:03.000Z",
+      "ts": 1790794503000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T18:55:03.000Z",
+      "ts": 1790794503000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T18:55:01.000Z",
+      "ts": 1790794501000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T18:40:03.000Z",
+      "ts": 1790793603000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T18:40:01.000Z",
+      "ts": 1790793601000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T18:30:01.000Z",
+      "ts": 1790793001000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T18:25:02.000Z",
+      "ts": 1790792702000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-30T18:05:01.000Z",
+      "ts": 1790791501000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T18:00:03.000Z",
+      "ts": 1790791203000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-09-30T18:00:01.000Z",
+      "ts": 1790791201000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-09-30T17:45:03.000Z",
+      "ts": 1790790303000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-09-30T17:40:02.000Z",
+      "ts": 1790790002000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T17:35:02.000Z",
+      "ts": 1790789702000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T17:30:02.000Z",
+      "ts": 1790789402000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T17:25:02.000Z",
+      "ts": 1790789102000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T17:20:10.000Z",
+      "ts": 1790788810000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-30T17:05:03.000Z",
+      "ts": 1790787903000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-09-30T16:45:03.000Z",
+      "ts": 1790786703000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-09-30T16:30:03.000Z",
+      "ts": 1790785803000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T16:30:03.000Z",
+      "ts": 1790785803000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-09-30T16:25:03.000Z",
+      "ts": 1790785503000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-09-29T15:30:09.000Z",
+      "ts": 1790695809000,
+      "source": "Eggipedia JSON",
+      "t": 1790807692320
     }
   ],
   "diagnostics": {
-    "htmlBytes": 13445,
+    "htmlBytes": 14821,
     "scriptCount": 5,
     "scripts": [
-      "/assets/theme.js?v=870e434d",
-      "/assets/sae.js?v=870e434d",
-      "/assets/sae-data.en.js?v=870e434d",
-      "/assets/live.js?v=870e434d",
+      "/assets/theme.js?v=fe8769c0",
+      "/assets/sae.js?v=fe8769c0",
+      "/assets/sae-data.en.js?v=fe8769c0",
+      "/assets/live.js?v=fe8769c0",
       "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
     ],
     "liveHints": [
-      "/live.js?v=870e434d",
+      "/live.js?v=fe8769c0",
       "/spawns",
+      "https://discord.gg/2vjsj8EeDv",
       "https://eggipedia.com/",
       "https://eggipedia.com/fr/spawns",
       "https://eggipedia.com/images/sae/og.jpg",
@@ -3327,13 +3858,13 @@
       "https://www.roblox.com/games/107778070777162/Steal-An-Egg"
     ],
     "connecting": true,
-    "liveJsUrl": "https://eggipedia.com/assets/live.js?v=870e434d",
-    "liveJsBytes": 9202,
+    "liveJsUrl": "https://eggipedia.com/assets/live.js?v=fe8769c0",
+    "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 34116,
+    "spawnJsonBytes": 34334,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-30T03:26:23.650Z', 'total': 199, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-09-28T21:24:09.768Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1554600196250411079', 'at': '2026-09-29T21:05:02.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1554599203127169035', 'at': '2026-09-29T21:00:06.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id': '1554599186698084485', 'at': '2026-09-29T21:00:02.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1554596789741686884', 'at': '2026-09-29T20:50:07.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1554596772343713843', 'at': '2026-09-29T20:50:07.000Z', 'pet': 'ice-dragon', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/ice-dragon-egg-s.webp'}, {'id': '1554596748528459921', 'at': '2026-09-29T20:50:02.000Z', 'pet': 'centaur', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/centaur-egg-s.webp'}, {'id': '1554593848540266627', 'at': '2026-09-29T20:40:05.000Z', 'pet': 'king-snake', 'mut': None, 'kg': None, 'biome': 'Jungle', 'egg': '/images/sae/eggs/king-snake-egg-s.webp'}, {'id': '15",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-09-30T22:34:16.643Z', 'total': 252, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-09-30T20:14:14.408Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1554984463870595156', 'at': '2026-09-30T22:30:04.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1554984453955264634', 'at': '2026-09-30T22:30:01.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1554983155411320834', 'at': '2026-09-30T22:25:06.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1554983136025378868', 'at': '2026-09-30T22:25:01.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1554983099039883337', 'at': '2026-09-30T22:25:01.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1554980135646527510', 'at': '2026-09-30T22:15:01.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1554975090989465713', 'at': '2026-09-30T21:55:01.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s",
     "transportHints": [
       "/spawns",
       "/spawns.json"
@@ -3341,10 +3872,10 @@
     "liveJsContexts": [
       "/* Steal An Egg Guide - œufs rares en direct : page /spawns et encart de l'accueil.\n   Lit /live/spawns.json (écrit par le bot Eggy du serveur Discord Beyn Mods) toutes les 20 s.\n   Tout est construit avec createElement et textContent : aucun HTML n'est injecté, le contenu du\n   fichier ne peut donc rien exécuter. Noms, raretés et biomes viennent de window.SAE (sae-data). */\n(function () {\n  'use strict';\n  var D = window.SAE, F = window.SAEfmt, d = document;\n  var page = d.querySelector('[data-live]'), home = d.getElementById('live-home');\n  if (!D || !F || (!page && !home)) return;\n  var L = D.i18n, FR = F.lang === 'fr';\n  var fill = function (s, o) { return String(s).replace(/\\{(\\w+)\\}/g, function (_, k) { return o[k]; }); };\n  var pets = Object.",
       "/* Steal An Egg Guide - œufs rares en direct : page /spawns et encart de l'accueil.\n   Lit /live/spawns.json (écrit par le bot Eggy du serveur Discord Beyn Mods) toutes les 20 s.\n   Tout est construit avec createElement et textContent : aucun HTML n'est injecté, le contenu du\n   fichier ne peut donc rien exécuter. Noms, raretés et biomes viennent de window.SAE (sae-data). */\n(function () {\n  'use strict';\n  var D = window.SAE, F = window.SAEfmt, d = document;\n  var page = d.querySelector('[data-live]'), home = d.getElementById('live-home');\n  if (!D || !F || (!page && !home)) return;\n  var L = D.i18n, FR = F.lang === 'fr';\n  var fill = function (s, o) { return String(s).replace(/\\{(\\w+)\\}/g, function (_, k) { return o[k]; }); };\n  var pets = Object.create(null);\n  D.pets.forEach(function (p) { pet",
-      "rd\\.gg|discord\\.com\\/invite)\\/[\\w-]+$/.test(data.discord);\n    if (!box || !link) return;\n    box.hidden = !ok;\n    if (ok) link.href = data.discord;\n  }\n  function renderHome(list) {\n    if (!home) return;\n    var slot = home.querySelector('[data-live-latest]');\n    clear(slot);\n    if (!list.length) { home.hidden = true; return; }\n    home.hidden = false;\n    slot.appendChild(card(list[0], true));\n  }\n  function render() {\n    var data = state.data;\n    if (!data) return;\n    var list = (data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n    if (page) { renderStatus(data); renderNow(list); renderFilters(list); renderList(list); renderDiscord(data); }\n    renderHome(list);\n  }\n  function showError() {\n    var txt = q('[data-live-status-text]'), box = q('[data-live-status]');\n    if (txt) txt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n     ",
-      "); renderFilters(list); renderList(list); renderDiscord(data); }\n    renderHome(list);\n  }\n  function showError() {\n    var txt = q('[data-live-status-text]'), box = q('[data-live-status]');\n    if (txt) txt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })\n      .then(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; render(); })\n      .catch(function () { if (!state.data) showError(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) { renderStatus(state.data); renderNow((state.data.spawns || []).filter(function (s) { return s && pets",
-      "xt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })\n      .then(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; render(); })\n      .catch(function () { if (!state.data) showError(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) { renderStatus(state.data); renderNow((state.data.spawns || []).filter(function (s) { return s && pets[s.pet]; })); }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n",
-      "hen(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; render(); })\n      .catch(function () { if (!state.data) showError(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) { renderStatus(state.data); renderNow((state.data.spawns || []).filter(function (s) { return s && pets[s.pet]; })); }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n"
+      "[data-live-status]'), txt = q('[data-live-status-text]'), now = q('[data-live-now]'), empty = q('[data-live-empty]'), last = lastEgg(list);\n    if (st) st.classList.add('is-off');\n    if (txt) txt.textContent = L.liveDown + (last ? ' · ' + fill(L.liveDownLast, { t: ago(new Date(last).toISOString()) }) : '');\n    if (now) now.hidden = true;\n    if (empty && !list.length) empty.style.display = 'none';\n  }\n  function render() {\n    var data = state.data;\n    if (!data) return;\n    var list = (data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n    if (page) { renderStatus(data); renderNow(list); renderFilters(list); renderList(list); renderDiscord(data); renderProblem(isDown(list), list); }\n    renderHome(list);\n  }\n  function showError() {\n    var txt = q('[data-live-status-text]'), box = q('[data-live-status]');\n    if (txt) txt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n    renderProblem(isDown([]), []);\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch(",
+      "roblem(isDown(list), list); }\n    renderHome(list);\n  }\n  function showError() {\n    var txt = q('[data-live-status-text]'), box = q('[data-live-status]');\n    if (txt) txt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n    renderProblem(isDown([]), []);\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n      .then(function (r) {\n        if (!r.ok) throw new Error(String(r.status));\n        var t = Date.parse(r.headers.get('Date') || '');\n        if (t) state.skew = t - Date.now();\n        return r.json();\n      })\n      .then(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; state.fails = 0; render(); })\n      .catch(function () { state.fails++; if (!state.data) showError(); else if (state.fails >= FAIL_MAX) render(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach",
+      "y = 'block';\n    renderProblem(isDown([]), []);\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n      .then(function (r) {\n        if (!r.ok) throw new Error(String(r.status));\n        var t = Date.parse(r.headers.get('Date') || '');\n        if (t) state.skew = t - Date.now();\n        return r.json();\n      })\n      .then(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; state.fails = 0; render(); })\n      .catch(function () { state.fails++; if (!state.data) showError(); else if (state.fails >= FAIL_MAX) render(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) {\n      var list = (state.data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n      renderStatus(state.data); renderNow(list); renderProblem(isDown(list), list);\n    }\n  }\n  load()",
+      "!j.updatedAt) throw new Error('format'); state.data = j; state.fails = 0; render(); })\n      .catch(function () { state.fails++; if (!state.data) showError(); else if (state.fails >= FAIL_MAX) render(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) {\n      var list = (state.data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n      renderStatus(state.data); renderNow(list); renderProblem(isDown(list), list);\n    }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n"
     ],
     "saneStats": {
       "url": "https://sanestats.com/",
