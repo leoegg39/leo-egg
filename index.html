@@ -115,8 +115,24 @@ function eggIcon(x){return x==='Gargoyle Egg'?'🟣':'🥚'}
 
 let soundOn=false;
 const $=s=>document.querySelector(s);
-function history(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
-function save(h){localStorage.setItem(KEY,JSON.stringify(h.slice(-200)))}
+const LEGACY_MANUAL_KEYS=['leoEggObservedV2','leoEggObservedV1','leoEggObserved','leoEggHistoryV3','leoEggHistoryV2','leoEggHistory'];
+function validManual(a){return Array.isArray(a)?a.filter(x=>x&&Number.isFinite(Number(x.t))&&x.egg):[]}
+function history(){
+ try{
+   const current=validManual(JSON.parse(localStorage.getItem(KEY)||'[]'));
+   let merged=current.slice();
+   LEGACY_MANUAL_KEYS.forEach(k=>{try{merged=merged.concat(validManual(JSON.parse(localStorage.getItem(k)||'[]')))}catch(e){}});
+   const seen=new Set(), out=[];
+   merged.sort((a,b)=>Number(a.t)-Number(b.t)).forEach(x=>{const id=String(x.egg)+'|'+String(Number(x.t));if(!seen.has(id)){seen.add(id);out.push(x)}});
+   if(out.length>current.length)localStorage.setItem(KEY,JSON.stringify(out.slice(-500)));
+   return out.slice(-500);
+ }catch(e){return []}
+}
+function save(h){
+ const safe=validManual(h).slice(-500);
+ localStorage.setItem(KEY,JSON.stringify(safe));
+ localStorage.setItem('leoEggManualBackup',JSON.stringify({savedAt:Date.now(),items:safe}));
+}
 function predictionModel(){
  const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(ss.length<12)return {ready:false,n:ss.length,reason:'データ不足'};
