@@ -124,8 +124,16 @@ function predictionModel(){
  const recentAge=(Date.now()-ss[ss.length-1].t)/86400000;
  return {ready:true,n:ss.length,recentAge,confidence:ss.length>=50&&recentAge<=7?'high':ss.length>=25?'medium':'low'};
 }
-function scoreCandidates(ss){
- const now=Date.now(), nd=new Date(now), hour=nd.getHours(), dow=nd.getDay(), rows={};
+const WEIGHT_SETS=[
+ {base:.12,hour:.16,dow:.07,follow:.28,recent:.17,veryRecent:.20},
+ {base:.08,hour:.14,dow:.05,follow:.35,recent:.16,veryRecent:.22},
+ {base:.10,hour:.20,dow:.08,follow:.24,recent:.18,veryRecent:.20},
+ {base:.16,hour:.12,dow:.06,follow:.24,recent:.22,veryRecent:.20},
+ {base:.08,hour:.12,dow:.05,follow:.25,recent:.20,veryRecent:.30}
+];
+let _autoWeights=WEIGHT_SETS[0],_autoWeightN=-1;
+function scoreCandidatesWithWeights(ss,w,nowOverride){
+ const now=Number(nowOverride)||Date.now(), nd=new Date(now), hour=nd.getHours(), dow=nd.getDay(), rows={};
  ss.forEach((x,i)=>{
    const name=liveEggName(x), d=new Date(Number(x.t));
    if(!rows[name])rows[name]={name,count:0,hour:0,dow:0,after:{},recent:0,veryRecent:0};
@@ -134,20 +142,33 @@ function scoreCandidates(ss){
    if(dh<=1)r.hour++;
    if(d.getDay()===dow)r.dow++;
    const ageH=Math.max(0,(now-Number(x.t))/3600000);
-   r.recent+=Math.exp(-ageH/24);
-   r.veryRecent+=Math.exp(-ageH/6);
+   r.recent+=Math.exp(-ageH/24); r.veryRecent+=Math.exp(-ageH/6);
    if(i>0){const prev=liveEggName(ss[i-1]);r.after[prev]=(r.after[prev]||0)+1}
  });
- const last=ss.length?liveEggName(ss[ss.length-1]):'';
- const total=Math.max(1,ss.length);
+ const last=ss.length?liveEggName(ss[ss.length-1]):'', total=Math.max(1,ss.length);
  const recentMax=Math.max(1,...Object.values(rows).map(r=>r.recent));
  const veryRecentMax=Math.max(1,...Object.values(rows).map(r=>r.veryRecent));
  return Object.values(rows).map(r=>{
    const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), dowRate=r.dow/Math.max(1,r.count);
-   const follow=(r.after[last]||0)/Math.max(1,r.count);
-   const recentRate=r.recent/recentMax, veryRecentRate=r.veryRecent/veryRecentMax;
-   return {...r,score:base*.12+hourRate*.16+dowRate*.07+follow*.28+recentRate*.17+veryRecentRate*.20};
+   const follow=(r.after[last]||0)/Math.max(1,r.count), recentRate=r.recent/recentMax, veryRecentRate=r.veryRecent/veryRecentMax;
+   return {...r,score:base*w.base+hourRate*w.hour+dowRate*w.dow+follow*w.follow+recentRate*w.recent+veryRecentRate*w.veryRecent};
  }).sort((a,b)=>b.score-a.score);
+}
+function chooseAutoWeights(ss){
+ if(ss.length<30)return WEIGHT_SETS[0];
+ const from=Math.max(20,ss.length-80); let best=WEIGHT_SETS[0],bestHits=-1;
+ WEIGHT_SETS.forEach(w=>{let hits=0;
+   for(let i=from;i<ss.length;i++){
+     const train=ss.slice(0,i), top=scoreCandidatesWithWeights(train,w,Number(ss[i].t)).slice(0,6).map(r=>norm(r.name));
+     if(top.includes(norm(liveEggName(ss[i]))))hits++;
+   }
+   if(hits>bestHits){bestHits=hits;best=w}
+ });
+ return best;
+}
+function scoreCandidates(ss){
+ if(_autoWeightN!==ss.length){_autoWeights=chooseAutoWeights(ss);_autoWeightN=ss.length}
+ return scoreCandidatesWithWeights(ss,_autoWeights,Date.now());
 }
 function lightEggPrediction(){
  const hs=history().filter(x=>x&&Number.isFinite(Number(x.t))&&(x.egg==='光卵'||x.egg==='光卵・特大')).sort((a,b)=>a.t-b.t);
