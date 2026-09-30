@@ -116,22 +116,32 @@ function eggIcon(x){return x==='Gargoyle Egg'?'🟣':'🥚'}
 let soundOn=false;
 const $=s=>document.querySelector(s);
 const LEGACY_MANUAL_KEYS=['leoEggObservedV2','leoEggObservedV1','leoEggObserved','leoEggHistoryV3','leoEggHistoryV2','leoEggHistory'];
+const MANUAL_BACKUPS=['leoEggManualBackup','leoEggManualBackup2'];
 function validManual(a){return Array.isArray(a)?a.filter(x=>x&&Number.isFinite(Number(x.t))&&x.egg):[]}
+function readManualBackup(k){
+ try{const v=JSON.parse(localStorage.getItem(k)||'null');return validManual(v&&Array.isArray(v.items)?v.items:v)}catch(e){return []}
+}
+function mergeManual(groups){
+ const seen=new Set(),out=[];
+ groups.flat().sort((a,b)=>Number(a.t)-Number(b.t)).forEach(x=>{const id=String(x.egg)+'|'+String(Number(x.t));if(!seen.has(id)){seen.add(id);out.push(x)}});
+ return out.slice(-500);
+}
 function history(){
  try{
-   const current=validManual(JSON.parse(localStorage.getItem(KEY)||'[]'));
-   let merged=current.slice();
-   LEGACY_MANUAL_KEYS.forEach(k=>{try{merged=merged.concat(validManual(JSON.parse(localStorage.getItem(k)||'[]')))}catch(e){}});
-   const seen=new Set(), out=[];
-   merged.sort((a,b)=>Number(a.t)-Number(b.t)).forEach(x=>{const id=String(x.egg)+'|'+String(Number(x.t));if(!seen.has(id)){seen.add(id);out.push(x)}});
-   if(out.length>current.length)localStorage.setItem(KEY,JSON.stringify(out.slice(-500)));
-   return out.slice(-500);
+   const groups=[validManual(JSON.parse(localStorage.getItem(KEY)||'[]'))];
+   LEGACY_MANUAL_KEYS.forEach(k=>{try{groups.push(validManual(JSON.parse(localStorage.getItem(k)||'[]')))}catch(e){}});
+   MANUAL_BACKUPS.forEach(k=>groups.push(readManualBackup(k)));
+   const out=mergeManual(groups);
+   if(out.length){localStorage.setItem(KEY,JSON.stringify(out));const pack=JSON.stringify({savedAt:Date.now(),items:out});MANUAL_BACKUPS.forEach(k=>localStorage.setItem(k,pack))}
+   return out;
  }catch(e){return []}
 }
 function save(h){
- const safe=validManual(h).slice(-500);
+ const safe=mergeManual([validManual(h)]);
+ const pack=JSON.stringify({savedAt:Date.now(),items:safe});
  localStorage.setItem(KEY,JSON.stringify(safe));
- localStorage.setItem('leoEggManualBackup',JSON.stringify({savedAt:Date.now(),items:safe}));
+ MANUAL_BACKUPS.forEach(k=>localStorage.setItem(k,pack));
+ try{sessionStorage.setItem('leoEggManualSession',JSON.stringify(safe))}catch(e){}
 }
 function predictionModel(){
  const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
