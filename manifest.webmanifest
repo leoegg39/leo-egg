@@ -1,9 +1,9 @@
 {
   "name": "LEO EGG",
   "short_name": "LEO EGG",
-  "description": "LEO EGG prediction v7.7.0",
+  "description": "LEO EGG latest",
   "id": "./",
-  "start_url": "./",
+  "start_url": "./app.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#eef8ff",
