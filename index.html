@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=757">
-<title>LEO EGG 予測 v7.6.8</title>
+<title>LEO EGG 予測 v7.6.9</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -23,7 +23,7 @@ button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;f
 
 .input{width:100%;font-size:18px;padding:14px;border-radius:16px;background:#20364f;color:#fff;border:1px solid #526a87;margin:6px 0}.minirow{display:grid;grid-template-columns:1.2fr 1fr;gap:8px}.preditem{padding:14px 0;border-top:1px solid #334b67}.preditem:first-child{border-top:0}.pct{font-weight:900;color:#ffd65a}.ok{color:#69efae;font-weight:900}.bad{color:#ff9b9b;font-weight:900}.action{background:#6be8a8;color:#0877e8;font-size:19px;padding:15px;margin-top:8px}.danger{background:#43536b;color:#fff;font-size:16px;padding:12px}.pill{display:inline-block;border-radius:999px;background:#20364f;padding:5px 10px;margin:2px;font-size:14px}
 
-.predictgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.predictcard{background:#f8fbff;border:2px solid #dbe7ff;border-radius:22px;padding:13px 10px;text-align:center;min-width:0}.predictcard .egg{font-size:17px;line-height:1.2;min-height:41px}.predictcard .place{font-size:19px;font-weight:900;color:#5d61df;margin:7px 0}.predictcard .ptime{font-size:24px;font-weight:900;color:#26334f;margin:4px 0 8px}.predictcard .tag{font-size:15px;padding:9px 6px;border-radius:15px}.focusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.focuscard{background:#0d1d31;border:2px solid #3b5675;border-radius:24px;padding:16px 12px;min-height:150px}.focuscard.secret{border-color:#ff466f;box-shadow:0 0 18px #ff466f33}.focuscard.eternal{border-color:#b35cff}.focuscard.divine{border-color:#ffd84d}.rarity{font-size:13px;font-weight:900;letter-spacing:.4px}.secret .rarity{color:#ff6687}.eternal .rarity{color:#ca8aff}.divine .rarity{color:#ffe36f}.focusname{font-size:19px;font-weight:900;margin:10px 0 7px}.focusmeta{font-size:14px;color:#c7d3e4;line-height:1.55}.areaStrip{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.areaBtn{width:auto;min-width:max-content;margin:0;padding:11px 14px;border-radius:18px;background:#20364f;color:#fff;font-size:15px}.areaBtn.active{background:#62dca5;color:#082035}.catalogHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.toggleCatalog{width:auto;margin:0;background:#20364f;color:#fff;font-size:16px;padding:11px 15px}.catalogWrap{display:none;margin-top:15px}.catalogWrap.open{display:block}.latestBox{background:#0d1d31;border:2px solid #ff466f;border-radius:26px;padding:18px;margin-bottom:16px}.latestTitle{font-size:14px;color:#ff6f8e;font-weight:900}.latestName{font-size:28px;font-weight:900;margin:7px 0}.latestMeta{font-size:16px;color:#cbd7e7;line-height:1.6}
+.predictgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.predictcard{background:#f8fbff;border:2px solid #dbe7ff;border-radius:22px;padding:13px 10px;text-align:center;min-width:0}.predictcard .egg{font-size:17px;line-height:1.2;min-height:41px}.predictcard .eggpic{width:72px;height:72px;object-fit:contain;display:block;margin:0 auto 5px;filter:drop-shadow(0 5px 7px rgba(50,70,110,.22))}.predictcard .place{font-size:19px;font-weight:900;color:#5d61df;margin:7px 0}.predictcard .ptime{font-size:24px;font-weight:900;color:#26334f;margin:4px 0 8px}.predictcard .tag{font-size:15px;padding:9px 6px;border-radius:15px}.focusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.focuscard{background:#0d1d31;border:2px solid #3b5675;border-radius:24px;padding:16px 12px;min-height:150px}.focuscard.secret{border-color:#ff466f;box-shadow:0 0 18px #ff466f33}.focuscard.eternal{border-color:#b35cff}.focuscard.divine{border-color:#ffd84d}.rarity{font-size:13px;font-weight:900;letter-spacing:.4px}.secret .rarity{color:#ff6687}.eternal .rarity{color:#ca8aff}.divine .rarity{color:#ffe36f}.focusname{font-size:19px;font-weight:900;margin:10px 0 7px}.focusmeta{font-size:14px;color:#c7d3e4;line-height:1.55}.areaStrip{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.areaBtn{width:auto;min-width:max-content;margin:0;padding:11px 14px;border-radius:18px;background:#20364f;color:#fff;font-size:15px}.areaBtn.active{background:#62dca5;color:#082035}.catalogHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.toggleCatalog{width:auto;margin:0;background:#20364f;color:#fff;font-size:16px;padding:11px 15px}.catalogWrap{display:none;margin-top:15px}.catalogWrap.open{display:block}.latestBox{background:#0d1d31;border:2px solid #ff466f;border-radius:26px;padding:18px;margin-bottom:16px}.latestTitle{font-size:14px;color:#ff6f8e;font-weight:900}.latestName{font-size:28px;font-weight:900;margin:7px 0}.latestMeta{font-size:16px;color:#cbd7e7;line-height:1.6}
 @media(max-width:520px){.predictgrid{grid-template-columns:repeat(3,1fr);gap:7px}.predictcard{padding:11px 6px;border-radius:18px}.predictcard .egg{font-size:14px;min-height:34px}.predictcard .place{font-size:16px}.predictcard .ptime{font-size:20px}.predictcard .tag{font-size:13px}.focusgrid{grid-template-columns:1fr}.focuscard{min-height:0}.catalogHead h2{font-size:25px!important}}
 
 /* LEO EGG pastel app skin v6 */
@@ -257,6 +257,10 @@ function renderAccuracy(){
   ? `<span class="badge">🎯 実測的中率 <b>${a.pct}%</b></span><span class="muted"> 直近${a.total}回中 ${a.hits}回的中（6候補内）</span>`
   : '<span class="badge">🎯 的中率集計中</span><span class="muted"> 実Spawnがたまると自動表示します</span>';
 }
+function eggPic(name){
+ const slug=String(name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ return slug?'<img class="eggpic" src="https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp" alt="" loading="lazy" onerror="this.style.display=\'none\'">':'';
+}
 function render(){
  try{
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
@@ -266,7 +270,7 @@ function render(){
    $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">🥚 予測準備中 ／ 実データ '+m.n+'件</div><div class="predictgrid">'+demo.map((e,i)=>{
      const biome=e[2]||'場所不明';
      const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
-     return `<div class="predictcard"><div class="egg">${eggIcon(e[0])} ${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
+     return `<div class="predictcard">${eggPic(e[0])}<div class="egg">${eggIcon(e[0])} ${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
    }).join('')+'</div>';
    renderAccuracy();renderLightPrediction();stats();return;
  }
@@ -282,7 +286,7 @@ function render(){
    const pct=Math.round(r.count/Math.max(1,ss.length)*100);
    const hit=REAL_EGGS.find(e=>norm(e[0])===norm(r.name));
    const biome=hit?hit[2]:'';
-   return `<div class="predictcard"><div class="egg">${eggIcon(r.name)} ${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
+   return `<div class="predictcard">${eggPic(r.name)}<div class="egg">${eggIcon(r.name)} ${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
  }).join('')+'</div>';
  renderAccuracy();renderLightPrediction();stats();
  }catch(e){const r=$('#rows');if(r)r.innerHTML='<div class="small bad">予測表示を再読み込み中…</div>';}
