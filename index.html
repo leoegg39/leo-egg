@@ -158,28 +158,27 @@ function predictionModel(){
  return {ready:true,n:ss.length,recentAge,confidence:ss.length>=50&&recentAge<=7?'high':ss.length>=25?'medium':'low'};
 }
 function scoreCandidates(ss){
- const now=Date.now(), nd=new Date(now), hour=nd.getHours(), dow=nd.getDay(), rows={};
+ const now=Date.now(), nd=new Date(now), hour=nd.getHours(), minute=nd.getMinutes(), rows={};
  ss.forEach((x,i)=>{
    const name=liveEggName(x), d=new Date(Number(x.t));
-   if(!rows[name])rows[name]={name,count:0,hour:0,dow:0,after:{},recent:0,veryRecent:0};
+   if(!rows[name])rows[name]={name,count:0,hour:0,slot:0,after:{},recent:0,veryRecent:0};
    const r=rows[name]; r.count++;
    const dh=Math.min(Math.abs(d.getHours()-hour),24-Math.abs(d.getHours()-hour));
    if(dh<=1)r.hour++;
-   if(d.getDay()===dow)r.dow++;
+   const dm=Math.abs(d.getMinutes()-minute); if(Math.min(dm,60-dm)<=10)r.slot++;
    const ageH=Math.max(0,(now-Number(x.t))/3600000);
-   r.recent+=Math.exp(-ageH/24);
-   r.veryRecent+=Math.exp(-ageH/6);
+   r.recent+=Math.exp(-ageH/18);
+   r.veryRecent+=Math.exp(-ageH/4);
    if(i>0){const prev=liveEggName(ss[i-1]);r.after[prev]=(r.after[prev]||0)+1}
  });
- const last=ss.length?liveEggName(ss[ss.length-1]):'';
- const total=Math.max(1,ss.length);
+ const last=ss.length?liveEggName(ss[ss.length-1]):'', total=Math.max(1,ss.length);
  const recentMax=Math.max(1,...Object.values(rows).map(r=>r.recent));
  const veryRecentMax=Math.max(1,...Object.values(rows).map(r=>r.veryRecent));
  return Object.values(rows).map(r=>{
-   const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), dowRate=r.dow/Math.max(1,r.count);
+   const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), slotRate=r.slot/Math.max(1,r.count);
    const follow=(r.after[last]||0)/Math.max(1,r.count);
    const recentRate=r.recent/recentMax, veryRecentRate=r.veryRecent/veryRecentMax;
-   return {...r,score:base*.12+hourRate*.16+dowRate*.07+follow*.28+recentRate*.17+veryRecentRate*.20};
+   return {...r,score:base*.08+hourRate*.15+slotRate*.15+follow*.27+recentRate*.15+veryRecentRate*.20};
  }).sort((a,b)=>b.score-a.score);
 }
 function lightEggPrediction(){
@@ -471,6 +470,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=766',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=767',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
