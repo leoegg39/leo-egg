@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-01T10:40:34.885131+00:00",
+  "checkedAt": "2026-10-01T10:57:12.858998+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -4821,6 +4821,26 @@
       "ts": 1790850302000,
       "source": "Eggipedia JSON",
       "t": 1790851234885
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-01T10:55:02.000Z",
+      "ts": 1790852102000,
+      "source": "Eggipedia JSON",
+      "t": 1790852232858
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-01T10:45:02.000Z",
+      "ts": 1790851502000,
+      "source": "Eggipedia JSON",
+      "t": 1790852232858
     }
   ],
   "diagnostics": {
@@ -4852,9 +4872,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 34337,
+    "spawnJsonBytes": 34332,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-01T10:40:21.733Z', 'total': 351, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-09-30T20:14:14.408Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1555166346449518664', 'at': '2026-10-01T10:35:02.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1555163820971008023', 'at': '2026-10-01T10:25:02.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1555161496818819093', 'at': '2026-10-01T10:15:04.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1555161484974231563', 'at': '2026-10-01T10:15:01.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1555159050055057491', 'at': '2026-10-01T10:05:42.000Z', 'pet': 'el-maja', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/el-maja-egg-s.webp'}, {'id': '1555157581293424683', 'at': '2026-10-01T10:00:01.000Z', 'pet': 'skeleton-horse', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/skeleton-horse-egg-s.webp'}, {'id': '1555147590142525542', 'at': '2026-10-01T09:20:01.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1555146722726912054', 'a",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-01T10:56:21.882Z', 'total': 353, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-09-30T20:14:14.408Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1555171378536382475', 'at': '2026-10-01T10:55:02.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1555168850578767985', 'at': '2026-10-01T10:45:02.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1555166346449518664', 'at': '2026-10-01T10:35:02.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1555163820971008023', 'at': '2026-10-01T10:25:02.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1555161496818819093', 'at': '2026-10-01T10:15:04.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1555161484974231563', 'at': '2026-10-01T10:15:01.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1555159050055057491', 'at': '2026-10-01T10:05:42.000Z', 'pet': 'el-maja', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/el-maja-egg-s.webp'}, {'id': '1555157581293424683', 'at': '2026-10",
     "transportHints": [
       "/spawns",
       "/spawns.json"
