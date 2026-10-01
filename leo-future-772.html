@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=772">
-<title>LEO EGG 予測 v7.7.2</title>
+<title>LEO EGG 予測 v7.7.3</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -212,9 +212,19 @@ button{
 button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
 </style>
 
+
+<style id="leo-v773-real-eggs">
+.predictcard .eggpic{
+  width:78px!important;height:78px!important;object-fit:contain!important;
+  margin:2px auto 6px!important;
+  filter:drop-shadow(0 0 8px rgba(92,225,255,.35)) drop-shadow(0 9px 12px rgba(0,0,0,.55))!important;
+}
+.predictcard .egg{min-height:34px!important}
+</style>
+
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.7.2 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.3 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -460,8 +470,9 @@ function renderAccuracy(){
   : '<span class="badge">🎯 的中率集計中</span><span class="muted"> 実Spawnがたまると自動表示します</span>';
 }
 function eggPic(name){
- const slug=String(name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
- return slug?'<img class="eggpic" src="https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp" alt="" loading="lazy" onerror="this.style.display=\'none\'">':'';
+ let slug=String(name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ slug=slug.replace(/-egg$/,'');
+ return slug?'<img class="eggpic" src="https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp" alt="'+String(name||'')+'" loading="eager" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">':'';
 }
 function render(){
  try{
@@ -472,7 +483,7 @@ function render(){
    $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">🥚 予測準備中 ／ 実データ '+m.n+'件</div><div class="predictgrid">'+demo.map((e,i)=>{
      const biome=e[2]||'場所不明';
      const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
-     return `<div class="predictcard">${eggPic(e[0])}<div class="egg">${eggIcon(e[0])} ${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
+     return `<div class="predictcard">${eggPic(e[0])}<div class="egg">${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
    }).join('')+'</div>';
    renderAccuracy();renderLightPrediction();stats();return;
  }
@@ -488,7 +499,7 @@ function render(){
    const pct=Math.round(r.count/Math.max(1,ss.length)*100);
    const hit=REAL_EGGS.find(e=>norm(e[0])===norm(r.name));
    const biome=hit?hit[2]:'';
-   return `<div class="predictcard">${eggPic(r.name)}<div class="egg">${eggIcon(r.name)} ${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
+   return `<div class="predictcard">${eggPic(r.name)}<div class="egg">${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
  }).join('')+'</div>';
  renderAccuracy();renderLightPrediction();stats();
  }catch(e){const r=$('#rows');if(r)r.innerHTML='<div class="small bad">予測表示を再読み込み中…</div>';}
