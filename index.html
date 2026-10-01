@@ -203,13 +203,25 @@ function renderTargetPrediction(){
  if(!ss.length){box.innerHTML='<div class="small muted">実Spawnデータ待機中</div>';return}
  const now=Date.now(), recent=ss.filter(x=>now-Number(x.t)<=24*3600000);
  const angels=recent.filter(x=>(x.loc||'')==='Angels & Demons');
- const giant=history().filter(x=>x.egg==='光卵・特大'&&now-Number(x.t)<=7*86400000);
+ const giant=history().filter(x=>x.egg==='光卵・特大').sort((a,b)=>Number(a.t)-Number(b.t));
+ const giant7=giant.filter(x=>now-Number(x.t)<=7*86400000);
  const last=ss[ss.length-1], lastAngel=(last&&(last.loc||'')==='Angels & Demons');
  const angelRate=recent.length?angels.length/recent.length:0;
  let aScore=Math.min(1,angelRate*2.2+(lastAngel?.28:0)+(angels.length>=3?.16:0));
  let aLabel=aScore>=.72?'🔥 激アツ':aScore>=.42?'✨ 注目':'🥚 普通';
- let gLabel=giant.length>=2?'🔥 激アツ':giant.length===1?'✨ 注目':'🥚 学習中';
- box.innerHTML=`<div class="row"><div class="n">😇😈</div><div><div class="egg">天使と悪魔</div><div class="time">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="tag ${aScore>=.72?'hot':aScore>=.42?'chance':''}">${aLabel}</div></div><div class="row"><div class="n">🌟</div><div><div class="egg">特大卵</div><div class="time">手動実記録 直近7日 ${giant.length}件</div></div><div class="tag ${giant.length>=2?'hot':giant.length===1?'chance':''}">${gLabel}</div></div>`;
+ let gLabel=giant.length>=3?'🔥 予測中':giant.length>=1?'✨ 学習中':'🥚 学習中';
+ let gTime='実記録が3件たまると次の狙い目時刻を表示';
+ if(giant.length>=3){
+   const gaps=[]; for(let i=1;i<giant.length;i++){const g=Number(giant[i].t)-Number(giant[i-1].t);if(g>0&&g<7*86400000)gaps.push(g)}
+   if(gaps.length>=2){
+     const gs=gaps.slice(-12).sort((a,b)=>a-b), med=gs[Math.floor(gs.length/2)];
+     let target=Number(giant[giant.length-1].t)+med;
+     while(target<now)target+=med;
+     const td=new Date(target);
+     gTime='🌟 次の狙い目 '+td.toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})+'ごろ ／ 実記録 '+giant.length+'件';
+   }
+ }
+ box.innerHTML=`<div class="row"><div class="n">😇😈</div><div><div class="egg">天使と悪魔</div><div class="time">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="tag ${aScore>=.72?'hot':aScore>=.42?'chance':''}">${aLabel}</div></div><div class="row"><div class="n">🌟</div><div><div class="egg">特大卵</div><div class="time">${gTime}<br>直近7日 ${giant7.length}件</div></div><div class="tag ${giant.length>=3?'hot':giant.length>=1?'chance':''}">${gLabel}</div></div>`;
 }
 function renderLightPrediction(){
  const box=$('#lightPred'); if(!box)return;
@@ -452,6 +464,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=761',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=762',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
