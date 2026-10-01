@@ -46,6 +46,8 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 
 <style id="leo-v62-skin">
 :root{--ink:#17233e;--muted:#6f7e9c;--purple:#6567f4;--green:#17bc80;--line:#dce4f1}html{background:#eef8ff}body{background:linear-gradient(180deg,#eaf8ff 0%,#f5f7ff 46%,#eef5ff 100%);color:var(--ink)}main{max-width:760px;padding:calc(env(safe-area-inset-top) + 18px) 22px calc(env(safe-area-inset-bottom) + 34px)}h1{margin:0 0 26px;padding:42px 24px 38px;border-radius:0 0 54px 54px;background:linear-gradient(120deg,#4fd4f3 0%,#7779f3 50%,#ed7fd6 100%);color:white;font-size:45px;letter-spacing:2px;text-shadow:0 4px 12px #4756a866;box-shadow:0 14px 30px #7392cf22}h1 small{font-size:20px;letter-spacing:1px}.card{background:rgba(255,255,255,.86);border:2px solid rgba(255,255,255,.95);border-radius:42px;box-shadow:0 12px 34px #7990bc1c;padding:30px 38px;margin-bottom:28px;backdrop-filter:blur(12px)}.muted{color:var(--muted)}.timer{color:var(--purple);font-size:86px;text-shadow:0 6px 18px #6567f428}.live{color:var(--green)}button{box-shadow:none}.sound{background:linear-gradient(100deg,#63e0bc,#68ccef);color:#164b83}.recalc{background:linear-gradient(100deg,#ffe066,#ffd13d);color:#2450a0}.row{border-color:var(--line)}.time{color:var(--muted)}.tag.hot{background:#ffd33f;color:#15223d;box-shadow:0 0 28px #ffcf35aa}.tag.expect{background:#ffc866}.tag.chance{background:#74d6f1}.badge,.pill{background:#edf2fa;color:#40516f}.focuscard,.latestBox{background:#f8fbff;color:var(--ink)}.input{background:#f3f6fb;color:var(--ink);border-color:#d8e0ec}.preditem{border-color:var(--line)}.areaBtn,.toggleCatalog{background:#edf2fa;color:#40516f}.areaBtn.active{background:#64dfb3;color:#124f42}.small.muted{color:#6e7b95}@media(max-width:520px){main{padding-left:14px;padding-right:14px}h1{font-size:39px;padding:34px 12px 32px;border-radius:0 0 44px 44px}h1 small{font-size:17px}.card{padding:25px 20px;border-radius:34px}.timer{font-size:76px}}
+
+.targetbox{padding:18px 0;border-top:2px solid var(--line)}.targetbox:first-child{border-top:0}.targethead{display:flex;align-items:center;justify-content:space-between;gap:10px}.targethead b{font-size:27px}.targethot,.targetlearn{white-space:nowrap;border-radius:999px;padding:8px 12px;font-weight:900}.targethot{background:#ffd33f}.targetlearn{background:#edf2fa}.targetlabel{font-size:17px;font-weight:900;color:#65728d;margin:12px 0 8px}.targettimes{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px}.targettime{white-space:nowrap;background:#6567f4;color:#fff;border-radius:15px;padding:10px 12px;font-size:20px;font-weight:900}.giantbox .targettime{background:#ffb94f;color:#25304a}.targetmeta{font-size:15px;color:#71809b;margin-top:6px}@media(max-width:520px){.targethead b{font-size:23px}.targettime{font-size:18px;padding:9px 10px}}
 </style>
 </head>
 <body><main>
@@ -200,28 +202,27 @@ function lightEggPrediction(){
 function renderTargetPrediction(){
  const box=$('#targetPred'); if(!box)return;
  const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
- if(!ss.length){box.innerHTML='<div class="small muted">実Spawnデータ待機中</div>';return}
  const now=Date.now(), recent=ss.filter(x=>now-Number(x.t)<=24*3600000);
  const angels=recent.filter(x=>(x.loc||'')==='Angels & Demons');
+ const allAngels=ss.filter(x=>(x.loc||'')==='Angels & Demons');
  const giant=history().filter(x=>x.egg==='光卵・特大').sort((a,b)=>Number(a.t)-Number(b.t));
  const giant7=giant.filter(x=>now-Number(x.t)<=7*86400000);
- const last=ss[ss.length-1], lastAngel=(last&&(last.loc||'')==='Angels & Demons');
- const angelRate=recent.length?angels.length/recent.length:0;
- let aScore=Math.min(1,angelRate*2.2+(lastAngel?.28:0)+(angels.length>=3?.16:0));
- let aLabel=aScore>=.72?'🔥 激アツ':aScore>=.42?'✨ 注目':'🥚 普通';
- let gLabel=giant.length>=3?'🔥 予測中':giant.length>=1?'✨ 学習中':'🥚 学習中';
- let gTime='実記録が3件たまると次の狙い目時刻を表示';
- if(giant.length>=3){
-   const gaps=[]; for(let i=1;i<giant.length;i++){const g=Number(giant[i].t)-Number(giant[i-1].t);if(g>0&&g<7*86400000)gaps.push(g)}
-   if(gaps.length>=2){
-     const gs=gaps.slice(-12).sort((a,b)=>a-b), med=gs[Math.floor(gs.length/2)];
-     let target=Number(giant[giant.length-1].t)+med;
-     while(target<now)target+=med;
-     const td=new Date(target);
-     gTime='🌟 次の狙い目 '+td.toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'})+'ごろ ／ 実記録 '+giant.length+'件';
-   }
+ const fmt=t=>new Date(t).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+ const slots=(base,n=5)=>Array.from({length:n},(_,i)=>fmt(base+i*5*60000));
+ let angelTimes=[];
+ if(allAngels.length>=3){
+   const gaps=[]; for(let i=1;i<allAngels.length;i++){const g=Number(allAngels[i].t)-Number(allAngels[i-1].t);if(g>=5*60000&&g<=180*60000)gaps.push(g)}
+   if(gaps.length){const gs=gaps.slice(-30).sort((a,b)=>a-b),med=gs[Math.floor(gs.length/2)];let t=Number(allAngels[allAngels.length-1].t)+med;while(t<now)t+=med;angelTimes=slots(t)}
  }
- box.innerHTML=`<div class="row"><div class="n">😇😈</div><div><div class="egg">天使と悪魔</div><div class="time">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="tag ${aScore>=.72?'hot':aScore>=.42?'chance':''}">${aLabel}</div></div><div class="row"><div class="n">🌟</div><div><div class="egg">特大卵</div><div class="time">${gTime}<br>直近7日 ${giant7.length}件</div></div><div class="tag ${giant.length>=3?'hot':giant.length>=1?'chance':''}">${gLabel}</div></div>`;
+ if(!angelTimes.length)angelTimes=slots(nextBoundary());
+ let giantTimes=[], giantNote='';
+ if(giant.length>=3){
+   const gaps=[];for(let i=1;i<giant.length;i++){const g=Number(giant[i].t)-Number(giant[i-1].t);if(g>0&&g<7*86400000)gaps.push(g)}
+   if(gaps.length>=2){const gs=gaps.slice(-12).sort((a,b)=>a-b),med=gs[Math.floor(gs.length/2)];let t=Number(giant[giant.length-1].t)+med;while(t<now)t+=med;giantTimes=slots(t);giantNote='実記録から予測';}
+ }
+ if(!giantTimes.length){giantTimes=slots(nextBoundary());giantNote='仮候補（実記録3件で精度UP）';}
+ const chips=a=>a.map(x=>'<span class="targettime">'+x+'</span>').join('');
+ box.innerHTML=`<div class="targetbox"><div class="targethead"><b>😇😈 天使と悪魔</b><span class="targethot">🔥 注目</span></div><div class="targetlabel">次の狙い目</div><div class="targettimes">${chips(angelTimes)}</div><div class="targetmeta">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="targetbox giantbox"><div class="targethead"><b>🌟 特大卵</b><span class="targetlearn">${giant.length>=3?'予測中':'学習中'}</span></div><div class="targetlabel">先の候補時間</div><div class="targettimes">${chips(giantTimes)}</div><div class="targetmeta">${giantNote} ／ 直近7日 ${giant7.length}件</div></div>`;
 }
 function renderLightPrediction(){
  const box=$('#lightPred'); if(!box)return;
@@ -464,6 +465,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=762',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=764',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
