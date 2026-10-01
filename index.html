@@ -218,16 +218,17 @@ function renderTargetPrediction(){
  }
  let angelTs=futureFromGaps(allAngels,5);
  if(!angelTs.length){let t=nextBoundary();while(t<=now)t+=W;angelTs=Array.from({length:5},(_,i)=>t+i*W);}
- let giantTs=futureFromGaps(giant,5), giantNote='';
- if(giantTs.length)giantNote='特大の実記録間隔から予測';
- else {
-   const rare=ss.filter(x=>['Secret','Eternal','Divine'].includes(String(x.rarity)));
-   giantTs=futureFromGaps(rare,5);
-   if(!giantTs.length){let t=nextBoundary()+10*60000;while(t<=now)t+=W;giantTs=Array.from({length:5},(_,i)=>t+i*15*60000);}
-   giantNote='仮候補（特大実記録0件・レア実Spawn傾向を参考）';
- }
  const chips=a=>a.filter(t=>t>now).slice(0,5).map(t=>'<span class="targettime">'+fmt(t)+'</span>').join('');
- box.innerHTML=`<div class="targetbox"><div class="targethead"><b>😇😈 天使と悪魔</b><span class="targethot">🔥 注目</span></div><div class="targetlabel">実Spawn間隔から次の狙い目</div><div class="targettimes">${chips(angelTs)}</div><div class="targetmeta">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="targetbox giantbox"><div class="targethead"><b>🌟 特大卵</b><span class="targetlearn">${giant.length>=3?'予測中':'仮予想'}</span></div><div class="targetlabel">先の候補時間</div><div class="targettimes">${chips(giantTs)}</div><div class="targetmeta">${giantNote} ／ 直近7日 ${giant7.length}件</div></div>`;
+ let giantState='⚪ 超レア・データ不足', giantClass='targetlearn', giantMsg='何十時間で1回レベル。今は時刻予想を出しません。';
+ if(giant.length>=3){
+   const gt=futureFromGaps(giant,1);
+   if(gt.length){giantState='🟡 警戒度 上昇';giantClass='targetlearn';giantMsg='実記録 '+giant.length+'件 ／ 次の観察目安 '+fmt(gt[0])+'ごろ';}
+ }
+ if(giant.length>=6){
+   const gt=futureFromGaps(giant,1);
+   if(gt.length){giantState='🔥 警戒';giantClass='targethot';giantMsg='実記録 '+giant.length+'件 ／ 出現間隔から '+fmt(gt[0])+'ごろを重点確認';}
+ }
+ box.innerHTML=`<div class="targetbox"><div class="targethead"><b>😇😈 天使と悪魔</b><span class="targethot">🔥 注目</span></div><div class="targetlabel">実Spawn間隔から次の狙い目</div><div class="targettimes">${chips(angelTs)}</div><div class="targetmeta">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="targetbox giantbox"><div class="targethead"><b>🌟 特大卵</b><span class="${giantClass}">${giantState}</span></div><div class="targetlabel">特大警戒度</div><div style="font-size:20px;font-weight:800;line-height:1.55">${giantMsg}</div><div class="targetmeta">直近7日 実記録 ${giant7.length}件 ／ 3件から傾向学習・6件から重点時刻表示</div></div>`;
 }
 function renderLightPrediction(){
  const box=$('#lightPred'); if(!box)return;
@@ -470,6 +471,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=765',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=766',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
