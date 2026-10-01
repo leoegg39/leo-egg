@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<meta name="theme-color" content="#071321">
+<meta name="theme-color" content="#06101f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=770">
-<title>LEO EGG 予測 v7.7.0</title>
+<link rel="manifest" href="manifest.webmanifest?v=771">
+<title>LEO EGG 予測 v7.7.1</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -49,9 +49,107 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 
 .targetbox{padding:18px 0;border-top:2px solid var(--line)}.targetbox:first-child{border-top:0}.targethead{display:flex;align-items:center;justify-content:space-between;gap:10px}.targethead b{font-size:27px}.targethot,.targetlearn{white-space:nowrap;border-radius:999px;padding:8px 12px;font-weight:900}.targethot{background:#ffd33f}.targetlearn{background:#edf2fa}.targetlabel{font-size:17px;font-weight:900;color:#65728d;margin:12px 0 8px}.targettimes{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px}.targettime{white-space:nowrap;background:#6567f4;color:#fff;border-radius:15px;padding:10px 12px;font-size:20px;font-weight:900}.giantbox .targettime{background:#ffb94f;color:#25304a}.targetmeta{font-size:15px;color:#71809b;margin-top:6px}@media(max-width:520px){.targethead b{font-size:23px}.targettime{font-size:18px;padding:9px 10px}}
 </style>
+
+<style id="leo-v771-cyber">
+:root{
+  --bg0:#050b14;--bg1:#091525;--panel:#0d192bde;--panel2:#101f35e8;
+  --line:#233956;--ink:#f5f8ff;--muted2:#8fa1bd;--cyan:#59e7ff;
+  --blue:#6c83ff;--violet:#9c6cff;--gold:#ffd65a;--green:#4ce7a6;
+}
+html{background:var(--bg0)!important}
+body{
+  background:
+    radial-gradient(circle at 15% -10%,#173c72 0,transparent 32%),
+    radial-gradient(circle at 90% 10%,#4d2b78 0,transparent 28%),
+    linear-gradient(180deg,var(--bg0) 0%,var(--bg1) 42%,#07111f 100%)!important;
+  color:var(--ink)!important;
+}
+main{max-width:760px!important;padding:calc(env(safe-area-inset-top) + 12px) 14px calc(env(safe-area-inset-bottom) + 42px)!important}
+h1{
+  position:relative;overflow:hidden;margin:0 0 18px!important;padding:30px 16px 27px!important;
+  border:1px solid #2d4b75!important;border-radius:0 0 30px 30px!important;
+  background:linear-gradient(145deg,#0c1c31 0%,#132a49 46%,#221a45 100%)!important;
+  color:#fff!important;font-size:36px!important;letter-spacing:2px!important;
+  text-shadow:0 0 22px #60dfff88!important;
+  box-shadow:0 16px 42px #0008, inset 0 -1px 0 #6ee6ff33!important;
+}
+h1:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#6ceaff18,transparent);transform:skewX(-18deg)}
+h1:after{content:"  // LIVE HUD"!important;font-size:13px!important;color:#7eefff!important;letter-spacing:1.4px!important}
+h1 small{display:block;margin-top:5px;font-size:15px!important;color:#aebddd!important;letter-spacing:.8px!important}
+
+.card{
+  position:relative;background:linear-gradient(180deg,#0f1d31ee,#0b1627ee)!important;
+  border:1px solid #243b5d!important;border-radius:24px!important;padding:20px 17px!important;margin-bottom:16px!important;
+  box-shadow:0 14px 32px #0006,inset 0 1px 0 #ffffff09!important;backdrop-filter:blur(14px)!important;
+}
+.card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:1px;background:linear-gradient(90deg,transparent,#63e7ff66,transparent)}
+.card h2{color:#f7fbff!important;letter-spacing:.2px}.muted{color:var(--muted2)!important}
+
+.card.center{
+  background:linear-gradient(145deg,#0b2134,#10253d 55%,#17193a)!important;
+  border-color:#2d5575!important
+}
+.timer{color:#6eeaff!important;font-size:68px!important;letter-spacing:2px!important;text-shadow:0 0 26px #48d9ff77!important}
+.live{color:#54e9ae!important;font-size:18px!important}
+button{
+  border:1px solid #ffffff12!important;border-radius:18px!important;box-shadow:0 7px 18px #0004!important
+}
+.sound,.action{background:linear-gradient(135deg,#1c947a,#166d9e)!important;color:#eaffff!important}
+.recalc{background:linear-gradient(135deg,#6d5df8,#b053d3)!important;color:#fff!important}
+
+#accuracyBox{color:#9eb0cc!important}
+.predictgrid{gap:8px!important}
+.predictcard{
+  position:relative;overflow:hidden;background:linear-gradient(180deg,#101f34,#0b1728)!important;
+  border:1px solid #284260!important;border-radius:18px!important;padding:12px 8px 13px!important;
+  box-shadow:0 9px 22px #0005,inset 0 1px 0 #ffffff08!important
+}
+.predictcard:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#59e7ff,#7d78ff,#d26df5)}
+.predictcard:nth-child(1){border-color:#705b32!important;box-shadow:0 0 0 1px #ffd65a22,0 10px 25px #0006!important}
+.predictcard:nth-child(1):before{background:linear-gradient(90deg,#ffbb38,#ffe475)}
+.predictcard:nth-child(2):before{background:linear-gradient(90deg,#5ce7ff,#8f76ff)}
+.predictcard .egg{font-size:15px!important;line-height:1.15!important;min-height:36px!important;color:#f7f9ff!important;text-shadow:0 2px 8px #000!important}
+.predictcard .eggpic{width:62px!important;height:62px!important;filter:drop-shadow(0 7px 9px #0008)!important}
+.predictcard .place{font-size:16px!important;color:#8fa8ff!important;margin:6px 0!important}
+.predictcard .ptime{font-size:22px!important;color:#f1f5ff!important;letter-spacing:.5px!important}
+.predictcard .tag{border-radius:12px!important;font-size:13px!important;padding:9px 5px!important;border:1px solid #ffffff15!important}
+.predictcard .tag.hot{background:linear-gradient(135deg,#ffb52e,#ffd95b)!important;color:#251600!important;box-shadow:0 0 18px #ffbd3b55!important}
+.predictcard .tag.chance{background:linear-gradient(135deg,#24aeda,#67dbff)!important;color:#042130!important}
+.predictcard .tag.expect{background:linear-gradient(135deg,#8059ff,#bd74ff)!important;color:#fff!important}
+.predictcard .tag.miss{background:#273750!important;color:#adbad0!important}
+
+.badge,.pill{background:#162941!important;color:#b9c9df!important;border:1px solid #2b4465!important}
+.row{border-color:#213650!important}.time,.focusmeta{color:#8fa1bd!important}
+.focuscard,.latestBox{background:#0c192b!important;color:#f5f8ff!important;border-color:#2a4363!important}
+.input{background:#0c192b!important;color:#f5f8ff!important;border-color:#2a4363!important}
+.areaBtn,.toggleCatalog{background:#13263e!important;color:#c6d3e7!important;border:1px solid #294563!important}
+.areaBtn.active{background:linear-gradient(135deg,#1a987a,#24c9a0)!important;color:#061b16!important}
+
+.recordgrid button{color:#07111f!important;border:0!important}
+.normal{background:linear-gradient(135deg,#d7e0ef,#aabbd1)!important}
+.rare{background:linear-gradient(135deg,#57c8ff,#7be5ff)!important}
+.light{background:linear-gradient(135deg,#ffd954,#fff09a)!important}
+.giant{background:linear-gradient(135deg,#ff9d3a,#ffc16e)!important}
+#undo{background:#172840!important;color:#c3cfdf!important;border:1px solid #304965!important}
+
+.targetbox{border-color:#223a58!important}.targetlabel,.targetmeta{color:#90a3bf!important}
+.targettime{background:linear-gradient(135deg,#655cff,#8b6fff)!important}
+.giantbox .targettime{background:linear-gradient(135deg,#ff9f38,#ffc061)!important;color:#21150a!important}
+.targetlearn{background:#162941!important;color:#bccce2!important}
+
+@media(max-width:520px){
+  h1{font-size:31px!important;padding:26px 12px 23px!important;border-radius:0 0 26px 26px!important}
+  h1 small{font-size:13px!important}.card{padding:18px 14px!important;border-radius:21px!important}
+  .timer{font-size:60px!important}.predictgrid{gap:7px!important}
+  .predictcard{padding:11px 6px 12px!important;border-radius:16px!important}
+  .predictcard .egg{font-size:13px!important}.predictcard .place{font-size:15px!important}
+  .predictcard .ptime{font-size:20px!important}.predictcard .tag{font-size:12px!important}
+}
+</style>
+
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.7.0 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.1 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
