@@ -208,21 +208,26 @@ function renderTargetPrediction(){
  const giant=history().filter(x=>x.egg==='光卵・特大').sort((a,b)=>Number(a.t)-Number(b.t));
  const giant7=giant.filter(x=>now-Number(x.t)<=7*86400000);
  const fmt=t=>new Date(t).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
- const slots=(base,n=5)=>Array.from({length:n},(_,i)=>fmt(base+i*5*60000));
- let angelTimes=[];
- if(allAngels.length>=3){
-   const gaps=[]; for(let i=1;i<allAngels.length;i++){const g=Number(allAngels[i].t)-Number(allAngels[i-1].t);if(g>=5*60000&&g<=180*60000)gaps.push(g)}
-   if(gaps.length){const gs=gaps.slice(-30).sort((a,b)=>a-b),med=gs[Math.floor(gs.length/2)];let t=Number(allAngels[allAngels.length-1].t)+med;while(t<now)t+=med;angelTimes=slots(t)}
+ function futureFromGaps(rows,n=5){
+   if(rows.length<3)return [];
+   const gaps=[];for(let i=1;i<rows.length;i++){const g=Number(rows[i].t)-Number(rows[i-1].t);if(g>=5*60000&&g<=180*60000)gaps.push(g)}
+   if(gaps.length<2)return [];
+   const gs=gaps.slice(-30).sort((x,y)=>x-y), med=gs[Math.floor(gs.length/2)];
+   let t=Number(rows[rows.length-1].t)+med;while(t<=now+30000)t+=med;
+   const out=[];for(let i=0;i<n;i++){out.push(t);t+=med}return out;
  }
- if(!angelTimes.length)angelTimes=slots(nextBoundary());
- let giantTimes=[], giantNote='';
- if(giant.length>=3){
-   const gaps=[];for(let i=1;i<giant.length;i++){const g=Number(giant[i].t)-Number(giant[i-1].t);if(g>0&&g<7*86400000)gaps.push(g)}
-   if(gaps.length>=2){const gs=gaps.slice(-12).sort((a,b)=>a-b),med=gs[Math.floor(gs.length/2)];let t=Number(giant[giant.length-1].t)+med;while(t<now)t+=med;giantTimes=slots(t);giantNote='実記録から予測';}
+ let angelTs=futureFromGaps(allAngels,5);
+ if(!angelTs.length){let t=nextBoundary();while(t<=now)t+=W;angelTs=Array.from({length:5},(_,i)=>t+i*W);}
+ let giantTs=futureFromGaps(giant,5), giantNote='';
+ if(giantTs.length)giantNote='特大の実記録間隔から予測';
+ else {
+   const rare=ss.filter(x=>['Secret','Eternal','Divine'].includes(String(x.rarity)));
+   giantTs=futureFromGaps(rare,5);
+   if(!giantTs.length){let t=nextBoundary()+10*60000;while(t<=now)t+=W;giantTs=Array.from({length:5},(_,i)=>t+i*15*60000);}
+   giantNote='仮候補（特大実記録0件・レア実Spawn傾向を参考）';
  }
- if(!giantTimes.length){giantTimes=slots(nextBoundary());giantNote='仮候補（実記録3件で精度UP）';}
- const chips=a=>a.map(x=>'<span class="targettime">'+x+'</span>').join('');
- box.innerHTML=`<div class="targetbox"><div class="targethead"><b>😇😈 天使と悪魔</b><span class="targethot">🔥 注目</span></div><div class="targetlabel">次の狙い目</div><div class="targettimes">${chips(angelTimes)}</div><div class="targetmeta">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="targetbox giantbox"><div class="targethead"><b>🌟 特大卵</b><span class="targetlearn">${giant.length>=3?'予測中':'学習中'}</span></div><div class="targetlabel">先の候補時間</div><div class="targettimes">${chips(giantTimes)}</div><div class="targetmeta">${giantNote} ／ 直近7日 ${giant7.length}件</div></div>`;
+ const chips=a=>a.filter(t=>t>now).slice(0,5).map(t=>'<span class="targettime">'+fmt(t)+'</span>').join('');
+ box.innerHTML=`<div class="targetbox"><div class="targethead"><b>😇😈 天使と悪魔</b><span class="targethot">🔥 注目</span></div><div class="targetlabel">実Spawn間隔から次の狙い目</div><div class="targettimes">${chips(angelTs)}</div><div class="targetmeta">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="targetbox giantbox"><div class="targethead"><b>🌟 特大卵</b><span class="targetlearn">${giant.length>=3?'予測中':'仮予想'}</span></div><div class="targetlabel">先の候補時間</div><div class="targettimes">${chips(giantTs)}</div><div class="targetmeta">${giantNote} ／ 直近7日 ${giant7.length}件</div></div>`;
 }
 function renderLightPrediction(){
  const box=$('#lightPred'); if(!box)return;
@@ -465,6 +470,6 @@ repairSpawnHistory();eggDB();
 render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=764',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=765',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
