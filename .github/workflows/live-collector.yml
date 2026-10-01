@@ -172,13 +172,7 @@ jobs:
                   if k not in seen:
                       x.pop("_key",None); x["t"]=int(now.timestamp()*1000)
                       merged.append(x); seen.add(k)
-              # If no new real Spawn was added, preserve live.json byte-for-byte.
-          # This prevents a checkedAt-only change from pushing every 5 minutes and
-          # unnecessarily retriggering GitHub Pages.
-          if len(merged)==len(old):
-              raise SystemExit(0)
-
-          # Diagnostics: keep enough state to distinguish "collector broken" from "source has no alerts".
+              # Diagnostics: keep enough state to distinguish "collector broken" from "source has no alerts".
               script_srcs=re.findall(r'<script[^>]+src=["\\\']([^"\\\']+)',raw,re.I)
               live_hints=sorted(set(re.findall(r'https?://[^"\\\'<> ]+|/(?:api|live|spawn|alert)[^"\\\'<> ]*',raw,re.I)))
               data={"ok":True,"checkedAt":now.isoformat(),"source":url,"paused":paused,
@@ -199,7 +193,12 @@ jobs:
               try: old=json.load(open("live.json")).get("spawns",[])
               except Exception: pass
               data={"ok":False,"checkedAt":now.isoformat(),"source":url,"error":str(e),"spawns":old[-200:]}
-          open("live.json","w").write(json.dumps(data,ensure_ascii=False,indent=2))
+          # Write only when real Spawn history changed. Diagnostics/check time alone
+          # must not create a commit, otherwise Pages rebuilds every five minutes.
+          old_spawns=old[-1000:]
+          new_spawns=data.get("spawns",[])
+          if new_spawns != old_spawns:
+              open("live.json","w").write(json.dumps(data,ensure_ascii=False,indent=2))
           PY
 
       - name: Commit live status
