@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=771">
-<title>LEO EGG 予測 v7.7.1</title>
+<link rel="manifest" href="manifest.webmanifest?v=772">
+<title>LEO EGG 予測 v7.7.2</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -147,9 +147,71 @@ button{
 }
 </style>
 
+
+<style id="leo-v772-future">
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(rgba(86,220,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(86,220,255,.035) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.25));
+}
+main{position:relative;z-index:1}
+h1{
+  text-transform:uppercase!important;
+  border:1px solid #3e73a5!important;
+  box-shadow:0 0 0 1px #7eefff12,0 18px 45px #0009,0 0 30px #4adfff18!important;
+}
+h1:after{content:"  // PREDICTION CORE"!important;color:#77e8ff!important}
+.card{
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))!important;
+  border-radius:18px!important;
+}
+.card:after{
+  content:"";position:absolute;right:10px;top:10px;width:38px;height:2px;
+  background:linear-gradient(90deg,transparent,#6feaff);
+  box-shadow:0 7px 0 #6feaff55;
+}
+.card h2{
+  font-weight:900!important;letter-spacing:.6px!important;
+  text-shadow:0 0 18px #69dcff18!important
+}
+.predictcard{
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))!important;
+  border-radius:12px!important
+}
+.predictcard .ptime{
+  font-variant-numeric:tabular-nums!important;
+  text-shadow:0 0 16px #6eeaff22!important
+}
+.timer{
+  font-variant-numeric:tabular-nums!important;
+  text-shadow:0 0 10px #63eaff,0 0 28px #54d9ff88!important
+}
+#rows:before{
+  content:"LIVE FORECAST GRID";display:block;margin:0 0 10px;
+  font-size:11px;letter-spacing:2.2px;color:#67dfffaa;font-weight:900
+}
+#lightPred:before{
+  content:"PHOTON EGG ANALYSIS";display:block;margin:0 0 10px;
+  font-size:11px;letter-spacing:2.2px;color:#a28dffaa;font-weight:900
+}
+#targetPred:before{
+  content:"ANGEL / DEMON SIGNAL";display:block;margin:0 0 10px;
+  font-size:11px;letter-spacing:2.2px;color:#ff92d9aa;font-weight:900
+}
+button{
+  text-transform:none!important;
+  letter-spacing:.2px!important;
+  transition:transform .12s ease,filter .12s ease!important
+}
+button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
+</style>
+
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.7.1 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.2 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
