@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=757">
-<title>LEO EGG 予測 v7.6.9</title>
+<link rel="manifest" href="manifest.webmanifest?v=770">
+<title>LEO EGG 予測 v7.7.0</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -51,7 +51,7 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.6.9 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.0 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -124,6 +124,36 @@ let soundOn=false;
 const $=s=>document.querySelector(s);
 const LEGACY_MANUAL_KEYS=['leoEggObservedV2','leoEggObservedV1','leoEggObserved','leoEggHistoryV3','leoEggHistoryV2','leoEggHistory'];
 const MANUAL_BACKUPS=['leoEggManualBackup','leoEggManualBackup2'];
+const MANUAL_DB='leoEggManualDB', MANUAL_STORE='manual', MANUAL_ID='latest';
+function openManualDB(){
+ return new Promise((resolve,reject)=>{
+  try{
+   const q=indexedDB.open(MANUAL_DB,1);
+   q.onupgradeneeded=()=>{if(!q.result.objectStoreNames.contains(MANUAL_STORE))q.result.createObjectStore(MANUAL_STORE)};
+   q.onsuccess=()=>resolve(q.result); q.onerror=()=>reject(q.error);
+  }catch(e){reject(e)}
+ });
+}
+async function idbLoadManual(){
+ try{
+  const db=await openManualDB();
+  return await new Promise(resolve=>{
+   const q=db.transaction(MANUAL_STORE,'readonly').objectStore(MANUAL_STORE).get(MANUAL_ID);
+   q.onsuccess=()=>resolve(validManual(q.result&&q.result.items?q.result.items:q.result));
+   q.onerror=()=>resolve([]);
+  });
+ }catch(e){return []}
+}
+async function idbSaveManual(items){
+ try{
+  const db=await openManualDB();
+  await new Promise((resolve,reject)=>{
+   const tx=db.transaction(MANUAL_STORE,'readwrite');
+   tx.objectStore(MANUAL_STORE).put({savedAt:Date.now(),items:validManual(items)},MANUAL_ID);
+   tx.oncomplete=()=>resolve(); tx.onerror=()=>reject(tx.error);
+  });
+ }catch(e){}
+}
 function validManual(a){return Array.isArray(a)?a.filter(x=>x&&Number.isFinite(Number(x.t))&&x.egg):[]}
 function readManualBackup(k){
  try{const v=JSON.parse(localStorage.getItem(k)||'null');return validManual(v&&Array.isArray(v.items)?v.items:v)}catch(e){return []}
@@ -138,6 +168,7 @@ function history(){
    const groups=[validManual(JSON.parse(localStorage.getItem(KEY)||'[]'))];
    LEGACY_MANUAL_KEYS.forEach(k=>{try{groups.push(validManual(JSON.parse(localStorage.getItem(k)||'[]')))}catch(e){}});
    MANUAL_BACKUPS.forEach(k=>groups.push(readManualBackup(k)));
+   try{groups.push(validManual(JSON.parse(sessionStorage.getItem('leoEggManualSession')||'[]')))}catch(e){}
    const out=mergeManual(groups);
    if(out.length){localStorage.setItem(KEY,JSON.stringify(out));const pack=JSON.stringify({savedAt:Date.now(),items:out});MANUAL_BACKUPS.forEach(k=>localStorage.setItem(k,pack))}
    return out;
@@ -149,6 +180,14 @@ function save(h){
  localStorage.setItem(KEY,JSON.stringify(safe));
  MANUAL_BACKUPS.forEach(k=>localStorage.setItem(k,pack));
  try{sessionStorage.setItem('leoEggManualSession',JSON.stringify(safe))}catch(e){}
+ idbSaveManual(safe);
+}
+async function restoreManualDurable(){
+ const disk=await idbLoadManual();
+ const merged=mergeManual([history(),disk]);
+ if(merged.length)save(merged);
+ try{if(navigator.storage&&navigator.storage.persist)await navigator.storage.persist()}catch(e){}
+ return merged.length;
 }
 function predictionModel(){
  const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
@@ -471,7 +510,7 @@ if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 window.setInterval(tick,250);tick();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 repairSpawnHistory();eggDB();
-render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
+render();renderLightPrediction();renderTargetPrediction();renderIntel();restoreManualDurable().then(()=>render()).catch(()=>{});setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
  navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.map(r=>r.unregister()))).then(()=>{
