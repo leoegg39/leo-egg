@@ -70,6 +70,11 @@ button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient
 </section>
 
 <section class="card">
+<h2 style="font-size:30px;margin-top:0">😇😈 天使と悪魔・特大 狙い目</h2>
+<div id="targetPred"></div>
+</section>
+
+<section class="card">
 <h2 style="font-size:30px;margin-top:0">📍 出た卵を1タップ記録</h2>
 <p class="muted">ゲームで確認できた卵の手動メモです。自動取得データとは分けて保存し、予測を水増ししません。</p>
 <div class="recordgrid">
@@ -191,6 +196,20 @@ function lightEggPrediction(){
  else if(hs.length>=8&&score>=.9){label='🔥 激アツ';klass='hot'}
  else if(score>=.65){label='✨ 注目';klass='chance'}
  return {ready:true,n:hs.length,med,last,elapsed,score,label,klass};
+}
+function renderTargetPrediction(){
+ const box=$('#targetPred'); if(!box)return;
+ const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(!ss.length){box.innerHTML='<div class="small muted">実Spawnデータ待機中</div>';return}
+ const now=Date.now(), recent=ss.filter(x=>now-Number(x.t)<=24*3600000);
+ const angels=recent.filter(x=>(x.loc||'')==='Angels & Demons');
+ const giant=history().filter(x=>x.egg==='光卵・特大'&&now-Number(x.t)<=7*86400000);
+ const last=ss[ss.length-1], lastAngel=(last&&(last.loc||'')==='Angels & Demons');
+ const angelRate=recent.length?angels.length/recent.length:0;
+ let aScore=Math.min(1,angelRate*2.2+(lastAngel?.28:0)+(angels.length>=3?.16:0));
+ let aLabel=aScore>=.72?'🔥 激アツ':aScore>=.42?'✨ 注目':'🥚 普通';
+ let gLabel=giant.length>=2?'🔥 激アツ':giant.length===1?'✨ 注目':'🥚 学習中';
+ box.innerHTML=`<div class="row"><div class="n">😇😈</div><div><div class="egg">天使と悪魔</div><div class="time">直近24時間 実Spawn ${angels.length}件 ／ 全${recent.length}件</div></div><div class="tag ${aScore>=.72?'hot':aScore>=.42?'chance':''}">${aLabel}</div></div><div class="row"><div class="n">🌟</div><div><div class="egg">特大卵</div><div class="time">手動実記録 直近7日 ${giant.length}件</div></div><div class="tag ${giant.length>=2?'hot':giant.length===1?'chance':''}">${gLabel}</div></div>`;
 }
 function renderLightPrediction(){
  const box=$('#lightPred'); if(!box)return;
@@ -430,9 +449,9 @@ if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 window.setInterval(tick,250);tick();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 repairSpawnHistory();eggDB();
-render();renderLightPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
+render();renderLightPrediction();renderTargetPrediction();renderIntel();setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=760',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+ navigator.serviceWorker.register('sw.js?v=761',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
 </script></body></html>
