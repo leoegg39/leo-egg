@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=774">
-<title>LEO EGG 予測 v7.7.4</title>
+<link rel="manifest" href="manifest.webmanifest?v=775">
+<title>LEO EGG 予測 v7.7.5</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -221,7 +221,7 @@ button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.7.4 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.5 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -492,8 +492,19 @@ function leoAdvice(confidence,safeHot,normalMisses,learning=false){
  return {cls:'leoWatch',head:'🦁 レオのひとこと',line:leoPick(['👀 まだ待機。たまに画面チェック！','🥚 次の波を監視中…','🎯 今は様子見。焦らなくてOK'],key)};
 }
 function leoAdviceHtml(a){return '<div class="leoAdvice '+a.cls+'"><div class="leoHead">'+a.head+'</div><div class="leoLine">'+a.line+'</div></div>';}
+let startupPredictionState='loading';
 function render(){
  try{
+ if(startupPredictionState==='loading'){
+   const r=$('#rows');
+   if(r)r.innerHTML='<div class="small muted" style="margin-bottom:10px">⏳ 最新データ確認中…</div><div class="leoAdvice leoWatch"><div class="leoHead">🦁 レオのひとこと</div><div class="leoLine">最新の実Spawnを取ってから予想するよ。今は激アツ判定しません。</div></div>';
+   return;
+ }
+ if(startupPredictionState==='error'){
+   const r=$('#rows');
+   if(r)r.innerHTML='<div class="small bad" style="margin-bottom:10px">⚠️ 最新データを取得できませんでした</div><div class="leoAdvice leoGame"><div class="leoHead">🦁 レオのひとこと</div><div class="leoLine">古いデータだけでは激アツを出しません。「今すぐチェック」で再取得してね。</div></div>';
+   return;
+ }
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  if(!m.ready){
    const demo=REAL_EGGS.filter(e=>['Secret','Eternal','Divine'].includes(e[1])).slice(-6);
@@ -524,10 +535,11 @@ function render(){
 }
 async function syncHistoryForPrediction(){
  try{
-   const res=await fetch(LIVE_JSON+'?history='+Date.now(),{cache:'no-store'}); if(!res.ok)return;
+   const res=await fetch(LIVE_JSON+'?history='+Date.now(),{cache:'no-store'}); if(!res.ok)return false;
    const j=await res.json(), xs=Array.isArray(j.spawns)?j.spawns:[];
    xs.forEach(x=>{if(Number.isFinite(Number(x.ts)))addAutoSpawn(x)});
- }catch(e){}
+   return true;
+ }catch(e){return false}
 }
 function stats(){
  const h=history(), ss=loadJ(SKEY);
@@ -666,7 +678,9 @@ async function readGitHubLive(){
  try{
   const r=await fetch(LIVE_JSON+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
   const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
-  xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
+  xs.forEach(x=>{if(addAutoSpawn(x))added++});
+  startupPredictionState='ready';
+  renderIntel();render();
   const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
   st.innerHTML=`<span class="badge">GitHub自動監視 v6</span> 最終取得 ${checked}`;
   if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=xs.length
@@ -702,7 +716,15 @@ if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
 window.setInterval(tick,250);tick();
 // PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
 repairSpawnHistory();eggDB();
-render();renderLightPrediction();renderTargetPrediction();renderIntel();restoreManualDurable().then(()=>render()).catch(()=>{});setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
+render();
+(async()=>{
+  const syncOk=await syncHistoryForPrediction();
+  await restoreManualDurable().catch(()=>{});
+  startupPredictionState=syncOk?'ready':'error';
+  renderIntel();render();renderLightPrediction();renderTargetPrediction();
+})();
+setInterval(render,30000);
+setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
 
 if('serviceWorker' in navigator){
  navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.map(r=>r.unregister()))).then(()=>{
