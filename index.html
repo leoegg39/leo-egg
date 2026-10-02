@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="manifest" href="manifest.webmanifest?v=772">
-<title>LEO EGG 予測 v7.7.3</title>
+<link rel="manifest" href="manifest.webmanifest?v=774">
+<title>LEO EGG 予測 v7.7.4</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -221,7 +221,7 @@ button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
 </style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.7.3 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.4 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -288,7 +288,8 @@ const BIOME_JA={"Forest":"🌲 森","Lake":"💧 湖","Desert":"🏜️ 砂漠",
 function biomeJa(x){return BIOME_JA[x]||('📍 '+(x||'場所不明'))}
 const EGG_JA={"Gargoyle Egg":"ガーゴイルエッグ","Pure Jellyfish Egg":"ピュアクラゲエッグ","Kraken Egg":"クラーケンエッグ","Tralaledon Egg":"トララレドンエッグ","Mutant Shark Egg":"ミュータントシャークエッグ","Cerberus Egg":"ケルベロスエッグ"};
 function eggJa(x){return EGG_JA[x]||x}
-function eggIcon(x){return x==='Gargoyle Egg'?'🟣':'🥚'}
+function rarityIcon(r){return r==='Divine'?'👑🌈':r==='Eternal'?'🌈':''}
+function eggIcon(x){const hit=REAL_EGGS.find(e=>e[0]===x);const rare=hit?rarityIcon(hit[1]):'';return rare||(x==='Gargoyle Egg'?'🟣':'🥚')}
 
 let soundOn=false;
 const $=s=>document.querySelector(s);
@@ -570,7 +571,7 @@ function eggDB(){
  strip.innerHTML=areas.map((x,i)=>`<button class="areaBtn ${i===0?'active':''}" data-area="${x[0]}">${x[1]}${x[2]?` · ${x[2]}`:''}</button>`).join('');
  function draw(){
   let a=REAL_EGGS.filter(x=>sel.value==='ALL'||x[2]===sel.value);
-  $('#eggdb').innerHTML=a.map(x=>`<div style="padding:13px 4px;border-bottom:1px solid #334b67;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font-size:17px">${x[0]}</b><span class="badge">${x[1]}</span><span class="muted">${x[2]}</span></div>`).join('') || '<span class="muted">このエリアの卵名は追加待ち</span>';
+  $('#eggdb').innerHTML=a.map(x=>`<div style="padding:13px 4px;border-bottom:1px solid #334b67;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font-size:17px">${x[0]}</b><span class="badge">${rarityIcon(x[1])} ${x[1]}</span><span class="muted">${x[2]}</span></div>`).join('') || '<span class="muted">このエリアの卵名は追加待ち</span>';
  }
  strip.querySelectorAll('[data-area]').forEach(b=>b.onclick=()=>{sel.value=b.dataset.area;strip.querySelectorAll('.areaBtn').forEach(z=>z.classList.remove('active'));b.classList.add('active');wrap.classList.add('open');$('#toggleCatalog').textContent='図鑑を閉じる';draw()});
  $('#toggleCatalog').onclick=()=>{wrap.classList.toggle('open');$('#toggleCatalog').textContent=wrap.classList.contains('open')?'図鑑を閉じる':'全卵を見る'}; draw();
@@ -578,7 +579,7 @@ function eggDB(){
 function renderLatestFocus(){
  const box=$('#latestFocus'); if(!box)return; const ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
  if(!ss.length){box.innerHTML='<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">LIVE MONITOR</div><div class="latestName">最新Spawn待ち</div><div class="latestMeta">取得できた実Spawnだけをここへ大きく表示します。</div></div>';return}
- const sp=ss[0]; box.innerHTML=`<div class="latestBox"><div class="latestTitle">最新SPAWN · ${sp.rarity||'Rare'}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
+ const sp=ss[0]; box.innerHTML=`<div class="latestBox"><div class="latestTitle">最新SPAWN · ${rarityIcon(sp.rarity)} ${sp.rarity||'Rare'}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
 }
 
 
@@ -589,7 +590,7 @@ function renderIntel(){
  let ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
  const acc=$('#accuracy'); if(acc) acc.innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
  renderLatestFocus();
- const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
+ const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${rarityIcon(sp.rarity)} ${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
 }
 function extractLiveSpawns(html){
  try{
