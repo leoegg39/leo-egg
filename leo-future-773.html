@@ -222,6 +222,16 @@ button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
 .predictcard .egg{min-height:34px!important}
 </style>
 
+<style id="leo-advice-style">
+.leoAdvice{margin-top:14px;padding:14px 15px;border:1px solid #294563;border-radius:16px;background:linear-gradient(135deg,#0b1b2d,#111f36);box-shadow:inset 0 1px 0 #ffffff0a}
+.leoAdvice .leoHead{font-size:13px;font-weight:900;letter-spacing:.8px;color:#7eefff;margin-bottom:6px}
+.leoAdvice .leoLine{font-size:18px;font-weight:900;line-height:1.45;color:#f7fbff}
+.leoAdvice.leoGame{border-color:#3b506d}.leoAdvice.leoGame .leoHead{color:#a9b9cf}
+.leoAdvice.leoWatch{border-color:#4d76a7;box-shadow:0 0 18px #59e7ff16,inset 0 1px 0 #ffffff0a}
+.leoAdvice.leoHot{border-color:#9c7433;box-shadow:0 0 22px #ffd65a22,inset 0 1px 0 #ffffff0a}
+.leoAdvice.leoHot .leoHead{color:#ffd65a}
+@media(max-width:520px){.leoAdvice{padding:12px 13px}.leoAdvice .leoLine{font-size:16px}}
+</style>
 </head>
 <body><main>
 <h1>LEO EGG <small>予測 v7.7.3 ✨</small></h1>
@@ -474,6 +484,27 @@ function eggPic(name){
  slug=slug.replace(/-egg$/,'');
  return slug?'<img class="eggpic" src="https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp" alt="'+String(name||'')+'" loading="eager" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">':'';
 }
+function leoPick(lines,key){
+ const n=Math.abs(Number(key)||0);
+ return lines[n%lines.length];
+}
+function leoAdvice(confidence,safeHot,normalMisses,learning=false){
+ const key=Math.floor(nextBoundary()/(5*60*1000));
+ if(learning){
+   return {cls:'leoGame',head:'🦁 レオのひとこと',line:leoPick(['🎮 まだ勉強中。ここはゲームしとけ！','🥚 データ集め中。今はのんびりでOK😂','😴 まだ慌てなくていい。レオ学習中…'],key)};
+ }
+ if(safeHot){
+   return {cls:'leoHot',head:'🦁 レオのひとこと',line:leoPick(['🔥 ゲーム中断！卵に集中！','🚨 今は画面から目を離すな！','🥚 来るならここ。レオも本気モード🔥','😎 ゲームは一旦やめ！卵待機だ！'],key)};
+ }
+ if(normalMisses>=2 || confidence==='low'){
+   return {cls:'leoGame',head:'🦁 レオのひとこと',line:leoPick(['🎮 ここはゲームしとけ。まだ慌てる時間じゃない😂','☕ 今は休憩でOK。レオが見張っとく','😴 薄いな…トイレ行くなら今！','😂 まだ来なそう。ゲーム続行！'],key)};
+ }
+ if(confidence==='medium'){
+   return {cls:'leoWatch',head:'🦁 レオのひとこと',line:leoPick(['👀 そろそろ画面見とけ！','⚡ ちょっと怪しくなってきたぞ…','🎮 ゲームしつつ、卵もチラ見！','🥚 レオの鼻が少し反応してます😂'],key)};
+ }
+ return {cls:'leoWatch',head:'🦁 レオのひとこと',line:leoPick(['👀 まだ待機。たまに画面チェック！','🥚 次の波を監視中…','🎯 今は様子見。焦らなくてOK'],key)};
+}
+function leoAdviceHtml(a){return '<div class="leoAdvice '+a.cls+'"><div class="leoHead">'+a.head+'</div><div class="leoLine">'+a.line+'</div></div>';}
 function render(){
  try{
  const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
@@ -484,7 +515,7 @@ function render(){
      const biome=e[2]||'場所不明';
      const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
      return `<div class="predictcard">${eggPic(e[0])}<div class="egg">${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
-   }).join('')+'</div>';
+   }).join('')+'</div>'+leoAdviceHtml(leoAdvice('low',false,0,true));
    renderAccuracy();renderLightPrediction();stats();return;
  }
  const ranked=scoreCandidates(ss).slice(0,6), base=nextBoundary();
@@ -500,7 +531,7 @@ function render(){
    const hit=REAL_EGGS.find(e=>norm(e[0])===norm(r.name));
    const biome=hit?hit[2]:'';
    return `<div class="predictcard">${eggPic(r.name)}<div class="egg">${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
- }).join('')+'</div>';
+ }).join('')+'</div>'+leoAdviceHtml(leoAdvice(m.confidence,safeHot,normalMisses));
  renderAccuracy();renderLightPrediction();stats();
  }catch(e){const r=$('#rows');if(r)r.innerHTML='<div class="small bad">予測表示を再読み込み中…</div>';}
 }
