@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#06101f">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LEO 卵">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest?v=772">
+<title>LEO EGG 予測 v7.7.4</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
+h1{text-align:center;color:#ffd53f;font-size:38px;margin:12px 0 28px}.card{background:#14243a;border:2px solid #38506d;border-radius:38px;padding:28px 40px;margin:0 0 28px}
+.center{text-align:center}.muted{color:#b8c4d6}.timer{font-size:82px;font-weight:900;color:#52d9f5;line-height:1}.live{font-size:28px;font-weight:800;color:#69efae;margin:20px 0}
+button{width:100%;border:0;border-radius:28px;padding:22px 16px;font-size:26px;font-weight:900;margin-top:14px}.sound{background:#6be8a8;color:#0781ff}.recalc{background:#ffd65a;color:#1675ff}
+.row{display:grid;grid-template-columns:120px 1fr 150px;align-items:center;gap:12px;padding:22px 0;border-top:2px solid #334b67}.row:first-of-type{border-top:0}.n{font-size:25px;font-weight:900}.egg{font-size:30px;font-weight:900}.time{font-size:20px;color:#b8c4d6}.tag{padding:17px 12px;border-radius:22px;text-align:center;font-size:24px;font-weight:900;color:#071321}.hot{background:#ffd12f;box-shadow:0 0 22px #ffd12f}.superhot{background:linear-gradient(90deg,#ff8ad8,#ffe66b,#72f1ff);box-shadow:0 0 28px #fff;color:#071321}.expect{background:#f2ad38}.chance{background:#67d1f2}.miss{background:#43536b;color:#e7edf5}
+.recordgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.recordgrid button{font-size:20px;padding:17px 8px;margin:0}.normal{background:#d7e1ed}.rare{background:#79d9ff}.light{background:#ffe06b}.giant{background:#ffb94f}
+.stat{font-size:18px;line-height:1.55}.badge{display:inline-block;background:#20364f;border-radius:999px;padding:8px 13px;margin:4px 4px 0 0}.small{font-size:15px;line-height:1.55}
+@media(max-width:520px){main{padding-left:14px;padding-right:14px}.card{padding:24px 20px;border-radius:30px}h1{font-size:34px}.timer{font-size:72px}.row{grid-template-columns:105px 1fr 112px}.egg{font-size:26px}.tag{font-size:20px}.recordgrid button{font-size:18px}}
+
+.input{width:100%;font-size:18px;padding:14px;border-radius:16px;background:#20364f;color:#fff;border:1px solid #526a87;margin:6px 0}.minirow{display:grid;grid-template-columns:1.2fr 1fr;gap:8px}.preditem{padding:14px 0;border-top:1px solid #334b67}.preditem:first-child{border-top:0}.pct{font-weight:900;color:#ffd65a}.ok{color:#69efae;font-weight:900}.bad{color:#ff9b9b;font-weight:900}.action{background:#6be8a8;color:#0877e8;font-size:19px;padding:15px;margin-top:8px}.danger{background:#43536b;color:#fff;font-size:16px;padding:12px}.pill{display:inline-block;border-radius:999px;background:#20364f;padding:5px 10px;margin:2px;font-size:14px}
+
+.predictgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.predictcard{background:#f8fbff;border:2px solid #dbe7ff;border-radius:22px;padding:13px 10px;text-align:center;min-width:0}.predictcard .egg{font-size:17px;line-height:1.2;min-height:41px}.predictcard .eggpic{width:72px;height:72px;object-fit:contain;display:block;margin:0 auto 5px;filter:drop-shadow(0 5px 7px rgba(50,70,110,.22))}.predictcard .place{font-size:19px;font-weight:900;color:#5d61df;margin:7px 0}.predictcard .ptime{font-size:24px;font-weight:900;color:#26334f;margin:4px 0 8px}.predictcard .tag{font-size:15px;padding:9px 6px;border-radius:15px}.focusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.focuscard{background:#0d1d31;border:2px solid #3b5675;border-radius:24px;padding:16px 12px;min-height:150px}.focuscard.secret{border-color:#ff466f;box-shadow:0 0 18px #ff466f33}.focuscard.eternal{border-color:#b35cff}.focuscard.divine{border-color:#ffd84d}.rarity{font-size:13px;font-weight:900;letter-spacing:.4px}.secret .rarity{color:#ff6687}.eternal .rarity{color:#ca8aff}.divine .rarity{color:#ffe36f}.focusname{font-size:19px;font-weight:900;margin:10px 0 7px}.focusmeta{font-size:14px;color:#c7d3e4;line-height:1.55}.areaStrip{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.areaBtn{width:auto;min-width:max-content;margin:0;padding:11px 14px;border-radius:18px;background:#20364f;color:#fff;font-size:15px}.areaBtn.active{background:#62dca5;color:#082035}.catalogHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.toggleCatalog{width:auto;margin:0;background:#20364f;color:#fff;font-size:16px;padding:11px 15px}.catalogWrap{display:none;margin-top:15px}.catalogWrap.open{display:block}.latestBox{background:#0d1d31;border:2px solid #ff466f;border-radius:26px;padding:18px;margin-bottom:16px}.latestTitle{font-size:14px;color:#ff6f8e;font-weight:900}.latestName{font-size:28px;font-weight:900;margin:7px 0}.latestMeta{font-size:16px;color:#cbd7e7;line-height:1.6}
+@media(max-width:520px){.predictgrid{grid-template-columns:repeat(3,1fr);gap:7px}.predictcard{padding:11px 6px;border-radius:18px}.predictcard .egg{font-size:14px;min-height:34px}.predictcard .place{font-size:16px}.predictcard .ptime{font-size:20px}.predictcard .tag{font-size:13px}.focusgrid{grid-template-columns:1fr}.focuscard{min-height:0}.catalogHead h2{font-size:25px!important}}
+
+/* LEO EGG pastel app skin v6 */
+body{background:linear-gradient(180deg,#eaf8ff 0,#f8efff 48%,#fff7fb 100%);color:#25304a}
+main{max-width:760px;padding:calc(env(safe-area-inset-top) + 10px) 12px calc(env(safe-area-inset-bottom) + 95px)}
+h1{margin:4px 0 14px;padding:28px 12px 24px;border-radius:0 0 34px 34px;color:#fff;font-size:42px;letter-spacing:1px;text-shadow:0 3px 10px #6c79d8;background:linear-gradient(135deg,#74dfff,#8c91ff 45%,#ff8fd1);box-shadow:0 12px 30px #8f9fe344}
+h1:after{content:"  ✨";font-size:24px}
+.card{background:#ffffffdc;border:2px solid #fff;border-radius:28px;padding:22px 20px;margin:0 0 16px;box-shadow:0 8px 25px #8091c523;backdrop-filter:blur(8px)}
+.card.center{background:linear-gradient(135deg,#e7fff7,#eef5ff 55%,#fff0fa)}
+.card h2{color:#27324c}.muted{color:#71809b}.timer{color:#6b70f7;font-size:72px;text-shadow:0 4px 14px #a7b0ff55}.live{color:#19b978}
+button{box-shadow:0 5px 14px #8797bf22}.sound,.action{background:linear-gradient(135deg,#6ee8c1,#79cfff);color:#174c82}.recalc{background:linear-gradient(135deg,#ffd76a,#ff9fcb);color:#6c3a75}
+.stat,.focuscard,.latestBox{background:#f8fbff!important;border-color:#dbe7ff!important;color:#33415f}
+.badge{background:#e9f2ff;color:#42618b}.ok{color:#16a870}.bad{color:#e45f7c}.pct{color:#735ff3}
+.row{border-color:#e3eaf7}.time,.focusmeta{color:#71809b}.focuscard{box-shadow:0 5px 15px #8fa3cf18}
+.input{background:#f5f8ff;color:#26334f;border-color:#d5e1f5}.areaBtn,.toggleCatalog{background:#edf3ff;color:#42577b}.areaBtn.active{background:#7ce8c5;color:#164d44}
+#autoStatus{border-left:6px solid #56dca6;padding:14px 16px;border-radius:18px}
+#external{border-left:6px solid #76b9ff;padding:14px 16px;border-radius:18px}
+@media(max-width:520px){h1{font-size:36px}.card{padding:20px 17px;border-radius:25px}.timer{font-size:66px}}
+</style>
+
+<style id="leo-v62-skin">
+:root{--ink:#17233e;--muted:#6f7e9c;--purple:#6567f4;--green:#17bc80;--line:#dce4f1}html{background:#eef8ff}body{background:linear-gradient(180deg,#eaf8ff 0%,#f5f7ff 46%,#eef5ff 100%);color:var(--ink)}main{max-width:760px;padding:calc(env(safe-area-inset-top) + 18px) 22px calc(env(safe-area-inset-bottom) + 34px)}h1{margin:0 0 26px;padding:42px 24px 38px;border-radius:0 0 54px 54px;background:linear-gradient(120deg,#4fd4f3 0%,#7779f3 50%,#ed7fd6 100%);color:white;font-size:45px;letter-spacing:2px;text-shadow:0 4px 12px #4756a866;box-shadow:0 14px 30px #7392cf22}h1 small{font-size:20px;letter-spacing:1px}.card{background:rgba(255,255,255,.86);border:2px solid rgba(255,255,255,.95);border-radius:42px;box-shadow:0 12px 34px #7990bc1c;padding:30px 38px;margin-bottom:28px;backdrop-filter:blur(12px)}.muted{color:var(--muted)}.timer{color:var(--purple);font-size:86px;text-shadow:0 6px 18px #6567f428}.live{color:var(--green)}button{box-shadow:none}.sound{background:linear-gradient(100deg,#63e0bc,#68ccef);color:#164b83}.recalc{background:linear-gradient(100deg,#ffe066,#ffd13d);color:#2450a0}.row{border-color:var(--line)}.time{color:var(--muted)}.tag.hot{background:#ffd33f;color:#15223d;box-shadow:0 0 28px #ffcf35aa}.tag.expect{background:#ffc866}.tag.chance{background:#74d6f1}.badge,.pill{background:#edf2fa;color:#40516f}.focuscard,.latestBox{background:#f8fbff;color:var(--ink)}.input{background:#f3f6fb;color:var(--ink);border-color:#d8e0ec}.preditem{border-color:var(--line)}.areaBtn,.toggleCatalog{background:#edf2fa;color:#40516f}.areaBtn.active{background:#64dfb3;color:#124f42}.small.muted{color:#6e7b95}@media(max-width:520px){main{padding-left:14px;padding-right:14px}h1{font-size:39px;padding:34px 12px 32px;border-radius:0 0 44px 44px}h1 small{font-size:17px}.card{padding:25px 20px;border-radius:34px}.timer{font-size:76px}}
+
+.targetbox{padding:18px 0;border-top:2px solid var(--line)}.targetbox:first-child{border-top:0}.targethead{display:flex;align-items:center;justify-content:space-between;gap:10px}.targethead b{font-size:27px}.targethot,.targetlearn{white-space:nowrap;border-radius:999px;padding:8px 12px;font-weight:900}.targethot{background:#ffd33f}.targetlearn{background:#edf2fa}.targetlabel{font-size:17px;font-weight:900;color:#65728d;margin:12px 0 8px}.targettimes{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px}.targettime{white-space:nowrap;background:#6567f4;color:#fff;border-radius:15px;padding:10px 12px;font-size:20px;font-weight:900}.giantbox .targettime{background:#ffb94f;color:#25304a}.targetmeta{font-size:15px;color:#71809b;margin-top:6px}@media(max-width:520px){.targethead b{font-size:23px}.targettime{font-size:18px;padding:9px 10px}}
+</style>
+
+<style id="leo-v771-cyber">
+:root{
+  --bg0:#050b14;--bg1:#091525;--panel:#0d192bde;--panel2:#101f35e8;
+  --line:#233956;--ink:#f5f8ff;--muted2:#8fa1bd;--cyan:#59e7ff;
+  --blue:#6c83ff;--violet:#9c6cff;--gold:#ffd65a;--green:#4ce7a6;
+}
+html{background:var(--bg0)!important}
+body{
+  background:
+    radial-gradient(circle at 15% -10%,#173c72 0,transparent 32%),
+    radial-gradient(circle at 90% 10%,#4d2b78 0,transparent 28%),
+    linear-gradient(180deg,var(--bg0) 0%,var(--bg1) 42%,#07111f 100%)!important;
+  color:var(--ink)!important;
+}
+main{max-width:760px!important;padding:calc(env(safe-area-inset-top) + 12px) 14px calc(env(safe-area-inset-bottom) + 42px)!important}
+h1{
+  position:relative;overflow:hidden;margin:0 0 18px!important;padding:30px 16px 27px!important;
+  border:1px solid #2d4b75!important;border-radius:0 0 30px 30px!important;
+  background:linear-gradient(145deg,#0c1c31 0%,#132a49 46%,#221a45 100%)!important;
+  color:#fff!important;font-size:36px!important;letter-spacing:2px!important;
+  text-shadow:0 0 22px #60dfff88!important;
+  box-shadow:0 16px 42px #0008, inset 0 -1px 0 #6ee6ff33!important;
+}
+h1:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#6ceaff18,transparent);transform:skewX(-18deg)}
+h1:after{content:"  // LIVE HUD"!important;font-size:13px!important;color:#7eefff!important;letter-spacing:1.4px!important}
+h1 small{display:block;margin-top:5px;font-size:15px!important;color:#aebddd!important;letter-spacing:.8px!important}
+
+.card{
+  position:relative;background:linear-gradient(180deg,#0f1d31ee,#0b1627ee)!important;
+  border:1px solid #243b5d!important;border-radius:24px!important;padding:20px 17px!important;margin-bottom:16px!important;
+  box-shadow:0 14px 32px #0006,inset 0 1px 0 #ffffff09!important;backdrop-filter:blur(14px)!important;
+}
+.card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:1px;background:linear-gradient(90deg,transparent,#63e7ff66,transparent)}
+.card h2{color:#f7fbff!important;letter-spacing:.2px}.muted{color:var(--muted2)!important}
+
+.card.center{
+  background:linear-gradient(145deg,#0b2134,#10253d 55%,#17193a)!important;
+  border-color:#2d5575!important
+}
+.timer{color:#6eeaff!important;font-size:68px!important;letter-spacing:2px!important;text-shadow:0 0 26px #48d9ff77!important}
+.live{color:#54e9ae!important;font-size:18px!important}
+button{
+  border:1px solid #ffffff12!important;border-radius:18px!important;box-shadow:0 7px 18px #0004!important
+}
+.sound,.action{background:linear-gradient(135deg,#1c947a,#166d9e)!important;color:#eaffff!important}
+.recalc{background:linear-gradient(135deg,#6d5df8,#b053d3)!important;color:#fff!important}
+
+#accuracyBox{color:#9eb0cc!important}
+.predictgrid{gap:8px!important}
+.predictcard{
+  position:relative;overflow:hidden;background:linear-gradient(180deg,#101f34,#0b1728)!important;
+  border:1px solid #284260!important;border-radius:18px!important;padding:12px 8px 13px!important;
+  box-shadow:0 9px 22px #0005,inset 0 1px 0 #ffffff08!important
+}
+.predictcard:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#59e7ff,#7d78ff,#d26df5)}
+.predictcard:nth-child(1){border-color:#705b32!important;box-shadow:0 0 0 1px #ffd65a22,0 10px 25px #0006!important}
+.predictcard:nth-child(1):before{background:linear-gradient(90deg,#ffbb38,#ffe475)}
+.predictcard:nth-child(2):before{background:linear-gradient(90deg,#5ce7ff,#8f76ff)}
+.predictcard .egg{font-size:15px!important;line-height:1.15!important;min-height:36px!important;color:#f7f9ff!important;text-shadow:0 2px 8px #000!important}
+.predictcard .eggpic{width:62px!important;height:62px!important;filter:drop-shadow(0 7px 9px #0008)!important}
+.predictcard .place{font-size:16px!important;color:#8fa8ff!important;margin:6px 0!important}
+.predictcard .ptime{font-size:22px!important;color:#f1f5ff!important;letter-spacing:.5px!important}
+.predictcard .tag{border-radius:12px!important;font-size:13px!important;padding:9px 5px!important;border:1px solid #ffffff15!important}
+.predictcard .tag.hot{background:linear-gradient(135deg,#ffb52e,#ffd95b)!important;color:#251600!important;box-shadow:0 0 18px #ffbd3b55!important}
+.predictcard .tag.chance{background:linear-gradient(135deg,#24aeda,#67dbff)!important;color:#042130!important}
+.predictcard .tag.expect{background:linear-gradient(135deg,#8059ff,#bd74ff)!important;color:#fff!important}
+.predictcard .tag.miss{background:#273750!important;color:#adbad0!important}
+
+.badge,.pill{background:#162941!important;color:#b9c9df!important;border:1px solid #2b4465!important}
+.row{border-color:#213650!important}.time,.focusmeta{color:#8fa1bd!important}
+.focuscard,.latestBox{background:#0c192b!important;color:#f5f8ff!important;border-color:#2a4363!important}
+.input{background:#0c192b!important;color:#f5f8ff!important;border-color:#2a4363!important}
+.areaBtn,.toggleCatalog{background:#13263e!important;color:#c6d3e7!important;border:1px solid #294563!important}
+.areaBtn.active{background:linear-gradient(135deg,#1a987a,#24c9a0)!important;color:#061b16!important}
+
+.recordgrid button{color:#07111f!important;border:0!important}
+.normal{background:linear-gradient(135deg,#d7e0ef,#aabbd1)!important}
+.rare{background:linear-gradient(135deg,#57c8ff,#7be5ff)!important}
+.light{background:linear-gradient(135deg,#ffd954,#fff09a)!important}
+.giant{background:linear-gradient(135deg,#ff9d3a,#ffc16e)!important}
+#undo{background:#172840!important;color:#c3cfdf!important;border:1px solid #304965!important}
+
+.targetbox{border-color:#223a58!important}.targetlabel,.targetmeta{color:#90a3bf!important}
+.targettime{background:linear-gradient(135deg,#655cff,#8b6fff)!important}
+.giantbox .targettime{background:linear-gradient(135deg,#ff9f38,#ffc061)!important;color:#21150a!important}
+.targetlearn{background:#162941!important;color:#bccce2!important}
+
+@media(max-width:520px){
+  h1{font-size:31px!important;padding:26px 12px 23px!important;border-radius:0 0 26px 26px!important}
+  h1 small{font-size:13px!important}.card{padding:18px 14px!important;border-radius:21px!important}
+  .timer{font-size:60px!important}.predictgrid{gap:7px!important}
+  .predictcard{padding:11px 6px 12px!important;border-radius:16px!important}
+  .predictcard .egg{font-size:13px!important}.predictcard .place{font-size:15px!important}
+  .predictcard .ptime{font-size:20px!important}.predictcard .tag{font-size:12px!important}
+}
+</style>
+
+
+<style id="leo-v772-future">
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(rgba(86,220,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(86,220,255,.035) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.25));
+}
+main{position:relative;z-index:1}
+h1{
+  text-transform:uppercase!important;
+  border:1px solid #3e73a5!important;
+  box-shadow:0 0 0 1px #7eefff12,0 18px 45px #0009,0 0 30px #4adfff18!important;
+}
+h1:after{content:"  // PREDICTION CORE"!important;color:#77e8ff!important}
+.card{
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))!important;
+  border-radius:18px!important;
+}
+.card:after{
+  content:"";position:absolute;right:10px;top:10px;width:38px;height:2px;
+  background:linear-gradient(90deg,transparent,#6feaff);
+  box-shadow:0 7px 0 #6feaff55;
+}
+.card h2{
+  font-weight:900!important;letter-spacing:.6px!important;
+  text-shadow:0 0 18px #69dcff18!important
+}
+.predictcard{
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))!important;
+  border-radius:12px!important
+}
+.predictcard .ptime{
+  font-variant-numeric:tabular-nums!important;
+  text-shadow:0 0 16px #6eeaff22!important
+}
+.timer{
+  font-variant-numeric:tabular-nums!important;
+  text-shadow:0 0 10px #63eaff,0 0 28px #54d9ff88!important
+}
+#rows:before{
+  content:"LIVE FORECAST GRID";display:block;margin:0 0 10px;
+  font-size:11px;letter-spacing:2.2px;color:#67dfffaa;font-weight:900
+}
+#lightPred:before{
+  content:"PHOTON EGG ANALYSIS";display:block;margin:0 0 10px;
+  font-size:11px;letter-spacing:2.2px;color:#a28dffaa;font-weight:900
+}
+#targetPred:before{
+  content:"ANGEL / DEMON SIGNAL";display:block;margin:0 0 10px;
+  font-size:11px;letter-spacing:2.2px;color:#ff92d9aa;font-weight:900
+}
+button{
+  text-transform:none!important;
+  letter-spacing:.2px!important;
+  transition:transform .12s ease,filter .12s ease!important
+}
+button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
+</style>
+
+
+<style id="leo-v773-real-eggs">
+.predictcard .eggpic{
+  width:78px!important;height:78px!important;object-fit:contain!important;
+  margin:2px auto 6px!important;
+  filter:drop-shadow(0 0 8px rgba(92,225,255,.35)) drop-shadow(0 9px 12px rgba(0,0,0,.55))!important;
+}
+.predictcard .egg{min-height:34px!important}
+</style>
+
+<style id="leo-advice-style">
+.leoAdvice{margin-top:14px;padding:14px 15px;border:1px solid #294563;border-radius:16px;background:linear-gradient(135deg,#0b1b2d,#111f36);box-shadow:inset 0 1px 0 #ffffff0a}
+.leoAdvice .leoHead{font-size:13px;font-weight:900;letter-spacing:.8px;color:#7eefff;margin-bottom:6px}
+.leoAdvice .leoLine{font-size:18px;font-weight:900;line-height:1.45;color:#f7fbff}
+.leoAdvice.leoGame{border-color:#3b506d}.leoAdvice.leoGame .leoHead{color:#a9b9cf}
+.leoAdvice.leoWatch{border-color:#4d76a7;box-shadow:0 0 18px #59e7ff16,inset 0 1px 0 #ffffff0a}
+.leoAdvice.leoHot{border-color:#9c7433;box-shadow:0 0 22px #ffd65a22,inset 0 1px 0 #ffffff0a}
+.leoAdvice.leoHot .leoHead{color:#ffd65a}
+@media(max-width:520px){.leoAdvice{padding:12px 13px}.leoAdvice .leoLine{font-size:16px}}
+</style>
+</head>
+<body><main>
+<h1>LEO EGG <small>予測 v7.7.4 ✨</small></h1>
+
+<section class="card center">
+<div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
+<div id="timer" class="timer">--:--</div>
+<div class="live">● 過去データ学習モード</div>
+<button id="sound" class="sound">🔊 音をONにする</button>
+</section>
+
+<section class="card" style="display:none">
+<h2 style="font-size:32px;margin-top:0">🎯 過去データ予測</h2>
+<div id="accuracyBox" class="small" style="margin:-4px 0 14px"></div>
+<div id="rows"></div>
+</section>
+
+<section class="card" style="display:none">
+<h2 style="font-size:30px;margin-top:0">✨ 光卵予想</h2>
+<div id="lightPred"></div>
+</section>
+
+<section class="card">
+<h2 style="font-size:30px;margin-top:0">🌈😇😈 エターナル特大だけ狙う</h2>
+<div id="targetPred"></div>
+</section>
+
+<section class="card">
+<h2 style="font-size:30px;margin-top:0">📍 出た卵を1タップ記録</h2>
+<p class="muted">もう狙いはエターナル特大だけ。実際に特大が出た時だけ1タップ記録し、自動取得したエターナル出現時刻と合わせて学習します。</p>
+<div class="recordgrid" style="grid-template-columns:1fr">
+<button class="giant" data-egg="エターナル・特大">🌈 エターナル・特大が出た</button>
+</div>
+<div id="stats" class="stat" style="margin-top:18px"></div>
+<button id="undo" style="background:#334b67;color:#fff;font-size:18px;padding:14px">↩️ 最後の記録を取消</button>
+</section>
+
+
+<section class="card">
+<div class="catalogHead"><h2 style="font-size:30px;margin:0">📖 卵図鑑</h2><button id="toggleCatalog" class="toggleCatalog">全卵を見る</button></div>
+<p class="muted">普段は閉じてスッキリ。必要なときだけエリア別に確認できます。</p>
+<div id="areaStrip" class="areaStrip"></div>
+<div id="catalogWrap" class="catalogWrap">
+<select id="bio" style="display:none"></select>
+<div id="eggdb"></div>
+</div>
+</section>
+
+
+
+<button id="recalc" class="recalc">🔄 今すぐ再計算</button>
+
+<section class="card small muted" style="margin-top:28px"><b>予想の扱い：</b> 天使と悪魔エリアのEternal実Spawn履歴を中心に予想します。サイズ情報は自動取得できないため、「特大」はゲーム内で確認した手動記録を補正材料にします。</section>
+</main>
+<script>
+const W=300000, KEY='leoEggObservedV3', PKEY='leoEggPredV4', SKEY='leoEggSpawnV4';
+function loadJ(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return []}}
+function saveJ(k,v){localStorage.setItem(k,JSON.stringify(v.slice(-1000)))}
+const LIVE_URL='https://eggipedia.com/spawns';
+const LIVE_JSON='./live.json';
+const REAL_EGGS=[["Chicken Egg","Common","Forest"],["Dog Egg","Common","Forest"],["Bird Egg","Uncommon","Forest"],["Burrowing Owl Egg","Rare","Forest"],["Raccoon Egg","Rare","Forest"],["Fox Egg","Epic","Forest"],["Bear Egg","Epic","Forest"],["Brr Brr Patapim Egg","Legendary","Forest"],["Frog Egg","Common","Lake"],["Duckling Egg","Common","Lake"],["Catfish Egg","Uncommon","Lake"],["Turtle Egg","Rare","Lake"],["Trulimero Trulicina Egg","Epic","Lake"],["Swan Egg","Epic","Lake"],["Axolotl Egg","Legendary","Lake"],["Leviathan Egg","Cosmic","Lake"],["Jerboa Egg","Common","Desert"],["Fennec Egg","Uncommon","Desert"],["Camel Egg","Rare","Desert"],["Tob Tobi Tob Tob Egg","Epic","Desert"],["Snake Egg","Legendary","Desert"],["Sand Spider Egg","Mythic","Desert"],["Scorpion Egg","Mythic","Desert"],["Royal Sphinx Egg","Cosmic","Desert"],["Chimpanzee Egg","Rare","Jungle"],["Toucan Egg","Rare","Jungle"],["Crocodile Egg","Epic","Jungle"],["Gorilla Egg","Legendary","Jungle"],["Orangutini Ananassini Egg","Legendary","Jungle"],["Spider Egg","Mythic","Jungle"],["Tiger Egg","Mythic","Jungle"],["King Snake Egg","Secret","Jungle"],["Penguin Egg","Rare","Snow"],["Walrus Egg","Epic","Snow"],["Polar Bear Egg","Legendary","Snow"],["Sabertooth Tiger Egg","Mythic","Snow"],["Mammoth Egg","Mythic","Snow"],["King Mammoth Egg","Cosmic","Snow"],["Yeti Egg","Secret","Snow"],["Ice Dragon Egg","Eternal","Snow"],["Lava Gecko Egg","Rare","Volcano"],["Lava Frog Egg","Epic","Volcano"],["Flaming Bull Egg","Legendary","Volcano"],["Lava Iguana Egg","Legendary","Volcano"],["Chillin Chilli Egg","Mythic","Volcano"],["Cerberus Egg","Secret","Volcano"],["Phoenix Egg","Eternal","Volcano"],["Lava Dragon Egg","Eternal","Volcano"],["Parrotfish Egg","Rare","Abyss Ocean"],["Swordfish Egg","Epic","Abyss Ocean"],["Shark Egg","Legendary","Abyss Ocean"],["Orca Egg","Mythic","Abyss Ocean"],["Whale Shark Egg","Cosmic","Abyss Ocean"],["Beluga Whale Egg","Cosmic","Abyss Ocean"],["Kraken Egg","Secret","Abyss Ocean"],["El Maja Egg","Eternal","Abyss Ocean"],["Dodo Egg","Rare","Prehistoric"],["Pterodactyl Egg","Legendary","Prehistoric"],["Ankylosaurus Egg","Mythic","Prehistoric"],["Triceratops Egg","Cosmic","Prehistoric"],["Bronto Egg","Cosmic","Prehistoric"],["T-Rex Egg","Secret","Prehistoric"],["Tralaledon Egg","Secret","Prehistoric"],["Mosasaurus Egg","Eternal","Prehistoric"],["Centapede Egg","Epic","Cosmic"],["Cosmic Gecko Egg","Legendary","Cosmic"],["Cosmic Gorilla Egg","Mythic","Cosmic"],["La Vacca Saturno Saturnita Egg","Cosmic","Cosmic"],["Cosmic Skeleton Boss Egg","Secret","Cosmic"],["Cosmic Dragon Egg","Secret","Cosmic"],["Eternal Lunar Dragon Egg","Eternal","Cosmic"],["Unicorn Egg","Divine","Cosmic"],["Crane Egg","Epic","Cherry Blossom"],["Salamander Egg","Legendary","Cherry Blossom"],["Red Panda Egg","Mythic","Cherry Blossom"],["Snowy Owl Egg","Cosmic","Cherry Blossom"],["Koi Egg","Cosmic","Cherry Blossom"],["Stag Egg","Secret","Cherry Blossom"],["Oni Tiger Egg","Eternal","Cherry Blossom"],["Kitsune Egg","Divine","Cherry Blossom"],["Spideron Egg","Legendary","Titan Temple"],["Crustacia Egg","Legendary","Titan Temple"],["Bladehide Egg","Mythic","Titan Temple"],["Mantaris Egg","Cosmic","Titan Temple"],["Rhinotaur Egg","Cosmic","Titan Temple"],["Mutant Shark Egg","Secret","Titan Temple"],["Gorilla King Egg","Eternal","Titan Temple"],["Nightflame Egg","Divine","Titan Temple"],["Flame Sprite Egg","Legendary","Angels & Demons"],["Light Dove Egg","Legendary","Angels & Demons"],["Toro Egg","Mythic","Angels & Demons"],["Winged Lamb Egg","Mythic","Angels & Demons"],["Imp Egg","Cosmic","Angels & Demons"],["Sacred Moth Egg","Cosmic","Angels & Demons"],["Demon Hound Egg","Cosmic","Angels & Demons"],["Holy Peacock Egg","Cosmic","Angels & Demons"],["Gargoyle Egg","Secret","Angels & Demons"],["Pure Jellyfish Egg","Secret","Angels & Demons"],["Centaur Egg","Secret","Angels & Demons"],["RazorFang Egg","Secret","Angels & Demons"],["Pegasus Egg","Eternal","Angels & Demons"],["Skeleton Horse Egg","Eternal","Angels & Demons"],["ArchAngel Egg","Divine","Angels & Demons"],["World Burner Egg","Divine","Angels & Demons"]];
+const BIOMES=[["Forest", "制限なし"], ["Lake", "900"], ["Desert", "10K"], ["Jungle", "40K"], ["Snow", "170K"], ["Volcano", "700K"], ["Abyss Ocean", "2.5M"], ["Prehistoric", "18M"], ["Cosmic", "700M"], ["Cherry Blossom", "2.5B"], ["Titan Temple", "7B"], ["Angels & Demons", "20B"]];
+const BIOME_JA={"Forest":"🌲 森","Lake":"💧 湖","Desert":"🏜️ 砂漠","Jungle":"🌴 ジャングル","Snow":"❄️ 雪原","Volcano":"🌋 火山","Abyss Ocean":"🌊 深海","Prehistoric":"🦖 原始時代","Cosmic":"🌌 宇宙","Cherry Blossom":"🌸 桜","Titan Temple":"🏛️ タイタン神殿","Angels & Demons":"😇😈 天使と悪魔"};
+function biomeJa(x){return BIOME_JA[x]||('📍 '+(x||'場所不明'))}
+const EGG_JA={"Gargoyle Egg":"ガーゴイルエッグ","Pure Jellyfish Egg":"ピュアクラゲエッグ","Kraken Egg":"クラーケンエッグ","Tralaledon Egg":"トララレドンエッグ","Mutant Shark Egg":"ミュータントシャークエッグ","Cerberus Egg":"ケルベロスエッグ"};
+function eggJa(x){return EGG_JA[x]||x}
+function eggIcon(x){return x==='Gargoyle Egg'?'🟣':'🥚'}
+
+let soundOn=false;
+const $=s=>document.querySelector(s);
+const LEGACY_MANUAL_KEYS=['leoEggObservedV2','leoEggObservedV1','leoEggObserved','leoEggHistoryV3','leoEggHistoryV2','leoEggHistory'];
+const MANUAL_BACKUPS=['leoEggManualBackup','leoEggManualBackup2'];
+const MANUAL_DB='leoEggManualDB', MANUAL_STORE='manual', MANUAL_ID='latest';
+function openManualDB(){
+ return new Promise((resolve,reject)=>{
+  try{
+   const q=indexedDB.open(MANUAL_DB,1);
+   q.onupgradeneeded=()=>{if(!q.result.objectStoreNames.contains(MANUAL_STORE))q.result.createObjectStore(MANUAL_STORE)};
+   q.onsuccess=()=>resolve(q.result); q.onerror=()=>reject(q.error);
+  }catch(e){reject(e)}
+ });
+}
+async function idbLoadManual(){
+ try{
+  const db=await openManualDB();
+  return await new Promise(resolve=>{
+   const q=db.transaction(MANUAL_STORE,'readonly').objectStore(MANUAL_STORE).get(MANUAL_ID);
+   q.onsuccess=()=>resolve(validManual(q.result&&q.result.items?q.result.items:q.result));
+   q.onerror=()=>resolve([]);
+  });
+ }catch(e){return []}
+}
+async function idbSaveManual(items){
+ try{
+  const db=await openManualDB();
+  await new Promise((resolve,reject)=>{
+   const tx=db.transaction(MANUAL_STORE,'readwrite');
+   tx.objectStore(MANUAL_STORE).put({savedAt:Date.now(),items:validManual(items)},MANUAL_ID);
+   tx.oncomplete=()=>resolve(); tx.onerror=()=>reject(tx.error);
+  });
+ }catch(e){}
+}
+function validManual(a){return Array.isArray(a)?a.filter(x=>x&&Number.isFinite(Number(x.t))&&x.egg):[]}
+function readManualBackup(k){
+ try{const v=JSON.parse(localStorage.getItem(k)||'null');return validManual(v&&Array.isArray(v.items)?v.items:v)}catch(e){return []}
+}
+function mergeManual(groups){
+ const seen=new Set(),out=[];
+ groups.flat().sort((a,b)=>Number(a.t)-Number(b.t)).forEach(x=>{const id=String(x.egg)+'|'+String(Number(x.t));if(!seen.has(id)){seen.add(id);out.push(x)}});
+ return out.slice(-500);
+}
+function history(){
+ try{
+   const groups=[validManual(JSON.parse(localStorage.getItem(KEY)||'[]'))];
+   LEGACY_MANUAL_KEYS.forEach(k=>{try{groups.push(validManual(JSON.parse(localStorage.getItem(k)||'[]')))}catch(e){}});
+   MANUAL_BACKUPS.forEach(k=>groups.push(readManualBackup(k)));
+   try{groups.push(validManual(JSON.parse(sessionStorage.getItem('leoEggManualSession')||'[]')))}catch(e){}
+   const out=mergeManual(groups);
+   if(out.length){localStorage.setItem(KEY,JSON.stringify(out));const pack=JSON.stringify({savedAt:Date.now(),items:out});MANUAL_BACKUPS.forEach(k=>localStorage.setItem(k,pack))}
+   return out;
+ }catch(e){return []}
+}
+function save(h){
+ const safe=mergeManual([validManual(h)]);
+ const pack=JSON.stringify({savedAt:Date.now(),items:safe});
+ localStorage.setItem(KEY,JSON.stringify(safe));
+ MANUAL_BACKUPS.forEach(k=>localStorage.setItem(k,pack));
+ try{sessionStorage.setItem('leoEggManualSession',JSON.stringify(safe))}catch(e){}
+ idbSaveManual(safe);
+}
+async function restoreManualDurable(){
+ const disk=await idbLoadManual();
+ const merged=mergeManual([history(),disk]);
+ if(merged.length)save(merged);
+ try{if(navigator.storage&&navigator.storage.persist)await navigator.storage.persist()}catch(e){}
+ return merged.length;
+}
+function predictionModel(){
+ const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(ss.length<12)return {ready:false,n:ss.length,reason:'データ不足'};
+ const gaps=[]; for(let i=1;i<ss.length;i++){const g=(ss[i].t-ss[i-1].t)/60000;if(g>0&&g<360)gaps.push(g)}
+ const recentAge=(Date.now()-ss[ss.length-1].t)/86400000;
+ return {ready:true,n:ss.length,recentAge,confidence:ss.length>=50&&recentAge<=7?'high':ss.length>=25?'medium':'low'};
+}
+function scoreCandidates(ss){
+ const now=Date.now(), nd=new Date(now), hour=nd.getHours(), minute=nd.getMinutes(), rows={};
+ ss.forEach((x,i)=>{
+   const name=liveEggName(x), d=new Date(Number(x.t));
+   if(!rows[name])rows[name]={name,count:0,hour:0,slot:0,after:{},recent:0,veryRecent:0};
+   const r=rows[name]; r.count++;
+   const dh=Math.min(Math.abs(d.getHours()-hour),24-Math.abs(d.getHours()-hour));
+   if(dh<=1)r.hour++;
+   const dm=Math.abs(d.getMinutes()-minute); if(Math.min(dm,60-dm)<=10)r.slot++;
+   const ageH=Math.max(0,(now-Number(x.t))/3600000);
+   r.recent+=Math.exp(-ageH/18);
+   r.veryRecent+=Math.exp(-ageH/4);
+   if(i>0){const prev=liveEggName(ss[i-1]);r.after[prev]=(r.after[prev]||0)+1}
+ });
+ const last=ss.length?liveEggName(ss[ss.length-1]):'', total=Math.max(1,ss.length);
+ const recentMax=Math.max(1,...Object.values(rows).map(r=>r.recent));
+ const veryRecentMax=Math.max(1,...Object.values(rows).map(r=>r.veryRecent));
+ return Object.values(rows).map(r=>{
+   const base=r.count/total, hourRate=r.hour/Math.max(1,r.count), slotRate=r.slot/Math.max(1,r.count);
+   const follow=(r.after[last]||0)/Math.max(1,r.count);
+   const recentRate=r.recent/recentMax, veryRecentRate=r.veryRecent/veryRecentMax;
+   return {...r,score:base*.08+hourRate*.15+slotRate*.15+follow*.27+recentRate*.15+veryRecentRate*.20};
+ }).sort((a,b)=>b.score-a.score);
+}
+function lightEggPrediction(){
+ const hs=history().filter(x=>x&&Number.isFinite(Number(x.t))&&(x.egg==='光卵'||x.egg==='光卵・特大')).sort((a,b)=>a.t-b.t);
+ if(hs.length<3)return {ready:false,n:hs.length};
+ const gaps=[]; for(let i=1;i<hs.length;i++){const g=(hs[i].t-hs[i-1].t)/60000;if(g>=5&&g<=720)gaps.push(g)}
+ if(gaps.length<2)return {ready:false,n:hs.length};
+ const sorted=gaps.slice(-30).sort((a,b)=>a-b), med=sorted[Math.floor(sorted.length/2)];
+ const last=hs[hs.length-1].t, elapsed=(Date.now()-last)/60000, ratio=elapsed/Math.max(5,med);
+ const now=new Date(), sameHour=hs.filter(x=>{const d=new Date(x.t);return Math.abs(d.getHours()-now.getHours())<=1}).length;
+ const hourBoost=Math.min(.25,sameHour/Math.max(8,hs.length));
+ let score=Math.min(1,ratio*.55+hourBoost);
+ let label='まだ弱い',klass='miss';
+ const gapClose=Math.abs(elapsed-med)<=Math.max(5,med*.12);
+ if(hs.length>=15&&score>=.97&&gapClose&&sameHour>=3){label='🌈 超激アツ';klass='superhot'}
+ else if(hs.length>=8&&score>=.9){label='🔥 激アツ';klass='hot'}
+ else if(score>=.65){label='✨ 注目';klass='chance'}
+ return {ready:true,n:hs.length,med,last,elapsed,score,label,klass};
+}
+function renderTargetPrediction(){
+ const box=$('#targetPred'); if(!box)return;
+ const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ const now=Date.now();
+ const allAngels=ss.filter(x=>(x.loc||'')==='Angels & Demons');
+ const eternal=allAngels.filter(x=>{
+   const name=liveEggName(x);
+   const info=REAL_EGGS.find(e=>e[0]===name);
+   return !!(info&&info[1]==='Eternal');
+ });
+ const recent7=eternal.filter(x=>now-Number(x.t)<=7*86400000);
+ const manual=history().filter(x=>x.egg==='エターナル・特大').sort((a,b)=>Number(a.t)-Number(b.t));
+ const fmt=t=>new Date(t).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+ const fmtDate=t=>new Date(t).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+ function nextFromEternal(rows){
+   if(rows.length<2)return null;
+   const gaps=[];
+   for(let i=1;i<rows.length;i++){
+     const g=Number(rows[i].t)-Number(rows[i-1].t);
+     if(g>=10*60000&&g<=48*3600000)gaps.push(g);
+   }
+   if(!gaps.length)return null;
+   const gs=gaps.slice(-20).sort((a,b)=>a-b);
+   const med=gs[Math.floor(gs.length/2)];
+   let t=Number(rows[rows.length-1].t)+med;
+   while(t<=now)t+=med;
+   return {t,med};
+ }
+ const pred=nextFromEternal(eternal);
+ const latest=eternal.length?eternal[eternal.length-1]:null;
+ let state='⚪ 学習中', klass='targetlearn', headline='エターナルの実Spawnを収集中';
+ let detail='特大サイズは自動データに無いので、エターナル出現時刻＋実機の「特大」記録で絞ります。';
+ if(pred){
+   const left=pred.t-15*60000, right=pred.t+15*60000;
+   const mins=(pred.t-now)/60000;
+   state=mins<=30?'🔥 本命帯 接近':'🌈 次の本命';
+   klass=mins<=30?'targethot':'targetlearn';
+   headline=fmt(left)+'〜'+fmt(right)+' を重点確認';
+   detail='一点なら '+fmt(pred.t)+' ／ エターナル実Spawn間隔の中央値 約'+Math.round(pred.med/60000)+'分';
+ }
+ if(manual.length){
+   detail+=' ／ 特大の実機記録 '+manual.length+'件';
+ }
+ const latestText=latest?fmtDate(Number(latest.t))+' '+eggJa(liveEggName(latest)):'まだなし';
+ box.innerHTML=`<div class="targetbox giantbox"><div class="targethead"><b>🌈 天使と悪魔 × Eternal × 特大</b><span class="${klass}">${state}</span></div><div class="targetlabel">次の本命</div><div style="font-size:28px;font-weight:950;line-height:1.4">${headline}</div><div style="font-size:19px;font-weight:800;line-height:1.55;margin-top:10px">${detail}</div><div class="targetmeta">直近7日 Eternal ${recent7.length}件 ／ 最新 ${latestText}</div></div><div class="targetbox"><div class="targethead"><b>🚫 それ以外は追わない</b><span class="targetlearn">省エネ</span></div><div style="font-size:18px;font-weight:800;line-height:1.55">通常・光・大・Secretは本命表示から外しました。エターナル特大が出た時だけ下のボタンで記録して、次回予想を補正します。</div></div>`;
+}
+function renderLightPrediction(){
+ const box=$('#lightPred'); if(!box)return;
+ const p=lightEggPrediction(), base=nextBoundary();
+ if(!p.ready){box.innerHTML='<div class="small muted">光卵の実記録 '+p.n+'件。まず3件以上たまると間隔学習を開始します。出たら「✨ 光卵」を押してね。</div>';return}
+ const next=new Date(Math.max(base,p.last+p.med*60000)).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+ box.innerHTML=`<div class="row"><div class="n">✨</div><div><div class="egg">光卵</div><div class="time">次の候補 ${next} ／ 実記録 ${p.n}件 ／ 中央間隔 約${Math.round(p.med)}分</div></div><div class="tag ${p.klass}">${p.label}</div></div>`;
+}
+function predictionAccuracy(){
+ const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(ss.length<13)return {ready:false,total:0,hits:0};
+ let total=0,hits=0;
+ const start=Math.max(12,ss.length-20);
+ for(let i=start;i<ss.length;i++){
+   const train=ss.slice(0,i);
+   if(train.length<12)continue;
+   const predicted=scoreCandidates(train).slice(0,6).map(r=>norm(r.name));
+   total++;
+   if(predicted.includes(norm(liveEggName(ss[i]))))hits++;
+ }
+ return {ready:total>0,total,hits,pct:total?Math.round(hits/total*100):0};
+}
+function renderAccuracy(){
+ const b=$('#accuracyBox'); if(!b)return;
+ const a=predictionAccuracy();
+ b.innerHTML=a.ready
+  ? `<span class="badge">🎯 実測的中率 <b>${a.pct}%</b></span><span class="muted"> 直近${a.total}回中 ${a.hits}回的中（6候補内）</span>`
+  : '<span class="badge">🎯 的中率集計中</span><span class="muted"> 実Spawnがたまると自動表示します</span>';
+}
+function eggPic(name){
+ let slug=String(name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ slug=slug.replace(/-egg$/,'');
+ return slug?'<img class="eggpic" src="https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp" alt="'+String(name||'')+'" loading="eager" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">':'';
+}
+function leoPick(lines,key){
+ const n=Math.abs(Number(key)||0);
+ return lines[n%lines.length];
+}
+function leoAdvice(confidence,safeHot,normalMisses,learning=false){
+ const key=Math.floor(nextBoundary()/(5*60*1000));
+ if(learning){
+   return {cls:'leoGame',head:'🦁 レオのひとこと',line:leoPick(['🎮 まだ勉強中。ここはゲームしとけ！','🥚 データ集め中。今はのんびりでOK😂','😴 まだ慌てなくていい。レオ学習中…'],key)};
+ }
+ if(safeHot){
+   return {cls:'leoHot',head:'🦁 レオのひとこと',line:leoPick(['🔥 ゲーム中断！卵に集中！','🚨 今は画面から目を離すな！','🥚 来るならここ。レオも本気モード🔥','😎 ゲームは一旦やめ！卵待機だ！'],key)};
+ }
+ if(normalMisses>=2 || confidence==='low'){
+   return {cls:'leoGame',head:'🦁 レオのひとこと',line:leoPick(['🎮 ここはゲームしとけ。まだ慌てる時間じゃない😂','☕ 今は休憩でOK。レオが見張っとく','😴 薄いな…トイレ行くなら今！','😂 まだ来なそう。ゲーム続行！'],key)};
+ }
+ if(confidence==='medium'){
+   return {cls:'leoWatch',head:'🦁 レオのひとこと',line:leoPick(['👀 そろそろ画面見とけ！','⚡ ちょっと怪しくなってきたぞ…','🎮 ゲームしつつ、卵もチラ見！','🥚 レオの鼻が少し反応してます😂'],key)};
+ }
+ return {cls:'leoWatch',head:'🦁 レオのひとこと',line:leoPick(['👀 まだ待機。たまに画面チェック！','🥚 次の波を監視中…','🎯 今は様子見。焦らなくてOK'],key)};
+}
+function leoAdviceHtml(a){return '<div class="leoAdvice '+a.cls+'"><div class="leoHead">'+a.head+'</div><div class="leoLine">'+a.line+'</div></div>';}
+function render(){
+ try{
+ const m=predictionModel(), ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
+ if(!m.ready){
+   const demo=REAL_EGGS.filter(e=>['Secret','Eternal','Divine'].includes(e[1])).slice(-6);
+   const base=nextBoundary();
+   $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">🥚 予測準備中 ／ 実データ '+m.n+'件</div><div class="predictgrid">'+demo.map((e,i)=>{
+     const biome=e[2]||'場所不明';
+     const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+     return `<div class="predictcard">${eggPic(e[0])}<div class="egg">${eggJa(e[0])}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag miss">準備中</div></div>`;
+   }).join('')+'</div>'+leoAdviceHtml(leoAdvice('low',false,0,true));
+   renderAccuracy();renderLightPrediction();stats();return;
+ }
+ const ranked=scoreCandidates(ss).slice(0,6), base=nextBoundary();
+ const recentManual=history().filter(x=>x&&Number.isFinite(Number(x.t))).sort((a,b)=>b.t-a.t).slice(0,3);
+ const normalMisses=recentManual.filter(x=>x.egg==='通常卵').length;
+ const safeHot=m.confidence==='high'&&normalMisses<2;
+ const note=normalMisses>=2?'直近ノーマル多発・激アツ抑制中':m.confidence==='high'?'高信頼':m.confidence==='medium'?'参考予想':'低信頼';
+ $('#rows').innerHTML='<div class="small muted" style="margin-bottom:8px">📊 予想v4 ／ '+note+' ／ '+ss.length+'件学習</div><div class="predictgrid">'+ranked.map((r,i)=>{
+   const when=new Date(base+i*5*60000).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+   const label=i===0&&safeHot?'🔥 激アツ':i<3?'✨ 候補':'参考';
+   const klass=i===0&&safeHot?'hot':i<3?'chance':'miss';
+   const pct=Math.round(r.count/Math.max(1,ss.length)*100);
+   const hit=REAL_EGGS.find(e=>norm(e[0])===norm(r.name));
+   const biome=hit?hit[2]:'';
+   return `<div class="predictcard">${eggPic(r.name)}<div class="egg">${eggJa(r.name)}</div><div class="place">${biomeJa(biome)}</div><div class="ptime">${when}</div><div class="tag ${klass}">${label}</div></div>`;
+ }).join('')+'</div>'+leoAdviceHtml(leoAdvice(m.confidence,safeHot,normalMisses));
+ renderAccuracy();renderLightPrediction();stats();
+ }catch(e){const r=$('#rows');if(r)r.innerHTML='<div class="small bad">予測表示を再読み込み中…</div>';}
+}
+async function syncHistoryForPrediction(){
+ try{
+   const res=await fetch(LIVE_JSON+'?history='+Date.now(),{cache:'no-store'}); if(!res.ok)return;
+   const j=await res.json(), xs=Array.isArray(j.spawns)?j.spawns:[];
+   xs.forEach(x=>{if(Number.isFinite(Number(x.ts)))addAutoSpawn(x)});
+ }catch(e){}
+}
+function stats(){
+ const h=history(), ss=loadJ(SKEY);
+ $('#stats').innerHTML=`<span class="badge">手動メモ ${h.length}件</span><span class="badge">自動実データ ${ss.length}件</span><br><span class="muted">予測は自動取得した実Spawnだけを使用します。</span>`;
+}
+const GAME_TIME_OFFSET_MS=10000; // ゲーム側が端末時計より約10秒先
+function gameNow(){return Date.now()+GAME_TIME_OFFSET_MS}
+function nextBoundary(){
+ const step=5*60*1000;
+ return Math.ceil((gameNow()+1)/step)*step;
+}
+function tick(){
+ try{
+ let left=nextBoundary()-gameNow(); if(left<0)left=0;
+ let m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
+ const timer=document.getElementById('timer'); if(timer) timer.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+ if(left<1200 && soundOn && !window._beeped){beep(900,.12);window._beeped=true}
+ if(left>20000)window._beeped=false;
+ }catch(e){}
+}
+function beep(f,d){try{let a=new (AudioContext||webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=f;o.connect(g);g.connect(a.destination);g.gain.value=.08;o.start();o.stop(a.currentTime+d)}catch(e){}}
+document.querySelectorAll('[data-egg]').forEach(b=>b.onclick=()=>{let h=history(),now=Date.now(),spawnT=Math.floor(now/W)*W;h.push({t:spawnT,egg:b.dataset.egg,recordedAt:now});save(h);render();if(soundOn)beep(b.dataset.egg==='エターナル・特大'?1200:700,.15)});
+$('#undo').onclick=()=>{let h=history();h.pop();save(h);render()};
+$('#recalc').onclick=render;
+$('#sound').onclick=()=>{soundOn=true;beep(700,.1);$('#sound').textContent='🔊 音ON'};
+async function external(){
+ try{
+   const r=await Promise.reject(new Error('Netlify disabled in GitHub Pages v2'));
+   const j=await r.json();
+   if(!r.ok||!j.ok)throw new Error(j.error||'relay');
+   const state=j.paused?'⚠️ 配信元停止':(j.stale?'⚠️ Liveデータ未提供':'Live取得OK'); $('#external').innerHTML=`<span class="badge">中継接続OK</span> ${state}／取得 ${j.spawns.length}件`;
+ }catch(e){
+   $('#external').innerHTML='<span class="badge">中継待機</span> Netlify中継から取得できません。自動再試行します。';
+ }
+}
+
+function eggDB(){
+ let sel=$('#bio'), strip=$('#areaStrip'), wrap=$('#catalogWrap'); if(!sel)return;
+ sel.innerHTML='<option value="ALL">全部</option>'+BIOMES.map(x=>`<option value="${x[0]}">${x[0]}</option>`).join('');
+ const areas=[['ALL','すべて',''],...BIOMES.map(x=>[x[0],x[0],x[1]])];
+ strip.innerHTML=areas.map((x,i)=>`<button class="areaBtn ${i===0?'active':''}" data-area="${x[0]}">${x[1]}${x[2]?` · ${x[2]}`:''}</button>`).join('');
+ function draw(){
+  let a=REAL_EGGS.filter(x=>sel.value==='ALL'||x[2]===sel.value);
+  $('#eggdb').innerHTML=a.map(x=>`<div style="padding:13px 4px;border-bottom:1px solid #334b67;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font-size:17px">${x[0]}</b><span class="badge">${x[1]}</span><span class="muted">${x[2]}</span></div>`).join('') || '<span class="muted">このエリアの卵名は追加待ち</span>';
+ }
+ strip.querySelectorAll('[data-area]').forEach(b=>b.onclick=()=>{sel.value=b.dataset.area;strip.querySelectorAll('.areaBtn').forEach(z=>z.classList.remove('active'));b.classList.add('active');wrap.classList.add('open');$('#toggleCatalog').textContent='図鑑を閉じる';draw()});
+ $('#toggleCatalog').onclick=()=>{wrap.classList.toggle('open');$('#toggleCatalog').textContent=wrap.classList.contains('open')?'図鑑を閉じる':'全卵を見る'}; draw();
+}
+function renderLatestFocus(){
+ const box=$('#latestFocus'); if(!box)return; const ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
+ if(!ss.length){box.innerHTML='<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">LIVE MONITOR</div><div class="latestName">最新Spawn待ち</div><div class="latestMeta">取得できた実Spawnだけをここへ大きく表示します。</div></div>';return}
+ const sp=ss[0]; box.innerHTML=`<div class="latestBox"><div class="latestTitle">最新SPAWN · ${sp.rarity||'Rare'}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
+}
+
+
+function dayTimeToTs(hm){let [h,m]=hm.split(':').map(Number),d=new Date();d.setHours(h,m,0,0);return d.getTime()}
+function fmtTs(t){let d=new Date(t);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+function norm(x){return (x||'').toLowerCase().replace(/egg/g,'').replace(/[^a-z0-9]/g,'')}
+function renderIntel(){
+ let ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
+ const acc=$('#accuracy'); if(acc) acc.innerHTML=`<span class="badge">自動記録 ${ss.length}件</span>`;
+ renderLatestFocus();
+ const spawnList=$('#spawnList'); if(spawnList) spawnList.innerHTML=ss.slice(0,20).map(sp=>`<div class="preditem"><b>🚨 ${sp.egg}</b> <span class="pill">${sp.rarity||'Rare'}</span> <span class="pill">${sp.loc||'場所不明'}</span><br>${fmtTs(sp.t)} <span class="muted">${sp.source||'Live source'}</span></div>`).join('')||'<span class="muted">🟡 データ待機中｜実Spawn 0件</span>';
+}
+function extractLiveSpawns(html){
+ try{
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const text=(doc.body?.innerText||'').replace(/\r/g,'');
+  let out=[];
+  const blocks=text.split(/\n{2,}/);
+  for(const b of blocks){
+   if(!/(Secret|Eternal|Divine|rare egg|spawn)/i.test(b))continue;
+   const tm=b.match(/\b([01]?\d|2[0-3]):([0-5]\d)\b/);
+   const rarity=(b.match(/\b(Secret|Eternal|Divine)\b/i)||[])[1]||'Rare';
+   const loc=(b.match(/(?:Biome|Location)\s*[:\-]\s*([^\n]+)/i)||[])[1]||'';
+   const lines=b.split('\n').map(x=>x.trim()).filter(Boolean);
+   let egg=lines.find(x=>/egg$/i.test(x)&&!/rare eggs/i.test(x))||'';
+   if(!egg){const m=b.match(/(?:Secret|Eternal|Divine)\s+(?:Egg\s*)?[:\-]?\s*([^\n]+)/i);if(m)egg=m[1].trim();}
+   if(egg&&tm)out.push({egg,loc,hm:tm[0],rarity});
+  }
+  return out;
+ }catch(e){return []}
+}
+function liveEggName(x){
+ const raw=String(x.pet||x.egg||'').trim();
+ if(!raw)return 'Unknown Egg';
+ let slug=raw;
+ const m=raw.match(/\/([^/]+?)-s\.webp(?:\?.*)?$/i); if(m)slug=m[1];
+ slug=slug.replace(/^.*\//,'').replace(/-egg$/i,'').replace(/[-_]+/g,' ').trim();
+ const key=norm(slug);
+ const hit=REAL_EGGS.find(e=>norm(e[0])===key);
+ if(hit)return hit[0];
+ return slug.replace(/\b\w/g,ch=>ch.toUpperCase())+' Egg';
+}
+function repairSpawnHistory(){
+ let a=loadJ(SKEY), changed=false;
+ a=a.map(z=>{
+   const egg=liveEggName(z);
+   const t=Number(z.ts)||Number(z.t);
+   const id=norm(egg)+'|'+Math.floor(t/60000);
+   if(egg!==z.egg||id!==z.id||t!==z.t)changed=true;
+   return {...z,id,egg,t};
+ }).filter(z=>Number.isFinite(z.t)&&z.egg!=='Unknown Egg');
+ if(changed)saveJ(SKEY,a);
+}
+function addAutoSpawn(x){
+ let a=loadJ(SKEY), t=Number(x.ts)||Number(x.t)||dayTimeToTs(x.hm), egg=liveEggName(x), id=norm(egg)+'|'+Math.floor(t/60000);
+ if(a.some(z=>(z.id||'')===id))return false;
+ a.push({id,egg,loc:x.loc||x.biome||'',t,rarity:x.rarity||'Rare',source:'Eggipedia Live'});saveJ(SKEY,a);return true;
+}
+let lastAuto=0;
+async function autoPoll(){
+ const st=$('#autoStatus'), ext=$('#external'); lastAuto=Date.now();
+ st.innerHTML='<span class="badge">接続中</span> 公開Liveを確認中…';
+ try{
+   const r=await Promise.reject(new Error('Netlify disabled in GitHub Pages v2'));
+   const j=await r.json();
+   if(!r.ok||!j.ok) throw new Error(j.error||('HTTP '+r.status));
+   const paused=!!j.paused, xs=(j.spawns||[]), health=j.health||'', diag=j.diagnostics||{};
+   let added=0; xs.forEach(x=>{if(addAutoSpawn(x))added++});
+   renderIntel(); render();
+   const feedEmpty=!!j.stale || (xs.length===0);
+   const now=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+   st.innerHTML=`<span class="badge">自動監視ON</span> 最終確認 ${now}${paused?' ／ ⏸ 配信元が一時停止中':(!feedEmpty?' ／ ✅ Live受信中':' ／ ⏳ 新着待ち')}`;
+   ext.innerHTML=`<span class="badge">Netlify中継OK</span> ${paused?'Eggipedia側アラート一時停止':(feedEmpty?'公開Live実データ未取得':'Live取得OK')}／今回 ${xs.length}件／新規 ${added}件<br><span class="muted">元ページ HTTP ${diag.sourceStatus||'?'} ／ 候補Feed ${diag.candidates||0} ／ 確認Feed ${diag.checkedFeeds||0}</span>`;
+   $('#autoLatest').innerHTML=added?`<span class="ok">🚨 新しいSpawn ${added}件を自動登録</span>`:(paused?'<span class="muted">⏸ 公開元のアラートが停止中です。復帰後は自動で監視を再開します。</span>':(feedEmpty?'<span class="muted">⏳ 新しいSpawnを待っています（0件＝Spawnなしとは断定しません）</span>':'<span class="muted">取得データ内に新規Spawnなし</span>'));
+   if(added&&soundOn)beep(1200,.3);
+ }catch(e){
+   st.innerHTML=`<span class="badge">自動監視待機</span> Netlify中継を確認できません。60秒後に再試行します。`;
+   ext.innerHTML='<span class="badge">取得待ち</span> 配信停止・取得失敗時はデータを作らず再試行します。';
+ }
+}
+async function readGitHubLive(){
+ const st=$('#autoStatus'), ext=$('#external');
+ if(!st||!ext)return;
+ try{
+  const r=await fetch(LIVE_JSON+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
+  const j=await r.json(), xs=Array.isArray(j.spawns)?j.spawns:[]; let added=0;
+  xs.forEach(x=>{if(addAutoSpawn(x))added++}); renderIntel();render();
+  const checked=j.checkedAt?new Date(j.checkedAt).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}):'準備中';
+  st.innerHTML=`<span class="badge">GitHub自動監視 v6</span> 最終取得 ${checked}`;
+  if(j.paused){st.innerHTML='<span class="badge">⏸ 自動待機中</span> EggipediaのLive通知が停止中。復帰したら自動取得します。';ext.innerHTML=`<span class="badge">公開元停止中</span> Alerts paused ／ 実データ ${xs.length}件`;}else{st.innerHTML=`<span class="badge">🟢 自動監視中</span> 最終取得 ${checked}`;ext.innerHTML=xs.length
+ ? `<span class="badge">🟢 自動取得中</span> 実Spawn ${xs.length}件 ／ 新規 ${added}件`
+ : '<span class="badge">🟡 データ待機中</span> 実Spawn 0件 ／ 公開Liveの新着待ち';}
+ }catch(e){ext.innerHTML='<span class="badge">取得待ち</span> GitHub自動取得データを待っています。';st.innerHTML='<span class="badge">LEO EGG v6.7</span> 起動OK ／ データ待ち';}
+}
+async function setupHotNotification(){
+ const b=$('#notifyHot'), s=$('#notifyHotStatus'); if(!b||!s)return;
+ if(!('Notification' in window)){s.textContent='この環境では通知を利用できません';return}
+ try{
+  const p=await Notification.requestPermission();
+  if(p==='granted'){
+   localStorage.setItem('leoHotNotify','1');
+   b.textContent='🔔 激アツ通知 ON';
+   s.textContent='🔥 激アツだけ通知します。通常・チャンスは通知しません。';
+   new Notification('LEO EGG 🔥',{body:'激アツ通知をONにしました',icon:'./icon-192.png'});
+  }else{s.textContent='通知が許可されていません';}
+ }catch(e){s.textContent='ホーム画面のLEO EGGから通知をONにしてください';}
+}
+function refreshHotNotify(){
+ const b=$('#notifyHot'); if(!b)return;
+ if(('Notification' in window)&&Notification.permission==='granted'&&localStorage.getItem('leoHotNotify')==='1') b.textContent='🔔 激アツ通知 ON';
+}
+const _notifyHot=$('#notifyHot'); if(_notifyHot){_notifyHot.onclick=setupHotNotification; refreshHotNotify();}
+const _autoNow=$('#autoNow'); if(_autoNow)_autoNow.onclick=readGitHubLive;
+const liveBtn=document.createElement('a');
+liveBtn.href=LIVE_URL;
+liveBtn.target='_blank'; liveBtn.rel='noopener';
+liveBtn.className='action'; liveBtn.style.cssText='display:block;text-align:center;text-decoration:none;margin-top:12px';
+liveBtn.textContent='🥚 公開Liveを確認';
+if(_autoNow)_autoNow.insertAdjacentElement('afterend',liveBtn);
+window.setInterval(tick,250);tick();
+// PWA版: Netlify Functionsの自動呼び出しは停止。必要時のみ『今すぐチェック』で1回実行。
+repairSpawnHistory();eggDB();
+render();renderLightPrediction();renderTargetPrediction();renderIntel();restoreManualDurable().then(()=>render()).catch(()=>{});setInterval(render,30000);syncHistoryForPrediction().then(()=>{renderIntel();render();renderTargetPrediction();}).catch(()=>{});setInterval(()=>{readGitHubLive().catch(()=>{});},300000);
+
+if('serviceWorker' in navigator){
+ navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.map(r=>r.unregister()))).then(()=>{
+   if('caches' in window) return caches.keys().then(ks=>Promise.all(ks.map(k=>caches.delete(k))));
+ }).catch(()=>{});
+}
+</script></body></html>
