@@ -201,12 +201,21 @@ jobs:
               open("live.json","w").write(json.dumps(data,ensure_ascii=False,indent=2))
           PY
 
+      - name: Sync Angels & Demons egg images
+        shell: bash
+        run: |
+          mkdir -p assets/eggs
+          base="https://eggipedia.com/images/sae/eggs"
+          for name in light-dove winged-lamb sacred-moth holy-peacock pure-jellyfish centaur pegasus archangel flame-sprite toro demon-hound imp gargoyle razorfang skeleton-horse world-burner; do
+            test -s "assets/eggs/$name-egg-s.webp" || curl -fsSL "$base/$name-egg-s.webp" -o "assets/eggs/$name-egg-s.webp"
+          done
+
       - name: Commit live status
         shell: bash
         run: |
           git config user.name "leo-egg-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add live.json
+          git add live.json assets/eggs/*.webp
           git diff --cached --quiet && exit 0
           git commit -m "Update LEO EGG history data"
           git push
