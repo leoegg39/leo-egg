@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="LEO 卵">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest?v=772">
-<title>LEO EGG 予測 v7.7.7</title>
+<title>LEO EGG 予測 v7.7.8</title>
 <style>
 *{box-sizing:border-box} body{margin:0;background:#071321;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
 main{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(env(safe-area-inset-bottom) + 32px)}
@@ -256,9 +256,16 @@ button:active{transform:scale(.985)!important;filter:brightness(1.12)!important}
 .s8{background-position:0 -144px}.s9{background-position:-72px -144px}.s10{background-position:-144px -144px}.s11{background-position:-216px -144px}
 .s12{background-position:0 -216px}.s13{background-position:-72px -216px}.s14{background-position:-144px -216px}.s15{background-position:-216px -216px}
 </style>
+
+<style id="leo-v778-current-eternal">
+.targetbox .eggpic{width:96px;height:96px;object-fit:contain;display:block;margin:10px auto 4px;filter:drop-shadow(0 7px 12px #0009)}
+#eggdb .eggpic{width:58px;height:58px;object-fit:contain;display:block;flex:0 0 58px;filter:drop-shadow(0 5px 8px #0008)}
+.currentEternalRow{background:linear-gradient(90deg,#49256d66,#102d4b22);border-radius:14px;padding-left:8px!important;padding-right:8px!important}
+.latestBox>.eggpic{width:92px;height:92px;object-fit:contain;display:block;margin:0 auto 8px;filter:drop-shadow(0 7px 12px #0009)}
+</style>
 </head>
 <body><main>
-<h1>LEO EGG <small>予測 v7.7.7 ✨</small></h1>
+<h1>LEO EGG <small>予測 v7.7.8 ✨</small></h1>
 
 <section class="card center">
 <div class="muted" style="font-size:25px;font-weight:800">次の卵まで</div>
@@ -478,7 +485,10 @@ function lightEggPrediction(){
  return {ready:true,n:hs.length,med,last,elapsed,score,label,klass};
 }
 function eternalCatalog(){
- return REAL_EGGS.filter(e=>e[1]==='Eternal').map(e=>({name:e[0],loc:e[2]}));
+ const overridden=new Set(Object.keys(CURRENT_ETERNAL_BY_BIOME));
+ const current=Object.entries(CURRENT_ETERNAL_BY_BIOME).map(([loc,name])=>({name,loc}));
+ const fallback=REAL_EGGS.filter(e=>e[1]==='Eternal'&&!overridden.has(e[2])).map(e=>({name:e[0],loc:e[2]}));
+ return current.concat(fallback);
 }
 function setupEternalRecorder(){
  const sel=$('#eternalEggSelect'); if(!sel)return;
@@ -497,10 +507,7 @@ function renderTargetPrediction(){
  const box=$('#targetPred'); if(!box)return;
  const ss=loadJ(SKEY).filter(x=>Number.isFinite(Number(x.t))).sort((a,b)=>a.t-b.t);
  const now=Date.now(), catalog=eternalCatalog();
- const eternal=ss.filter(x=>{
-   const name=liveEggName(x), info=REAL_EGGS.find(e=>e[0]===name);
-   return !!(info&&info[1]==='Eternal');
- });
+ const eternal=ss.filter(x=>isCurrentEternal(liveEggName(x)));
  const manual=history().filter(x=>x.egg==='エターナル・特大').sort((a,b)=>Number(a.t)-Number(b.t));
  const fmt=t=>new Date(t).toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
  function nextFromRows(rows){
@@ -531,12 +538,14 @@ function renderTargetPrediction(){
    const left=a.pred.t-15*60000,right=a.pred.t+15*60000, mins=(a.pred.t-now)/60000;
    const hot=mins<=30, badge=hot?'🔥 接近':(i===0?'🌈 本命':'候補');
    const cls=hot?'targethot':'targetlearn';
-   const names=catalog.filter(e=>e.loc===a.loc).map(e=>eggJa(e.name).replace(/ Egg$/,'')).join(' / ');
-   return '<div class="targetbox giantbox"><div class="targethead"><b>'+biomeJa(a.loc)+'</b><span class="'+cls+'">'+badge+'</span></div><div class="targetlabel">Eternal特大 本命帯</div><div style="font-size:27px;font-weight:950;line-height:1.35">'+fmt(left)+'〜'+fmt(right)+'</div><div style="font-size:19px;font-weight:850;margin-top:7px">一点なら '+fmt(a.pred.t)+'</div><div class="targetmeta">'+names+' ／ Eternal実Spawn '+a.rows.length+'件 ／ 特大実記録 '+a.man.length+'件</div></div>';
+   const items=catalog.filter(e=>e.loc===a.loc);
+   const names=items.map(e=>eggJa(e.name).replace(/ Egg$/,'')).join(' / ');
+   const primary=items[0];
+   return '<div class="targetbox giantbox"><div class="targethead"><b>'+biomeJa(a.loc)+'</b><span class="'+cls+'">'+badge+'</span></div>'+(primary?eggPic(primary.name):'')+'<div class="targetlabel">🌈 現在のEternal特大 本命帯</div><div style="font-size:27px;font-weight:950;line-height:1.35">'+fmt(left)+'〜'+fmt(right)+'</div><div style="font-size:19px;font-weight:850;margin-top:7px">一点なら '+fmt(a.pred.t)+'</div><div class="targetmeta">'+names+' ／ Eternal実Spawn '+a.rows.length+'件 ／ 特大実記録 '+a.man.length+'件</div></div>';
  }).join(''):'<div class="targetbox"><b>⚪ まだエリア別の間隔学習中</b><div class="targetmeta">Eternal実Spawnが2回以上あるエリアから本命時刻を出します。</div></div>';
  const latest=eternal.slice(-1)[0];
  const latestText=latest?(biomeJa((REAL_EGGS.find(e=>e[0]===liveEggName(latest))||[])[2])+' '+eggJa(liveEggName(latest))+' '+fmt(latest.t)):'まだなし';
- box.innerHTML='<div class="targetbox"><div class="targethead"><b>🏆 近い順に5エリア</b><span class="targethot">Eternal限定</span></div><div style="font-size:18px;font-weight:800;line-height:1.55">通常・光・Secretは本命から除外。Eternalの出現間隔をエリア別に計算し、特大の手動記録で補正します。</div><div class="targetmeta">最新Eternal：'+latestText+' ／ 全Eternal実Spawn '+eternal.length+'件</div></div>'+cards;
+ box.innerHTML='<div class="targetbox"><div class="targethead"><b>🏆 近い順に5エリア</b><span class="targethot">Eternal限定</span></div><div style="font-size:18px;font-weight:800;line-height:1.55">送ってくれた写真の右下を各エリアの現在Eternalとして反映。通常・光・旧Eternalは本命から除外し、現在Eternalの出現間隔をエリア別に計算します。</div><div class="targetmeta">最新Eternal：'+latestText+' ／ 全Eternal実Spawn '+eternal.length+'件</div></div>'+cards;
 }
 function renderLightPrediction(){
  const box=$('#lightPred'); if(!box)return;
@@ -567,11 +576,45 @@ function renderAccuracy(){
   : '<span class="badge">🎯 的中率集計中</span><span class="muted"> 実Spawnがたまると自動表示します</span>';
 }
 const LOCAL_AD_EGG_SLUGS=new Set(["light-dove","winged-lamb","sacred-moth","holy-peacock","pure-jellyfish","centaur","pegasus","archangel","flame-sprite","toro","demon-hound","imp","gargoyle","razorfang","skeleton-horse","world-burner"]);
+
+const CURRENT_ETERNAL_BY_BIOME={
+  'Desert':'Royal Sphinx Egg',
+  'Volcano':'Lava Dragon Egg',
+  'Forest':'Brr Brr Patapim Egg',
+  'Cosmic':'Unicorn Egg',
+  'Snow':'Ice Dragon Egg',
+  'Titan Temple':'Nightflame Egg',
+  'Abyss Ocean':'El Maja Egg',
+  'Cherry Blossom':'Kitsune Egg',
+  'Lake':'Leviathan Egg',
+  'Jungle':'King Snake Egg'
+};
+const CURRENT_ETERNAL_IMAGE={
+  'Royal Sphinx Egg':'./assets/eternal/desert.webp',
+  'Lava Dragon Egg':'./assets/eternal/volcano.webp',
+  'Brr Brr Patapim Egg':'./assets/eternal/forest.webp',
+  'Unicorn Egg':'./assets/eternal/cosmic.webp',
+  'Ice Dragon Egg':'./assets/eternal/snow.webp',
+  'Nightflame Egg':'./assets/eternal/titan-temple.webp',
+  'El Maja Egg':'./assets/eternal/abyss-ocean.webp',
+  'Kitsune Egg':'./assets/eternal/cherry-blossom.webp',
+  'Leviathan Egg':'./assets/eternal/lake.webp',
+  'King Snake Egg':'./assets/eternal/jungle.webp'
+};
+function currentEternalEntry(name){
+ const info=REAL_EGGS.find(e=>e[0]===String(name||''));
+ if(!info)return null;
+ const override=CURRENT_ETERNAL_BY_BIOME[info[2]];
+ if(override)return info[0]===override?info:null;
+ return info[1]==='Eternal'?info:null;
+}
+function isCurrentEternal(name){return !!currentEternalEntry(name);}
 function eggPic(name){
  let slug=String(name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
  slug=slug.replace(/-egg$/,'');
  if(!slug)return '';
- const src=LOCAL_AD_EGG_SLUGS.has(slug)?('./assets/eggs/'+slug+'-egg-s.webp'):('https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp');
+ const localCurrent=CURRENT_ETERNAL_IMAGE[String(name||'')];
+ const src=localCurrent||(LOCAL_AD_EGG_SLUGS.has(slug)?('./assets/eggs/'+slug+'-egg-s.webp'):('https://eggipedia.com/images/sae/eggs/'+slug+'-egg-s.webp'));
  return '<img class="eggpic" src="'+src+'" alt="'+String(name||'')+'" loading="eager" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">';
 }
 function leoPick(lines,key){
@@ -674,7 +717,11 @@ function eggDB(){
  strip.innerHTML=areas.map((x,i)=>`<button class="areaBtn ${i===0?'active':''}" data-area="${x[0]}">${x[1]}${x[2]?` · ${x[2]}`:''}</button>`).join('');
  function draw(){
   let a=REAL_EGGS.filter(x=>sel.value==='ALL'||x[2]===sel.value);
-  $('#eggdb').innerHTML=a.map(x=>`<div style="padding:13px 4px;border-bottom:1px solid #334b67;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font-size:17px">${x[0]}</b><span class="badge">${x[1]}</span><span class="muted">${x[2]}</span></div>`).join('') || '<span class="muted">このエリアの卵名は追加待ち</span>';
+  $('#eggdb').innerHTML=a.map(x=>{
+   const current=isCurrentEternal(x[0]);
+   const rarity=current?'Eternal':x[1];
+   return `<div class="${current?'currentEternalRow':''}" style="padding:13px 4px;border-bottom:1px solid #334b67;display:flex;align-items:center;gap:8px;flex-wrap:wrap">${current?eggPic(x[0]):''}<b style="font-size:17px">${x[0]}</b><span class="badge">${current?'🌈 Eternal':rarity}</span><span class="muted">${x[2]}</span></div>`;
+  }).join('') || '<span class="muted">このエリアの卵名は追加待ち</span>';
  }
  strip.querySelectorAll('[data-area]').forEach(b=>b.onclick=()=>{sel.value=b.dataset.area;strip.querySelectorAll('.areaBtn').forEach(z=>z.classList.remove('active'));b.classList.add('active');wrap.classList.add('open');$('#toggleCatalog').textContent='図鑑を閉じる';draw()});
  $('#toggleCatalog').onclick=()=>{wrap.classList.toggle('open');$('#toggleCatalog').textContent=wrap.classList.contains('open')?'図鑑を閉じる':'全卵を見る'}; draw();
@@ -682,7 +729,8 @@ function eggDB(){
 function renderLatestFocus(){
  const box=$('#latestFocus'); if(!box)return; const ss=loadJ(SKEY).sort((a,b)=>b.t-a.t);
  if(!ss.length){box.innerHTML='<div class="latestBox" style="border-color:#38506d"><div class="latestTitle" style="color:#69efae">LIVE MONITOR</div><div class="latestName">最新Spawn待ち</div><div class="latestMeta">取得できた実Spawnだけをここへ大きく表示します。</div></div>';return}
- const sp=ss[0]; box.innerHTML=`<div class="latestBox"><div class="latestTitle">最新SPAWN · ${sp.rarity||'Rare'}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
+ const sp=ss[0], liveName=liveEggName(sp)||sp.egg, current=isCurrentEternal(liveName);
+ box.innerHTML=`<div class="latestBox">${current?eggPic(liveName):''}<div class="latestTitle">最新SPAWN · ${current?'🌈 Eternal':(sp.rarity||'Rare')}</div><div class="latestName">${sp.egg}</div><div class="latestMeta">📍 ${sp.loc||'場所不明'}　🕘 ${fmtTs(sp.t)}<br><span class="muted">${sp.source||'Live source'}</span></div></div>`;
 }
 
 
