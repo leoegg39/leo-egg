@@ -1,4 +1,4 @@
-const CACHE='leo-egg-github-v767-force';
+const CACHE='leo-egg-github-v778-current-eternal';
 const CORE=['./manifest.webmanifest','./icon-180.png','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>{
@@ -20,7 +20,7 @@ self.addEventListener('fetch',e=>{
   if(u.origin!==location.origin) return;
 
   // App shell and live data must always try the network first.
-  if(e.request.mode==='navigate' || u.pathname.endsWith('/index.html') || u.pathname.endsWith('/live.json')){
+  if(e.request.mode==='navigate' || u.pathname.endsWith('/index.html') || u.pathname.endsWith('/latest.json') || u.pathname.endsWith('/live.json')){
     e.respondWith(
       fetch(e.request,{cache:'no-store'})
         .then(r=>r)
