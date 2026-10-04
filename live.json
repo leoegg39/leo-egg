@@ -1,131 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-04T22:23:14.364645+00:00",
+  "checkedAt": "2026-10-04T22:39:59.934781+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 300,
   "spawns": [
-    {
-      "egg": "Tralaledon",
-      "rarity": "secret",
-      "biome": "prehistoric",
-      "loc": "prehistoric",
-      "timeText": "2026-09-27T09:55:02.106Z",
-      "ts": 1790502902106,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Kraken",
-      "rarity": "secret",
-      "biome": "abyss-ocean",
-      "loc": "abyss-ocean",
-      "timeText": "2026-09-27T09:50:02.104Z",
-      "ts": 1790502602104,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Stag",
-      "rarity": "secret",
-      "biome": "cherry-blossom",
-      "loc": "cherry-blossom",
-      "timeText": "2026-09-27T09:40:02.127Z",
-      "ts": 1790502002127,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Gargoyle",
-      "rarity": "secret",
-      "biome": "angels-and-demons",
-      "loc": "angels-and-demons",
-      "timeText": "2026-09-27T09:20:02.115Z",
-      "ts": 1790500802115,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "RazorFang",
-      "rarity": "secret",
-      "biome": "angels-and-demons",
-      "loc": "angels-and-demons",
-      "timeText": "2026-09-27T09:20:02.115Z",
-      "ts": 1790500802115,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Gorilla King",
-      "rarity": "eternal",
-      "biome": "titan-temple",
-      "loc": "titan-temple",
-      "timeText": "2026-09-27T09:15:02.173Z",
-      "ts": 1790500502173,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Gorilla King",
-      "rarity": "eternal",
-      "biome": "titan-temple",
-      "loc": "titan-temple",
-      "timeText": "2026-09-27T09:10:02.153Z",
-      "ts": 1790500202153,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Mutant Shark",
-      "rarity": "secret",
-      "biome": "titan-temple",
-      "loc": "titan-temple",
-      "timeText": "2026-09-27T09:05:02.062Z",
-      "ts": 1790499902062,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Mutant Shark",
-      "rarity": "secret",
-      "biome": "titan-temple",
-      "loc": "titan-temple",
-      "timeText": "2026-09-27T09:00:02.087Z",
-      "ts": 1790499602087,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Phoenix",
-      "rarity": "eternal",
-      "biome": "volcano",
-      "loc": "volcano",
-      "timeText": "2026-09-27T08:35:02.177Z",
-      "ts": 1790498102177,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Cosmic Dragon",
-      "rarity": "secret",
-      "biome": "cosmic",
-      "loc": "cosmic",
-      "timeText": "2026-09-27T08:25:02.105Z",
-      "ts": 1790497502105,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
-    {
-      "egg": "Phoenix",
-      "rarity": "eternal",
-      "biome": "volcano",
-      "loc": "volcano",
-      "timeText": "2026-09-27T08:25:02.105Z",
-      "ts": 1790497502105,
-      "source": "SaneStats history",
-      "t": 1790602128194
-    },
     {
       "egg": "Pure Jellyfish",
       "rarity": "secret",
@@ -10005,6 +9885,126 @@
       "ts": 1790509202254,
       "source": "SaneStats history",
       "t": 1791152594364
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-10-04T22:25:04.000Z",
+      "ts": 1791152704000,
+      "source": "Eggipedia JSON",
+      "t": 1791153599934
+    },
+    {
+      "egg": "/images/sae/eggs/pegasus-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-04T22:25:03.000Z",
+      "ts": 1791152703000,
+      "source": "Eggipedia JSON",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T11:35:02.093Z",
+      "ts": 1790508902093,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Cosmic Skeleton Boss",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T11:25:02.171Z",
+      "ts": 1790508302171,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-27T11:20:02.086Z",
+      "ts": 1790508002086,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T11:10:02.129Z",
+      "ts": 1790507402129,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Lava Dragon",
+      "rarity": "eternal",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-27T11:10:02.129Z",
+      "ts": 1790507402129,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Eternal Lunar Dragon",
+      "rarity": "eternal",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T10:55:02.094Z",
+      "ts": 1790506502094,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T10:50:02.069Z",
+      "ts": 1790506202069,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T10:45:02.135Z",
+      "ts": 1790505902135,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T10:25:02.124Z",
+      "ts": 1790504702124,
+      "source": "SaneStats history",
+      "t": 1791153599934
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T10:10:02.074Z",
+      "ts": 1790503802074,
+      "source": "SaneStats history",
+      "t": 1791153599934
     }
   ],
   "diagnostics": {
@@ -10038,9 +10038,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 34336,
+    "spawnJsonBytes": 34313,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-04T22:22:40.341Z', 'total': 910, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-03T20:52:30.783Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1556429579353202788', 'at': '2026-10-04T22:15:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556428380789018786', 'at': '2026-10-04T22:10:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556428365580210268', 'at': '2026-10-04T22:10:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': '1556423296571154455', 'at': '2026-10-04T21:50:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556416990493802551', 'at': '2026-10-04T21:25:02.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556414475605909555', 'at': '2026-10-04T21:15:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556411963448361101', 'at': '2026-10-04T21:05:03.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-04T22:39:40.354Z', 'total': 912, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-03T20:52:30.783Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1556432174541049870', 'at': '2026-10-04T22:25:04.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1556432164781039768', 'at': '2026-10-04T22:25:03.000Z', 'pet': 'pegasus', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pegasus-egg-s.webp'}, {'id': '1556429579353202788', 'at': '2026-10-04T22:15:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556428380789018786', 'at': '2026-10-04T22:10:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556428365580210268', 'at': '2026-10-04T22:10:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': '1556423296571154455', 'at': '2026-10-04T21:50:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556416990493802551', 'at': '2026-10-04T21:25:02.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '15564",
     "transportHints": [
       "/spawns",
       "/spawns.json"
