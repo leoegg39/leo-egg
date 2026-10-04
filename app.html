@@ -18,10 +18,10 @@ b{font-size:28px;color:#69e7ff}p{color:#9fb1c9}
   const r=await fetch('./latest.json?t='+Date.now(),{cache:'no-store'});
   if(!r.ok)throw 0;
   const j=await r.json();
-  const file=j.file||'leo-future-775.html';
+  const file=j.file||'leo-future-781.html';
   location.replace('./'+file+'?build='+(j.build||'latest')+'&t='+Date.now());
  }catch(e){
-  location.replace('./leo-future-775.html?t='+Date.now());
+  location.replace('./leo-future-781.html?t='+Date.now());
  }
 })();
 </script></body></html>
