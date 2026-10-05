@@ -1,41 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-05T08:28:22.398208+00:00",
+  "checkedAt": "2026-10-05T08:50:35.903422+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 300,
   "spawns": [
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T14:25:02.000Z",
-      "ts": 1790691902000,
-      "source": "Eggipedia JSON",
-      "t": 1790738834324
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T14:20:03.000Z",
-      "ts": 1790691603000,
-      "source": "Eggipedia JSON",
-      "t": 1790738834324
-    },
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-09-29T14:15:02.000Z",
-      "ts": 1790691302000,
-      "source": "Eggipedia JSON",
-      "t": 1790738834324
-    },
     {
       "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
       "rarity": null,
@@ -10005,6 +9975,36 @@
       "ts": 1791187503000,
       "source": "Eggipedia JSON",
       "t": 1791188902398
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T08:50:02.000Z",
+      "ts": 1791190202000,
+      "source": "Eggipedia JSON",
+      "t": 1791190235903
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T08:45:02.000Z",
+      "ts": 1791189902000,
+      "source": "Eggipedia JSON",
+      "t": 1791190235903
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T08:35:03.000Z",
+      "ts": 1791189303000,
+      "source": "Eggipedia JSON",
+      "t": 1791190235903
     }
   ],
   "diagnostics": {
@@ -10038,9 +10038,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 34350,
+    "spawnJsonBytes": 34393,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-05T08:27:43.439Z', 'total': 1012, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-03T20:52:30.783Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1556583083803803682', 'at': '2026-10-05T08:25:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556581919922331720', 'at': '2026-10-05T08:20:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556578199754772561', 'at': '2026-10-05T08:05:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556576851760250901', 'at': '2026-10-05T08:00:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1556574432418336790', 'at': '2026-10-05T07:50:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556574425594204191', 'at': '2026-10-05T07:50:03.000Z', 'pet': 'phoenix', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/phoenix-egg-s.webp'}, {'id': '1556571807161655337', 'at': '2026-10-05T07:40:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id'",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-05T08:50:27.917Z', 'total': 1015, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-03T20:52:30.783Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1556589373947117599', 'at': '2026-10-05T08:50:02.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556588119820738592', 'at': '2026-10-05T08:45:02.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556585603896967219', 'at': '2026-10-05T08:35:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556583083803803682', 'at': '2026-10-05T08:25:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556581919922331720', 'at': '2026-10-05T08:20:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556578199754772561', 'at': '2026-10-05T08:05:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1556576851760250901', 'at': '2026-10-05T08:00:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg",
     "transportHints": [
       "/spawns",
       "/spawns.json"
