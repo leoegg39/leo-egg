@@ -1,91 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-05T01:05:25.288314+00:00",
+  "checkedAt": "2026-10-05T01:25:32.680396+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 300,
   "spawns": [
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T02:30:02.000Z",
-      "ts": 1790649002000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T02:25:02.000Z",
-      "ts": 1790648702000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T02:20:02.000Z",
-      "ts": 1790648402000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-09-29T02:20:02.000Z",
-      "ts": 1790648402000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T02:15:02.000Z",
-      "ts": 1790648102000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/yeti-egg-s.webp",
-      "rarity": null,
-      "biome": "Snow",
-      "loc": "Snow",
-      "timeText": "2026-09-29T02:05:03.000Z",
-      "ts": 1790647503000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-09-29T02:00:04.000Z",
-      "ts": 1790647204000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-09-29T01:55:03.000Z",
-      "ts": 1790646903000,
-      "source": "Eggipedia JSON",
-      "t": 1790652421685
-    },
     {
       "egg": "/images/sae/eggs/cerberus-egg-s.webp",
       "rarity": null,
@@ -10005,6 +9925,86 @@
       "ts": 1791161402000,
       "source": "Eggipedia JSON",
       "t": 1791162325288
+    },
+    {
+      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-05T01:20:06.000Z",
+      "ts": 1791163206000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T01:20:02.000Z",
+      "ts": 1791163202000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-05T01:15:03.000Z",
+      "ts": 1791162903000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T01:10:03.000Z",
+      "ts": 1791162603000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-05T01:05:03.000Z",
+      "ts": 1791162303000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T01:05:03.000Z",
+      "ts": 1791162303000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-05T01:00:03.000Z",
+      "ts": 1791162003000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-05T01:00:03.000Z",
+      "ts": 1791162003000,
+      "source": "Eggipedia JSON",
+      "t": 1791163532680
     }
   ],
   "diagnostics": {
@@ -10038,9 +10038,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 34314,
+    "spawnJsonBytes": 34361,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-05T01:04:40.519Z', 'total': 942, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-03T20:52:30.783Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1556469924698914970', 'at': '2026-10-05T00:55:02.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1556468580097458218', 'at': '2026-10-05T00:50:02.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556467323089461341', 'at': '2026-10-05T00:45:02.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1556464808369332275', 'at': '2026-10-05T00:35:02.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556461091817787393', 'at': '2026-10-05T00:20:04.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1556461074390327318', 'at': '2026-10-05T00:20:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1556459771589296279', 'at': '2026-10-05T00:15:03.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '15564585830032385",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-05T01:24:40.534Z', 'total': 950, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-03T20:52:30.783Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1556476634385612871', 'at': '2026-10-05T01:20:06.000Z', 'pet': 'gorilla-king', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/gorilla-king-egg-s.webp'}, {'id': '1556476602446254172', 'at': '2026-10-05T01:20:02.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1556474941011136625', 'at': '2026-10-05T01:15:03.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1556474198392832070', 'at': '2026-10-05T01:10:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556474048995926069', 'at': '2026-10-05T01:05:03.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1556474040049344533', 'at': '2026-10-05T01:05:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1556472700732571742', 'at': '2026-10-05T01:00:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/p",
     "transportHints": [
       "/spawns",
       "/spawns.json"
