@@ -1,51 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-07T22:24:08.229587+00:00",
+  "checkedAt": "2026-10-07T22:42:27.895387+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 309,
   "spawns": [
-    {
-      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-10-03T07:20:05.000Z",
-      "ts": 1791012005000,
-      "source": "Eggipedia JSON",
-      "t": 1791013339571
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-10-03T07:20:02.000Z",
-      "ts": 1791012002000,
-      "source": "Eggipedia JSON",
-      "t": 1791013339571
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-10-03T07:50:03.000Z",
-      "ts": 1791013803000,
-      "source": "Eggipedia JSON",
-      "t": 1791014255901
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-10-03T07:40:03.000Z",
-      "ts": 1791013203000,
-      "source": "Eggipedia JSON",
-      "t": 1791014255901
-    },
     {
       "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
       "rarity": null,
@@ -10005,6 +9965,46 @@
       "ts": 1791411303000,
       "source": "Eggipedia JSON",
       "t": 1791411848229
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-07T22:40:02.000Z",
+      "ts": 1791412802000,
+      "source": "Eggipedia JSON",
+      "t": 1791412947895
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-07T22:35:03.000Z",
+      "ts": 1791412503000,
+      "source": "Eggipedia JSON",
+      "t": 1791412947895
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-07T22:30:04.000Z",
+      "ts": 1791412204000,
+      "source": "Eggipedia JSON",
+      "t": 1791412947895
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-07T22:30:04.000Z",
+      "ts": 1791412204000,
+      "source": "Eggipedia JSON",
+      "t": 1791412947895
     }
   ],
   "diagnostics": {
@@ -10038,9 +10038,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 35678,
+    "spawnJsonBytes": 35679,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-07T22:23:41.186Z', 'total': 1573, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-07T05:17:27.105Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557517989048488072', 'at': '2026-10-07T22:20:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557516767998509153', 'at': '2026-10-07T22:15:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557516752777117789', 'at': '2026-10-07T22:15:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': '1557514208499728496', 'at': '2026-10-07T22:05:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': '1557510428802940969', 'at': '2026-10-07T21:50:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1557507922592923670', 'at': '2026-10-07T21:40:02.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1557504135425826847', 'at': '2026-10-07T21:25:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1557502979005747330', 'at",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-07T22:41:41.213Z', 'total': 1577, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-07T05:17:27.105Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557523027946774630', 'at': '2026-10-07T22:40:02.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1557521752299675679', 'at': '2026-10-07T22:35:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1557520545690681375', 'at': '2026-10-07T22:30:04.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1557520523590766687', 'at': '2026-10-07T22:30:04.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1557517989048488072', 'at': '2026-10-07T22:20:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557516767998509153', 'at': '2026-10-07T22:15:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557516752777117789', 'at': '2026-10-07T22:15:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': ",
     "transportHints": [
       "/spawns",
       "/spawns.json"
