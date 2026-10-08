@@ -1,21 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-08T21:53:21.064921+00:00",
+  "checkedAt": "2026-10-08T22:09:48.333214+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 311,
   "spawns": [
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-10-04T09:20:03.000Z",
-      "ts": 1791105603000,
-      "source": "Eggipedia JSON",
-      "t": 1791126324616
-    },
     {
       "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
       "rarity": null,
@@ -10005,6 +9995,16 @@
       "ts": 1791495303000,
       "source": "Eggipedia JSON",
       "t": 1791496401064
+    },
+    {
+      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-08T22:00:03.000Z",
+      "ts": 1791496803000,
+      "source": "Eggipedia JSON",
+      "t": 1791497388333
     }
   ],
   "diagnostics": {
@@ -10040,7 +10040,7 @@
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
     "spawnJsonBytes": 36164,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-08T21:52:42.564Z', 'total': 1768, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-07T05:17:27.105Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557870298630586382', 'at': '2026-10-08T21:40:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1557869039391477801', 'at': '2026-10-08T21:35:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557867791481184300', 'at': '2026-10-08T21:30:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1557866532585873420', 'at': '2026-10-08T21:25:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557865272793239666', 'at': '2026-10-08T21:20:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1557861498057916629', 'at': '2026-10-08T21:05:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': '1557860309803343873', 'at': '2026-10-08T21:00:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1557860283983208459', ",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-08T22:09:42.587Z', 'total': 1769, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-07T05:17:27.105Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557875364980854954', 'at': '2026-10-08T22:00:03.000Z', 'pet': 'gorilla-king', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/gorilla-king-egg-s.webp'}, {'id': '1557870298630586382', 'at': '2026-10-08T21:40:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1557869039391477801', 'at': '2026-10-08T21:35:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557867791481184300', 'at': '2026-10-08T21:30:03.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1557866532585873420', 'at': '2026-10-08T21:25:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557865272793239666', 'at': '2026-10-08T21:20:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1557861498057916629', 'at': '2026-10-08T21:05:03.000Z', 'pet': 'lava-dragon', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/lava-dragon-egg-s.webp'}, {'id': '155786030",
     "transportHints": [
       "/spawns",
       "/spawns.json"
