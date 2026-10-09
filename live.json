@@ -1,8 +1,10 @@
 {
-  "ok": false,
-  "checkedAt": "2026-10-09T02:54:49.983561+00:00",
+  "ok": true,
+  "checkedAt": "2026-10-09T03:12:45.511817+00:00",
   "source": "https://eggipedia.com/spawns",
-  "error": "HTTP Error 523: <none>",
+  "paused": false,
+  "noHistory": true,
+  "parsedNow": 311,
   "spawns": [
     {
       "egg": "/images/sae/eggs/celestial-sunlion-egg-s.webp",
@@ -2003,6 +2005,1263 @@
       "ts": 1791512403000,
       "source": "Eggipedia JSON",
       "t": 1791513444486
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-09T03:00:03.000Z",
+      "ts": 1791514803000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/oni-tiger-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-10-09T02:45:03.000Z",
+      "ts": 1791513903000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-08T03:30:10.000Z",
+      "ts": 1791430210000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/kitsune-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-10-07T20:05:04.000Z",
+      "ts": 1791403504000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/royal-skywhale-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-07T15:30:46.000Z",
+      "ts": 1791387046000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/world-burner-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-06T18:50:03.000Z",
+      "ts": 1791312603000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/unicorn-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-06T11:50:03.000Z",
+      "ts": 1791287403000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/royal-skywhale-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-05T23:00:03.000Z",
+      "ts": 1791241203000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/royal-skywhale-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-04T22:20:02.000Z",
+      "ts": 1791152402000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/nightflame-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-01T23:55:08.000Z",
+      "ts": 1790898908000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/nightflame-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-01T00:25:01.000Z",
+      "ts": 1790814301000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "/images/sae/eggs/kitsune-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-09-29T05:40:02.000Z",
+      "ts": 1790660402000,
+      "source": "Eggipedia JSON",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T14:35:02.106Z",
+      "ts": 1790519702106,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-27T14:30:02.090Z",
+      "ts": 1790519402090,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T14:25:02.145Z",
+      "ts": 1790519102145,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T14:20:02.299Z",
+      "ts": 1790518802299,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-27T14:20:02.299Z",
+      "ts": 1790518802299,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T14:00:02.085Z",
+      "ts": 1790517602085,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mosasaurus",
+      "rarity": "eternal",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T14:00:02.085Z",
+      "ts": 1790517602085,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T14:00:02.085Z",
+      "ts": 1790517602085,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T13:40:02.238Z",
+      "ts": 1790516402238,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cerberus",
+      "rarity": "secret",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-27T13:40:02.238Z",
+      "ts": 1790516402238,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cerberus",
+      "rarity": "secret",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-27T13:30:02.063Z",
+      "ts": 1790515802063,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-27T13:15:02.268Z",
+      "ts": 1790514902268,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T13:05:02.159Z",
+      "ts": 1790514302159,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T13:05:02.159Z",
+      "ts": 1790514302159,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T13:05:02.158Z",
+      "ts": 1790514302158,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "RazorFang",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T12:40:02.213Z",
+      "ts": 1790512802213,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T12:25:02.112Z",
+      "ts": 1790511902112,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T12:20:02.067Z",
+      "ts": 1790511602067,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T12:15:02.137Z",
+      "ts": 1790511302137,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T12:10:02.090Z",
+      "ts": 1790511002090,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T11:50:02.111Z",
+      "ts": 1790509802111,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T11:40:02.254Z",
+      "ts": 1790509202254,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T11:35:02.093Z",
+      "ts": 1790508902093,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cosmic Skeleton Boss",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T11:25:02.171Z",
+      "ts": 1790508302171,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-27T11:20:02.086Z",
+      "ts": 1790508002086,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T11:10:02.129Z",
+      "ts": 1790507402129,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Lava Dragon",
+      "rarity": "eternal",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-27T11:10:02.129Z",
+      "ts": 1790507402129,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Eternal Lunar Dragon",
+      "rarity": "eternal",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T10:55:02.094Z",
+      "ts": 1790506502094,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T10:50:02.069Z",
+      "ts": 1790506202069,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T10:45:02.135Z",
+      "ts": 1790505902135,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T10:25:02.124Z",
+      "ts": 1790504702124,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T10:10:02.074Z",
+      "ts": 1790503802074,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T09:55:02.106Z",
+      "ts": 1790502902106,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T09:50:02.104Z",
+      "ts": 1790502602104,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-27T09:40:02.127Z",
+      "ts": 1790502002127,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T09:20:02.115Z",
+      "ts": 1790500802115,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "RazorFang",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T09:20:02.115Z",
+      "ts": 1790500802115,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gorilla King",
+      "rarity": "eternal",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T09:15:02.173Z",
+      "ts": 1790500502173,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gorilla King",
+      "rarity": "eternal",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T09:10:02.153Z",
+      "ts": 1790500202153,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T09:05:02.062Z",
+      "ts": 1790499902062,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T09:00:02.087Z",
+      "ts": 1790499602087,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Phoenix",
+      "rarity": "eternal",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-27T08:35:02.177Z",
+      "ts": 1790498102177,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T08:25:02.105Z",
+      "ts": 1790497502105,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Phoenix",
+      "rarity": "eternal",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-27T08:25:02.105Z",
+      "ts": 1790497502105,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T07:50:02.102Z",
+      "ts": 1790495402102,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cosmic Dragon",
+      "rarity": "secret",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T07:40:02.085Z",
+      "ts": 1790494802085,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T07:15:02.082Z",
+      "ts": 1790493302082,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Eternal Lunar Dragon",
+      "rarity": "eternal",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-27T07:05:02.107Z",
+      "ts": 1790492702107,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T07:00:02.056Z",
+      "ts": 1790492402056,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T07:00:02.056Z",
+      "ts": 1790492402056,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T06:55:02.063Z",
+      "ts": 1790492102063,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T06:50:02.091Z",
+      "ts": 1790491802091,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gorilla King",
+      "rarity": "eternal",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T06:45:02.169Z",
+      "ts": 1790491502169,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-27T06:45:02.168Z",
+      "ts": 1790491502168,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-27T06:30:02.091Z",
+      "ts": 1790490602091,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-27T06:25:02.062Z",
+      "ts": 1790490302062,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mutant Shark",
+      "rarity": "secret",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-27T06:20:02.112Z",
+      "ts": 1790490002112,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-25T01:20:02.101Z",
+      "ts": 1790299202101,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cerberus",
+      "rarity": "secret",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-25T01:20:02.101Z",
+      "ts": 1790299202101,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Eternal Lunar Dragon",
+      "rarity": "eternal",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-25T01:10:02.112Z",
+      "ts": 1790298602112,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-25T01:05:02.313Z",
+      "ts": 1790298302313,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-25T01:00:02.077Z",
+      "ts": 1790298002077,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Lava Dragon",
+      "rarity": "eternal",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-25T01:00:02.077Z",
+      "ts": 1790298002077,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gorilla King",
+      "rarity": "eternal",
+      "biome": "titan-temple",
+      "loc": "titan-temple",
+      "timeText": "2026-09-25T01:00:02.077Z",
+      "ts": 1790298002077,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-25T00:15:02.173Z",
+      "ts": 1790295302173,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-25T00:10:02.130Z",
+      "ts": 1790295002130,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-25T00:10:02.130Z",
+      "ts": 1790295002130,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-25T00:05:02.115Z",
+      "ts": 1790294702115,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T23:50:02.098Z",
+      "ts": 1790293802098,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-24T23:50:02.098Z",
+      "ts": 1790293802098,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T23:40:02.086Z",
+      "ts": 1790293202086,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mosasaurus",
+      "rarity": "eternal",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-24T23:35:02.160Z",
+      "ts": 1790292902160,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-24T23:25:02.101Z",
+      "ts": 1790292302101,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T23:25:02.101Z",
+      "ts": 1790292302101,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Eternal Lunar Dragon",
+      "rarity": "eternal",
+      "biome": "cosmic",
+      "loc": "cosmic",
+      "timeText": "2026-09-24T23:25:02.101Z",
+      "ts": 1790292302101,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Centaur",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T23:25:02.101Z",
+      "ts": 1790292302101,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Tralaledon",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-24T23:20:02.090Z",
+      "ts": 1790292002090,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T20:00:02.118Z",
+      "ts": 1790280002118,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Cerberus",
+      "rarity": "secret",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-24T19:55:02.136Z",
+      "ts": 1790279702136,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T19:55:02.136Z",
+      "ts": 1790279702136,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-24T19:50:02.294Z",
+      "ts": 1790279402294,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "TRex",
+      "rarity": "secret",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-24T19:45:02.076Z",
+      "ts": 1790279102076,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Lava Dragon",
+      "rarity": "eternal",
+      "biome": "volcano",
+      "loc": "volcano",
+      "timeText": "2026-09-24T19:25:02.091Z",
+      "ts": 1790277902091,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T19:20:02.142Z",
+      "ts": 1790277602142,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Centaur",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T19:20:02.141Z",
+      "ts": 1790277602141,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Yeti",
+      "rarity": "secret",
+      "biome": "snow",
+      "loc": "snow",
+      "timeText": "2026-09-24T19:15:02.136Z",
+      "ts": 1790277302136,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-24T19:10:02.167Z",
+      "ts": 1790277002167,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T19:05:02.190Z",
+      "ts": 1790276702190,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Centaur",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T19:00:02.075Z",
+      "ts": 1790276402075,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T19:00:02.075Z",
+      "ts": 1790276402075,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Skeleton Horse",
+      "rarity": "eternal",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T15:15:02.103Z",
+      "ts": 1790262902103,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T15:15:02.103Z",
+      "ts": 1790262902103,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Mosasaurus",
+      "rarity": "eternal",
+      "biome": "prehistoric",
+      "loc": "prehistoric",
+      "timeText": "2026-09-24T15:10:02.106Z",
+      "ts": 1790262602106,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T14:50:02.091Z",
+      "ts": 1790261402091,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-24T14:40:02.099Z",
+      "ts": 1790260802099,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Gargoyle",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T14:35:02.118Z",
+      "ts": 1790260502118,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Skeleton Horse",
+      "rarity": "eternal",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T14:25:02.125Z",
+      "ts": 1790259902125,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Stag",
+      "rarity": "secret",
+      "biome": "cherry-blossom",
+      "loc": "cherry-blossom",
+      "timeText": "2026-09-24T14:25:02.125Z",
+      "ts": 1790259902125,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Kraken",
+      "rarity": "secret",
+      "biome": "abyss-ocean",
+      "loc": "abyss-ocean",
+      "timeText": "2026-09-24T14:05:02.090Z",
+      "ts": 1790258702090,
+      "source": "SaneStats history",
+      "t": 1791515565511
+    },
+    {
+      "egg": "Pure Jellyfish",
+      "rarity": "secret",
+      "biome": "angels-and-demons",
+      "loc": "angels-and-demons",
+      "timeText": "2026-09-24T14:00:02.090Z",
+      "ts": 1790258402090,
+      "source": "SaneStats history",
+      "t": 1791515565511
     }
-  ]
+  ],
+  "diagnostics": {
+    "htmlBytes": 15529,
+    "scriptCount": 6,
+    "scripts": [
+      "/assets/theme.js?v=0e68b294",
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4824623706629247",
+      "/assets/sae.js?v=0e68b294",
+      "/assets/sae-data.en.js?v=0e68b294",
+      "/assets/live.js?v=0e68b294",
+      "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+    ],
+    "liveHints": [
+      "/live.js?v=0e68b294",
+      "/spawns",
+      "https://discord.gg/2vjsj8EeDv",
+      "https://eggipedia.com/",
+      "https://eggipedia.com/fr/spawns",
+      "https://eggipedia.com/images/sae/og.jpg",
+      "https://eggipedia.com/spawns",
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4824623706629247",
+      "https://schema.org",
+      "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+      "https://stealanegg.fandom.com",
+      "https://www.roblox.com/communities/825735094",
+      "https://www.roblox.com/games/107778070777162/Steal-An-Egg"
+    ],
+    "connecting": true,
+    "liveJsUrl": "https://eggipedia.com/assets/live.js?v=0e68b294",
+    "liveJsBytes": 11038,
+    "liveJsError": "",
+    "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
+    "spawnJsonBytes": 36267,
+    "spawnJsonError": "",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-09T03:12:02.699Z', 'total': 1813, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-09T03:00:55.771Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557950883055140877', 'at': '2026-10-09T03:00:03.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1557947054830129153', 'at': '2026-10-09T02:45:03.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/oni-tiger-egg-s.webp'}, {'id': '1557944631398764638', 'at': '2026-10-09T02:35:04.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1557944606362968136', 'at': '2026-10-09T02:35:04.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1557944582673797162', 'at': '2026-10-09T02:35:03.000Z', 'pet': 'ice-dragon', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/ice-dragon-egg-s.webp'}, {'id': '1557942019882745972', 'at': '2026-10-09T02:25:03.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/razorfang-egg-s.webp'}, {'id': '1557940769489289278', 'at': '2026-10-09T02:20:03.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-",
+    "transportHints": [
+      "/spawns",
+      "/spawns.json"
+    ],
+    "liveJsContexts": [
+      "/* Steal An Egg Guide - œufs rares en direct : page /spawns et encart de l'accueil.\n   Lit /live/spawns.json (écrit par le bot Eggy du serveur Discord Beyn Mods) toutes les 20 s.\n   Tout est construit avec createElement et textContent : aucun HTML n'est injecté, le contenu du\n   fichier ne peut donc rien exécuter. Noms, raretés et biomes viennent de window.SAE (sae-data). */\n(function () {\n  'use strict';\n  var D = window.SAE, F = window.SAEfmt, d = document;\n  var page = d.querySelector('[data-live]'), home = d.getElementById('live-home');\n  if (!D || !F || (!page && !home)) return;\n  var L = D.i18n, FR = F.lang === 'fr';\n  var fill = function (s, o) { return String(s).replace(/\\{(\\w+)\\}/g, function (_, k) { return o[k]; }); };\n  var pets = Object.",
+      "/* Steal An Egg Guide - œufs rares en direct : page /spawns et encart de l'accueil.\n   Lit /live/spawns.json (écrit par le bot Eggy du serveur Discord Beyn Mods) toutes les 20 s.\n   Tout est construit avec createElement et textContent : aucun HTML n'est injecté, le contenu du\n   fichier ne peut donc rien exécuter. Noms, raretés et biomes viennent de window.SAE (sae-data). */\n(function () {\n  'use strict';\n  var D = window.SAE, F = window.SAEfmt, d = document;\n  var page = d.querySelector('[data-live]'), home = d.getElementById('live-home');\n  if (!D || !F || (!page && !home)) return;\n  var L = D.i18n, FR = F.lang === 'fr';\n  var fill = function (s, o) { return String(s).replace(/\\{(\\w+)\\}/g, function (_, k) { return o[k]; }); };\n  var pets = Object.create(null);\n  D.pets.forEach(function (p) { pet",
+      "[data-live-status]'), txt = q('[data-live-status-text]'), now = q('[data-live-now]'), empty = q('[data-live-empty]'), last = lastEgg(list);\n    if (st) st.classList.add('is-off');\n    if (txt) txt.textContent = L.liveDown + (last ? ' · ' + fill(L.liveDownLast, { t: ago(new Date(last).toISOString()) }) : '');\n    if (now) now.hidden = true;\n    if (empty && !list.length) empty.style.display = 'none';\n  }\n  function render() {\n    var data = state.data;\n    if (!data) return;\n    var list = (data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n    if (page) { renderStatus(data); renderNow(list); renderFilters(list); renderList(list); renderDiscord(data); renderProblem(isDown(list), list); }\n    renderHome(list);\n  }\n  function showError() {\n    var txt = q('[data-live-status-text]'), box = q('[data-live-status]');\n    if (txt) txt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n    renderProblem(isDown([]), []);\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch(",
+      "roblem(isDown(list), list); }\n    renderHome(list);\n  }\n  function showError() {\n    var txt = q('[data-live-status-text]'), box = q('[data-live-status]');\n    if (txt) txt.textContent = L.liveErr;\n    if (box) box.classList.add('is-off');\n    var empty = q('[data-live-empty]');\n    if (empty && !state.data) empty.style.display = 'block';\n    renderProblem(isDown([]), []);\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n      .then(function (r) {\n        if (!r.ok) throw new Error(String(r.status));\n        var t = Date.parse(r.headers.get('Date') || '');\n        if (t) state.skew = t - Date.now();\n        return r.json();\n      })\n      .then(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; state.fails = 0; render(); })\n      .catch(function () { state.fails++; if (!state.data) showError(); else if (state.fails >= FAIL_MAX) render(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach",
+      "y = 'block';\n    renderProblem(isDown([]), []);\n  }\n  function load() {\n    if (d.hidden && state.data) return; // onglet caché : on attend qu'il revienne\n    fetch('/live/spawns.json', { cache: 'no-store', credentials: 'omit' })\n      .then(function (r) {\n        if (!r.ok) throw new Error(String(r.status));\n        var t = Date.parse(r.headers.get('Date') || '');\n        if (t) state.skew = t - Date.now();\n        return r.json();\n      })\n      .then(function (j) { if (!j || !Array.isArray(j.spawns) || !j.updatedAt) throw new Error('format'); state.data = j; state.fails = 0; render(); })\n      .catch(function () { state.fails++; if (!state.data) showError(); else if (state.fails >= FAIL_MAX) render(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) {\n      var list = (state.data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n      renderStatus(state.data); renderNow(list); renderProblem(isDown(list), list);\n    }\n  }\n  load()",
+      "!j.updatedAt) throw new Error('format'); state.data = j; state.fails = 0; render(); })\n      .catch(function () { state.fails++; if (!state.data) showError(); else if (state.fails >= FAIL_MAX) render(); });\n  }\n  // Les heures relatives (« il y a 3 min ») avancent seules entre deux lectures.\n  function tick() {\n    [].slice.call(d.querySelectorAll('[data-ago]')).forEach(function (t) { t.textContent = ago(t.getAttribute('data-ago')); });\n    if (state.data && page) {\n      var list = (state.data.spawns || []).filter(function (s) { return s && pets[s.pet] && !isNaN(Date.parse(s.at)); });\n      renderStatus(state.data); renderNow(list); renderProblem(isDown(list), list);\n    }\n  }\n  load();\n  setInterval(load, 20000);\n  setInterval(tick, 15000);\n  d.addEventListener('visibilitychange', function () { if (!d.hidden) load(); });\n})();\n"
+    ],
+    "saneStats": {
+      "url": "https://sanestats.com/",
+      "ok": true,
+      "htmlBytes": 3358,
+      "scripts": [
+        "/assets/index-5rbGZ-ck.js",
+        "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+      ],
+      "hasCurrentSpawns": false,
+      "hasRareHistory": true,
+      "waiting": false,
+      "transportHints": [
+        "/api/calc/estimate?",
+        "/api/history?",
+        "/api/leaderboard/money",
+        "/api/leaderboard/player/",
+        "/api/roblox/avatars?ids=",
+        "/api/stats",
+        "/history",
+        "http://www.w3.org/1999/xlink`;function",
+        "http://www.w3.org/2000/svg`,Ua=`http://www.w3.org/1998/Math/MathML`,Wa=typeof",
+        "https://cloudflareinsights.com/cdn-cgi/rum",
+        "https://sanestats.com`,Id=`SaneStats`,Ld=`Steal",
+        "https://schema.org`,",
+        "https://vuejs.org/error-reference/#runtime-${r}`;for(;t;",
+        "https://www.roblox.com/games/107778070777162`,zd=`https://steal-an-egg.fasu.dev/`,Bd=`Steal",
+        "https://www.roblox.com/users/${t}/profile`}async"
+      ],
+      "scriptDiagnostics": [
+        {
+          "url": "https://sanestats.com/assets/index-5rbGZ-ck.js",
+          "bytes": 287912,
+          "hints": [
+            "https://vuejs.org/error-reference/#runtime-${r}`;for(;t;",
+            "http://www.w3.org/2000/svg`,Ua=`http://www.w3.org/1998/Math/MathML`,Wa=typeof",
+            "http://www.w3.org/1999/xlink`;function",
+            "/api/history?",
+            "/api/stats",
+            "/history",
+            "/history",
+            "https://sanestats.com`,Id=`SaneStats`,Ld=`Steal",
+            "https://www.roblox.com/games/107778070777162`,zd=`https://steal-an-egg.fasu.dev/`,Bd=`Steal",
+            "/history",
+            "https://schema.org`,",
+            "https://schema.org`,",
+            "https://schema.org`,",
+            "/api/calc/estimate?",
+            "/api/leaderboard/money",
+            "https://www.roblox.com/users/${t}/profile`}async",
+            "/api/leaderboard/player/",
+            "/api/roblox/avatars?ids=",
+            "/history"
+          ]
+        },
+        {
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+          "bytes": 31679,
+          "hints": [
+            "https://cloudflareinsights.com/cdn-cgi/rum"
+          ]
+        }
+      ],
+      "historyBytes": 24884,
+      "historyType": "dict",
+      "historyRows": 100,
+      "historyPreview": [
+        {
+          "id": "12bf0d47-77b0-4ffe-80f4-4359d3302542",
+          "petName": "Pure Jellyfish",
+          "rarity": "secret",
+          "biome": "angels-and-demons",
+          "spawnText": "spawned at Angels 👼",
+          "isAlert": true,
+          "spawnedAt": "2026-09-27T14:35:02.106Z",
+          "image": "/pets/angels-and-demons/pure-jellyfish.png"
+        },
+        {
+          "id": "2fb9045b-993a-4dcd-8d10-7960ef01c53f",
+          "petName": "Stag",
+          "rarity": "secret",
+          "biome": "cherry-blossom",
+          "spawnText": "spawned at Cherry Blossom 🌸",
+          "isAlert": true,
+          "spawnedAt": "2026-09-27T14:30:02.090Z",
+          "image": "/pets/cherry-blossom/stag.png"
+        }
+      ],
+      "historyImported": 100
+    },
+    "liveJsFetchCalls": []
+  }
 }
