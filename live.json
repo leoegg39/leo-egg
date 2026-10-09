@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-09T03:54:28.534020+00:00",
+  "checkedAt": "2026-10-09T04:12:29.487590+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -3205,6 +3205,16 @@
       "ts": 1791516903000,
       "source": "Eggipedia JSON",
       "t": 1791518068534
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-09T04:00:03.000Z",
+      "ts": 1791518403000,
+      "source": "Eggipedia JSON",
+      "t": 1791519149487
     }
   ],
   "diagnostics": {
@@ -3240,7 +3250,7 @@
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
     "spawnJsonBytes": 36218,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-09T03:54:02.824Z', 'total': 1821, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-09T03:00:55.771Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557963446895648869', 'at': '2026-10-09T03:50:03.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1557963429871099968', 'at': '2026-10-09T03:50:03.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1557960900663713874', 'at': '2026-10-09T03:40:03.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1557959728657600534', 'at': '2026-10-09T03:35:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1557959709259202672', 'at': '2026-10-09T03:35:03.000Z', 'pet': 'celestial-sunlion', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/celestial-sunlion-egg-s.webp'}, {'id': '1557959681773805621', 'at': '2026-10-09T03:35:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1557957118894673963', 'at': '2026-10-09T03:25:03.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '155795",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-09T04:12:02.844Z', 'total': 1822, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-09T03:00:55.771Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1557965966040637493', 'at': '2026-10-09T04:00:03.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1557963446895648869', 'at': '2026-10-09T03:50:03.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1557963429871099968', 'at': '2026-10-09T03:50:03.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1557960900663713874', 'at': '2026-10-09T03:40:03.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1557959728657600534', 'at': '2026-10-09T03:35:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1557959709259202672', 'at': '2026-10-09T03:35:03.000Z', 'pet': 'celestial-sunlion', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/celestial-sunlion-egg-s.webp'}, {'id': '1557959681773805621', 'at': '2026-10-09T03:35:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '15579571188",
     "transportHints": [
       "/spawns",
       "/spawns.json"
