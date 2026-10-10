@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-10T15:07:52.074829+00:00",
+  "checkedAt": "2026-10-10T15:26:20.858129+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -5795,6 +5795,76 @@
       "ts": 1791644409000,
       "source": "Eggipedia JSON",
       "t": 1791644872074
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-10T15:25:03.000Z",
+      "ts": 1791645903000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-10T15:20:03.000Z",
+      "ts": 1791645603000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
+    },
+    {
+      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-10T15:14:00.000Z",
+      "ts": 1791645240000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
+    },
+    {
+      "egg": "/images/sae/eggs/ice-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-10-10T15:13:21.000Z",
+      "ts": 1791645201000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-10T15:13:01.000Z",
+      "ts": 1791645181000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-10T15:08:17.000Z",
+      "ts": 1791644897000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-10T15:08:08.000Z",
+      "ts": 1791644888000,
+      "source": "Eggipedia JSON",
+      "t": 1791645980858
     }
   ],
   "diagnostics": {
@@ -5828,9 +5898,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 36442,
+    "spawnJsonBytes": 36484,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-10T15:07:47.116Z', 'total': 2080, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-10T02:08:26.035Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1558496268953714730', 'at': '2026-10-10T15:07:30.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1558494889992527923', 'at': '2026-10-10T15:01:54.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id': '1558494864101089324', 'at': '2026-10-10T15:01:52.000Z', 'pet': 'king-snake', 'mut': None, 'kg': None, 'biome': 'Jungle', 'egg': '/images/sae/eggs/king-snake-egg-s.webp'}, {'id': '1558494439012311182', 'at': '2026-10-10T15:00:09.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1558489374230974596', 'at': '2026-10-10T14:40:06.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1558488123896242190', 'at': '2026-10-10T14:35:07.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1558485800700608626', 'at': '2026-10-10T14:25:54.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmi",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-10T15:25:29.401Z', 'total': 2087, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-10T02:08:26.035Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1558500686856200294', 'at': '2026-10-10T15:25:03.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1558499431416864890', 'at': '2026-10-10T15:20:03.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1558497927201300524', 'at': '2026-10-10T15:14:00.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id': '1558497765946953842', 'at': '2026-10-10T15:13:21.000Z', 'pet': 'ice-dragon', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/ice-dragon-egg-s.webp'}, {'id': '1558497658652590202', 'at': '2026-10-10T15:13:01.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1558496484272513086', 'at': '2026-10-10T15:08:17.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1558496435350143048', 'at': '2026-10-10T15:08:08.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/",
     "transportHints": [
       "/spawns",
       "/spawns.json"
