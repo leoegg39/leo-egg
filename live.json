@@ -1,10 +1,10 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-12T22:54:41.783208+00:00",
+  "checkedAt": "2026-10-12T23:12:24.690884+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
-  "parsedNow": 312,
+  "parsedNow": 313,
   "spawns": [
     {
       "egg": "/images/sae/eggs/lava-dragon-egg-s.webp",
@@ -4735,6 +4735,36 @@
       "ts": 1791844803000,
       "source": "Eggipedia JSON",
       "t": 1791845681783
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-12T23:05:06.000Z",
+      "ts": 1791846306000,
+      "source": "Eggipedia JSON",
+      "t": 1791846744690
+    },
+    {
+      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-12T22:55:50.000Z",
+      "ts": 1791845750000,
+      "source": "Eggipedia JSON",
+      "t": 1791846744690
+    },
+    {
+      "egg": "/images/sae/eggs/skeleton-horse-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-12T22:55:04.000Z",
+      "ts": 1791845704000,
+      "source": "Eggipedia JSON",
+      "t": 1791846744690
     }
   ],
   "diagnostics": {
@@ -4768,9 +4798,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 36938,
+    "spawnJsonBytes": 37109,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-12T22:53:57.157Z', 'total': 2569, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-12T02:48:30.361Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1559336182507114508', 'at': '2026-10-12T22:45:04.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1559335101928837141', 'at': '2026-10-12T22:40:46.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559334926548082740', 'at': '2026-10-12T22:40:03.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1559333671641682082', 'at': '2026-10-12T22:35:04.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1559331168917135532', 'at': '2026-10-12T22:25:04.000Z', 'pet': 'mosasaurus', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/mosasaurus-egg-s.webp'}, {'id': '1559327374258995221', 'at': '2026-10-12T22:10:03.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559326118626984069', 'at': '2026-10-12T22:05:03.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id'",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-12T23:11:57.161Z', 'total': 2572, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-12T02:48:30.361Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1559341225696436416', 'at': '2026-10-12T23:05:06.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1559338889444073514', 'at': '2026-10-12T22:55:50.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/razorfang-egg-s.webp'}, {'id': '1559338707020939408', 'at': '2026-10-12T22:55:04.000Z', 'pet': 'skeleton-horse', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/skeleton-horse-egg-s.webp'}, {'id': '1559336182507114508', 'at': '2026-10-12T22:45:04.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1559335101928837141', 'at': '2026-10-12T22:40:46.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559334926548082740', 'at': '2026-10-12T22:40:03.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1559333671641682082', 'at': '2026-10-12T22:35:04.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1559",
     "transportHints": [
       "/spawns",
       "/spawns.json"
