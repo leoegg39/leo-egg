@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-13T07:09:55.779933+00:00",
+  "checkedAt": "2026-10-13T07:37:29.103503+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -3475,6 +3475,56 @@
       "ts": 1791873905000,
       "source": "Eggipedia JSON",
       "t": 1791875395779
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-13T07:35:06.000Z",
+      "ts": 1791876906000,
+      "source": "Eggipedia JSON",
+      "t": 1791877049103
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-13T07:30:06.000Z",
+      "ts": 1791876606000,
+      "source": "Eggipedia JSON",
+      "t": 1791877049103
+    },
+    {
+      "egg": "/images/sae/eggs/king-snake-egg-s.webp",
+      "rarity": null,
+      "biome": "Jungle",
+      "loc": "Jungle",
+      "timeText": "2026-10-13T07:20:51.000Z",
+      "ts": 1791876051000,
+      "source": "Eggipedia JSON",
+      "t": 1791877049103
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-13T07:20:04.000Z",
+      "ts": 1791876004000,
+      "source": "Eggipedia JSON",
+      "t": 1791877049103
+    },
+    {
+      "egg": "/images/sae/eggs/oni-tiger-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-10-13T07:15:04.000Z",
+      "ts": 1791875704000,
+      "source": "Eggipedia JSON",
+      "t": 1791877049103
     }
   ],
   "diagnostics": {
@@ -3508,9 +3558,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 36970,
+    "spawnJsonBytes": 36935,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-13T07:09:45.088Z', 'total': 2633, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-13T02:52:39.198Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1559458241975685142', 'at': '2026-10-13T06:50:04.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/oni-tiger-egg-s.webp'}, {'id': '1559456984334340187', 'at': '2026-10-13T06:45:05.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1559454464711073824', 'at': '2026-10-13T06:35:04.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1559453209628508304', 'at': '2026-10-13T06:30:04.000Z', 'pet': 'mosasaurus', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/mosasaurus-egg-s.webp'}, {'id': '1559450695026085919', 'at': '2026-10-13T06:20:04.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1559445677669482508', 'at': '2026-10-13T06:00:04.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1559442065086222427', 'at': '2026-10-13T05:45:48.000Z', 'pet': 'phoenix', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/phoenix-egg-s.webp'}, {'id': '1559441888313081909', 'at': '2026-10-13T05:",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-13T07:36:45.117Z', 'total': 2638, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-13T02:52:39.198Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1559469570878869579', 'at': '2026-10-13T07:35:06.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1559468319252283406', 'at': '2026-10-13T07:30:06.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1559465982387429448', 'at': '2026-10-13T07:20:51.000Z', 'pet': 'king-snake', 'mut': None, 'kg': None, 'biome': 'Jungle', 'egg': '/images/sae/eggs/king-snake-egg-s.webp'}, {'id': '1559465796109869067', 'at': '2026-10-13T07:20:04.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1559464542264893521', 'at': '2026-10-13T07:15:04.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/oni-tiger-egg-s.webp'}, {'id': '1559458241975685142', 'at': '2026-10-13T06:50:04.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/oni-tiger-egg-s.webp'}, {'id': '1559456984334340187', 'at': '2026-10-13T06:45:05.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1559454464711073824',",
     "transportHints": [
       "/spawns",
       "/spawns.json"
