@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-14T00:40:36.023025+00:00",
+  "checkedAt": "2026-10-14T01:17:45.694718+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -5095,6 +5095,36 @@
       "ts": 1791936003000,
       "source": "Eggipedia JSON",
       "t": 1791938436023
+    },
+    {
+      "egg": "/images/sae/eggs/ice-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-10-14T01:10:03.000Z",
+      "ts": 1791940203000,
+      "source": "Eggipedia JSON",
+      "t": 1791940665694
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-14T01:05:04.000Z",
+      "ts": 1791939904000,
+      "source": "Eggipedia JSON",
+      "t": 1791940665694
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-14T00:55:04.000Z",
+      "ts": 1791939304000,
+      "source": "Eggipedia JSON",
+      "t": 1791940665694
     }
   ],
   "diagnostics": {
@@ -5128,9 +5158,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 36825,
+    "spawnJsonBytes": 36843,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-14T00:40:21.561Z', 'total': 2795, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-13T02:52:39.198Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1559727523066286161', 'at': '2026-10-14T00:40:05.000Z', 'pet': 'celestial-sunlion', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/celestial-sunlion-egg-s.webp'}, {'id': '1559723739199967243', 'at': '2026-10-14T00:25:04.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1559722484041908336', 'at': '2026-10-14T00:20:05.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559721225566162955', 'at': '2026-10-14T00:15:05.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/oni-tiger-egg-s.webp'}, {'id': '1559718742177488947', 'at': '2026-10-14T00:05:14.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1559717684357238835', 'at': '2026-10-14T00:00:59.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559717467851333775', 'at': '2026-10-14T00:00:03.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/razorfa",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-14T01:17:46.539Z', 'total': 2798, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-13T02:52:39.198Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1559735062524596265', 'at': '2026-10-14T01:10:03.000Z', 'pet': 'ice-dragon', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/ice-dragon-egg-s.webp'}, {'id': '1559733811770691584', 'at': '2026-10-14T01:05:04.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559731293468753955', 'at': '2026-10-14T00:55:04.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp'}, {'id': '1559727523066286161', 'at': '2026-10-14T00:40:05.000Z', 'pet': 'celestial-sunlion', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/celestial-sunlion-egg-s.webp'}, {'id': '1559723739199967243', 'at': '2026-10-14T00:25:04.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1559722484041908336', 'at': '2026-10-14T00:20:05.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1559721225566162955', 'at': '2026-10-14T00:15:05.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/o",
     "transportHints": [
       "/spawns",
       "/spawns.json"
