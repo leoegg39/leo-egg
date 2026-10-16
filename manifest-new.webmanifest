@@ -2,7 +2,7 @@
   "name": "LEO EGG 最新版",
   "short_name": "LEO EGG 新",
   "id": "./leo-egg-new-20261016",
-  "start_url": "./start-new.html",
+  "start_url": "./leo-egg-new-782.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#06101f",
