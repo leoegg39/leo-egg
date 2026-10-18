@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-18T19:28:38.155080+00:00",
+  "checkedAt": "2026-10-18T19:53:04.384481+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -3975,6 +3975,36 @@
       "ts": 1792350904000,
       "source": "Eggipedia JSON",
       "t": 1792351718155
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-18T19:45:07.000Z",
+      "ts": 1792352707000,
+      "source": "Eggipedia JSON",
+      "t": 1792353184384
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-18T19:35:07.000Z",
+      "ts": 1792352107000,
+      "source": "Eggipedia JSON",
+      "t": 1792353184384
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-18T19:30:08.000Z",
+      "ts": 1792351808000,
+      "source": "Eggipedia JSON",
+      "t": 1792353184384
     }
   ],
   "diagnostics": {
@@ -4008,9 +4038,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 37450,
+    "spawnJsonBytes": 37444,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-18T19:28:18.442Z', 'total': 3332, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561458918880710838', 'at': '2026-10-18T19:20:07.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1561457651509100545', 'at': '2026-10-18T19:15:04.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1561453887196631183-1', 'at': '2026-10-18T19:00:07.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1561453887196631183-0', 'at': '2026-10-18T19:00:07.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1561452617542934644', 'at': '2026-10-18T18:55:04.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/razorfang-egg-s.webp'}, {'id': '1561446337000771696', 'at': '2026-10-18T18:30:07.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1561443814365855775', 'at': '2026-10-18T18:20:06.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '15614",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-18T19:52:18.556Z', 'total': 3335, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561465211070840993', 'at': '2026-10-18T19:45:07.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1561462692185776129', 'at': '2026-10-18T19:35:07.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1561461444342448235', 'at': '2026-10-18T19:30:08.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1561458918880710838', 'at': '2026-10-18T19:20:07.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1561457651509100545', 'at': '2026-10-18T19:15:04.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1561453887196631183-1', 'at': '2026-10-18T19:00:07.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1561453887196631183-0', 'at': '2026-10-18T19:00:07.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '15614526175",
     "transportHints": [
       "/spawns",
       "/spawns.json"
