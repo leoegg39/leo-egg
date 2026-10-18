@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-18T16:53:07.050216+00:00",
+  "checkedAt": "2026-10-18T17:16:16.693044+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -3775,6 +3775,36 @@
       "ts": 1792341007000,
       "source": "Eggipedia JSON",
       "t": 1792342387050
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-18T17:05:06.000Z",
+      "ts": 1792343106000,
+      "source": "Eggipedia JSON",
+      "t": 1792343776693
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-10-18T17:05:06.000Z",
+      "ts": 1792343106000,
+      "source": "Eggipedia JSON",
+      "t": 1792343776693
+    },
+    {
+      "egg": "/images/sae/eggs/kitsune-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-10-18T16:55:08.000Z",
+      "ts": 1792342508000,
+      "source": "Eggipedia JSON",
+      "t": 1792343776693
     }
   ],
   "diagnostics": {
@@ -3808,9 +3838,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 37243,
+    "spawnJsonBytes": 37237,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-18T16:52:17.630Z', 'total': 3312, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561421168337227887', 'at': '2026-10-18T16:50:06.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1561418653516169266-1', 'at': '2026-10-18T16:40:06.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1561418653516169266-0', 'at': '2026-10-18T16:40:06.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/razorfang-egg-s.webp'}, {'id': '1561416146329141393-1', 'at': '2026-10-18T16:30:07.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1561416146329141393-0', 'at': '2026-10-18T16:30:07.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1561412367772942409-1', 'at': '2026-10-18T16:15:07.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1561412367772942409-0', 'at': '2026-10-18T16:15:07.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1561411304789643370', 'at': '2026-10-",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-18T17:15:17.754Z', 'total': 3315, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561424963888484366-1', 'at': '2026-10-18T17:05:06.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1561424963888484366-0', 'at': '2026-10-18T17:05:06.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1561422435197133002', 'at': '2026-10-18T16:55:08.000Z', 'pet': 'kitsune', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/kitsune-egg-s.webp'}, {'id': '1561421168337227887', 'at': '2026-10-18T16:50:06.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1561418653516169266-1', 'at': '2026-10-18T16:40:06.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1561418653516169266-0', 'at': '2026-10-18T16:40:06.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/razorfang-egg-s.webp'}, {'id': '1561416146329141393-1', 'at': '2026-10-18T16:30:07.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1561416146329141393-0',",
     "transportHints": [
       "/spawns",
       "/spawns.json"
