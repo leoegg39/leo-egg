@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-16T21:13:03.511022+00:00",
+  "checkedAt": "2026-10-18T10:56:54.408507+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -3185,6 +3185,46 @@
       "ts": 1790258402090,
       "source": "SaneStats history",
       "t": 1792185183511
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-18T10:55:07.000Z",
+      "ts": 1792320907000,
+      "source": "Eggipedia JSON",
+      "t": 1792321014408
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-18T10:55:07.000Z",
+      "ts": 1792320907000,
+      "source": "Eggipedia JSON",
+      "t": 1792321014408
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-18T10:50:06.000Z",
+      "ts": 1792320606000,
+      "source": "Eggipedia JSON",
+      "t": 1792321014408
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-18T10:30:07.000Z",
+      "ts": 1792319407000,
+      "source": "Eggipedia JSON",
+      "t": 1792321014408
     }
   ],
   "diagnostics": {
@@ -3196,7 +3236,7 @@
       "/assets/sae.js?v=4d3d1dcb",
       "/assets/sae-data.en.js?v=4d3d1dcb",
       "/assets/live.js?v=4d3d1dcb",
-      "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+      "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
     ],
     "liveHints": [
       "/live.js?v=4d3d1dcb",
@@ -3208,7 +3248,7 @@
       "https://eggipedia.com/spawns",
       "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4824623706629247",
       "https://schema.org",
-      "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
+      "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
       "https://stealanegg.fandom.com",
       "https://www.roblox.com/communities/825735094",
       "https://www.roblox.com/games/107778070777162/Steal-An-Egg"
@@ -3218,9 +3258,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 37291,
+    "spawnJsonBytes": 37316,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-16T21:12:14.594Z', 'total': 3253, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T21:02:11.245Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1560639766272409760', 'at': '2026-10-16T13:05:03.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1560636361273376799', 'at': '2026-10-16T12:51:33.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1560636166846423103', 'at': '2026-10-16T12:50:47.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1560635983328976978', 'at': '2026-10-16T12:50:02.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1560634733686165517', 'at': '2026-10-16T12:45:03.000Z', 'pet': 'king-snake', 'mut': None, 'kg': None, 'biome': 'Jungle', 'egg': '/images/sae/eggs/king-snake-egg-s.webp'}, {'id': '1560631152136556696', 'at': '2026-10-16T12:30:51.000Z', 'pet': 'world-burner', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/world-burner-egg-s.webp'}, {'id': '1560630956631654492', 'at': '2026-10-16T12:30:03.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1560629696289579101', 'at",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-18T10:56:15.748Z', 'total': 3257, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561331831104868462-1', 'at': '2026-10-18T10:55:07.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1561331831104868462-0', 'at': '2026-10-18T10:55:07.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1561330571945181287', 'at': '2026-10-18T10:50:06.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1561325535844499557', 'at': '2026-10-18T10:30:07.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1560639766272409760', 'at': '2026-10-16T13:05:03.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1560636361273376799', 'at': '2026-10-16T12:51:33.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1560636166846423103', 'at': '2026-10-16T12:50:47.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1560635983328976",
     "transportHints": [
       "/spawns",
       "/spawns.json"
@@ -3239,7 +3279,7 @@
       "htmlBytes": 3358,
       "scripts": [
         "/assets/index-5rbGZ-ck.js",
-        "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+        "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
       ],
       "hasCurrentSpawns": false,
       "hasRareHistory": true,
@@ -3288,8 +3328,8 @@
           ]
         },
         {
-          "url": "https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920",
-          "bytes": 31679,
+          "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "bytes": 31853,
           "hints": [
             "https://cloudflareinsights.com/cdn-cgi/rum"
           ]
