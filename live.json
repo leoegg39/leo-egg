@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-19T14:31:21.023915+00:00",
+  "checkedAt": "2026-10-19T15:14:22.193685+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -5695,6 +5695,46 @@
       "ts": 1792419005000,
       "source": "Eggipedia JSON",
       "t": 1792420281023
+    },
+    {
+      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-19T15:10:05.000Z",
+      "ts": 1792422605000,
+      "source": "Eggipedia JSON",
+      "t": 1792422862193
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-19T14:55:07.000Z",
+      "ts": 1792421707000,
+      "source": "Eggipedia JSON",
+      "t": 1792422862193
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-19T14:55:07.000Z",
+      "ts": 1792421707000,
+      "source": "Eggipedia JSON",
+      "t": 1792422862193
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-19T14:50:08.000Z",
+      "ts": 1792421408000,
+      "source": "Eggipedia JSON",
+      "t": 1792422862193
     }
   ],
   "diagnostics": {
@@ -5728,9 +5768,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 38252,
+    "spawnJsonBytes": 38289,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-19T14:30:25.090Z', 'total': 3504, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561748328545394798', 'at': '2026-10-19T14:30:08.000Z', 'pet': 'mosasaurus', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/mosasaurus-egg-s.webp'}, {'id': '1561745810759094399', 'at': '2026-10-19T14:20:08.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1561744550106759269', 'at': '2026-10-19T14:15:08.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1561743285087772823', 'at': '2026-10-19T14:10:05.000Z', 'pet': 'mosasaurus', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/mosasaurus-egg-s.webp'}, {'id': '1561738285892501595', 'at': '2026-10-19T13:50:12.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id': '1561738264958869668-1', 'at': '2026-10-19T13:50:07.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1561738264958869668-0', 'at': '2026-10-19T13:50:07.000Z', 'pet': 'cosmic-skeleton-boss', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/cosmic-skeleton-boss-egg-s.",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-19T15:13:25.335Z', 'total': 3508, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1561758387291553842', 'at': '2026-10-19T15:10:05.000Z', 'pet': 'gorilla-king', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/gorilla-king-egg-s.webp'}, {'id': '1561754619292688418-1', 'at': '2026-10-19T14:55:07.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1561754619292688418-0', 'at': '2026-10-19T14:55:07.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1561753366239907881', 'at': '2026-10-19T14:50:08.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1561748328545394798', 'at': '2026-10-19T14:30:08.000Z', 'pet': 'mosasaurus', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/mosasaurus-egg-s.webp'}, {'id': '1561745810759094399', 'at': '2026-10-19T14:20:08.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1561744550106759269', 'at': '2026-10-19T14:15:08.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '15",
     "transportHints": [
       "/spawns",
       "/spawns.json"
