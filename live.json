@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-20T17:20:49.601208+00:00",
+  "checkedAt": "2026-10-20T17:53:36.525134+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -8005,6 +8005,56 @@
       "ts": 1792515309000,
       "source": "Eggipedia JSON",
       "t": 1792516849601
+    },
+    {
+      "egg": "/images/sae/eggs/yeti-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-20T17:50:11.000Z",
+      "ts": 1792518611000,
+      "source": "Eggipedia JSON",
+      "t": 1792518816525
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-20T17:50:11.000Z",
+      "ts": 1792518611000,
+      "source": "Eggipedia JSON",
+      "t": 1792518816525
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-20T17:50:07.000Z",
+      "ts": 1792518607000,
+      "source": "Eggipedia JSON",
+      "t": 1792518816525
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-20T17:50:07.000Z",
+      "ts": 1792518607000,
+      "source": "Eggipedia JSON",
+      "t": 1792518816525
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-20T17:45:04.000Z",
+      "ts": 1792518304000,
+      "source": "Eggipedia JSON",
+      "t": 1792518816525
     }
   ],
   "diagnostics": {
@@ -8038,9 +8088,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 38453,
+    "spawnJsonBytes": 38432,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-20T17:20:34.462Z', 'total': 3735, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1562153493089878018', 'at': '2026-10-20T17:20:08.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1562150981154644032', 'at': '2026-10-20T17:10:09.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1562149732959391924-1', 'at': '2026-10-20T17:05:09.000Z', 'pet': 'razorfang', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/razorfang-egg-s.webp'}, {'id': '1562149732959391924-0', 'at': '2026-10-20T17:05:09.000Z', 'pet': 'gorilla-king', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/gorilla-king-egg-s.webp'}, {'id': '1562148512878043158', 'at': '2026-10-20T17:00:10.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1562147204947251272', 'at': '2026-10-20T16:55:09.000Z', 'pet': 'phoenix', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/phoenix-egg-s.webp'}, {'id': '1562144884217876582', 'at': '2026-10-20T16:45:19.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '156214",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-20T17:53:34.644Z', 'total': 3740, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1562161072029433917-1', 'at': '2026-10-20T17:50:11.000Z', 'pet': 'yeti', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1562161072029433917-0', 'at': '2026-10-20T17:50:11.000Z', 'pet': 'starry-fox', 'mut': 'Enchanted', 'kg': None, 'biome': 'Enchanted Forest', 'egg': '/images/sae/eggs/starry-fox-egg-s.webp'}, {'id': '1562161054534864948-1', 'at': '2026-10-20T17:50:07.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1562161054534864948-0', 'at': '2026-10-20T17:50:07.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1562159900769914901', 'at': '2026-10-20T17:45:04.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1562153493089878018', 'at': '2026-10-20T17:20:08.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1562150981154644032', 'at': '2026-10-20T17:10:09.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.we",
     "transportHints": [
       "/spawns",
       "/spawns.json"
