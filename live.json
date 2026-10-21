@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-20T23:46:19.931978+00:00",
+  "checkedAt": "2026-10-21T00:08:22.743158+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -8595,6 +8595,36 @@
       "ts": 1792538410000,
       "source": "Eggipedia JSON",
       "t": 1792539979931
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-21T00:00:06.000Z",
+      "ts": 1792540806000,
+      "source": "Eggipedia JSON",
+      "t": 1792541302743
+    },
+    {
+      "egg": "/images/sae/eggs/king-snake-egg-s.webp",
+      "rarity": null,
+      "biome": "Jungle",
+      "loc": "Jungle",
+      "timeText": "2026-10-20T23:55:07.000Z",
+      "ts": 1792540507000,
+      "source": "Eggipedia JSON",
+      "t": 1792541302743
+    },
+    {
+      "egg": "/images/sae/eggs/mosasaurus-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-10-20T23:50:09.000Z",
+      "ts": 1792540209000,
+      "source": "Eggipedia JSON",
+      "t": 1792541302743
     }
   ],
   "diagnostics": {
@@ -8628,9 +8658,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 38557,
+    "spawnJsonBytes": 38567,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-20T23:45:36.610Z', 'total': 3794, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1562249125947383841', 'at': '2026-10-20T23:40:10.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1562247852300701737', 'at': '2026-10-20T23:35:06.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1562246611080319091-1', 'at': '2026-10-20T23:30:09.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1562246611080319091-0', 'at': '2026-10-20T23:30:09.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id': '1562245345595891713', 'at': '2026-10-20T23:25:07.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id': '1562244100386717737', 'at': '2026-10-20T23:20:10.000Z', 'pet': 'skeleton-horse', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/skeleton-horse-egg-s.webp'}, {'id': '1562241587948298250', 'at': '2026-10-20T23:10:09.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pu",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-21T00:07:36.702Z', 'total': 3797, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1562254154909618368', 'at': '2026-10-21T00:00:06.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1562252891178274948', 'at': '2026-10-20T23:55:07.000Z', 'pet': 'king-snake', 'mut': None, 'kg': None, 'biome': 'Jungle', 'egg': '/images/sae/eggs/king-snake-egg-s.webp'}, {'id': '1562251640562786315', 'at': '2026-10-20T23:50:09.000Z', 'pet': 'mosasaurus', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/mosasaurus-egg-s.webp'}, {'id': '1562249125947383841', 'at': '2026-10-20T23:40:10.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1562247852300701737', 'at': '2026-10-20T23:35:06.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1562246611080319091-1', 'at': '2026-10-20T23:30:09.000Z', 'pet': 'cosmic-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/cosmic-dragon-egg-s.webp'}, {'id': '1562246611080319091-0', 'at': '2026-10-20T23:30:09.000Z', 'pet': 'eternal-lunar-dragon', 'mut': None, 'kg': None, 'biome': 'Cosmic', 'egg': '/images/sae/eggs/eternal-lunar-dragon-egg-s.webp'}, {'id'",
     "transportHints": [
       "/spawns",
       "/spawns.json"
