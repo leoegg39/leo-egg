@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-21T04:56:18.271953+00:00",
+  "checkedAt": "2026-10-21T05:27:37.959821+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
@@ -9005,6 +9005,56 @@
       "ts": 1792556407000,
       "source": "Eggipedia JSON",
       "t": 1792558578271
+    },
+    {
+      "egg": "/images/sae/eggs/oni-tiger-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-10-21T05:20:06.000Z",
+      "ts": 1792560006000,
+      "source": "Eggipedia JSON",
+      "t": 1792560457959
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-21T05:15:09.000Z",
+      "ts": 1792559709000,
+      "source": "Eggipedia JSON",
+      "t": 1792560457959
+    },
+    {
+      "egg": "/images/sae/eggs/yeti-egg-s.webp",
+      "rarity": null,
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-10-21T05:05:09.000Z",
+      "ts": 1792559109000,
+      "source": "Eggipedia JSON",
+      "t": 1792560457959
+    },
+    {
+      "egg": "/images/sae/eggs/centaur-egg-s.webp",
+      "rarity": null,
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-10-21T05:05:09.000Z",
+      "ts": 1792559109000,
+      "source": "Eggipedia JSON",
+      "t": 1792560457959
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-21T05:00:12.000Z",
+      "ts": 1792558812000,
+      "source": "Eggipedia JSON",
+      "t": 1792560457959
     }
   ],
   "diagnostics": {
@@ -9038,9 +9088,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 38583,
+    "spawnJsonBytes": 38532,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-21T04:55:38.274Z', 'total': 3835, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1562325865080164384-1', 'at': '2026-10-21T04:45:05.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1562325865080164384-0', 'at': '2026-10-21T04:45:05.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1562322099190759559', 'at': '2026-10-21T04:30:08.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1562320849703407698', 'at': '2026-10-21T04:25:09.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1562319585984905269', 'at': '2026-10-21T04:20:07.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1562318334601732148', 'at': '2026-10-21T04:15:08.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1562315806543708222', 'at': '2026-10-21T04:05:08.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-21T05:27:38.469Z', 'total': 3840, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-16T23:51:01.071Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1562334674984898592', 'at': '2026-10-21T05:20:06.000Z', 'pet': 'oni-tiger', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/oni-tiger-egg-s.webp'}, {'id': '1562333428593197127', 'at': '2026-10-21T05:15:09.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1562330915558916180-1', 'at': '2026-10-21T05:05:09.000Z', 'pet': 'yeti', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/yeti-egg-s.webp'}, {'id': '1562330915558916180-0', 'at': '2026-10-21T05:05:09.000Z', 'pet': 'centaur', 'mut': None, 'kg': None, 'biome': 'Snow', 'egg': '/images/sae/eggs/centaur-egg-s.webp'}, {'id': '1562329673587884073', 'at': '2026-10-21T05:00:12.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1562325865080164384-1', 'at': '2026-10-21T04:45:05.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1562325865080164384-0', 'at': '2026-10-21T04:45:05.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1562322099190759559', 'at': '2026-10-",
     "transportHints": [
       "/spawns",
       "/spawns.json"
