@@ -1,61 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-23T09:58:01.806875+00:00",
+  "checkedAt": "2026-10-23T10:31:00.365222+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 324,
   "spawns": [
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-10-19T07:50:07.000Z",
-      "ts": 1792396207000,
-      "source": "Eggipedia JSON",
-      "t": 1792397080660
-    },
-    {
-      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-10-19T07:40:07.000Z",
-      "ts": 1792395607000,
-      "source": "Eggipedia JSON",
-      "t": 1792397080660
-    },
-    {
-      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-10-19T07:40:07.000Z",
-      "ts": 1792395607000,
-      "source": "Eggipedia JSON",
-      "t": 1792397080660
-    },
-    {
-      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-10-19T07:35:06.000Z",
-      "ts": 1792395306000,
-      "source": "Eggipedia JSON",
-      "t": 1792397080660
-    },
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-10-19T07:30:07.000Z",
-      "ts": 1792395007000,
-      "source": "Eggipedia JSON",
-      "t": 1792397080660
-    },
     {
       "egg": "/images/sae/eggs/stag-egg-s.webp",
       "rarity": null,
@@ -10005,6 +9955,56 @@
       "ts": 1792747507000,
       "source": "Eggipedia JSON",
       "t": 1792749481806
+    },
+    {
+      "egg": "/images/sae/eggs/pegasus-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-23T10:30:05.000Z",
+      "ts": 1792751405000,
+      "source": "Eggipedia JSON",
+      "t": 1792751460365
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-23T10:30:05.000Z",
+      "ts": 1792751405000,
+      "source": "Eggipedia JSON",
+      "t": 1792751460365
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-10-23T10:30:05.000Z",
+      "ts": 1792751405000,
+      "source": "Eggipedia JSON",
+      "t": 1792751460365
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-23T10:10:07.000Z",
+      "ts": 1792750207000,
+      "source": "Eggipedia JSON",
+      "t": 1792751460365
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-10-23T10:10:07.000Z",
+      "ts": 1792750207000,
+      "source": "Eggipedia JSON",
+      "t": 1792751460365
     }
   ],
   "diagnostics": {
@@ -10038,9 +10038,9 @@
     "liveJsBytes": 11038,
     "liveJsError": "",
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
-    "spawnJsonBytes": 38752,
+    "spawnJsonBytes": 38780,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-23T09:57:22.747Z', 'total': 4327, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-22T16:33:07.866Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1563126147422883851', 'at': '2026-10-23T09:45:09.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1563123644618510427', 'at': '2026-10-23T09:35:09.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1563123629946970203', 'at': '2026-10-23T09:35:07.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1563121177826828372', 'at': '2026-10-23T09:25:11.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1563121149695492167', 'at': '2026-10-23T09:25:07.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1563118648879620128', 'at': '2026-10-23T09:15:09.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1563117688849563718', 'at': '2026-10-23T09:10:09.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': ",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-10-23T10:30:22.952Z', 'total': 4332, 'since': '2026-09-28T21:15:02.000Z', 'startedAt': '2026-10-22T16:33:07.866Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1563137466712592407-2', 'at': '2026-10-23T10:30:05.000Z', 'pet': 'pegasus', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/pegasus-egg-s.webp'}, {'id': '1563137466712592407-1', 'at': '2026-10-23T10:30:05.000Z', 'pet': 'tralaledon', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/tralaledon-egg-s.webp'}, {'id': '1563137466712592407-0', 'at': '2026-10-23T10:30:05.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1563132430255390873-1', 'at': '2026-10-23T10:10:07.000Z', 'pet': 'kraken', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/kraken-egg-s.webp'}, {'id': '1563132430255390873-0', 'at': '2026-10-23T10:10:07.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Abyss Ocean', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1563126147422883851', 'at': '2026-10-23T09:45:09.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1563123644618510427', 'at': '2026-10-23T09:35:09.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1563123629946970203', 'at':",
     "transportHints": [
       "/spawns",
       "/spawns.json"
