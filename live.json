@@ -1,711 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-11-08T02:09:01.020315+00:00",
+  "checkedAt": "2026-11-08T08:58:54.022785+00:00",
   "source": "https://eggipedia.com/spawns",
   "paused": false,
   "noHistory": true,
   "parsedNow": 337,
   "spawns": [
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-11-04T07:50:03.000Z",
-      "ts": 1793778603000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-11-04T07:25:04.000Z",
-      "ts": 1793777104000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/kraken-egg-s.webp",
-      "rarity": null,
-      "biome": "Abyss Ocean",
-      "loc": "Abyss Ocean",
-      "timeText": "2026-11-04T07:20:06.000Z",
-      "ts": 1793776806000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
-      "rarity": null,
-      "biome": "Abyss Ocean",
-      "loc": "Abyss Ocean",
-      "timeText": "2026-11-04T07:20:06.000Z",
-      "ts": 1793776806000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T07:20:03.000Z",
-      "ts": 1793776803000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T07:10:04.000Z",
-      "ts": 1793776204000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T07:05:04.000Z",
-      "ts": 1793775904000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T07:00:05.000Z",
-      "ts": 1793775605000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T06:55:04.000Z",
-      "ts": 1793775304000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/oni-tiger-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T06:45:06.000Z",
-      "ts": 1793774706000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T06:45:04.000Z",
-      "ts": 1793774704000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-11-04T06:35:04.000Z",
-      "ts": 1793774104000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-11-04T06:30:06.000Z",
-      "ts": 1793773806000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/king-snake-egg-s.webp",
-      "rarity": null,
-      "biome": "Jungle",
-      "loc": "Jungle",
-      "timeText": "2026-11-04T06:30:04.000Z",
-      "ts": 1793773804000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-11-04T06:25:06.000Z",
-      "ts": 1793773506000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T06:25:04.000Z",
-      "ts": 1793773504000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-11-04T06:15:03.000Z",
-      "ts": 1793772903000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-11-04T06:05:06.000Z",
-      "ts": 1793772306000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/yeti-egg-s.webp",
-      "rarity": null,
-      "biome": "Snow",
-      "loc": "Snow",
-      "timeText": "2026-11-04T06:05:04.000Z",
-      "ts": 1793772304000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-11-04T06:00:07.000Z",
-      "ts": 1793772007000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-11-04T05:50:06.000Z",
-      "ts": 1793771406000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/skeleton-horse-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:50:04.000Z",
-      "ts": 1793771404000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
-      "rarity": null,
-      "biome": "Volcano",
-      "loc": "Volcano",
-      "timeText": "2026-11-04T05:45:04.000Z",
-      "ts": 1793771104000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:40:06.000Z",
-      "ts": 1793770806000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:40:03.000Z",
-      "ts": 1793770803000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:35:04.000Z",
-      "ts": 1793770504000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-11-04T05:25:06.000Z",
-      "ts": 1793769906000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:25:04.000Z",
-      "ts": 1793769904000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:20:04.000Z",
-      "ts": 1793769604000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T05:15:04.000Z",
-      "ts": 1793769304000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T05:05:04.000Z",
-      "ts": 1793768704000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
-      "rarity": null,
-      "biome": "Volcano",
-      "loc": "Volcano",
-      "timeText": "2026-11-04T04:50:04.000Z",
-      "ts": 1793767804000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/yeti-egg-s.webp",
-      "rarity": null,
-      "biome": "Snow",
-      "loc": "Snow",
-      "timeText": "2026-11-04T04:45:06.000Z",
-      "ts": 1793767506000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/royal-skywhale-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T04:45:04.000Z",
-      "ts": 1793767504000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T04:40:04.000Z",
-      "ts": 1793767204000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-11-04T04:35:07.000Z",
-      "ts": 1793766907000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T04:30:05.000Z",
-      "ts": 1793766605000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/kraken-egg-s.webp",
-      "rarity": null,
-      "biome": "Abyss Ocean",
-      "loc": "Abyss Ocean",
-      "timeText": "2026-11-04T04:30:03.000Z",
-      "ts": 1793766603000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T04:10:04.000Z",
-      "ts": 1793765404000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-11-04T04:05:06.000Z",
-      "ts": 1793765106000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T04:05:04.000Z",
-      "ts": 1793765104000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T04:00:06.000Z",
-      "ts": 1793764806000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pegasus-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T04:00:04.000Z",
-      "ts": 1793764804000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T03:55:04.000Z",
-      "ts": 1793764504000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/oni-tiger-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T03:40:04.000Z",
-      "ts": 1793763604000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/celestial-sunlion-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T03:35:04.000Z",
-      "ts": 1793763304000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T03:20:04.000Z",
-      "ts": 1793762404000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T03:05:06.000Z",
-      "ts": 1793761506000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T03:05:04.000Z",
-      "ts": 1793761504000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T02:45:04.000Z",
-      "ts": 1793760304000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/yeti-egg-s.webp",
-      "rarity": null,
-      "biome": "Snow",
-      "loc": "Snow",
-      "timeText": "2026-11-04T02:40:04.000Z",
-      "ts": 1793760004000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T02:35:04.000Z",
-      "ts": 1793759704000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-11-04T02:30:04.000Z",
-      "ts": 1793759404000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/phoenix-egg-s.webp",
-      "rarity": null,
-      "biome": "Volcano",
-      "loc": "Volcano",
-      "timeText": "2026-11-04T02:15:06.000Z",
-      "ts": 1793758506000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T02:15:04.000Z",
-      "ts": 1793758504000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
-      "rarity": null,
-      "biome": "Titan Temple",
-      "loc": "Titan Temple",
-      "timeText": "2026-11-04T02:10:06.000Z",
-      "ts": 1793758206000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T02:05:03.000Z",
-      "ts": 1793757903000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T01:45:06.000Z",
-      "ts": 1793756706000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T01:45:04.000Z",
-      "ts": 1793756704000,
-      "source": "Eggipedia JSON",
-      "t": 1793779459953
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T16:05:04.000Z",
-      "ts": 1793808304000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/kraken-egg-s.webp",
-      "rarity": null,
-      "biome": "Abyss Ocean",
-      "loc": "Abyss Ocean",
-      "timeText": "2026-11-04T16:00:04.000Z",
-      "ts": 1793808004000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T15:55:04.000Z",
-      "ts": 1793807704000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-11-04T15:50:04.000Z",
-      "ts": 1793807404000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Prehistoric",
-      "loc": "Prehistoric",
-      "timeText": "2026-11-04T15:50:04.000Z",
-      "ts": 1793807404000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T15:35:04.000Z",
-      "ts": 1793806504000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
-      "rarity": null,
-      "biome": "Cosmic",
-      "loc": "Cosmic",
-      "timeText": "2026-11-04T15:05:06.000Z",
-      "ts": 1793804706000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/skeleton-horse-egg-s.webp",
-      "rarity": null,
-      "biome": "Angels & Demons",
-      "loc": "Angels & Demons",
-      "timeText": "2026-11-04T15:05:04.000Z",
-      "ts": 1793804704000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
-      "rarity": null,
-      "biome": "Enchanted Forest",
-      "loc": "Enchanted Forest",
-      "timeText": "2026-11-04T15:00:04.000Z",
-      "ts": 1793804404000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/stag-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T14:55:04.000Z",
-      "ts": 1793804104000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
-    {
-      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
-      "rarity": null,
-      "biome": "Cherry Blossom",
-      "loc": "Cherry Blossom",
-      "timeText": "2026-11-04T14:55:04.000Z",
-      "ts": 1793804104000,
-      "source": "Eggipedia JSON",
-      "t": 1793808791112
-    },
     {
       "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
       "rarity": null,
@@ -10005,6 +9305,706 @@
       "ts": 1793724306000,
       "source": "Eggipedia JSON",
       "t": 1794103741020
+    },
+    {
+      "egg": "/images/sae/eggs/phoenix-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-11-08T08:55:04.000Z",
+      "ts": 1794128104000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T08:45:04.000Z",
+      "ts": 1794127504000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/centaur-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-11-08T08:35:03.000Z",
+      "ts": 1794126903000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/cerberus-egg-s.webp",
+      "rarity": null,
+      "biome": "Volcano",
+      "loc": "Volcano",
+      "timeText": "2026-11-08T08:35:03.000Z",
+      "ts": 1794126903000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T08:25:03.000Z",
+      "ts": 1794126303000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T08:15:03.000Z",
+      "ts": 1794125703000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T08:05:03.000Z",
+      "ts": 1794125103000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T07:55:04.000Z",
+      "ts": 1794124504000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T07:50:03.000Z",
+      "ts": 1794124203000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T07:40:04.000Z",
+      "ts": 1794123604000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T07:30:04.000Z",
+      "ts": 1794123004000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T07:20:04.000Z",
+      "ts": 1794122404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T07:20:04.000Z",
+      "ts": 1794122404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T07:10:07.000Z",
+      "ts": 1794121807000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T07:10:05.000Z",
+      "ts": 1794121805000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-11-08T07:10:04.000Z",
+      "ts": 1794121804000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-skeleton-boss-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-11-08T07:05:04.000Z",
+      "ts": 1794121504000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T07:00:07.000Z",
+      "ts": 1794121207000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T07:00:05.000Z",
+      "ts": 1794121205000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T07:00:04.000Z",
+      "ts": 1794121204000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-11-08T06:55:03.000Z",
+      "ts": 1794120903000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/centaur-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T06:45:04.000Z",
+      "ts": 1794120304000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-11-08T06:35:04.000Z",
+      "ts": 1794119704000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T06:30:04.000Z",
+      "ts": 1794119404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/celestial-sunlion-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T06:10:04.000Z",
+      "ts": 1794118204000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-11-08T05:50:09.000Z",
+      "ts": 1794117009000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T05:50:07.000Z",
+      "ts": 1794117007000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T05:50:06.000Z",
+      "ts": 1794117006000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/ice-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-11-08T05:50:04.000Z",
+      "ts": 1794117004000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T05:45:04.000Z",
+      "ts": 1794116704000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T05:40:04.000Z",
+      "ts": 1794116404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/kraken-egg-s.webp",
+      "rarity": null,
+      "biome": "Abyss Ocean",
+      "loc": "Abyss Ocean",
+      "timeText": "2026-11-08T05:35:04.000Z",
+      "ts": 1794116104000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/starry-fox-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T05:30:04.000Z",
+      "ts": 1794115804000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gorilla-king-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T05:30:04.000Z",
+      "ts": 1794115804000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T05:20:04.000Z",
+      "ts": 1794115204000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/oni-tiger-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T05:15:03.000Z",
+      "ts": 1794114903000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T05:10:06.000Z",
+      "ts": 1794114606000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/ice-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Snow",
+      "loc": "Snow",
+      "timeText": "2026-11-08T05:10:04.000Z",
+      "ts": 1794114604000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/celestial-sunlion-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T04:55:04.000Z",
+      "ts": 1794113704000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T04:50:06.000Z",
+      "ts": 1794113406000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T04:50:04.000Z",
+      "ts": 1794113404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T04:35:04.000Z",
+      "ts": 1794112504000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T04:25:04.000Z",
+      "ts": 1794111904000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T04:00:04.000Z",
+      "ts": 1794110404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T04:00:04.000Z",
+      "ts": 1794110404000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T03:45:04.000Z",
+      "ts": 1794109504000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/razorfang-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T03:40:06.000Z",
+      "ts": 1794109206000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T03:40:04.000Z",
+      "ts": 1794109204000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T03:35:04.000Z",
+      "ts": 1794108904000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T03:30:04.000Z",
+      "ts": 1794108604000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-11-08T03:25:03.000Z",
+      "ts": 1794108303000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/cosmic-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-11-08T03:20:07.000Z",
+      "ts": 1794108007000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/pure-jellyfish-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T03:20:05.000Z",
+      "ts": 1794108005000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/mutant-shark-egg-s.webp",
+      "rarity": null,
+      "biome": "Titan Temple",
+      "loc": "Titan Temple",
+      "timeText": "2026-11-08T03:20:04.000Z",
+      "ts": 1794108004000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T03:15:04.000Z",
+      "ts": 1794107704000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-11-08T03:05:05.000Z",
+      "ts": 1794107105000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/centaur-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T03:05:04.000Z",
+      "ts": 1794107104000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T02:50:09.000Z",
+      "ts": 1794106209000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T02:50:04.000Z",
+      "ts": 1794106204000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/stag-egg-s.webp",
+      "rarity": null,
+      "biome": "Cherry Blossom",
+      "loc": "Cherry Blossom",
+      "timeText": "2026-11-08T02:45:03.000Z",
+      "ts": 1794105903000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/tralaledon-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T02:40:04.000Z",
+      "ts": 1794105604000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/t-rex-egg-s.webp",
+      "rarity": null,
+      "biome": "Prehistoric",
+      "loc": "Prehistoric",
+      "timeText": "2026-11-08T02:35:04.000Z",
+      "ts": 1794105304000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/celestial-sunlion-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T02:30:06.000Z",
+      "ts": 1794105006000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/eternal-lunar-dragon-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-11-08T02:30:06.000Z",
+      "ts": 1794105006000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T02:30:04.000Z",
+      "ts": 1794105004000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/gargoyle-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-11-08T02:15:03.000Z",
+      "ts": 1794104103000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/unicorn-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-30T18:25:08.000Z",
+      "ts": 1793384708000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/unicorn-egg-s.webp",
+      "rarity": null,
+      "biome": "Cosmic",
+      "loc": "Cosmic",
+      "timeText": "2026-10-24T17:15:07.000Z",
+      "ts": 1792862107000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/world-burner-egg-s.webp",
+      "rarity": null,
+      "biome": "Angels & Demons",
+      "loc": "Angels & Demons",
+      "timeText": "2026-10-24T11:20:07.000Z",
+      "ts": 1792840807000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
+    },
+    {
+      "egg": "/images/sae/eggs/royal-skywhale-egg-s.webp",
+      "rarity": null,
+      "biome": "Enchanted Forest",
+      "loc": "Enchanted Forest",
+      "timeText": "2026-10-20T13:05:05.000Z",
+      "ts": 1792501505000,
+      "source": "Eggipedia JSON",
+      "t": 1794128334022
     }
   ],
   "diagnostics": {
@@ -10040,7 +10040,7 @@
     "spawnJsonUrl": "https://eggipedia.com/live/spawns.json",
     "spawnJsonBytes": 40986,
     "spawnJsonError": "",
-    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-11-08T02:08:40.133Z', 'total': 5000, 'since': '2026-10-11T15:20:03.000Z', 'startedAt': '2026-10-31T20:37:40.383Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1568808600871239792', 'at': '2026-11-08T02:05:05.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1568803520507945088', 'at': '2026-11-08T01:45:04.000Z', 'pet': 'mutant-shark', 'mut': None, 'kg': None, 'biome': 'Titan Temple', 'egg': '/images/sae/eggs/mutant-shark-egg-s.webp'}, {'id': '1568802274283749389', 'at': '2026-11-08T01:40:06.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1568802261554045019', 'at': '2026-11-08T01:40:04.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1568799744422052012', 'at': '2026-11-08T01:30:04.000Z', 'pet': 'pure-jellyfish', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/pure-jellyfish-egg-s.webp'}, {'id': '1568798494402019389', 'at': '2026-11-08T01:25:05.000Z', 'pet': 'skeleton-horse', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/skeleton-horse-egg-s.webp'}, {'id': '1568798486869319880', 'at': '2026-11-08T01:25:04.000Z', 'pet': 'centaur', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/centaur",
+    "spawnJsonPreview": "{'v': 1, 'updatedAt': '2026-11-08T08:58:42.526Z', 'total': 5000, 'since': '2026-10-11T23:10:07.000Z', 'startedAt': '2026-10-31T20:37:40.383Z', 'discord': 'https://discord.gg/2vjsj8EeDv', 'spawns': [{'id': '1568911732993167492', 'at': '2026-11-08T08:55:04.000Z', 'pet': 'phoenix', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/phoenix-egg-s.webp'}, {'id': '1568909216712761385', 'at': '2026-11-08T08:45:04.000Z', 'pet': 'gargoyle', 'mut': None, 'kg': None, 'biome': 'Angels & Demons', 'egg': '/images/sae/eggs/gargoyle-egg-s.webp'}, {'id': '1568906703112769558-1', 'at': '2026-11-08T08:35:03.000Z', 'pet': 'centaur', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/centaur-egg-s.webp'}, {'id': '1568906703112769558-0', 'at': '2026-11-08T08:35:03.000Z', 'pet': 'cerberus', 'mut': None, 'kg': None, 'biome': 'Volcano', 'egg': '/images/sae/eggs/cerberus-egg-s.webp'}, {'id': '1568904182201581599', 'at': '2026-11-08T08:25:03.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1568901665199759391', 'at': '2026-11-08T08:15:03.000Z', 'pet': 'stag', 'mut': None, 'kg': None, 'biome': 'Cherry Blossom', 'egg': '/images/sae/eggs/stag-egg-s.webp'}, {'id': '1568899148961423493', 'at': '2026-11-08T08:05:03.000Z', 'pet': 't-rex', 'mut': None, 'kg': None, 'biome': 'Prehistoric', 'egg': '/images/sae/eggs/t-rex-egg-s.webp'}, {'id': '1568896635407302689', 'at': '2026-11-08T07:55:04.000Z', 'p",
     "transportHints": [
       "/spawns",
       "/spawns.json"
